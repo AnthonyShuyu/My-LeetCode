@@ -1,4 +1,5 @@
 # LinkedList ListNode
+
 AddTwoNumbers
 
 use LinkedList, know about the ListNode class
