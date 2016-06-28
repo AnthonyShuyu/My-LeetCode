@@ -1,12 +1,13 @@
 /**
  * Contains Duplicate II
- * 
+ * 3 methods
  */ 
 
 
 
 // s1: brute force
 // O(n^2), O(1)
+// Time limit exceeded
 
 /*
 public class Solution {
@@ -65,10 +66,10 @@ public class Solution{
 */
 
 
-
 // s3: HashMap
 // O(n), O(n)
 
+/*
 public class Solution {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         if (nums == null || nums.length == 0 || k <= 0) {
@@ -85,12 +86,39 @@ public class Solution {
         return false;
     }
 }
+*/
+
+
+// *s4:another approach to use HashSet, HashSet add() method will return boolean
+// O(n), O(n)
+
+public class Solution{
+    public boolean containsDuplicate(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return false;
+        }
+        Set<Intger> hashSet = new HashSet<Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            if (i > k) {
+                hashSet.remove(nums[i - k - 1]);
+            }
+            if (!hashSet.add(nums[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 
 
 
 
-// s4: anther two for loops
+
+
+
+// s5: anther two for loops
 // O(nk), O(1)
+// Time limit exceeded
 
 /*
 public class Solution{
