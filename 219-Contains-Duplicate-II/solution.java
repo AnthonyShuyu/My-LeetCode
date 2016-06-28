@@ -30,6 +30,7 @@ public class Solution {
 // s2: HashSet
 // O(n^2), O(n)
 
+/*
 public class Solution{
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         if (nums == null || nums.length == 0 || k <= 0) {
@@ -61,11 +62,12 @@ public class Solution{
         return false;
     }
 }
+*/
 
 
 
 // s3: HashMap
-// O(), O()
+// O(n), O(n)
 
 public class Solution {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
