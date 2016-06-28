@@ -37,10 +37,10 @@ public class Solution{
         }
         Set<Integer> hashSet = new HashSet<Integer>();
         for (int i = 0; i < nums.length; i++) {
-            if (hashSet.contains(nums(i)) && isNearby(nums(i), nums, k)) {
+            if (hashSet.contains(nums[i]) && isNearby(nums(i), nums, k)) {
                 return true;
             } else {
-                hashSet.add(nums(i));
+                hashSet.add(nums[i]);
             }
         }
         return false;
