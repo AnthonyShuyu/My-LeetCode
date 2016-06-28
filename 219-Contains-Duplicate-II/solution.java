@@ -93,8 +93,8 @@ public class Solution {
 // O(n), O(n)
 
 public class Solution{
-    public boolean containsDuplicate(int[] nums) {
-        if (nums == null || nums.length == 0) {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        if (nums == null || nums.length == 0 || k <= 0) {
             return false;
         }
         Set<Intger> hashSet = new HashSet<Integer>();
