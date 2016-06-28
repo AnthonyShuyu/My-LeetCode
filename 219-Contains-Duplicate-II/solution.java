@@ -27,9 +27,10 @@ public class Solution {
 */
 
 
-// s3: HashSet
-// O()
+// s2: HashSet
+// O(n^2), O(n)
 
+/*
 public class Solution{
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         if (nums == null || nums.length == 0 || k <= 0) {
@@ -61,11 +62,28 @@ public class Solution{
         return false;
     }
 }
+*/
 
 
 
+// s3: two for loops
+// O(nk), O(1)
 
-
+public class Solution{
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        if (nums == null || nums.length == 0 || k <= 0) {
+            return false;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j <= i + k && j < nums.length; j++) {
+                if (nums[i] == nums[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
 
 
 // s?: Arrays.sort()
