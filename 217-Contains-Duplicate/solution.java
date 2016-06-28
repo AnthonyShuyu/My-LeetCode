@@ -45,8 +45,34 @@ public class Solution{
 }
 */
 
+
+
+// s3: brute force, two for loops ?
+// O(n^2), O(1)
+// Time limit exceeded
+
 /*
-// s3: use array ?
+public class Solution{
+    public boolean containsDuplicate(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return false;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] == nums[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+*/
+
+
+
+/*
+// s4: use array ?
 // O(n), O(n)
 
 public class Solution {
@@ -84,7 +110,7 @@ public class Solution {
 */
 
 
-// s4: use bitwise operation ?
+// s5: use bitwise operation ?
 // O(n), O(1)
 
 /*
@@ -108,23 +134,3 @@ public class Solution{
 
 
 
-// s5: brute force, two for loops ?
-// O(n^2), O(1)
-
-/*
-public class Solution{
-    public boolean containsDuplicate(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return false;
-        }
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[i] == nums[j]) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-}
-*/
