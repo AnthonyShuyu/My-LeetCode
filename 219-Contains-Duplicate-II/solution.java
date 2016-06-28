@@ -64,7 +64,30 @@ public class Solution{
 
 
 
-// s3: two for loops
+// s3: HashMap
+// O(), O()
+
+public class Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        if (nums == null || nums.length == 0 || k <= 0) {
+            return false;
+        }
+        Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            if (hashMap.containsKey(nums[i]) && (i - hashMap.get(nums[i])) <= k) {
+                return true;
+            } else {
+                hashMap.put(nums[i], i);
+            }
+        }
+        return false;
+    }
+}
+
+
+
+
+// s4: anther two for loops
 // O(nk), O(1)
 
 /*
