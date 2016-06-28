@@ -102,7 +102,7 @@ public class Solution{
             if (i > k) {
                 hashSet.remove(nums[i - k - 1]);
             }
-            if (!hashSet.add(nums[i]) {
+            if (!hashSet.add(nums[i])) {
                 return true;
             }
         }
