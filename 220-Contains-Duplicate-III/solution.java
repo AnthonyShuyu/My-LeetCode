@@ -37,32 +37,23 @@ public class Solution{
         if (nums == null || nums.length == 0 || k <= 0 || t < 0) {
             return false;
         }
-        Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
+        Map<Long, Long> hashMap = new HashMap<Long, Long>();
         for (int i = 0; i < nums.length; i++) {
             long num = (long)nums[i] - Integer.MIN_VALUE;
-            int bucket = num / ((long)t + 1);
+            long bucket = num / ((long)t + 1);
             if (hashMap.containsKey(bucket) || (hashMap.containsKey(bucket - 1) && num - hashMap.get(bucket - 1) <= t) 
             || (hashMap.containsKey(bucket + 1) && hashMap.get(bucket + 1) - num <= t)) {
                 return true;
             }        
-            if (i > k) {
-                hashMap.remove(nums[i - k - 1]);
+            if (i >= k) {
+                long frontBucket = ((long)nums[i - k] - Integer.MIN_VALUE)/ ((long)t + 1);
+                hashMap.remove(frontBucket);
             }
-            hashMap.put(nums[i], bucket);
+            hashMap.put(bucket, num);
         }
         return false;
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
