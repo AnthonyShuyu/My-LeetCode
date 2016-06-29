@@ -1,6 +1,6 @@
 /**
  * reverse String
- * 
+ * 3 methods
  */
 
 
