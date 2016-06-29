@@ -33,7 +33,7 @@ public class Solution {
 // s2: use StringBuilder
 // O(n), O(n)
 
-
+/*
 public class Solution{
     public String reverseString(String s) {
         if (s == null || s.length() == 0) {
@@ -46,6 +46,7 @@ public class Solution{
         return sb.toString();
     }
 }
+*/
 
 
 // s3: use StringBuilder reverse()
