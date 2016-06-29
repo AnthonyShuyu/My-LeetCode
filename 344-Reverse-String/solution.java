@@ -5,8 +5,9 @@
 
 
 // s1: String.toCharArray()
-// 
+// O(n), O(n)
 
+/*
 public class Solution {
     public String reverseString(String s) {
         if (s == null || s.length() == 0) {
@@ -25,3 +26,24 @@ public class Solution {
         return chars;
     }
 }
+
+*/
+
+
+// s2: use StringBuilder
+// O(n), O(n)
+
+
+public class Solution{
+    public String reverseString(String s) {
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            sb.append(s.charAt(s.length() - i - 1));
+        }
+        return sb.toString();
+    }
+}
+
