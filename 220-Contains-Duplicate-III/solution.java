@@ -37,7 +37,7 @@ public class Solution{
         if (nums == null || nums.length == 0 || k <= 0 || t < 0) {
             return false;
         }
-        Map<int, int> hashMap = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
         for (int i = 0; i < nums.length; i++) {
             long num = (long)nums[i] - Integer.MIN_VALUE;
             int bucket = num / ((long)t + 1);
