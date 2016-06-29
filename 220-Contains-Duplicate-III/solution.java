@@ -29,6 +29,56 @@ public class Solution {
 */
 
 
+// s2: use HashMap
+// O(n), O(n)
+
+public class Solution{
+    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+        if (nums == null || nums.length == 0 || k <= 0 || t < 0) {
+            return false;
+        }
+        Map<int, int> hashMap = new HashMap<Integer, Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            long num = (long)nums[i] - Integer.MIN_VALUE;
+            int bucket = num / ((long)t + 1);
+            if (hashMap.containsKey(bucket) || (hashMap.containsKey(bucket - 1) && num - hashMap.get(bucket - 1) <= t) 
+            || (hashMap.containsKey(bucket + 1) && hashMap.get(bucket + 1) - num <= t)) {
+                return true;
+            }        
+            if (i > k) {
+                hashMap.remove(nums[i - k - 1]);
+            }
+            hashMap.put(nums[i], bucket);
+        }
+        return false;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // s2: use 
 // O(n), O(n)
@@ -94,6 +144,8 @@ public class Solution{
 */
     
 
+
+/*
 public class Solution {
     public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
         if (nums == null || nums.length == 0 || k <= 0) {
@@ -119,3 +171,4 @@ public class Solution {
         return false;
     }
 }
+*/
