@@ -6,7 +6,8 @@
 *
 */
 
-// 
+// use 2 pointers
+// O(n^2), O(n)
 
 public class Solution {
     public String reverseVowels(String s) {
