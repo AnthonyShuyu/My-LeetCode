@@ -82,7 +82,7 @@ public class Solution{
             return 0;
         }
         int max_value = findMax(nums);
-        boolean[] array = new boolean[max_vlaue];
+        boolean[] array = new boolean[max_value];
         for (int i = 0; i < nums.length; i++) {
             if (array[nums[i]]) {
                 return nums[i];
