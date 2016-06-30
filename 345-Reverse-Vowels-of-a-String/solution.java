@@ -17,7 +17,7 @@ public class Solution {
         int start = 0;
         int end = charArray.length - 1;
         while (start < end) {
-            while (!isVowel(start < charArray.length && charArray[start])) {
+            while (start < charArray.length && !isVowel(charArray[start])) {
                 start++;
             }
             while (!isVowel(charArray[end]) && end >= 0) {
