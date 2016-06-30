@@ -175,12 +175,12 @@ public class Solution{
                 }
             }
             if (count <= mid) {
-                start = mid;
+                start = mid + 1;
             } else {
                 end = mid;
             }
         }
         
-        return nums[start];
+        return start;
     }
 }
