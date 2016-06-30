@@ -1,6 +1,6 @@
 /**
  * Find the Duplicate Number
- * 5 methods
+ * 7 methods
  */ 
 
 
@@ -125,6 +125,7 @@ public class Solution{
 // O(n), O(1)
 // not modify the original array
 
+/*
 public class Solution{
     public int findDuplicate(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -144,8 +145,42 @@ public class Solution{
         return slow;
     }
 }
+*/
 
 
 /*
 The main idea is the same with problem Linked List Cycle II,https://leetcode.com/problems/linked-list-cycle-ii/. Use two pointers the fast and the slow. The fast one goes forward two steps each time, while the slow one goes only step each time. They must meet the same item when slow==fast. In fact, they meet in a circle, the duplicate number must be the entry point of the circle when visiting the array from nums[0]. Next we just need to find the entry point. We use a point(we can use the fast one before) to visit form begining with one step each time, do the same job to slow. When fast==slow, they meet at the entry point of the circle. The easy understood code is as follows.
 */
+
+
+// s7: binary search
+// O(nlogn), O(1)
+// not modify the original array
+
+
+public class Solution{
+    public int findDuplicate(int[] nums){
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        int start = 0;
+        int end = nums.length - 1;
+
+        while (start < end) {
+            int mid = start + (end - start) / 2;
+            int count = 0;
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] <= mid) {
+                    count++;                    
+                }
+            }
+            if (count <= mid) {
+                start = mid;
+            } else {
+                end = mid;
+            }
+        }
+        
+        return nums[start];
+    }
+}
