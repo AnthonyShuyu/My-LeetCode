@@ -1,12 +1,14 @@
 /* 
 * Reverse Vowels of a String
+* 2 methods
+*
 * A, E, I, O, U are 5 vowels in a String
 * Ask questions: What are the characters in the String?
 * Assume: characters in the String are all lower case letters
 *
 */
 
-// use 2 pointers
+// s1: use 2 pointers
 // O(n^2), O(n)
 
 public class Solution {
@@ -48,3 +50,43 @@ public class Solution {
         return false;
     }
 }
+
+
+
+// s2: use another array to store the positions of vowels 
+// O(n), O(n)
+
+public class Solution{
+    public String reverseVowels(String s) {
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        Set<Character> hashSet = new HashSet<Character>();
+        hashSet.add('a');
+        hashSet.add('e');
+        hashSet.add('i');
+        hashSet.add('o');
+        hashSet.add('u');
+        hashSet.add('A');
+        hashSet.add('E');
+        hashSet.add('I');
+        hashSet.add('O');
+        hashSet.add('U');
+        
+        char[] pos = new char[s.length()];
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (hashSet.contains(s.charAt(i))) {
+                pos[count] = i;
+                count++;
+            }
+        }
+        
+        char[] charArray = s.toCharArray();
+        for (int i = 0; i < count; i++) {
+            charArray[pos[i]] == s.charAt(count - i - 1);
+        }
+        return String.valueOf(charArray);
+    }
+}
+
