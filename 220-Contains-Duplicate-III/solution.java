@@ -72,7 +72,7 @@ public class Solution{
         for (int i = 0; i < nums.length; i++) {
             Integer floorNum = treeSet.floor(nums[i] + t);
             Integer ceilingNum = treeSet.ceiling(nums[i] - t);
-            if ((floorNum != null && floorNum >= nums[i]) || (ceilNum != null && ceilNum <= nums[i])) {
+            if ((floorNum != null && floorNum >= nums[i]) || (ceilingNum != null && ceilingNum <= nums[i])) {
                 return true;
             }
             if (i >= k) {
