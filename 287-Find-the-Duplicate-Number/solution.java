@@ -53,6 +53,7 @@ public class Solution{
 // s3: HashSet
 // O(n), O(n)
 
+/*
 public class Solution{
     public int findDuplicate(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -67,5 +68,37 @@ public class Solution{
             }
         }
         return 0;
+    }
+}
+*/
+
+
+// s4: use another array
+// O(n), O(n)
+
+public class Solution{
+    public int findDuplicate(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int max_value = findMax(nums);
+        boolean[] array = new boolean[max_vlaue];
+        for (int i = 0; i < nums.length; i++) {
+            if (array[nums[i]]) {
+                return nums[i];
+            } else {
+                array[nums[i]] = true;
+            }
+        }
+        return 0;                
+    }
+    public int findMax(int[] nums) {
+        int result = nums[0];
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > result) {
+                result = nums[i];
+            }
+        }
+        return result;
     }
 }
