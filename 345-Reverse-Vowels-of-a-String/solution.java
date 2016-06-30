@@ -17,10 +17,10 @@ public class Solution {
         int start = 0;
         int end = charArray.length - 1;
         while (start < end) {
-            while (!isVowel(charArray[start])) {
+            while (!isVowel(charArray[start]) && start < charArray.length) {
                 start++;
             }
-            while (!isVowel(charArray[end])) {
+            while (!isVowel(charArray[end]) && end >= 0) {
                 end--;
             }
             swap(charArray, start, end);
