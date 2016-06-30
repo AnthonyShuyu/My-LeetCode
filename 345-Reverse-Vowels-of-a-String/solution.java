@@ -85,7 +85,7 @@ public class Solution{
         
         char[] charArray = s.toCharArray();
         for (int i = 0; i < count; i++) {
-            charArray[pos[i]] == s.charAt(count - i - 1);
+            charArray[pos[i]] = s.charAt(count - i - 1);
         }
         return String.valueOf(charArray);
     }
