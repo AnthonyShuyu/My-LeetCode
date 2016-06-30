@@ -1,6 +1,6 @@
 /**
  * Contains Duplicate III
- * 
+ * 3 methods
  */
 
 
@@ -32,6 +32,7 @@ public class Solution {
 // s2: use HashMap
 // O(n), O(n)
 
+/*
 public class Solution{
     public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
         if (nums == null || nums.length == 0 || k <= 0 || t < 0) {
@@ -54,111 +55,67 @@ public class Solution{
         return false;
     }
 }
+*/
 
 
 
+// s3: Balanced Search Tree, use TreeSet
+// 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// s2: use 
-// O(n), O(n)
-
-/*
 public class Solution{
     public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
         if (nums == null || nums.length == 0 || k <= 0 || t < 0) {
             return false;
         }
-        
-        // Set<Integer> hashSet = new HashSet<Integer>();
-        // for (int i = 0; i < nums.length; i++) {
-        //     if (i > k) {
-        //         hashSet.remove(nums[i - k - 1]);
-        //     } 
-            
-            
-        // }
-        for (int i = 0; i < nums.length - k; i++) {
-            if (checkT(i, i + k, nums, t)) {
+        TreeSet<Integer> treeSet = new TreeSet<Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            Integer floorNum = treeSet.floor(nums[i] + t);
+            Integer ceilNum = treeSet.ceil(nums[i] - t);
+            if ((floorNum != null && floorNum >= nums[i]) || (ceilNum != null && ceilNum <= nums[i])) {
                 return true;
             }
-        }
-        return false;        
-    }
-    
-    public boolean checkT(int start, int end, int[] nums, int t) {
-        for (int i = start; i <= end; i++) {
-            for (int j = i + 1; j <= end; j++) {
-                if (Math.abs(nums[i] - nums[j]) <= t) {
-                    return true;
-                }
+            if (i >= k) {
+                treeSet.remove(nums[i - k]);
             }
+            treeSet.add(nums[i]);
         }
-        return false;
-    }
-    
-*/
-
-
-/*
- public class Solution {
-    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
-        if (k < 1 || t < 0) return false;
-        Map<Long, Long> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            long remappedNum = (long) nums[i] - Integer.MIN_VALUE;
-            long bucket = remappedNum / ((long) t + 1);
-            if (map.containsKey(bucket)
-                    || (map.containsKey(bucket - 1) && remappedNum - map.get(bucket - 1) <= t)
-                        || (map.containsKey(bucket + 1) && map.get(bucket + 1) - remappedNum <= t))
-                            return true;
-            if (map.size() >= k) {
-                long lastBucket = ((long) nums[i - k] - Integer.MIN_VALUE) / ((long) t + 1);
-                map.remove(lastBucket);
-            }
-            map.put(bucket, remappedNum);
-        }
-        return false;
     }
 }
-*/
-    
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
 public class Solution {
     public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
-        if (nums == null || nums.length == 0 || k <= 0) {
+        if (nums == null || nums.length == 0 || k <= 0 || t < 0) {
             return false;
         }
 
-        final TreeSet<Integer> values = new TreeSet<>();
-        for (int ind = 0; ind < nums.length; ind++) {
-
-            final Integer floor = values.floor(nums[ind] + t);
-            final Integer ceil = values.ceiling(nums[ind] - t);
-            if ((floor != null && floor >= nums[ind])
-                    || (ceil != null && ceil <= nums[ind])) {
+        TreeSet<Integer> values = new TreeSet<Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            Integer floor = values.floor(nums[i] + t);
+            Integer ceil = values.ceiling(nums[i] - t);
+            if ((floor != null && floor >= nums[i])
+                    || (ceil != null && ceil <= nums[i])) {
                 return true;
             }
 
-            values.add(nums[ind]);
-            if (ind >= k) {
-                values.remove(nums[ind - k]);
+            values.add(nums[i]);
+            if (i >= k) {
+                values.remove(nums[i - k]);
             }
         }
-
         return false;
     }
 }
