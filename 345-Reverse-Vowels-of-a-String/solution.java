@@ -20,7 +20,7 @@ public class Solution {
             while (start < charArray.length && !isVowel(charArray[start])) {
                 start++;
             }
-            while (!isVowel(charArray[end]) && end >= 0) {
+            while (end >= 0 && !isVowel(charArray[end]) ) {
                 end--;
             }
             swap(charArray, start, end);
@@ -40,7 +40,8 @@ public class Solution {
     }
     
     public boolean isVowel(char c) {
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
+        || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
             return true;
         }
         return false;
