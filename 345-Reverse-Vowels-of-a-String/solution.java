@@ -74,7 +74,7 @@ public class Solution{
         hashSet.add('O');
         hashSet.add('U');
         
-        char[] pos = new char[s.length()];
+        int[] pos = new int[s.length()];
         int count = 0;
         for (int i = 0; i < s.length(); i++) {
             if (hashSet.contains(s.charAt(i))) {
@@ -85,7 +85,7 @@ public class Solution{
         
         char[] charArray = s.toCharArray();
         for (int i = 0; i < count; i++) {
-            charArray[pos[i]] = s.charAt(count - i - 1);
+            charArray[pos[i]] = s.charAt(pos[count - i - 1]);
         }
         return String.valueOf(charArray);
     }
