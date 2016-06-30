@@ -27,6 +27,7 @@ public class Solution {
             start++;
             end--;
         }
+        return String.valueOf(charArray);
     }
     
     public void swap(char[] charArray, int start, int end) {
