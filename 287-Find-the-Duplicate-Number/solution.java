@@ -31,6 +31,7 @@ public class Solution {
 // O(nlogn), O(1)
 // modify the original array
 
+/*
 public class Solution{
     public int findDuplicate(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -45,4 +46,26 @@ public class Solution{
         return 0;
     }
 }
+*/
 
+
+
+// s3: HashSet
+// O(n), O(n)
+
+public class Solution{
+    public int findDuplicate(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        Set<Integer> hashSet = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (hashSet.contains(nums[i])) {
+                return nums[i];
+            } else {
+                hashSet.add(nums[i]);
+            }
+        }
+        return 0;
+    }
+}
