@@ -71,7 +71,7 @@ public class Solution{
         TreeSet<Integer> treeSet = new TreeSet<Integer>();
         for (int i = 0; i < nums.length; i++) {
             Integer floorNum = treeSet.floor(nums[i] + t);
-            Integer ceilNum = treeSet.ceil(nums[i] - t);
+            Integer ceilingNum = treeSet.ceiling(nums[i] - t);
             if ((floorNum != null && floorNum >= nums[i]) || (ceilNum != null && ceilNum <= nums[i])) {
                 return true;
             }
