@@ -11,6 +11,7 @@
 // s1: use 2 pointers
 // O(n^2), O(n)
 
+/*
 public class Solution {
     public String reverseVowels(String s) {
         if (s == null || s.length() == 0) {
@@ -50,7 +51,7 @@ public class Solution {
         return false;
     }
 }
-
+*/
 
 
 // s2: use another array to store the positions of vowels 
