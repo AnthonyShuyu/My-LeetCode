@@ -9,6 +9,7 @@
 // O(n^2), O(1)
 // modify the original array
 
+/*
 public class Solution {
     public int firstMissingPositive(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -49,7 +50,7 @@ public class Solution {
         return false;
     }
 }
-
+*/
 
 
 
