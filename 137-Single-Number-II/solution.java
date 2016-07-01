@@ -1,6 +1,6 @@
 /**
  * 137. Single Number II
- * 
+ * 3 methods
  * 
  */
 
@@ -85,3 +85,7 @@ public class Solution{
         return result;
     }
 }
+
+// Operator precedence
+// + >> & 
+
