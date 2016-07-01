@@ -5,7 +5,38 @@
 
 
 
-// s1: Arrays.sort()
+// s1: brute force
+// O(n^2), O(1)
+
+public class Solution{
+    public int singleNumber(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }       
+        for (int i = 0; i < nums.length; i++) {
+            if (count(nums, nums[i]) == 1) {
+                return nums[i];
+            }
+        }
+        return nums[0];
+        
+    }
+    
+    public int count(int[] nums, int val) {
+        int result = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == val) {
+                result++;
+            }
+        }
+        return result;
+    }
+}
+
+
+
+// s2: Arrays.sort()
+// O(nlogn), O(1)
 public class Solution {
     public int singleNumber(int[] nums) {
         if (nums == null || nums.length == 0) {
