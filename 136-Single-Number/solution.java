@@ -1,6 +1,6 @@
 /**
  * 136. Single Number
- * 
+ * 3 methods
  */ 
 
 
