@@ -158,6 +158,44 @@ The main idea is the same with problem Linked List Cycle II,https://leetcode.com
 // not modify the original array
 
 
+
+public class Solution{
+    public int findDuplicate(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }       
+        int start = 0;
+        int end = nums.length - 1;
+        
+        while (start < end) {
+            int count = 0;        
+            int mid = start + (end - start) / 2;
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] <= mid) {
+                    count++;
+                }
+            }
+            if (count <= mid) {
+                start = mid + 1;
+            } else {
+                end = mid;
+            }                
+        }
+        return start;        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/*
+
 public class Solution{
     public int findDuplicate(int[] nums){
         if (nums == null || nums.length == 0) {
@@ -184,3 +222,4 @@ public class Solution{
         return start;
     }
 }
+*/
