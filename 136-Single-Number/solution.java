@@ -37,6 +37,9 @@ public class Solution{
 
 // s2: Arrays.sort()
 // O(nlogn), O(1)
+
+
+/*
 public class Solution {
     public int singleNumber(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -60,3 +63,4 @@ public class Solution {
         return -1;
     }
 }
+*/
