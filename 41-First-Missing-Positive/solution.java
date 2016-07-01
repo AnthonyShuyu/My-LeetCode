@@ -69,8 +69,6 @@ public class Solution{
                 //int temp = nums[i];
                 //nums[i] = nums[nums[i] - 1];
                 //nums[nums[i] - 1] = temp;
-                
-                
                 int temp = nums[nums[i] - 1];
                 
                 // if there are some same elements
