@@ -57,6 +57,55 @@ public class Solution {
 // s2: tricky, A[i] = x, it should be in the slot A[x - 1]
 // O(n), O(1)
 
+
+public class Solution{
+    public int firstMissingPositive(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 1;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            while (nums[i] > 0 && nums[i] <= nums.length && nums[i] != (i + 1)) {
+                int temp = nums[nums[i] - 1];
+                if (temp == nums[i]) {
+                    break;
+                }
+                nums[nums[i] - 1] = nums[i];
+                nums[i] = temp;
+            }
+        }
+        
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != (i + 1)) {
+                return i + 1;
+            }
+        }
+        return nums.length + 1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public class Solution{
     public int firstMissingPositive(int[] nums) {
         if (nums == null || nums.length == 0) {
