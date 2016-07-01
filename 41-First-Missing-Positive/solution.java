@@ -65,20 +65,35 @@ public class Solution{
         
         // first loop, swap the element and put them in the right slots
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] > 0 && nums[i] != (i + 1) && nums[i] <= nums.length ) {
-                int temp = nums[i];
-                nums[i] = nums[nums[i] - 1];
-                nums[nums[i] - 1] = temp;
+            while (nums[i] > 0 && nums[i] != (i + 1) && nums[i] <= nums.length ) {
+                //int temp = nums[i];
+                //nums[i] = nums[nums[i] - 1];
+                //nums[nums[i] - 1] = temp;
+                
+                
+                int temp = nums[nums[i] - 1];
+                
+                // if (temp == nums[i]) {
+                //     break;
+                // }
+                
+                nums[nums[i] - 1] = nums[i];
+                nums[i] = temp;
             }
         }
         
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] > 0 && nums[i] != (i + 1)) {
+            if (nums[i] != (i + 1)) {
                 return i + 1;
             }
         }
         
-        return 1;
+        // if (nums.length == 1 && nums[0] == 1) {
+        //     return 2;
+        // } else {
+        //     return 1;
+        // }
+        return nums.length + 1;
     }
 }
 
