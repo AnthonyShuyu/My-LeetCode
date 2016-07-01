@@ -73,6 +73,7 @@ public class Solution{
                 
                 int temp = nums[nums[i] - 1];
                 
+                // if there are some same elements
                 if (temp == nums[i]) {
                     break;
                 }
@@ -87,12 +88,6 @@ public class Solution{
                 return i + 1;
             }
         }
-        
-        // if (nums.length == 1 && nums[0] == 1) {
-        //     return 2;
-        // } else {
-        //     return 1;
-        // }
         return nums.length + 1;
     }
 }
