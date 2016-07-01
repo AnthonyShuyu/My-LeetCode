@@ -42,6 +42,9 @@ public class Solution{
         if (nums == null || nums.length == 0) {
             return -1;
         }
+        if (nums.length == 1) {
+            return nums[0];
+        }
         Arrays.sort(nums);
         if (nums[0] != nums[1]) {
             return nums[0];
