@@ -1,3 +1,14 @@
+/**
+ * Frist Missing Positive
+ * 2 methods
+ * 
+ */ 
+
+
+// s1: Arrays.sort(), findMax and findValue sub method
+// O(n^2), O(1)
+// modify the original array
+
 public class Solution {
     public int firstMissingPositive(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -37,5 +48,38 @@ public class Solution {
         }
         return false;
     }
-    
 }
+
+
+
+
+// s2: tricky, A[i] = x, it should be in the slot A[x - 1]
+// O(n), O(1)
+
+public class Solution{
+    public int firstMissingPositive(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 1;
+        }
+        
+        // first loop, swap the element and put them in the right slots
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0 && nums[i] != (i + 1)) {
+                int temp = nums[i];
+                nums[i] = nums[nums[i] - 1];
+                nums[nums[i] - 1] = temp;
+            }
+        }
+        
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0 && nums[i] != (i + 1)) {
+                return i + 1;
+            }
+        }
+        
+        return 1;
+    }
+}
+
+
+
