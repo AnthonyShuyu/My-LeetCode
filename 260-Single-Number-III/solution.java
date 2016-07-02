@@ -100,7 +100,7 @@ public class Solution{
         int result2 = 0;
         
         for (int i = 0; i < nums.length; i++) {
-            if (lastBit & nums[i] == 0) {
+            if ((lastBit & nums[i]) == 0) {
                 result1 = result1 ^ nums[i];
             } else {
                 result2 = result2 ^ nums[i];
