@@ -43,6 +43,7 @@ public class Solution {
 // s2: Arrays.sort()
 // O(nlogn), O(1)
 
+/*
 public class Solution{
     public int[] singleNumber(int[] nums) {
         int[] result = new int[2];
@@ -73,6 +74,41 @@ public class Solution{
                 index++;
             }
         }
+        return result;
+    }
+}
+*/
+
+
+// s3: 
+// O(n), O(1)
+
+public class Solution{
+    public int[] singleNumber(int[] nums) {
+        int[] result = new int[2];
+        if (nums == null || nums.length <= 1 || (nums.length == 2 && nums[0] == nums[1])) {
+            return null;
+        }
+        
+        int xor = 0;
+        for (int i = 0; i < nums.length; i++) {
+            xor = xor ^ nums[i];
+        }
+        
+        int lastBit = xor - (xor & (xor - 1));
+        int result1 = 0;
+        int result2 = 0;
+        
+        for (int i = 0; i < nums.length; i++) {
+            if (lastBit & nums[i] == 0) {
+                result1 = result1 ^ nums[i];
+            } else {
+                result2 = result2 ^ nums[i];
+            }
+        }
+        result[0] = result1;
+        result[1] = result2;
+        
         return result;
     }
 }
