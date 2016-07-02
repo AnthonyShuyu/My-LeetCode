@@ -84,28 +84,28 @@ public class Solution{
         if (n % 2 == 1) {
             return findKthElement(nums1, 0, nums2, 0, n / 2 + 1);
         } else {
-            return (findKthElement(nums1, 0, nums2, 0, n / 2) + findKthElement(nums1, 0, nums2, 0, n / 2 + 1)) / 2;
+            return (findKthElement(nums1, 0, nums2, 0, n / 2) + findKthElement(nums1, 0, nums2, 0, n / 2 + 1)) / 2.0;
         }
     }
     
-    public double findKthElement(int[] nums1, int a, int[] nums2, int b, int k) {
+    public int findKthElement(int[] nums1, int a, int[] nums2, int b, int k) {
         if (a >= nums1.length) {
             return nums2[b + k - 1];
         }
         if (b >= nums2.length) {
             return nums1[a + k - 1];
         }
-        if (k > nums1.length + nums2.length) {
+        if (k == 1) {
             return Math.min(nums1[a], nums2[b]);
         }
         
-         int valueA = a + k - 1 < nums1.length ? nums1[a + k - 1] : Integer.MAX_VALUE;
-         int valueB = b + k - 1 < nums2.length ? nums2[b + k - 1] : Integer.MIN_VALUE;
+         int valueA = a + k / 2 - 1 < nums1.length ? nums1[a + k / 2 - 1] : Integer.MAX_VALUE;
+         int valueB = b + k / 2 - 1 < nums2.length ? nums2[b + k / 2 - 1] : Integer.MAX_VALUE;
          
          if (valueA < valueB) {
              return findKthElement(nums1, a + k / 2, nums2, b, k - k / 2);
          } else {
-             return findKthElement(nums1, b, nums2, b + k / 2, k - k / 2);
+             return findKthElement(nums1, a, nums2, b + k / 2, k - k / 2);
          }
     }
     
