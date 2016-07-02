@@ -35,6 +35,6 @@ If you have figured out the O(_n_) solution, try coding another solution using t
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
 
-<span class="hidebutton">[(E) Best Time to Buy and Sell Stock](/problems/best-time-to-buy-and-sell-stock/) [(M) Maximum Product Subarray](/problems/maximum-product-subarray/)</span></div>
+<span class="hidebutton" style="display: inline;">[(E) Best Time to Buy and Sell Stock](/problems/best-time-to-buy-and-sell-stock/) [(M) Maximum Product Subarray](/problems/maximum-product-subarray/)</span></div>
