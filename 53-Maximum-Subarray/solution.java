@@ -1,6 +1,6 @@
 /**
  * 53. Maximum Subarray
- * 1 solution
+ * 2 solution
  * 
  */
 
