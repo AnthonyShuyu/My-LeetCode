@@ -21,7 +21,8 @@ public class Solution {
         
         
         // first give the result here to include the only one elment situation
-        // don't have to care about the last element if it is the minus, because you have to pick at least element 
+        // don't have to care about the last element if it is the negative, because you have to pick at least element 
+        // so if the last element is the negative, you can not include it in the min
         
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
