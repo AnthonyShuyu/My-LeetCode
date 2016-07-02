@@ -19,7 +19,7 @@ public class Solution {
         int[] nums3 = new int[m + n];
         int index = 0;
         while (m > 0 && n > 0) {
-            if (nums1[nums1.length - m] <= num2[nums2.length - n]) {
+            if (nums1[nums1.length - m] <= nums2[nums2.length - n]) {
                 nums3[index] = nums1[nums1.length - m];
                 m--;
             } else {
