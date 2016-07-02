@@ -103,9 +103,9 @@ public class Solution{
          int valueB = b + k - 1 < nums2.length ? nums2[b + k - 1] : Integer.MIN_VALUE;
          
          if (valueA < valueB) {
-             findKthElement(nums1, a + k / 2, nums2, b, k - k / 2);
+             return findKthElement(nums1, a + k / 2, nums2, b, k - k / 2);
          } else {
-             findKthElement(nums1, b, nums2, b + k / 2, k - k / 2);
+             return findKthElement(nums1, b, nums2, b + k / 2, k - k / 2);
          }
     }
     
