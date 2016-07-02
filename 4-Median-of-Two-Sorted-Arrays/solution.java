@@ -6,6 +6,7 @@
 // s1: Arrays.sort() to get a new array
 // O(nlogn), O(n)
 
+/*
 public class Solution{
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         if (nums1 == null || nums2 == null) {
@@ -24,7 +25,7 @@ public class Solution{
         return ((double) nums3[nums3.length / 2] + (double) nums3[(nums3.length - 1) / 2]) / 2;
     }
 }
-
+*/
 
 // s2: use 88. Merge Sorted Array
 // O(n), O(n)
