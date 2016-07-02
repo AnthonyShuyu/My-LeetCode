@@ -5,6 +5,10 @@
  * 
  */
 
+
+// s1: tricky, kind of DP
+// O(n), O(n) 
+
 public class Solution{
     public int maxProduct(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -31,15 +35,6 @@ public class Solution{
         return result;
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 
