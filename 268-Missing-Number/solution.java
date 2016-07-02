@@ -9,7 +9,6 @@
 // O(n^2), O(1)
 
 
-
 public class Solution{
     public int missingNumber(int[] nums) {
         if (nums == null || nums.length == 0) {
