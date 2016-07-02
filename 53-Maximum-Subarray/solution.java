@@ -23,12 +23,8 @@ public class Solution {
         
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
-                        result = Math.max(result, sum - min);
-            if (sum < min) {
-                min = sum;
-            }
-
-            
+            result = Math.max(result, sum - min);
+            min = Math.min(min, sum);
         }
         
         return result;
