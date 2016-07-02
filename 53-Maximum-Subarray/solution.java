@@ -19,13 +19,15 @@ public class Solution {
         int sum = 0;
         int result = Integer.MIN_VALUE;
         
+        
+        // first give the result here to include the only one elment situation
+        // don't have to care about the last element if it is the minus, because you have to pick at least element 
+        
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
-            result = Math.max(result, sum - min);
-            min = Math.min(min, sum);
+            result = Math.max(result, sum - min);  
+            min = Math.min(min, sum);   
         }
-        
         return result;
-        
     }
 }
