@@ -7,7 +7,7 @@
 // O(nlogn), O(n)
 
 public class Solution{
-    public double findMedianSortedArray(int[] nums1, int[] nums2) {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         if (nums1 == null || nums2 == null) {
             return -1;
         }
