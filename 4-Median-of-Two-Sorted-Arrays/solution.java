@@ -84,7 +84,7 @@ public class Solution{
         if (n % 2 == 1) {
             return findKthElement(nums1, 0, nums2, 0, n / 2 + 1);
         } else {
-            return (findKthElement(nums1, 0, nums2, 0, n / 2) + findKthElement(nums1, 0, nums2, 0, n / 2 + 1)) / 2;
+            return (findKthElement(nums1, 0, nums2, 0, n / 2) + findKthElement(nums1, 0, nums2, 0, n / 2 + 1)) / 2.0;
         }
     }
     
