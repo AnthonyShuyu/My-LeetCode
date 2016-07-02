@@ -39,7 +39,7 @@ public class Solution{
         }
         
         for (int i = 0; i < nums.length; i++) {
-            while (nums[i] != i && nums[i] < nums.length) {
+            while (nums[i] != i && nums[i] <= nums.length) {
                 int temp = nums[nums[i]];
                 if (temp == nums[i]) {
                     break;
