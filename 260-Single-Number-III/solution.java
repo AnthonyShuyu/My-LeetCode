@@ -80,7 +80,7 @@ public class Solution{
 */
 
 
-// s3: 
+// s3: bitwise operation ?
 // O(n), O(1)
 
 public class Solution{
@@ -112,3 +112,7 @@ public class Solution{
         return result;
     }
 }
+
+// bitwise operators precedence
+// + >> == &
+
