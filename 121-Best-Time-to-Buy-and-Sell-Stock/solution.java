@@ -8,6 +8,7 @@
 // O(n^2), O(1)
 // time limit exceeded
 
+/*
 public class Solution {
     public int maxProfit(int[] prices) {
         if (prices == null || prices.length == 0) {
@@ -22,7 +23,7 @@ public class Solution {
         return result;
     }
 }
-
+*/
 
 // s2: tricky, one loop and at the same time, update the max value
 // O(n), O(1)
