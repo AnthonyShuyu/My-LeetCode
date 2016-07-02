@@ -5,8 +5,37 @@
  */ 
 
 
+// s1: brute force
+// O(n^2), O(1)
 
-// s1: Arrays.sort()
+
+
+public class Solution{
+    public int missingNumber(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        
+        for (int i = 0; i < nums.length + 1; i++) {
+            if (!findNum(nums, i)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    public boolean findNum(int[] nums, int val) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == val) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+}
+
+
+// s2: Arrays.sort()
 // O(nlogn), O(1)
 
 /*
@@ -31,9 +60,10 @@ public class Solution {
 */
 
 
-// s2: tricky, A[i] = x, x should be in the slot A[x]
+// s3: tricky, A[i] = x, x should be in the slot A[x]
 // O(n), O(1)
 
+/*
 public class Solution{
     public int missingNumber(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -59,6 +89,8 @@ public class Solution{
         return nums.length;
     }
 }
+*/
+
 
 
 
