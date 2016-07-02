@@ -31,6 +31,8 @@ public class Solution {
 */
 
 
+// s2: tricky, A[i] = x, x should be in the slot A[x]
+// O(n), O(1)
 
 public class Solution{
     public int missingNumber(int[] nums) {
@@ -57,8 +59,6 @@ public class Solution{
         return nums.length;
     }
 }
-
-
 
 
 
