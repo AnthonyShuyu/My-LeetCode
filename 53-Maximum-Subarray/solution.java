@@ -8,7 +8,7 @@
 // s1: tricky, sum of the contiguous array equals to the difference between 2 arrays start from index 0
 // O(n), O(1)
 
-
+/*
 public class Solution {
     public int maxSubArray(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -31,4 +31,30 @@ public class Solution {
         }
         return result;
     }
+}
+
+*/
+
+
+
+
+// s2: Greedy, when the sum less than 0, clear the sum to 0, start calculat the sum from next element
+// O(n), O(1)
+
+public class Solution{
+    public int maxSubArray(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        
+        int max = Integer.MIN_VALUE;
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            max = Math.max(max, sum);
+            sum = Math.max(sum, 0);
+        }
+        return max;
+    }
+    
 }
