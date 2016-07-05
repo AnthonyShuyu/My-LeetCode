@@ -73,6 +73,10 @@ public class Solution {
                     if (!result.contains(list)) {
                         result.add(list);
                     }
+                } else if (nums[left] + nums[right] > target) {
+                    right--;
+                } else {
+                    left++;
                 }
                 
             }
