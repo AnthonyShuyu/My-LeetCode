@@ -8,6 +8,7 @@
 // s1: hashMap, convert to two sum problem
 // O(n^2), O(n^2)
 
+/*
 public class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
@@ -41,7 +42,7 @@ public class Solution {
         return result;
     }
 }
-
+*/
 
 
 
