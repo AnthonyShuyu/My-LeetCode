@@ -15,5 +15,6 @@ public class Solution {
             return;
         }
         Arrays.sort(nums);
+        return;
     }
 }
