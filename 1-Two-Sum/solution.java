@@ -33,7 +33,6 @@ public class Solution {
 // s2: HashMap
 // O(n), O(n)
 
-/*
 public class Solution {
     public int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
@@ -53,7 +52,6 @@ public class Solution {
         return result;
     }
 }
-*/
 
 
 // s3: two pointers
