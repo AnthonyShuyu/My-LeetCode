@@ -6,7 +6,8 @@
 
 
 // s1: brute force
-// O(n^3), 
+// O(n^3), O(1)
+// Time Limit Exceeded
 
 public class Solution {
     public int threeSumClosest(int[] nums, int target) {
