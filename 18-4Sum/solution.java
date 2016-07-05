@@ -45,8 +45,8 @@ public class Solution {
 
 
 
-// s2:
-// 
+// s2:two pointers
+// O(n^3), O(n)
 
 public class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
@@ -60,9 +60,6 @@ public class Solution {
                 continue;
             }
             for (int j = i + 1; j < nums.length; j++) {
-                // if (j != 0 && nums[j] == nums[j - 1]) {
-                //     continue;
-                // }
                int start = j + 1;
                int end = nums.length - 1;
                while (start < end) {
