@@ -1,6 +1,6 @@
 /**
  * 16. 3Sum Closest
- * 
+ * 2 solutions
  * 
  */
 
@@ -35,7 +35,7 @@ public class Solution {
 
 
 // s2: HashMap
-// 
+// O(n^2), O(1)
 
 public class Solution {
     public int threeSumClosest(int[] nums, int target) {
