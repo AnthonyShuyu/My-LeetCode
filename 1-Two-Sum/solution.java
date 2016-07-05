@@ -26,3 +26,31 @@ public class Solution {
         return result;
     }
 }
+
+
+// s2: two pointers
+// O(nlogn), O(1)
+
+public class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] result = new int[2];  
+        if (nums == null || nums.length == 0) {
+            return result;
+        }
+        Arrays.sort(nums);
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            if (nums[left] + nums[right] == target) {
+                result[0] = left;
+                result[1] = right;
+                return result;
+            } else if (nums[left] + nums[right] < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return result;
+    }
+}
