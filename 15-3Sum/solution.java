@@ -5,9 +5,10 @@
  */
 
 
-// s1: hashMap, convert to two sum problem
+// s1: hashMap(hashSet), convert to two sum problem
 // O(n^2), O(n)
 
+/*
 public class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
@@ -38,6 +39,43 @@ public class Solution {
         return result;
     }
 }
+*/
+
+
+// s1.5: HashSet, convert to the problem of 2 sum
+// O(n^2), O(n)
+
+public class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        if (nums == null || nums.length == 0) {
+            return result;
+        }
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            if (i != 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            Set<Integer> hashSet = new HashSet<Integer>();
+            int target = 0 - nums[i];
+            for (int j = i + 1; j < nums.length; j++) {
+                if (hashSet.contains(target - nums[j])) {
+                    List<Integer> list = new ArrayList<Integer>();
+                    list.add(nums[i]);
+                    list.add(target - nums[j]);
+                    list.add(nums[j]);
+                    if (!result.contains(list)) {
+                        result.add(list);
+                    }
+                } else {
+                    hashSet.add(nums[j]);
+                }
+            }
+        }
+            return result;        
+    }
+}
+
 
 
 
