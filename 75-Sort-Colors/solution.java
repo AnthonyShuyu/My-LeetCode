@@ -32,7 +32,7 @@ public class Solution {
         // move the 0s to the left
         int start = 0;
         int end = nums.length - 1;
-        while (start < end) {
+        while (start <= end) {
             if (nums[start] > 0 && nums[end] == 0) {
                 swap(nums, start, end);
                 start++;
@@ -47,7 +47,7 @@ public class Solution {
         // move the 1s to the left
         start = 0;
         end = nums.length - 1;
-        while (start < end) {
+        while (start <= end) {
             if (nums[start] > 1 && nums[end] == 1) {
                 swap(nums, start, end);
                 start++;
