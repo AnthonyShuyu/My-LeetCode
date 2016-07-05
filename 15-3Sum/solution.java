@@ -6,7 +6,7 @@
 
 
 // s1: hashMap, convert to two sum problem
-// O(n^2), O(n^2)
+// O(n^2), O(n)
 
 /*
 public class Solution {
@@ -47,7 +47,7 @@ public class Solution {
 
 
 // s2: two pointers, convert to the problem of 2 sum
-// O(n^2), O(n^2)
+// O(n^2), O(n)
 
 public class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
