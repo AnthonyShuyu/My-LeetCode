@@ -16,7 +16,7 @@ public class Solution {
         }
         for (int i = 0; i < nums.length - 2; i++) {
             int target = 0 - nums[i];
-            for (int j = i + 1; j < nums.length ) {
+            for (int j = i + 1; j < nums.length; j++ ) {
             Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
                 if (hashMap.containsKey(target - nums[j])) {
                     List<Integer> list = new List<Integer>();
