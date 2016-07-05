@@ -68,6 +68,7 @@ public class Solution {
             while (left < right) {
                 if (nums[left] + nums[right] == target) {
                     List<Integer> list = new ArrayList<Integer>();
+                    list.add(nums[i]);
                     list.add(nums[left]);
                     list.add(nums[right]);
                     if (!result.contains(list)) {
