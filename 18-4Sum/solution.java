@@ -45,7 +45,7 @@ public class Solution {
 
 
 
-// s2:two pointers
+// s2:two pointers, convert to two sum
 // O(n^3), O(n)
 
 public class Solution {
@@ -86,3 +86,42 @@ public class Solution {
         return result;
     }
 }
+
+
+// s3: HashSet(HashMap), convert to two sum
+// 
+
+public class Solution {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        if (nums == null || nums.length < 4) {
+            return result;
+        }
+        
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            if (i != 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            for (int j = i + 1; j < nums.length; j++) {
+                Set<Integer> hashSet = new HashSet<Integer>();
+                for (int k = j + 1; k < nums.length; k++) {
+                    if (hashSet.contains(target - nums[i] - nums[j] - nums[k])) {
+                        List<Integer> list = new ArrayList<Integer>();
+                        list.add(nums[i]);
+                        list.add(nums[j]);
+                        list.add(target - nums[i] - nums[j] - nums[k]);
+                        list.add(nums[k]);
+                        if (!result.contains(list)) {
+                            result.add(list);
+                        }
+                    } else {
+                        hashSet.add(nums[k]);
+                    }
+                }
+            }
+        }
+        return result;
+    }
+}
+
