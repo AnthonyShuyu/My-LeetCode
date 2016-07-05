@@ -16,16 +16,17 @@ public class Solution {
         }
         for (int i = 0; i < nums.length - 2; i++) {
             int target = 0 - nums[i];
-            for (int j = i + 1; j < nums.length )
+            for (int j = i + 1; j < nums.length ) {
             Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
-            if (hashMap.containsKey(target - nums[j])) {
-                List<Integer> list = new List<Integer>();
-                list.add(nums[i]);
-                list.add(target - nums[i]);
-                list.add(nums[j]);
-                result.add(list);
-            } else {
-                hashMap.put(nums[j], j);
+                if (hashMap.containsKey(target - nums[j])) {
+                    List<Integer> list = new List<Integer>();
+                    list.add(nums[i]);
+                    list.add(target - nums[i]);
+                    list.add(nums[j]);
+                    result.add(list);
+                } else {
+                    hashMap.put(nums[j], j);
+                }
             }
         }
         return result;
