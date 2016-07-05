@@ -34,7 +34,7 @@ public class Solution {
 */
 
 
-// s2: HashMap
+// s2: two pointers
 // O(n^2), O(1)
 
 public class Solution {
