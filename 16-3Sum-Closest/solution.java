@@ -44,7 +44,7 @@ public class Solution {
         }
         Arrays.sort(nums);
         int best_sum = nums[0] + nums[1] + nums[2];
-        for (int i = 0; i < nums.length - 1; i++) {
+        for (int i = 0; i < nums.length; i++) {
             int start = i + 1;
             int end = nums.length - 1;
             while (start < end) {
