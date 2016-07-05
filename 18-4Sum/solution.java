@@ -91,7 +91,8 @@ public class Solution {
 
 
 // s3: HashSet(HashMap), convert to two sum
-// 
+// O(n^3), O(n)
+// time limit exceeded
 
 public class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
