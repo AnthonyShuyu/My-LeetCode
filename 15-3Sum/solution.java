@@ -10,20 +10,26 @@
 
 public class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> result = new List<List<Integer>>();
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        
         if (nums == null || nums.length == 0) {
             return result;
         }
+        
+        Arrays.sort(nums);
+        
         for (int i = 0; i < nums.length - 2; i++) {
             int target = 0 - nums[i];
-            for (int j = i + 1; j < nums.length; j++ ) {
             Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
+            for (int j = i + 1; j < nums.length; j++ ) {
                 if (hashMap.containsKey(target - nums[j])) {
-                    List<Integer> list = new List<Integer>();
+                    List<Integer> list = new ArrayList<Integer>();
                     list.add(nums[i]);
-                    list.add(target - nums[i]);
+                    list.add(target - nums[j]);
                     list.add(nums[j]);
-                    result.add(list);
+                    if (!result.contains(list)) {
+                        result.add(list);
+                    }
                 } else {
                     hashMap.put(nums[j], j);
                 }
