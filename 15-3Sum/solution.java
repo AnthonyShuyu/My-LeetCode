@@ -19,6 +19,9 @@ public class Solution {
         Arrays.sort(nums);
         
         for (int i = 0; i < nums.length - 2; i++) {
+            if (i != 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
             int target = 0 - nums[i];
             Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
             for (int j = i + 1; j < nums.length; j++ ) {
