@@ -1,6 +1,6 @@
 /**
  * 75. Sort Colors
- * 
+ * 2 solutions
  * 
  */
 
