@@ -44,11 +44,11 @@ public class Solution {
         }
         Arrays.sort(nums);
         int best_sum = nums[0] + nums[1] + nums[2];
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length - 1; i++) {
             int start = i + 1;
             int end = nums.length - 1;
-            int sum = nums[i] + nums[start] + nums[end];
             while (start < end) {
+                int sum = nums[i] + nums[start] + nums[end];
                 if (Math.abs(best_sum - target) > Math.abs(sum - target)) {
                     best_sum = sum;
                 }
