@@ -18,9 +18,9 @@ public class Solution {
             for (int j = i + 1; j < nums.length; j++) {
                 for (int k = j + 1; k < nums.length; k++) {
                     // min = Math.min(min, Math.abs(nums[i] + nums[j] + nums[k] - target));  
-                    if (Math.min(nums[i] + nums[j] + nums[k] - target) < min) {
+                    if (Math.abs(nums[i] + nums[j] + nums[k] - target) < min) {
                         result = nums[i] + nums[j] + nums[k];
-                        min = Math.min(nums[i] + nums[j] + nums[k] - target);
+                        min = Math.abs(nums[i] + nums[j] + nums[k] - target);
                     }
                 }
             }
