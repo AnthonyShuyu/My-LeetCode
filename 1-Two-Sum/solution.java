@@ -4,9 +4,42 @@
  */
 
 
+
+// s1: brute force
+// O(n^2), O(1)
+
+public class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] result = new int[2];
+        if (nums == null || nums.length == 0) {
+            return result;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    result[0] = i;
+                    result[1] = j;
+                    return result;
+                }
+            }
+        }
+        return result;
+    }
+}
+
+
+
+
+
+
+
+
+
+
 // s1: HashMap
 // O(n), O(n)
 
+/*
 public class Solution {
     public int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
@@ -26,11 +59,13 @@ public class Solution {
         return result;
     }
 }
+*/
 
 
 // s2: two pointers
 // O(nlogn), O(1)
 
+/*
 public class Solution {
     public int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];  
@@ -54,3 +89,5 @@ public class Solution {
         return result;
     }
 }
+*/
+
