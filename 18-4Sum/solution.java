@@ -48,6 +48,7 @@ public class Solution {
 // s2:two pointers, convert to two sum
 // O(n^3), O(n)
 
+/*
 public class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
@@ -86,6 +87,7 @@ public class Solution {
         return result;
     }
 }
+*/
 
 
 // s3: HashSet(HashMap), convert to two sum
