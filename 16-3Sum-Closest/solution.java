@@ -9,6 +9,7 @@
 // O(n^3), O(1)
 // Time Limit Exceeded
 
+/*
 public class Solution {
     public int threeSumClosest(int[] nums, int target) {
         if (nums == null || nums.length == 0) {
@@ -28,5 +29,38 @@ public class Solution {
             }
         }
         return result; 
+    }
+}
+*/
+
+
+// s2: HashMap
+// 
+
+public class Solution {
+    public int threeSumClosest(int[] nums, int target) {
+        if (nums == null || nums.length < 3) {
+            return -1;
+        }
+        Arrays.sort(nums);
+        int best_sum = nums[0] + nums[1] + nums[2];
+        for (int i = 0; i < nums.length; i++) {
+            int start = i + 1;
+            int end = nums.length - 1;
+            int sum = nums[i] + nums[start] + nums[end];
+            while (start < end) {
+                if (Math.abs(best_sum - target) > Math.abs(sum - target)) {
+                    best_sum = sum;
+                }
+                if (sum < target) {
+                    start++;
+                } else if (sum == target){
+                    return sum;
+                } else {
+                    end--;
+                }
+            }
+        }
+        return best_sum;
     }
 }
