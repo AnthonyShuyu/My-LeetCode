@@ -17,9 +17,9 @@ public class Solution {
         int l = nums.length - 1;
         for(int i = 0; i < nums.length; i++) {
             if(i % 2 == 0) {
-                nums[i] = copy[s—];
+                nums[i] = copy[s--];
             } else {
-                nums[i] = copy[l—];
+                nums[i] = copy[l--];
             }
         }
     }
