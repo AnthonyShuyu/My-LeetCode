@@ -9,7 +9,6 @@
 // 
 
 
-public class 
  
  
 /*
@@ -57,11 +56,15 @@ public class Solution {
             new_nums[i] = nums[i];
         }
         Arrays.sort(new_nums);
+        int middle_index = (nums.length % 2 == 0 ? nums.length / 2 : nums.length / 2 + 1);
+        int end_index = nums.lenght - 1;
         for (int i = 0; i < nums.length; i++) {
             if (i % 2 == 0) {
-                nums[i] = new_nums[i / 2];
+                nums[i] = new_nums[middle_index];
+                middle_index--;
             } else {
-                nums[i] = new_nums[(nums.length + i) / 2];
+                nums[i] = new_nums[end_index];
+                end_index--;
             }
         }
     }
