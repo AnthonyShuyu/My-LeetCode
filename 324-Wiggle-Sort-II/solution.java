@@ -18,7 +18,7 @@
             new_nums[i] = nums[i];
         }
         Arrays.sort(new_nums);
-        int middle_index = (nums.length % 2 == 0 ? nums.length / 2 : nums.length / 2 + 1);
+        int middle_index = (nums.length % 2 == 0 ? nums.length / 2 - 1 : nums.length / 2);
         int end_index = nums.length - 1;
         for (int i = 0; i < nums.length; i++) {
             if (i % 2 == 0) {
