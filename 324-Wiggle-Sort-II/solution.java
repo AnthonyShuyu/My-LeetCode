@@ -6,7 +6,7 @@
 
 public class Solution {
     public void wiggleSort(int[] nums) {
-        int[] copy = nums.clone();
+        int[] copy = Arrays.copyOf(nums, nums.length);
         Arrays.sort(copy);
         int s;
         if(nums.length % 2 == 0) {
