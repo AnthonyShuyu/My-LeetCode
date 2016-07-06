@@ -6,10 +6,38 @@
  
  
 // s1: Arrays.sort() and partition using index of middle
-// 
+// O(nlogn), O(n)
 
-
+ public class Solution {
+    public void wiggleSort(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return;
+        }
+        int[] new_nums = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            new_nums[i] = nums[i];
+        }
+        Arrays.sort(new_nums);
+        int middle_index = (nums.length % 2 == 0 ? nums.length / 2 : nums.length / 2 + 1);
+        int end_index = nums.length - 1;
+        for (int i = 0; i < nums.length; i++) {
+            if (i % 2 == 0) {
+                nums[i] = new_nums[middle_index];
+                middle_index--;
+            } else {
+                nums[i] = new_nums[end_index];
+                end_index--;
+            }
+        }
+    }
+}
  
+ 
+ 
+ 
+ 
+ 
+
  
 /*
 public class Solution {
@@ -35,40 +63,33 @@ public class Solution {
 
 */
 
-
-
-
-
-
-
-
 // s1: Arrays.sort() + new another array 
 // failed
 
+/*
 
 public class Solution {
     public void wiggleSort(int[] nums) {
         if (nums == null || nums.length == 0) {
             return;
         }
-        int[] new_nums = new int[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            new_nums[i] = nums[i];
-        }
-        Arrays.sort(new_nums);
-        int middle_index = (nums.length % 2 == 0 ? nums.length / 2 : nums.length / 2 + 1);
-        int end_index = nums.lenght - 1;
+        Arrays.sort(nums);
+        int[] result = new int[nums.length];
+        int index = 0;
         for (int i = 0; i < nums.length; i++) {
             if (i % 2 == 0) {
-                nums[i] = new_nums[middle_index];
-                middle_index--;
+                result[index] = nums[i / 2];
             } else {
-                nums[i] = new_nums[end_index];
-                end_index--;
+                result[index] = nums[nums.length - i / 2 - 1];
             }
+            index++;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = result[i];
         }
     }
 }
+*/
 
 
 // s1: Arrays.sort() + swap
