@@ -1,9 +1,18 @@
 /**
  * 324. Wiggle Sort II
- * 
+ * 2 solutions
  * 
  */
+ 
+ 
+// s1: Arrays.sort() and partition using index of middle
+// 
 
+
+public class 
+ 
+ 
+/*
 public class Solution {
     public void wiggleSort(int[] nums) {
         int[] copy = Arrays.copyOf(nums, nums.length);
@@ -25,7 +34,7 @@ public class Solution {
     }
 }
 
-
+*/
 
 
 
@@ -37,30 +46,26 @@ public class Solution {
 // s1: Arrays.sort() + new another array 
 // failed
 
-/*
 
 public class Solution {
     public void wiggleSort(int[] nums) {
         if (nums == null || nums.length == 0) {
             return;
         }
-        Arrays.sort(nums);
-        int[] result = new int[nums.length];
-        int index = 0;
+        int[] new_nums = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            new_nums[i] = nums[i];
+        }
+        Arrays.sort(new_nums);
         for (int i = 0; i < nums.length; i++) {
             if (i % 2 == 0) {
-                result[index] = nums[i / 2];
+                nums[i] = new_nums[i / 2];
             } else {
-                result[index] = nums[nums.length - i / 2 - 1];
+                nums[i] = new_nums[(nums.length + i) / 2];
             }
-            index++;
-        }
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = result[i];
         }
     }
 }
-*/
 
 
 // s1: Arrays.sort() + swap
