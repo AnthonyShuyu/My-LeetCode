@@ -28,8 +28,8 @@ public class Solution {
         result.add(insertPos, newInterval);
         return result;
         }
-        
-        
+    }        
+}        
         /*
         List<Interval> result = new ArrayList<Interval>();
         if (intervals == null || intervals.size() == 0) {
@@ -156,4 +156,4 @@ public class Solution {
         }
 */
 
-}
+// }
