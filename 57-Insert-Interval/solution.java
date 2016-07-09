@@ -61,22 +61,64 @@ public class Solution {
             return result;
         } 
         
+        
+        int left = -1;
+        int right = -1;
+        for (int i = 0; i < intervals.size() - 1; i++) {
+            if (newInterval.start > intervals.get(i).end && newInterval.start < intervals.get(i + 1).start) {
+                left = i;
+            }
+            if (newInterval.end > intervals.get(i).end && newInterval.end < intervals.get(i + 1).start) {
+                right = i;
+            }
+        }
+        
+        
         if (startInterval == null && endInterval != null) {
-            int index = intervals.indexOf(endInterval);
-            Interval i3 = new Interval(newInterval.start, endInterval.end);
-            result.add(i3);
-            for (int i = index + 1; i < intervals.size(); i++) {
-                result.add(intervals.get(i));
+            // int index = intervals.indexOf(endInterval);
+            // Interval i3 = new Interval(newInterval.start, endInterval.end);
+            // result.add(i3);
+            // for (int i = index + 1; i < intervals.size(); i++) {
+            //     result.add(intervals.get(i));
+            // }
+                        // return result;
+                        for (int i = 0; i < intervals.size(); i++) {
+                if (intervals.get(i).start <= newInterval.end && intervals.get(i).end >= newInterval.end) {
+                    Interval i6 = new Interval(newInterval.start, intervals.get(i).end);
+                     for (int j = 0; j <= left; j++) {
+                        result.add(intervals.get(j));
+                     }
+                     result.add(i6);
+                    for (int j = i + 1; j < intervals.size(); j++) {
+                        result.add(intervals.get(j));
+                    }
+                    return result;
+                }
             }
-            return result;
+            
+            
+
         } else if (startInterval != null && endInterval == null) {
-            int index = intervals.indexOf(startInterval);
-            Interval i4 = new Interval(startInterval.start, newInterval.end);
-            for (int i = 0; i < index; i++) {
-                result.add(intervals.get(i));
-            }
-            result.add(i4);
-            return result;
+            // int index = intervals.indexOf(startInterval);
+            // Interval i4 = new Interval(startInterval.start, newInterval.end);
+            // for (int i = 0; i < index; i++) {
+            //     result.add(intervals.get(i));
+            // }
+            // result.add(i4);
+                        // return result;
+                       for (int i = 0; i < intervals.size(); i++) {
+                if (intervals.get(i).start <= newInterval.start && intervals.get(i).end >= newInterval.start) {
+                    Interval i7 = new Interval(intervals.get(i).start, newInterval.end);
+                    for (int j = 0; j < i; j++) {
+                        result.add(intervals.get(j));
+                    }
+                    result.add(i7);
+                    for (int j = right + 1; j < intervals.size(); j++) {
+                        result.add(intervals.get(j));
+                    }
+                    return result;
+                }
+            } 
         } else if (startInterval != null && endInterval != null){
             int index1 = intervals.indexOf(startInterval);
             int index2 = intervals.indexOf(endInterval);
@@ -142,7 +184,7 @@ public class Solution {
             return result;
         }
         
-        
+        return result;
         
     }
 }
