@@ -59,7 +59,9 @@ public class Solution {
         if (newInterval.start < intervals.get(0).start && newInterval.end > intervals.get(n - 1).end) {
             result.add(newInterval);
             return result;
-        } else if (startInterval == null && endInterval != null) {
+        } 
+        
+        if (startInterval == null && endInterval != null) {
             int index = intervals.indexOf(endInterval);
             Interval i3 = new Interval(newInterval.start, endInterval.end);
             result.add(i3);
@@ -75,7 +77,7 @@ public class Solution {
             }
             result.add(i4);
             return result;
-        } else {
+        } else if (startInterval != null && endInterval != null){
             int index1 = intervals.indexOf(startInterval);
             int index2 = intervals.indexOf(endInterval);
             Interval i5 = new Interval(startInterval.start, endInterval.end);
