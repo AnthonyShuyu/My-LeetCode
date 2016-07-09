@@ -9,10 +9,11 @@
  */
 public class Solution {
     public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
-        if (intervals == null || intervals.size() == 0) {
-            return intervals;
-        }
         List<Interval> result = new ArrayList<Interval>();
+        if (intervals == null || intervals.size() == 0) {
+            result.add(newInterval);
+            return result;
+        }
         int n = intervals.size();
         // newInterval compare to the last
         Interval last = intervals.get(n - 1);
@@ -87,6 +88,59 @@ public class Solution {
             }
             return result;
         }
-        return result;
+        
+        int left = -1;
+        int right = -1;
+        for (int i = 0; i < intervals.size() - 1; i++) {
+            if (newInterval.start > intervals.get(i).end && newInterval.start < intervals.get(i + 1).start) {
+                left = i;
+            }
+            if (newInterval.end > intervals.get(i).end && newInterval.end < intervals.get(i + 1).start) {
+                right = i;
+            }
+        }
+        if (left != -1 && right == -1) {
+            for (int i = 0; i < intervals.size(); i++) {
+                if (intervals.get(i).start <= newInterval.end && intervals.get(i).end >= newInterval.end) {
+                    Interval i6 = new Interval(newInterval.start, intervals.get(i).end);
+                     for (int j = 0; j <= left; j++) {
+                        result.add(intervals.get(j));
+                     }
+                     result.add(i6);
+                    for (int j = i + 1; j < intervals.size(); j++) {
+                        result.add(intervals.get(j));
+                    }
+                    return result;
+                }
+            }
+        } else if (left == -1 && right != -1) {
+            for (int i = 0; i < intervals.size(); i++) {
+                if (intervals.get(i).start <= newInterval.start && intervals.get(i).end >= newInterval.start) {
+                    Interval i7 = new Interval(intervals,get(i).start, newInterval.end);
+                    for (int j = 0; j < i; j++) {
+                        result.add(intervals.get(j));
+                    }
+                    result.add(i7);
+                    for (int j = right + 1; j < intervals.size(); j++) {
+                        result.add(intervals.get(j));
+                    }
+                    return result;
+                }
+            }
+        } else if (left != -1 && right != -1) {
+            for (int i = 0; i <= left; i++) {
+                result.add(intervals.get(i));
+            }
+            result.add(newInterval);
+            for (int i = right + 1; i < intervals.size(); i++) {
+                result.add(intervals.get(i));
+            }
+            return result;
+        } else {
+            return result;
+        }
+        
+        
+        
     }
 }
