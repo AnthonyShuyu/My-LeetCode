@@ -116,7 +116,7 @@ public class Solution {
         } else if (left == -1 && right != -1) {
             for (int i = 0; i < intervals.size(); i++) {
                 if (intervals.get(i).start <= newInterval.start && intervals.get(i).end >= newInterval.start) {
-                    Interval i7 = new Interval(intervals,get(i).start, newInterval.end);
+                    Interval i7 = new Interval(intervals.get(i).start, newInterval.end);
                     for (int j = 0; j < i; j++) {
                         result.add(intervals.get(j));
                     }
