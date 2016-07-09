@@ -31,7 +31,8 @@ public class Solution {
         result.add(insertPos, newInterval);
         return result;
     }        
-}        
+}
+        
         /*
         List<Interval> result = new ArrayList<Interval>();
         if (intervals == null || intervals.size() == 0) {
@@ -156,6 +157,16 @@ public class Solution {
             }
             return result;
         }
-*/
-
-// }
+        
+        /*
+        int left = -1;
+        int right = -1;
+        for (int i = 0; i < intervals.size() - 1; i++) {
+            if (newInterval.start > intervals.get(i).end && newInterval.start < intervals.get(i + 1).start) {
+                left = i;
+            }
+            if (newInterval.end > intervals.get(i).end && newInterval.end < intervals.get(i + 1).start) {
+                right = i;
+            }
+        }
+}
