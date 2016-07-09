@@ -18,16 +18,18 @@ public class Solution {
         for (int i = 0; i < intervals.size(); i++) {
             if (intervals.get(i).start > newInterval.end) {
                 result.add(intervals.get(i));
-                insertPos++;            
+            
             } else if (intervals.get(i).end < newInterval.start) {
                 result.add(intervals.get(i));
+                insertPos++;
             } else {
                 newInterval.start = Math.min(newInterval.start, intervals.get(i).start);
                 newInterval.end = Math.max(newInterval.end, intervals.get(i).end);
             }
+        }
+        
         result.add(insertPos, newInterval);
         return result;
-        }
     }        
 }        
         /*
