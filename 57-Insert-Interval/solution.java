@@ -56,7 +56,7 @@ public class Solution {
             }
         }
         
-        if (startInterval == null && endInterval == null) {
+        if (newInterval.start < intervals.get(0).start && newInterval.end > intervals.get(n - 1).end) {
             result.add(newInterval);
             return result;
         } else if (startInterval == null && endInterval != null) {
