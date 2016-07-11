@@ -10,6 +10,7 @@
 // O(n^2), O(n)
 // time limited exceeded
 
+/*
 public class Solution {
     public int minSubArrayLen(int s, int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -35,7 +36,7 @@ public class Solution {
         
     }
 }
-
+*/
 
 
 // two pointers 
