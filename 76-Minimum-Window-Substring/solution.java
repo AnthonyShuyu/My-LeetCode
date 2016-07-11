@@ -3,7 +3,7 @@ public class Solution {
         if (s == null || t == null) {
             return "";
         }
-        if (s.length() > t.length()) {
+        if (s.length() < t.length()) {
             return "";
         }
         int min_length = s.length() + 1;
@@ -22,11 +22,11 @@ public class Solution {
     }
     
     public boolean checkContain(String s1, String s2) {
-        if (s1.length() > s2.length()) {
+        if (s1.length() < s2.length()) {
             return false;
         }
         
-        int[] arr = new int[58];
+        int[] arr = new int[122];
         
         for (int i = 0; i < s1.length(); i++) {
             arr[(int)s1.charAt(i)] += 1;
