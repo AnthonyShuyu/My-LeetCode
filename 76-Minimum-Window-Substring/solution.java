@@ -7,7 +7,7 @@ public class Solution {
             return "";
         }
         int min_length = s.length() + 1;
-        String result = s;
+        String result = null;
         for (int i = 0; i < s.length(); i++) {
             for (int j = i + 1; j <= s.length(); j++) {
                 if (checkContain(s.substring(i, j), t)) {
@@ -18,7 +18,11 @@ public class Solution {
                 }
             }
         }
-        return result;
+        if (result != null) {
+            return result;
+        } else {
+            return "";
+        }
     }
     
     public boolean checkContain(String s1, String s2) {
@@ -26,7 +30,7 @@ public class Solution {
             return false;
         }
         
-        int[] arr = new int[122];
+        int[] arr = new int[123];
         
         for (int i = 0; i < s1.length(); i++) {
             arr[(int)s1.charAt(i)] += 1;
