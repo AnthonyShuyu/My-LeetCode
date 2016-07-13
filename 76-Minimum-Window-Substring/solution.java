@@ -1,46 +1,41 @@
+/**
+ * 
+ * 76. Minimum Window Substring
+ * 
+ * 
+ */
+
+
+
 public class Solution {
     public String minWindow(String s, String t) {
         if (s == null || t == null) {
             return "";
-        }
-        if (s.length() < t.length()) {
+        }    
+        if (s.size() < t.size()) {
             return "";
         }
-        int min_length = s.length() + 1;
-        String result = null;
-        for (int i = 0; i < s.length(); i++) {
-            for (int j = i + 1; j <= s.length(); j++) {
-                if (checkContain(s.substring(i, j), t)) {
-                    if (j - i < min_length) {
-                        min_length = j - i;
-                        result = s.substring(i, j);
-                    }
+        for (int i = t.size(); i <= s.size(); i++) {
+            for (int j = 0; j <= s.size() - i ; j++) {
+                if (checkContains(s.substring(j, j + i), t)) {
+                    return s.substring(j, j + i);
                 }
             }
-        }
-        if (result != null) {
-            return result;
-        } else {
-            return "";
-        }
+        } 
+        return "";
     }
     
-    public boolean checkContain(String s1, String s2) {
-        if (s1.length() < s2.length()) {
-            return false;
+    public boolean checkContains(String s1, String s2) {
+        int[] arr = new int[58]; // 'z' - 'A' + 1
+        for (int i = 0; i < s1.size(); i++) {
+            arr[(int)s1.charAt(i) - 65] += 1;
         }
-        
-        int[] arr = new int[123];
-        
-        for (int i = 0; i < s1.length(); i++) {
-            arr[(int)s1.charAt(i)] += 1;
-        }
-        for (int i = 0; i < s2.length(); i++) {
-            arr[(int)s2.charAt(i)] -= 1;
-            if (arr[(int)s2.charAt(i)] < 0) {
+        for (int i = 0; i < s2.size(); i++) {
+            arr[(int)s2.charAt(i) - 65] -= 1;
+            if (arr[(int)s2.charAt(i) - 65] < 0) {
                 return false;
             }
         }
-        return true;        
+        return true;
     }
 }
