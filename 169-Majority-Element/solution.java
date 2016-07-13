@@ -7,7 +7,8 @@
 
 
 // s1: brute force
-// 
+// O(n^2), O(n)
+// time limit exceeded
 
 public class Solution {
     public int majorityElement(int[] nums) {
