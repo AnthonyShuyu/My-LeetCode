@@ -81,11 +81,11 @@ public class Solution {
         }
         int count1 = 0;
         int count2 = 0;
-        int candidate1 = nums[0];
-        int candidate2 = nums[0];
+        int candidate1 = -1;
+        int candidate2 = -1;
         
         for (int i = 0; i < nums.length; i++) {
-            if (candidate1 == nums[i]) {
+            if (candidate1 == nums[i]) {                // first check the candidate, it is tricky
                 count1++;
             } else if (candidate2 == nums[i]) {
                 count2++;
