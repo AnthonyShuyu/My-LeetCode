@@ -69,7 +69,7 @@ public class Solution {
 }
 */
 
-// *s3: one for loop & use count and two candidates
+// *s3: one for loop & use count and two candidates(they are the most time apperance element and the second most element)
 // O(n), O(1)
 // tricky
 
