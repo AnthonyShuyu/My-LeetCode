@@ -55,7 +55,7 @@ public class Solution {
 // s3: HashMap & one for loop
 // O(n), O(n)
 
-
+/*
 public class Solution {
     public int majorityElement(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -63,20 +63,7 @@ public class Solution {
         }        
         
         Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
-        /*
-        for (int i = 0; i < nums.length; i++) {
-            if (hashMap.containsKey(nums[i]) && hashMap.get(nums[i]) >= nums.length / 2) {
-                return nums[i];
-            }
-            if (hashMap.containsKey(nums[i])){
-                hashMap.put(nums[i], hashMap.get(nums[i]) + 1);
-            } else {
-                hashMap.put(nums[i], 1);
-            }
-        }
-        return nums[0];
-        */
-        
+
         for (int i = 0; i < nums.length; i++) {
             if (hashMap.containsKey(nums[i])) {
                 hashMap.put(nums[i], hashMap.get(nums[i]) + 1);
@@ -91,3 +78,31 @@ public class Solution {
         return -1;
     }
 }
+*/
+
+
+// s4: one for loop, use int count and int candidate
+// O(n), O(1)
+// tricky
+
+public class Solution {
+    public int majorityElement(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        int count = 0;
+        int candidate = nums[0];
+        for (int i = 0; i < nums.length; i++) {
+            if (count == 0) {
+                candidte = nums[i];
+                count = 1;
+            } else if (candidate == nums[i]) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+        return candidate;
+    }
+}
+
