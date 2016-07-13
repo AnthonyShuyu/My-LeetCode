@@ -7,7 +7,7 @@
 
 
 // s1: brute force
-// O(n^2), O(n)
+// O(n^2), O(1)
 // time limit exceeded
 
 public class Solution {
