@@ -93,8 +93,7 @@ public class Solution {
 
 */
 
-// s3: 
-
+// s3: to be continued
 
 
 /*
@@ -148,6 +147,8 @@ public class Solution {
 }
 */
 
+
+// s4: to be continued
 
 public class Solution {
     int initTargetHash(int []targethash, String Target) {
