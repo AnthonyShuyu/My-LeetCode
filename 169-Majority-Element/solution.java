@@ -10,6 +10,7 @@
 // O(n^2), O(1)
 // time limit exceeded
 
+/*
 public class Solution {
     public int majorityElement(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -31,5 +32,19 @@ public class Solution {
             }
         }
         return result;
+    }
+}
+*/
+
+// s2: Arrays.sort()
+// O(nlogn), O(1)
+
+public class Solution {
+    public int majorityElement(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }        
+        Arrays.sort(nums);
+        return nums[nums.length / 2];
     }
 }
