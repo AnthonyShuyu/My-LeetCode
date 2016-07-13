@@ -94,7 +94,7 @@ public class Solution {
         int candidate = nums[0];
         for (int i = 0; i < nums.length; i++) {
             if (count == 0) {
-                candidte = nums[i];
+                candidate = nums[i];
                 count = 1;
             } else if (candidate == nums[i]) {
                 count++;
