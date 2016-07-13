@@ -32,9 +32,9 @@ Special thanks to [@Freezen](https://oj.leetcode.com/discuss/user/Freezen) for a
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Array](/tag/array/) [Two Pointers](/tag/two-pointers/) [Binary Search](/tag/binary-search/)</span></div>
+<span class="hidebutton">[Array](/tag/array/) [Two Pointers](/tag/two-pointers/) [Binary Search](/tag/binary-search/)</span></div>
 
 <div>
 
