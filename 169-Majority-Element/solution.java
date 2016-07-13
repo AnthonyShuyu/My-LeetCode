@@ -61,17 +61,18 @@ public class Solution {
         if (nums == null || nums.length == 0) {
             return -1;
         }        
+        
         Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
         for (int i = 0; i < nums.length; i++) {
-            if (hashMap.containsKey(nums[i]) && hashMap.get(i) >= nums.length / 2) {
+            if (hashMap.containsKey(nums[i]) && hashMap.get(nums[i]) >= nums.length / 2) {
                 return nums[i];
             }
             if (hashMap.containsKey(nums[i])){
                 hashMap.put(nums[i], hashMap.get(nums[i]) + 1);
             } else {
-                hashMap.put(nums[i], 0);
+                hashMap.put(nums[i], 1);
             }
         }
-        return -1;
+        return nums[0];
     }
 }
