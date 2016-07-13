@@ -78,7 +78,7 @@ public class Solution {
         */
         
         for (int i = 0; i < nums.length; i++) {
-            if (hashMap.contains(nums[i])) {
+            if (hashMap.containsKey(nums[i])) {
                 hashMap.put(nums[i], hashMap.get(nums[i]) + 1);
             } else {
                 hashMap.put(nums[i], 1);
