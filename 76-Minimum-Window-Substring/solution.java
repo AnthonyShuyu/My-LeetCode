@@ -9,6 +9,7 @@
 // O(n^3), O(n^2)
 // time limit exceeded 
 
+/*
 public class Solution {
     public String minWindow(String s, String t) {
         if (s == null || t == null) {
@@ -41,7 +42,7 @@ public class Solution {
         return true;
     }
 }
-
+*/
 
 
 // s2: 
@@ -64,7 +65,8 @@ public class Solution {
             }
             if (checkContains(temp, t)) {
                 if (temp.length() < min) {
-                    result = temp;             
+                    result = temp;   
+                    min = temp.length();
                 }
                 temp = s.substring(i + 1, j);
             }
