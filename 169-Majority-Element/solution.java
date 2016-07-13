@@ -39,6 +39,7 @@ public class Solution {
 // s2: Arrays.sort()
 // O(nlogn), O(1)
 
+/*
 public class Solution {
     public int majorityElement(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -46,5 +47,31 @@ public class Solution {
         }        
         Arrays.sort(nums);
         return nums[nums.length / 2];
+    }
+}
+*/
+
+
+// s3: HashMap & one for loop
+// O(n), O(n)
+
+
+public class Solution {
+    public int majorityElement(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }        
+        Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            if (hashMap.containsKey(nums[i]) && hashMap.get(i) >= nums.length / 2) {
+                return nums[i];
+            }
+            if (hashMap.containsKey(nums[i])){
+                hashMap.put(nums[i], hashMap.get(nums[i]) + 1);
+            } else {
+                hashMap.put(nums[i], 0);
+            }
+        }
+        return -1;
     }
 }
