@@ -1,7 +1,7 @@
 /**
  * 
  * 242. Valid Anagram
- * 
+ * 3 solutions
  * 
  */
 
