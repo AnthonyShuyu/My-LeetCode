@@ -40,7 +40,13 @@ public class Solution {
         }
         for (int i = 0; i < t.length(); i++) {
             arr[(int)(t.charAt(i) - 'a')] -= 1;
-            if (arr[(int)(t.charAt(i) - a)] < 0) {
+            if (arr[(int)(t.charAt(i) - 'a')] < 0) {
+                return false;
+            }
+        }
+        
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
                 return false;
             }
         }
