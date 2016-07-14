@@ -7,6 +7,7 @@
 // s1: String   substring method
 // O(n), O(1)
 
+/*
 public class Solution {
     public int strStr(String haystack, String needle) {
         if (haystack == null || needle == null) {
@@ -20,6 +21,7 @@ public class Solution {
         return -1;
     }
 }
+*/
 
 // s2: String.charAt()
 // O(n), O(1)
