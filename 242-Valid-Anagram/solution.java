@@ -14,8 +14,10 @@ public class Solution {
         if (s == null || t == null) {
             return false;
         }
-        Arrays.sort(s);
-        Arrays.sort(t);
-        return s.equals(t);
+        char[] sArray = s.toCharArray();
+        char[] tArray = t.toCharArray();
+        Arrays.sort(sArray);
+        Arrays.sort(tArray);
+        return String.valueOf(sArray).equals(String.valueOf(tArray));
     }
 }
