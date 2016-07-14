@@ -111,7 +111,7 @@ public class Solution {
 
 
 // s3: HashMap, key is the String , value is the ArrayList corresponds to the String
-// O(n^2), O(n)
+// O(nlogn), O(n)
 
 public class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
