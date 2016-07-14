@@ -31,6 +31,9 @@ public class Solution {
         if (haystack == null || needle == null || haystack.length() < needle.length()) {
             return -1;
         }
+        if (needle.length() == 0) {
+            return -1;
+        }
         for (int i = 0; i < haystack.length(); i++) {
             if (haystack.charAt(i) == needle.charAt(0)) {
                 int index = 1;
