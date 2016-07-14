@@ -68,7 +68,7 @@ public class Solution {
         }    
         Map<Character, Integer> hashMap1 = new HashMap<Character, Integer>();
         for (int i = 0; i < s.length(); i++) {
-            if (hashMap1.containsKey(s.charAt(i)) {
+            if (hashMap1.containsKey(s.charAt(i))) {
                 hashMap1.put(s.charAt(i), hashMap1.get(s.charAt(i)) + 1);
             } else {
                 hashMap1.put(s.charAt(i), 1);
