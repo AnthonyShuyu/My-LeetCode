@@ -6,7 +6,8 @@
 
 
 // s1: brute force
-//
+// O(n^3), O(n^2)
+// time limit exceeded
 
 public class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
@@ -51,3 +52,5 @@ public class Solution {
         return true;
     }
 }
+
+
