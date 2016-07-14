@@ -77,7 +77,7 @@ public class Solution {
         
         Map<Character, Integer> hashMap2 = new HashMap<Character, Integer>();
         for (int i = 0; i < t.length(); i++) {
-            if (hashMap2.containsKey(t.charAt(i)) {
+            if (hashMap2.containsKey(t.charAt(i))) {
                 hashMap2.put(t.charAt(i), hashMap2.get(t.charAt(i)) + 1);
             } else {
                 hashMap2.put(t.charAt(i), 1);
