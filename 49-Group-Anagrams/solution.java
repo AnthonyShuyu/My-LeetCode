@@ -58,11 +58,11 @@ public class Solution {
 
 
 // s2: brute force 2, one for loop, add to the result
-// 
-// 
+// O(n^3), O(n)
+// time limit exceeded
 
 
-
+/*
 public class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
         List<List<String>> result = new ArrayList<List<String>>();
@@ -106,8 +106,33 @@ public class Solution {
         }
         return true;
     }
-        
-        
-                
-    
+}
+*/
+
+
+// s3: HashMap, key is the String , value is the ArrayList corresponds to the String
+// O(n^2), O(n)
+
+public class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        List<List<String>> result = new ArrayList<List<String>>();
+        if (strs == null || strs.length == 0) {
+            return result;
+        }
+        Map<String, List<String>> hashMap = new HashMap<String, List<String>>();
+        for (int i = 0; i < strs.length; i++) {
+            char[] charArray = strs[i].toCharArray();
+            Arrays.sort(charArray);
+            String s = String.valueOf(charArray);
+            if (hashMap.containsKey(s)) {
+                hashMap.get(s).add(strs[i]);
+            } else {
+                List<String> arrayList = new ArrayList<String>();
+                arrayList.add(strs[i]);
+                hashMap.put(s, arrayList);
+            }
+        }
+        result.addAll(hashMap.values());
+        return result;
+    }
 }
