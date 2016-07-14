@@ -66,7 +66,7 @@ public class Solution {
         if (s == null || t == null) {
             return false;
         }    
-        Map<Character, Integer> hashMap1 = new HashMap<Character, Integer>();
+        Map<Character, Long> hashMap1 = new HashMap<Character, Long>();
         for (int i = 0; i < s.length(); i++) {
             if (hashMap1.containsKey(s.charAt(i))) {
                 hashMap1.put(s.charAt(i), hashMap1.get(s.charAt(i)) + 1);
@@ -75,7 +75,7 @@ public class Solution {
             }
         }
         
-        Map<Character, Integer> hashMap2 = new HashMap<Character, Integer>();
+        Map<Character, Long> hashMap2 = new HashMap<Character, Long>();
         for (int i = 0; i < t.length(); i++) {
             if (hashMap2.containsKey(t.charAt(i))) {
                 hashMap2.put(t.charAt(i), hashMap2.get(t.charAt(i)) + 1);
@@ -89,9 +89,9 @@ public class Solution {
             return false;
         }
         
-        for (Map.Entry<Character, Integer> entry: hashMap1.entrySet()) {
-            Char c = entry.getKey();
-            if (hashMap2.get(entry.getKey()) != entry.getValue()) {
+        for (Map.Entry<Character, Long> entry: hashMap1.entrySet()) {
+            char c = entry.getKey();
+            if (hashMap2.get(c) != entry.getValue()) {
                 return false;
             }  
         }
