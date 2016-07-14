@@ -85,8 +85,13 @@ public class Solution {
                 }
             }
         }
-        for (Map.Entry<Character, Integer> entry : hashMap.entrySet()) {
-            if (entry.getValue() != 0) {
+        // for (Map.Entry<Character, Integer> entry : hashMap.entrySet()) {
+        //     if (entry.getValue() != 0) {
+        //         return false;
+        //     }
+        // }
+        for (int i = 0; i < hashMap.size(); i++) {
+            if (hashMap.get(i) != 0) {
                 return false;
             }
         }
