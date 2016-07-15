@@ -6,8 +6,9 @@
 
 
 // s1: brute force, string.charAt() method
-// 
+// O(n^2), O(n)
 
+/*
 public class Solution {
     public String longestCommonPrefix(String[] strs) {
         if (strs == null || strs.length == 0) {
@@ -55,20 +56,10 @@ public class Solution {
         return min_length;
     }
 }
+*/
 
 
-
-
-
-
-
-
-
-
-
-
-
-// s1: brute force, string.substring();
+// s2: brute force, string.substring();
 // O(n^2), O(1)
 
 /*
@@ -105,6 +96,31 @@ public class Solution {
     }
 }
 */
+
+// s3: compare two String each time
+// 
+
+public class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        if (strs == null || strs.length == 0) {
+            return "";
+        }
+        for (int i = 0; i < strs.length; i++) {
+            if (strs[i] == null) {
+                return "";
+            }
+        }
+        String prefix = strs[0];
+        for (int i = 1; i < strs.length; i++) {
+            int j = 0;
+            while (j < prefix.length() && j < strs[i].length() && prefix.charAt(j) == strs[i].charAt(j)) {
+                j++;
+            }
+            prefix = prefix.substring(0, j);
+        }
+        return prefix;
+    }
+}
 
 
 
