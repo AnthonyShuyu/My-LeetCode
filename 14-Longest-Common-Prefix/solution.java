@@ -117,6 +117,9 @@ public class Solution {
                 j++;
             }
             prefix = prefix.substring(0, j);
+            if (j == 0) {
+                return "";
+            }
         }
         return prefix;
     }
