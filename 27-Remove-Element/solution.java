@@ -9,7 +9,7 @@
 // s1: move all the val to the end of the nums array, then count the length before val
 // O(n), O(1)
 
-
+/*
 public class Solution {
     public int removeElement(int[] nums, int val) {
         if (nums == null || nums.length == 0) {
@@ -37,7 +37,7 @@ public class Solution {
         
     }
 }
-
+*/
 
 
 // s2: move the last element to the beginning, and use a pointer to count the non-val
