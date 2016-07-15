@@ -50,7 +50,9 @@ public class Solution {
             return "";
         }
         
+
         int index = 0;
+        while (true) 
         for (int i = 0; i < strs.length; i++) {
             if (strs[i] == null) {
                 return "";
@@ -60,7 +62,7 @@ public class Solution {
             } else if (i > 0 && strs[i].charAt(index) != strs[i - 1].charAt(index)){
                 break;
             }
-            index++;
+
         }
         return strs[0].substring(0, index);
         
