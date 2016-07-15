@@ -1,6 +1,6 @@
 /**
  * 12. Integer to Roman
- * 
+ * 1 solution
  * 
  */
 
@@ -44,13 +44,6 @@ public class Solution {
         return sb.toString();
     }
 }
-
-
-
-
-
-
-
 
 
 
