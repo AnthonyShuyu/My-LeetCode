@@ -27,10 +27,10 @@ public class Solution {
         int result = hashMap.get(s.charAt(s.length() - 1));
         
         for (int i = s.length() - 2; i >= 0; i--) {
-            if (hashMap.get(i) < hashMap.get(i + 1)) {
-                result -= hashMap.get(i);
+            if (hashMap.get(s.charAt(i)) < hashMap.get(s.charAt(i + 1))) {
+                result -= hashMap.get(s.charAt(i));
             } else {
-                result += hashMap.get(i);
+                result += hashMap.get(s.charAt(i));
             }
         }
         return result;
