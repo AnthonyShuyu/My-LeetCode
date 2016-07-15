@@ -97,8 +97,9 @@ public class Solution {
 }
 */
 
-// s3: compare two String each time
-// 
+// *s3: compare two String each time
+// O(n^2), O(1)
+// tricky
 
 public class Solution {
     public String longestCommonPrefix(String[] strs) {
