@@ -5,8 +5,9 @@
 
 
 // s1: brute force, string.substring();
-// 
+// O(n^2), O(1)
 
+/*
 public class Solution {
     public String longestCommonPrefix(String[] strs) {
         if (strs == null || strs.length == 0) {
@@ -37,5 +38,32 @@ public class Solution {
             }
         }
         return s;
+    }
+}
+*/
+
+
+
+public class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        if (strs == null || strs.length == 0) {
+            return "";
+        }
+        
+        int index = 0;
+        for (int i = 0; i < strs.length; i++) {
+            if (strs[i] == null) {
+                return "";
+            }
+            if (index >= strs[i].length()) {
+                break; 
+            } else if (i < strs.length - 1 && strs[i].charAt(index) != strs[i + 1].charAt(index)){
+                break;
+            }
+            index++;
+        }
+        return strs[0].substring(0, index);
+        
+        
     }
 }
