@@ -4,6 +4,70 @@
  */
 
 
+
+// s1: brute force, string.charAt() method
+// 
+
+public class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        if (strs == null || strs.length == 0) {
+            return "";
+        }
+        for (int i = 0; i < strs.length; i++) {
+            if (strs[i] == null) {
+                return "";
+            }
+        }
+        
+        StringBuilder sb = new StringBuilder();
+        int min_length = findMinLength(strs);
+        for (int i = 0; i < min_length; i++) {
+            if (isCommon(strs, i)) {
+                sb.append(strs[0].charAt(i));
+            } else {
+                break;
+            }
+        }
+        return sb.toString();
+    }
+    
+    public boolean isCommon(String[] strs, int index) {
+        if (strs[0] == null) {
+            return false;
+        }
+        char c = strs[0].charAt(index);
+        for (int i = 1; i < strs.length; i++) {
+            if (strs[i].charAt(index) != c) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public int findMinLength(String[] strs) {
+        if (strs[0] == null) {
+            return 0;
+        }
+        int min_length = strs[0].length();
+        for (int i = 1; i < strs.length; i++) {
+            min_length = Math.MIN_VALUE(min_length, strs[i].length());
+        }
+        return min_length;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 // s1: brute force, string.substring();
 // O(n^2), O(1)
 
@@ -44,6 +108,8 @@ public class Solution {
 
 
 
+// failed
+/*
 public class Solution {
     public String longestCommonPrefix(String[] strs) {
         if (strs == null || strs.length == 0) {
@@ -65,7 +131,6 @@ public class Solution {
 
         }
         return strs[0].substring(0, index);
-        
-        
     }
 }
+*/
