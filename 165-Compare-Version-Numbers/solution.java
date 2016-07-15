@@ -16,9 +16,9 @@ public class Solution {
         int n = string1.length < string2.length ? string1.length : string2.length;
         
         for (int i = 0;i < n; i++) {
-            if (string1[i] < string2[i]) {
+            if (Integer.valueOf(string1[i]) < Integer.valueOf(string2[i])) {
                 return -1;                
-            } else if (string[i] > string2[i]) {
+            } else if (Integer.valueOf(string[i]) > Integer.valueOf(string2[i])) {
                 return 1;
             }
         }
