@@ -14,7 +14,7 @@
 // O(n), O(n)
 
 public class Solution {
-    public String intToRomen(int num) {
+    public String intToRoman(int num) {
         if (num < 1 || num >= 4000) {
             return null;
         }
