@@ -37,3 +37,31 @@ public class Solution {
         
     }
 }
+
+
+
+// s2: move the last element to the beginning, and use a pointer to count the non-val
+// O(n), O(1)
+// tricky
+
+public class Solution {
+    public int removeElement(int[] nums, int val) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int pointer = nums.length - 1;
+        int i = 0;
+        while (i <= pointer) {
+            if (nums[i] == val) {
+                nums[i] = nums[pointer];
+                pointer--;
+            } else {
+                i++;
+            }
+        }
+        return pointer + 1;
+        
+        
+    }
+    
+}
