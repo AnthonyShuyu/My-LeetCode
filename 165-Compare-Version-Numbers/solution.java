@@ -15,7 +15,7 @@ public class Solution {
         }
         String[] strings1 = version1.split("\\.");
         String[] strings2 = version2.split("\\.");
-        int max = Math.max(strings1.length, Strings2.length);
+        int max = Math.max(strings1.length, strings2.length);
         for (int i = 0; i < max; i++) {
             int num1, num2;
             if (i < strings1.length) {
