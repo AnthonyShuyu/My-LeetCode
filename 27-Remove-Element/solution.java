@@ -29,11 +29,11 @@ public class Solution {
         }        
         
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] = val) {
+            if (nums[i] == val) {
                 return i;
             }
         }
-        return 0;
+        return nums.length;
         
     }
 }
