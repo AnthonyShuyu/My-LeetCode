@@ -50,7 +50,7 @@ public class Solution {
         }
         int min_length = strs[0].length();
         for (int i = 1; i < strs.length; i++) {
-            min_length = Math.MIN_VALUE(min_length, strs[i].length());
+            min_length = Math.min(min_length, strs[i].length());
         }
         return min_length;
     }
