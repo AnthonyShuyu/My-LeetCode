@@ -6,9 +6,37 @@
  */
  
  
-// s1: Arrays.sort() method
-//
+ 
+// s1: attention: this is already a sorted array, Arrays.sort() method
+// O(nlogn), O(1)
 
+public class Solution {
+    public int removeDuplicates(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        Arrays.sort(nums);
+        int index = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != nums[index]) {
+                index++;
+                nums[index] = nums[i];
+            }
+        }
+        return index + 1;
+    }
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+// s1: Arrays.sort() method
+// falied, it needs to remove the elements, not only count the nums
+
+/*
 public class Solution {
     public int removeDuplicates(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -23,8 +51,9 @@ public class Solution {
             }
         }
         return result;
+    }
 }
-
+*/
 
 // s1: use remove element method
 // failed
@@ -51,8 +80,9 @@ public class Solution {
             }
             i++;
         }
-        Arrays.sort(nums);
+        // Arrays.sort(nums);
         return pointer + 1;
     }
 }
+
 */
