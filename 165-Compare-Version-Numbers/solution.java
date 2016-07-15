@@ -27,7 +27,7 @@ public class Solution {
             if (i < strings2.length) {
                 num2 = Integer.valueOf(strings2[i]);
             } else {
-                nums2 = 0;
+                num2 = 0;
             }
             if (num1 > num2) {
                 return 1;
