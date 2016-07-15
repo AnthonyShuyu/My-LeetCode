@@ -8,6 +8,7 @@
 // O(n), O(1)
 // tricky
 
+/*
 public class Solution {
     public void moveZeroes(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -25,7 +26,7 @@ public class Solution {
         }
     }
 }
-
+*/
 
 // s2: brute force, swap elements
 // O(n^2), O(1)
@@ -46,6 +47,7 @@ public class Solution {
                         int temp = nums[i];
                         nums[i] = nums[j];
                         nums[j] = temp;
+                        break;
                     }
                 }
             }
