@@ -57,7 +57,7 @@ public class Solution {
             }
             if (index >= strs[i].length()) {
                 break; 
-            } else if (i < strs.length - 1 && strs[i].charAt(index) != strs[i + 1].charAt(index)){
+            } else if (i > 0 && strs[i].charAt(index) != strs[i - 1].charAt(index)){
                 break;
             }
             index++;
