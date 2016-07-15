@@ -1,7 +1,7 @@
 /**
  * 
  * 27. Remove Element
- * 
+ * 2 solutions
  * 
  */
 
@@ -60,8 +60,5 @@ public class Solution {
             }
         }
         return pointer + 1;
-        
-        
     }
-    
 }
