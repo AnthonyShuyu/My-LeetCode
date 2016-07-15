@@ -1,6 +1,6 @@
 /**
  * 14. Longest Common Prefix
- * 
+ * 2 solutions
  */
 
 
