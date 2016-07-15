@@ -1,6 +1,6 @@
 /**
  * 283. Move Zeros
- * 
+ * 2 solutions
  * 
  */
 
