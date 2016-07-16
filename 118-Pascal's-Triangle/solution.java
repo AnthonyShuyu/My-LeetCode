@@ -5,6 +5,9 @@
  */
 
 
+// s1: brute force
+// O(n^2), O(n)
+
 public class Solution {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
@@ -19,7 +22,6 @@ public class Solution {
             }
             result.add(list);
         }
-        
         // set the middle nums
         for (int i = 2; i < numRows; i++) {
             List<Integer> last_list = result.get(i - 1);
@@ -28,8 +30,6 @@ public class Solution {
                 current_list.set(j, last_list.get(j - 1) + last_list.get(j));
             }
         }
-        
         return result;
-        
     }
 }
