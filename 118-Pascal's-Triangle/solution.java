@@ -8,6 +8,8 @@
 // s1: brute force
 // O(n^2), O(n)
 
+
+/*
 public class Solution {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
@@ -33,3 +35,42 @@ public class Solution {
         return result;
     }
 }
+
+*/
+
+
+// *s2: brute force optimize
+// O(), O()
+
+
+public class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        if (numRows <= 0) {
+            return result;
+        }
+        // initiate
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(1);
+        result.add(list);
+        
+        for (int i = 1; i < numRows; i++) {
+            List<Integer> current_list = new ArrayList<Integer>();
+            for (int j = 0; j < i + 1; j++) {
+                current_list.add(1);
+            }
+            List<Integer> last_list = result.get(i - 1);
+            current_list.set(0, last_list.get(0));
+            current_list.set(i, last_list.get(i - 1));
+            
+            for (int j = 1; j < i; j++) {
+                current_list.set(j, last_list.get(j - 1) + last_list.get(j));
+            }
+            result.add(current_list);            
+        }
+        return current_list;        
+    }
+}
+
+
+
