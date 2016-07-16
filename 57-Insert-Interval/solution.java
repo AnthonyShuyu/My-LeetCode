@@ -18,7 +18,8 @@ public class Solution {
     public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
         List<Interval> list = new ArrayList<Interval>();
         if (intervals == null || intervals.size() == 0) {
-            return newInterval;
+            list.add(newInterval);
+            return list;
         }
         int insertPos = 0;
         for (int i = 0; i < intervals.size(); i++) {
@@ -27,6 +28,9 @@ public class Solution {
             } else if (intervals.get(i).end < newInterval.start) {
                 list.add(intervals.get(i));
                 insertPos++;
+            } else {
+                newInterval.start = Math.min(intervals.get(i).start, newInterval.start);
+                newInterval.end = Math.max(intervals.get(i).end, newInterval.end);
             }
         }
         list.add(insertPos, newInterval);
