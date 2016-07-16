@@ -1,6 +1,6 @@
 /**
  *  57. Insert Interval
- *  
+ *  1 solution
  */
 
 
