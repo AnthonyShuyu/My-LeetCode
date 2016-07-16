@@ -59,12 +59,12 @@ public class Solution {
             for (int j = 0; j < i + 1; j++) {
                 current_list.add(1);
             }
-            List<Integer> last_list = result.get(i - 1);
-            current_list.set(0, last_list.get(0));
-            current_list.set(i, last_list.get(i - 1));
+            List<Integer> prev_list = result.get(i - 1);
+            current_list.set(0, prev_list.get(0));
+            current_list.set(i, prev_list.get(i - 1));
             
             for (int j = 1; j < i; j++) {
-                current_list.set(j, last_list.get(j - 1) + last_list.get(j));
+                current_list.set(j, prev_list.get(j - 1) + prev_list.get(j));
             }
             result.add(current_list);            
         }
