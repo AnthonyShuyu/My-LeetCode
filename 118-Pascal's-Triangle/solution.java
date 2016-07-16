@@ -68,7 +68,7 @@ public class Solution {
             }
             result.add(current_list);            
         }
-        return current_list;        
+        return result;        
     }
 }
 
