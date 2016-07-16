@@ -1,6 +1,6 @@
 /**
  * 118. Pascal's Triangle
- * 
+ * 2 solutions
  * 
  */
 
@@ -39,8 +39,8 @@ public class Solution {
 */
 
 
-// *s2: brute force optimize
-// O(), O()
+// *s2: brute force optimize, set the array and add to the result at the same time
+// O(n^2), O(n)
 
 
 public class Solution {
