@@ -10,11 +10,11 @@
 public class Solution {
     public List<Integer> getRow(int rowIndex) {
         List<Integer> result = new ArrayList<Integer>();
-        if (rowIndex <= 0) {
+        if (rowIndex < 0) {
             return result;
         }
         
-        List<List<Integer>> pascal_triangle = getPascalTriangle(rowIndex);
+        List<List<Integer>> pascal_triangle = getPascalTriangle(rowIndex + 1);
         return pascal_triangle.get(rowIndex);
     }
     
