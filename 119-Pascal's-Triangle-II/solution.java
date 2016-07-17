@@ -1,6 +1,6 @@
 /**
  * 119. Pascal's Triangle II
- * 
+ * 2 solutions
  */
 
 
