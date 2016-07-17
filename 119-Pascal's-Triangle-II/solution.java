@@ -15,7 +15,7 @@ public class Solution {
         }
         
         List<List<Integer>> pascal_triangle = getPascalTriangle(rowIndex);
-        return pascal_triangle.get(i);
+        return pascal_triangle.get(rowIndex);
     }
     
     public List<List<Integer>> getPascalTriangle(int rowIndex) {
