@@ -5,7 +5,7 @@
 
 
 // s1: brute force
-// 
+// O(n), O(n)
 
 public class Solution {
     public int[] plusOne(int[] digits) {
@@ -35,7 +35,7 @@ public class Solution {
             for (int i = 0; i < index; i++) {
                 result[i] = digits[i];
             }
-            result[index] = digits[i] + 1;
+            result[index] = digits[index] + 1;
         }
         return result;
     }
