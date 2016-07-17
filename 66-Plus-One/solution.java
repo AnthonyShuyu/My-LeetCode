@@ -6,6 +6,7 @@
 // s1: brute force
 // O(n), O(n)
 
+/*
 public class Solution {
     public int[] plusOne(int[] digits) {
         int[] result = null;
@@ -39,7 +40,7 @@ public class Solution {
         return result;
     }
 }
-
+*/
 
 
 
