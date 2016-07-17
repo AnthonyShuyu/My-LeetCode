@@ -36,8 +36,8 @@ public class Solution {
             carry = 0;
             for (j = len2 - 1; j >= 0; j--) {
                 product = carry + num3[i + j + 1] +
-                    Integer.parseInt(num1.charAt(i)) *
-                    Integer.parseInt(num2.charAt(j));
+                    Character.getNumericValue(num1.charAt(i)) *
+                    Character.getNumericValue(num2.charAt(j));
                 num3[i + j + 1] = product % 10;
                 carry = product / 10;
             }
