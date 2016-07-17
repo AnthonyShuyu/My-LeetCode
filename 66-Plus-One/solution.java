@@ -1,6 +1,6 @@
 /**
  * 66. Plus One
- * 
+ * 2 solutions
  */
 
 // s1: brute force
