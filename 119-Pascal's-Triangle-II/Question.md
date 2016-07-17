@@ -20,10 +20,10 @@ Could you optimize your algorithm to use only _O_(_k_) extra space?
 
 <div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton">[Array](/tag/array/)</span></div>
+<span class="hidebutton" style="display: none;">[Array](/tag/array/)</span></div>
 
 <div>
 
 <div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
 
-<span class="hidebutton">[(E) Pascal's Triangle](/problems/pascals-triangle/)</span></div>
+<span class="hidebutton" style="display: none;">[(E) Pascal's Triangle](/problems/pascals-triangle/)</span></div>
