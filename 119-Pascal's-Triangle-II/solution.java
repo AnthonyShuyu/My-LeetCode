@@ -42,8 +42,9 @@ public class Solution {
 */
 
 
-// s2: 
-// O(), O(k)
+// *s2: build the triangle's level one time in one loop level, use only O(k) extra space
+// O(n^2), O(k)
+// tricky
 
 
 public class Solution {
