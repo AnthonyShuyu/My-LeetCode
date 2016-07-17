@@ -5,8 +5,9 @@
 
 
 // s1: build the Pascal's triangle and return the rowIndex's element of the result
-// O(n^2), O(n)
+// O(n^2), O(k^2)
 
+/*
 public class Solution {
     public List<Integer> getRow(int rowIndex) {
         List<Integer> result = new ArrayList<Integer>();
@@ -36,5 +37,36 @@ public class Solution {
             result.add(current_list);
         }
         return result;
+    }
+}
+*/
+
+
+// s2: 
+// O(), O(k)
+
+
+public class Solution {
+    public List<Integer> getRow(int rowIndex) {
+        List<Integer> result = new ArrayList<Integer>();
+        if (rowIndex < 0) {
+            return result;
+        }
+        int row = rowIndex + 1;
+        result.add(1);
+        
+        for (int i = 1; i < row; i++) {
+            List<Integer> list = new ArrayList<Integer>();
+            for (int j = 0; j < i + 1; j++) {
+                list.add(-1);
+            }
+            list.set(0, result.get(0));
+            list.set(i, result.get(i - 1));
+            for (int j = 1; j < i; j++) {
+                list.set(j, result.get(j - 1) + result.get(j));                
+            }
+            result = list;
+        }
+        return result;        
     }
 }
