@@ -31,7 +31,7 @@ public class Solution {
             }
             List<Integer> prev_list = result.get(i - 1);
             for (int j = 1; j < i; j++) {
-                current_list.set(j, pre_list.get(j - 1) + pre_list.get(j));
+                current_list.set(j, prev_list.get(j - 1) + prev_list.get(j));
             }
             result.add(current_list);
         }
