@@ -17,7 +17,7 @@ public class Solution {
         }
         int length1 = num1.length();
         int length2 = num2.length();
-        int[] array = new int[length1 + length2 + 1];
+        int[] array = new int[length1 + length2];
         
         for (int i = length1 - 1; i >= 0; i--) {
             int carry = 0;
@@ -26,14 +26,23 @@ public class Solution {
                 carry = num / 10;
                 array[i + j + 1] = num % 10;
             }
+            array[i + j + 1] = carry;
         }
-        int i = 0;
-        while (array[i] == 0 && i < array.length - 1) {
-            i++;
+        // int i = 0;
+        // while (array[i] == 0 && i < array.length - 1) {
+        //     i++;
+        // }
+        int index = 0;
+        while (index < array.length - 1) {
+            if (array[index] == 0) {
+                index++;
+            } else {
+                break;
+            }
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < array.length; i++) {
-            sb.append(array[i]);
+        while (index < array.length) {
+            sb.append(array[index]);
         }
         return sb.toString();
     }
