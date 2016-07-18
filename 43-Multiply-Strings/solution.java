@@ -23,7 +23,7 @@ public class Solution {
         for (int i = length1 - 1; i >= 0; i--) {
             int carry = 0;
             for (j = length2 - 1; j >= 0; j--) {
-                int num = carry + array[i + j + 1] + Character.getNumericValue(num1.charAt(i)) * Character.getNumericValue(num2.charAt(j));
+                int num = carry + array[i + j + 1] + (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
                 carry = num / 10;
                 array[i + j + 1] = num % 10;
             }
