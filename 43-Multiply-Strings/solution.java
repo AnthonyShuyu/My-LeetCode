@@ -18,31 +18,26 @@ public class Solution {
         int length1 = num1.length();
         int length2 = num2.length();
         int[] array = new int[length1 + length2];
+        int j;
         
         for (int i = length1 - 1; i >= 0; i--) {
             int carry = 0;
-            for (int j = length2 - 1; j >= 0; j--) {
+            for (j = length2 - 1; j >= 0; j--) {
                 int num = carry + array[i + j + 1] + Character.getNumericValue(num1.charAt(i)) * Character.getNumericValue(num2.charAt(j));
                 carry = num / 10;
                 array[i + j + 1] = num % 10;
             }
             array[i + j + 1] = carry;
         }
-        // int i = 0;
-        // while (array[i] == 0 && i < array.length - 1) {
-        //     i++;
-        // }
+
         int index = 0;
-        while (index < array.length - 1) {
-            if (array[index] == 0) {
+        while (array[index] == 0 && index < array.length - 1) {
                 index++;
-            } else {
-                break;
-            }
         }
         StringBuilder sb = new StringBuilder();
         while (index < array.length) {
             sb.append(array[index]);
+            index++;
         }
         return sb.toString();
     }
