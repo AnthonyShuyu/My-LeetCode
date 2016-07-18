@@ -93,7 +93,7 @@ public class Solution {
             carry = sum / 2;
             pointerA--;
         }
-        if (carray == 1) {
+        if (carry == 1) {
             sb.append(1);
         } 
         return sb.reverse().toString();
