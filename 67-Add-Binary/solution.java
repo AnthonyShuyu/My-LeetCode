@@ -42,7 +42,7 @@ public class Solution {
         }
         while (index >= 0) {
             sb.append(c[length3 - index]);
-            index++;
+            index--;
         }
         return sb.toString();
         
