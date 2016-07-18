@@ -10,12 +10,7 @@ public class Solution {
         if (a == null || a.length() == 0 || b == null || b.length() == 0) {
             return null;
         }
-        if (a == 0) {
-            return b;
-        }
-        if (b == 0) {
-            return a;
-        }
+
         int length1 = a.length();
         int length2 = b.length();
         int length3 = length1 + length2;
@@ -44,12 +39,17 @@ public class Solution {
         }
         StringBuilder sb = new StringBuilder();
         if (carry == 1) {
-            sb.append(1);
+            c[length3 - index - 1] = 1; 
         }
-        while (index >= 0) {
-            sb.append(c[length3 - index - 1]);
-            index--;
+        int i = 0;
+        while (c[i] == 0 && i < length3 - 1) {
+            i++;
         }
+        while (i < length3) {
+            sb.append(c[i]);
+            i++;
+        }
+        
         return sb.toString();
         
     }
