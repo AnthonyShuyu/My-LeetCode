@@ -61,12 +61,57 @@ public class Solution {
 }
 */
 
+// s2: use StringBuilder and two pointers
+// O(n), O(n)
+
+public class Solution {
+    public String addBinary(String a, String b) {
+        if (a == null || a.length() == 0 || b == null || b.length() == 0) {
+            return null;
+        }
+        if (a.length() < b.length()) {
+            String temp = a;
+            a = b;
+            b = temp;
+        }
+        
+        int carry = 0;
+        StringBuilder sb = new StringBuilder();
+        int pointerA = a.length() - 1;
+        int pointerB = b.length() - 1;
+        
+        while (pointerB >= 0) {
+            int sum = carry + (int)(a.charAt(pointerA) - '0') + (int)(b.charAt(pointerB) - '0');
+            sb.append(sum % 2);
+            carry = sum / 2;
+            pointerA--;
+            pointerB--;
+        }
+        while (pointerA >= 0) {
+            int sum = carry + (int)(a.charAt(pointerA) - '0');
+            sb.append(sum % 2);
+            carry = sum / 2;
+            pointerA--;
+        }
+        if (carray == 1) {
+            sb.append(1);
+        } 
+        return sb.reverse().toString();
+        
+        
+}
+
+
+
+
+
 
 
 
 // s2: use String cancatenate
 // O(n), O(n^2)
 
+/*
 public class Solution {
     public String addBinary(String a, String b) {
         if(a.length() < b.length()){
@@ -100,3 +145,4 @@ public class Solution {
         return rst;
     }
 }
+*/
