@@ -1,6 +1,6 @@
 /**
  * 43. Multiply Strings
- * 
+ * 1 solution
  * 
  */
 
@@ -42,17 +42,6 @@ public class Solution {
         return sb.toString();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
