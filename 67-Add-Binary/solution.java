@@ -1,7 +1,12 @@
 /**
  * 67. Add Binary
+ * 2 solutions
  * 
  */
+
+
+// s1: brute force, use for loop
+// O(n), O(n)
 
 
 /*
@@ -61,8 +66,6 @@ public class Solution {
 
 // s2: use String cancatenate
 // O(n), O(n^2)
-
-
 
 public class Solution {
     public String addBinary(String a, String b) {
