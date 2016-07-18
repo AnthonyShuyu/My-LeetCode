@@ -10,6 +10,12 @@ public class Solution {
         if (a == null || a.length() == 0 || b == null || b.length() == 0) {
             return null;
         }
+        if (a == 0) {
+            return b;
+        }
+        if (b == 0) {
+            return a;
+        }
         int length1 = a.length();
         int length2 = b.length();
         int length3 = length1 + length2;
@@ -41,7 +47,7 @@ public class Solution {
             sb.append(1);
         }
         while (index >= 0) {
-            sb.append(c[length3 - index]);
+            sb.append(c[length3 - index - 1]);
             index--;
         }
         return sb.toString();
