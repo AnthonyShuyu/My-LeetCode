@@ -21,9 +21,11 @@ public class Solution {
                         break;
                     }
                 }
+                swap(nums, i, j);
+                reverse(nums, i + 1, nums.length - 1); 
+                return;
             }
-            swap(nums, i, j);
-            reverse(nums, i + 1, nums.length - 1);            
+           
         }
         reverse(nums, 0, nums.length - 1);        
     }
