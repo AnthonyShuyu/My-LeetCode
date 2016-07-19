@@ -62,22 +62,23 @@ public class Solution {
         for (int i = nums.length - 2; i >= 0; i--) {
             if (nums[i] < nums[i + 1]) {
                 index = i;
+                break;
             }            
-            break;
         }
         if (index == -1) {
             reverse(nums, 0, nums.length - 1);
+            return;
         }
         
         int index2 = index + 1;
-        for (int i = nums.length - 1; i >= 0; i--) {
+        for (int i = nums.length - 1; i > index; i--) {
             if (nums[i] > nums[index]) {
                 index2 = i;
+                break;
             }
-            break;
         }
         swap(nums, index, index2);
-        reverse(nums, index2, nums.length - 1);
+        reverse(nums, index + 1, nums.length - 1);
         
 
     }
