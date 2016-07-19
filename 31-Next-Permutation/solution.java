@@ -7,6 +7,7 @@
 // s1: brute force, two pointers
 // O(n^2), O(1)
 
+/*
 public class Solution {
     public void nextPermutation(int[] nums) {
         if (nums == null || nums.length <= 1) {
@@ -45,6 +46,8 @@ public class Solution {
         }
     }
 }
+*/
+
 
 // *s2: brute force, 2 times loop
 // O(n), O(n)
