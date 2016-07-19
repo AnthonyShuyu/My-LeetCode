@@ -16,7 +16,7 @@ public class Solution {
         for (int i = nums.length - 2; i >= 0; i--) {
             if (nums[i] < nums[i + 1]) {
                 int j;
-                for (j = num.length - 1; j > i; j--) {
+                for (j = nums.length - 1; j > i; j--) {
                     if (nums[j] > nums[i]) {
                         break;
                     }
