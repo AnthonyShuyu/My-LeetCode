@@ -21,7 +21,7 @@ public class Solution {
         // find the first increase index
         int index = -1;
         for (int i = 0; i < prices.length - 1; i++) {
-            if (index[i + 1] > index[i]) {
+            if (prices[i + 1] > prices[i]) {
                 index = i + 1;
                 break;
             }
@@ -43,7 +43,7 @@ public class Solution {
         }
         int result = 0;
         for (int i = 0; i < prices.length; i++) {
-            result = Math.max(result, prices[i]);
+            result = Math.max(result, max_profits[i]);
         }
         return result;
     }
