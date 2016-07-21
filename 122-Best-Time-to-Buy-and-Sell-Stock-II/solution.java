@@ -8,6 +8,8 @@ Design an algorithm to find the maximum profit. You may complete as many transac
 // s1: greedy
 // O(n), O(n)
 
+
+/*
 public class Solution {
     public int maxProfit(int[] prices) {
         // corner case
@@ -48,3 +50,26 @@ public class Solution {
         return result;
     }
 }
+*/
+
+
+
+// *s2: one pass 
+// O(n), O(1)
+
+public class Solution {
+    public int maxProfit(int[] prices) {
+        // corner case
+        if (prices == null || prices.length == 0) {
+            return 0;
+        }
+        int max = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1]) {
+                max += prices[i] - prices[i - 1];
+            }
+        }
+        return max;        
+    }
+}
+
