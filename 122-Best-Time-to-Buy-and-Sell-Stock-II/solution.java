@@ -6,7 +6,7 @@ Design an algorithm to find the maximum profit. You may complete as many transac
  */
 
 // s1: greedy
-// O(n), O(1)
+// O(n), O(n)
 
 public class Solution {
     public int maxProfit(int[] prices) {
