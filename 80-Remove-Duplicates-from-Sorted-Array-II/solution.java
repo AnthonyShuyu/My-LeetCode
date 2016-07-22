@@ -30,10 +30,10 @@ public class Solution {
                 }
             }  
         }
-        if (nums.length > 2) {
+        if (nums[index] == nums[index + 1]) {
+            return index + 2;
+        } else {
             return index + 1;
-        } eles {
-            return nums.length;
         }
 
     }
