@@ -1,7 +1,11 @@
 /**
  * 289. Game of Life
+ * 2 solutions
  * 
  * 
+ * 
+ * when you want O(1) space, think about bit operation
+ *  
  */
 
 
