@@ -1,6 +1,6 @@
 /**
  * 80. Remove Duplicates from Sorted Array II
- * 
+ * 1 solution
  * 
  */
 
