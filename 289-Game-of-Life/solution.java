@@ -187,10 +187,10 @@ public class Solution {
         for(int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 int count = 0;
-                for (int k = 0; k < 8, k++) {
+                for (int k = 0; k < 8; k++) {
                     int x = i + xArray[k];
                     int y = j + yArray[k];
-                    if (x > 0 && y > 0 && x < m && y < n && (board[x][y] & 1) == 1 ) {
+                    if (x >= 0 && y >= 0 && x < m && y < n && (board[x][y] & 1) == 1 ) {
                         count += 1;
                     }
                 }
