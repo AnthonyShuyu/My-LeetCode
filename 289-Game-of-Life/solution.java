@@ -9,7 +9,7 @@
 // O(m * n)
 
 public class Solution {
-    public void gameOfLife(int[][] board) {
+        public void gameOfLife(int[][] board) {
         // corner case
         if (board == null || board.length == 0) {
             return;
@@ -18,11 +18,19 @@ public class Solution {
             return;
         }
         
-        for (int i = 0; i < board[0].length; i++) {
-            for (int j = 0; j < board.length; j++) {
-                board[i][j] = nextGeneration(board[i][j], countLiveCells(i, j, board));
+        int[][] newboard = new int[board.length][board[0].length];
+        
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                newboard[i][j] = nextGeneration(board[i][j], countLiveCells(i, j, board));
             }
         }
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                board[i][j] = newboard[i][j];
+            }
+        }
+        
     }
         
     public int countLiveCells(int x, int y, int[][] board) {
@@ -32,25 +40,25 @@ public class Solution {
         if (x - 1 >= 0 && y - 1 >= 0 && board[x - 1][y - 1] == 1) {
             count++;
         }
-        if (x - 1 >= 0 && board[x - 1][y] == 1) {
-            count++;
-        }
-        if (x - 1 >= 0 && y + 1 <= m - 1 && board[x - 1][y + 1] == 1) {
-            count++;
-        }
         if (y - 1 >= 0 && board[x][y - 1] == 1) {
             count++;
         }
-        if (y + 1 <= m - 1 && board[x][y + 1] == 1) {
+        if (x + 1 <= m - 1 && y - 1 >= 0 && board[x + 1][y - 1] == 1) {
             count++;
         }
-        if (x + 1 <= n - 1 && y - 1 >= 0 && board[x + 1][y - 1] == 1) {
+        if (x - 1 >= 0 && board[x - 1][y] == 1) {
             count++;
         }
-        if (x + 1 <= n - 1 && board[x + 1][y] == 1) {
+        if (x + 1 <= m - 1 && board[x + 1][y] == 1) {
             count++;
         }
-        if (x + 1 <= n - 1 && y + 1 <= m - 1 && board[x + 1][y + 1] == 1) {
+        if (x - 1 >= 0 && y + 1 <= n - 1&& board[x - 1][y + 1] == 1) {
+            count++;
+        }
+        if (y + 1 <= n - 1 && board[x][y + 1] == 1) {
+            count++;
+        }
+        if (x + 1 <= m - 1 && y + 1 <= n - 1 && board[x + 1][y + 1] == 1) {
             count++;   
         }
         return count;
