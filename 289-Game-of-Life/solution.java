@@ -123,22 +123,22 @@ public class Solution {
         if (y - 1 >= 0 && (board[x][y - 1] & 1) == 1) {
             count++;
         }
-        if (x + 1 <= m - 1 && y - 1 >= 0 && board[x + 1][y - 1] & 1 == 1) {
+        if (x + 1 <= m - 1 && y - 1 >= 0 && (board[x + 1][y - 1] & 1) == 1) {
             count++;
         }
-        if (x - 1 >= 0 && board[x - 1][y] & 1 == 1) {
+        if (x - 1 >= 0 && (board[x - 1][y] & 1) == 1) {
             count++;
         }
-        if (x + 1 <= m - 1 && board[x + 1][y] & 1 == 1) {
+        if (x + 1 <= m - 1 && (board[x + 1][y] & 1) == 1) {
             count++;
         }
-        if (x - 1 >= 0 && y + 1 <= n - 1&& board[x - 1][y + 1] & 1 == 1) {
+        if (x - 1 >= 0 && y + 1 <= n - 1&& (board[x - 1][y + 1] & 1) == 1) {
             count++;
         }
-        if (y + 1 <= n - 1 && board[x][y + 1] & 1== 1) {
+        if (y + 1 <= n - 1 && (board[x][y + 1] & 1) == 1) {
             count++;
         }
-        if (x + 1 <= m - 1 && y + 1 <= n - 1 && board[x + 1][y + 1] & 1 == 1) {
+        if (x + 1 <= m - 1 && y + 1 <= n - 1 && (board[x + 1][y + 1] & 1) == 1) {
             count++;   
         }
         return count;
