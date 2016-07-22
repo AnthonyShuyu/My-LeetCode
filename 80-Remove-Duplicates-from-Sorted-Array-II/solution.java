@@ -30,7 +30,7 @@ public class Solution {
                 }
             }  
         }
-        if (nums[index] == nums[index + 1]) {
+        if (index < nums.length + 1 && nums[index] == nums[index + 1]) {
             return index + 2;
         } else {
             return index + 1;
