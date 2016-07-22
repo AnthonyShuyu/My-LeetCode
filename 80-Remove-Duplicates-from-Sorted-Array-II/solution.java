@@ -19,7 +19,7 @@ public class Solution {
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != nums[index]) {
                 if (i - j >= 2) {
-                    nums[index + 1] = num[j];
+                    nums[index + 1] = nums[j];
                     index += 2;
                     nums[index] = nums[i];
                     j = i;
@@ -30,6 +30,11 @@ public class Solution {
                 }
             }  
         }
-        return index + 1;
+        if (nums.length > 2) {
+            return index + 1;
+        } eles {
+            return nums.length;
+        }
+
     }
 }
