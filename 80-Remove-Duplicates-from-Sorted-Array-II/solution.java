@@ -6,7 +6,7 @@
 
 
 // s1: use index, and two pointers
-// O(n ^ 2), O(1)
+// O(n^2), O(1)
 
 public class Solution {
     public int removeDuplicates(int[] nums) {
@@ -28,9 +28,7 @@ public class Solution {
             }
             i = j;
         }
-        
         return index;
-        
     }
 }
 
