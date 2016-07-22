@@ -17,10 +17,11 @@ public class Solution {
         int index = 0;
         int i = 0;
         while (i < nums.length) {
-            for (int j = i; j < nums.length; j++) {
+            int j;
+            for (j = i; j < nums.length; j++) {
                 if (nums[j] != nums[i]) {
                     break;
-                } else if (j - i <= 2) {
+                } else if (j - i < 2) {
                     nums[index] = nums[i];
                     index++;
                 }
