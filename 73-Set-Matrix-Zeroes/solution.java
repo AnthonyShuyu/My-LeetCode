@@ -29,15 +29,15 @@ public class Solution {
                 }
             }
         }
-        for (int i = 0; i < rowSet.size(); i++) {
+        for (int i : rowSet) {
             for (int j = 0; j < matrix[0].length; j++) {
-                matrix[rowSet.get(i)][j] = 0;
+                matrix[i][j] = 0;
             }
         }        
         
-        for (int i = 0; i < columnSet.size(); i++) {
+        for (int i : columnSet) {
             for (int j = 0; j < matrix.length; j++) {
-                matrix[j][columnSet.get(i)] = 0;
+                matrix[j][i] = 0;
             }
         }
     }
