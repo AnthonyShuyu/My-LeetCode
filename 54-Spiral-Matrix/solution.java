@@ -5,6 +5,7 @@
 
 // s1: brute force, one circle after one circle, but stop when only one row or one column left
 // O(n^2), O(n)
+// tricky
 
 public class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
