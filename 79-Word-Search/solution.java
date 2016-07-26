@@ -52,8 +52,8 @@ public class Solution {
             return false;
         }
         board[i][j] = '#';
-        boolean result = find(board, word, i + 1, j, start + 1) || find(board, word, i - 1, j, start + 1) || find(borad, word, i, j + 1, start + 1) || find(board, word, i, j - 1, start + 1);
-        // board[i][j] = word.charAt(start);
+        boolean result = find(board, word, i + 1, j, start + 1) || find(board, word, i - 1, j, start + 1) || find(board, word, i, j + 1, start + 1) || find(board, word, i, j - 1, start + 1);
+        board[i][j] = word.charAt(start);
         return result;
     }
 }
