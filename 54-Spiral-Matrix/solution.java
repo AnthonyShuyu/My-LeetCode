@@ -7,7 +7,7 @@
 // O(n^2), O(n)
 
 public class Solution {
-    public List<Integer> spriralOrder(int[][] matrix) {
+    public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> result = new ArrayList<Integer>();
         // corner case
         if (matrix == null || matrix.length == 0) {
