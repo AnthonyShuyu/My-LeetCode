@@ -32,10 +32,10 @@ public class Solution {
             if (m - k * 2 == 1 || n - k * 2 == 1) {
                 break;
             }
-            for (int j = m - 1 - k; j >= 0; j--) {
+            for (int j = n - 2 - k; j >= k; j--) {
                 result.add(matrix[m - 1 - k][j]);
             }
-            for (int i = m - 2; i >= 1; i--) {
+            for (int i = m - 2 - k; i >= k + 1; i--) {
                 result.add(matrix[i][k]);
             }
         }
