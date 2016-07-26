@@ -26,7 +26,7 @@ public class Solution {
                 result.add(matrix[k][j]);
             }
             for (int i = k + 1; i < m - k; i++) {
-                result.add(matrix[i][m - 1 - k]);
+                result.add(matrix[i][n - 1 - k]);
             }
             // if one row or one column left, break
             if (m - k * 2 == 1 || n - k * 2 == 1) {
