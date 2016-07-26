@@ -22,6 +22,10 @@ public class Solution {
         
         int min = Math.min(m, n);
         int circle = min / 2;
+        if (circle == 0) {
+            result.add(matrix[0]);
+        }
+        
         for (int k = 0; k < circle; k++) {
             for (int j = k; j < n - 1 - k; j++) {
                 result.add(matrix[k][j]);
@@ -29,10 +33,10 @@ public class Solution {
             for (int i = k; i < m - 1 - k; i++) {
                 result.add(matrix[i][n - 1 - k]);
             }
-            for (int j = n - 1 - k; j > k; j++) {
+            for (int j = n - 1 - k; j > k; j--) {
                 result.add(matrix[m - 1 - k][j]);
             }
-            for (int i = m - 1 - k; i > k; i++) {
+            for (int i = m - 1 - k; i > k; i--) {
                 result.add(matrix[i][k]);
             }
         }
