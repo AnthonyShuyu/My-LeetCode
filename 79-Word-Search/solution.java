@@ -15,7 +15,7 @@ word = "ABCB", -> returns false.
  */
 
 // *s1: recursion
-// O(), O()
+// O(n^2), O(1)
 // tricky
 
 public class Solution {
