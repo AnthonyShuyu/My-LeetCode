@@ -5,7 +5,7 @@
  */
 
 // s1: brute force, assign the value to the array one circle after one circle
-// O(n^2), O(n)
+// O(n^2), O(n^2)
 
 public class Solution {
     public int[][] generateMatrix(int n) {
