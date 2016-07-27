@@ -67,7 +67,7 @@ public class Solution {
                 matrix[i][j] = matrix[n - 1 - j][i]; // put left to the top
                 matrix[n - 1 - j][i] = matrix[n - 1 - i][n - 1 - j];  // put bottom to the left
                 matrix[n - 1 - i][n - 1 - j] = matrix[j][n - 1 - i]; // put right to the bottom
-                matrix[j][n - 1 - i] = temp;
+                matrix[j][n - 1 - i] = temp; // put the saved top to the right
             }
         }
         return;
