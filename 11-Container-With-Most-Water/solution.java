@@ -133,9 +133,9 @@ public class Solution{
 
 
 
-// s2: two pointers
+// *s2: two pointers
 // O(n), O(1)
-// tricky, mantain the heigher one each time
+// tricky, mantain the heigher one each time, skip many comparisions
 
 public class Solution {
     public int maxArea(int[] height) {
