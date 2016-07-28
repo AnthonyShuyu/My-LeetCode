@@ -54,6 +54,7 @@ public class Solution{
         }
         int i = 0;
         int j = height.length - 1;
+        int result = 0;
         
         while (i < j) {
             int area = Math.min(height[i], height[j]) * (j - i);
@@ -72,11 +73,11 @@ public class Solution{
             if (k < l) {
                 int left_value = Math.min(height[i],height[l]) * (l - i); 
                 int right_value = Math.min(height[j], height[k]) * (j - k);
-                area = Math.max(Math.max(left_value, right_value), area);
+                result = Math.max(Math.max(Math.max(left_value, right_value), area));
             }
             i = k;
             j = l;
         }
-        return area;
+        return result;
     }
 }
