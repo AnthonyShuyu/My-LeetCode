@@ -73,7 +73,9 @@ public class Solution{
             if (k < l) {
                 int left_value = Math.min(height[i],height[l]) * (l - i); 
                 int right_value = Math.min(height[j], height[k]) * (j - k);
-                result = Math.max(Math.max(Math.max(left_value, right_value), area));
+                result = Math.max(Math.max(Math.max(left_value, right_value), area), result);
+            } else {
+                result = Math.max(area, result);
             }
             i = k;
             j = l;
