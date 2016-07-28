@@ -18,7 +18,7 @@ public class Solution {
         if (height == null || height.length <= 2) {
             return 0;
         }
-        int n = height.length
+        int n = height.length;
         int index = 0;
         int result = 0;
         while (index < n) {
@@ -35,7 +35,7 @@ public class Solution {
 }
 */
 
-// s2: two pointers
+// *s2: two pointers
 // O(n^2), O(1)
 
 public class Solution {
@@ -62,7 +62,6 @@ public class Solution {
                     end--;
                 }
             }
-            
         }
         return area;
     }
