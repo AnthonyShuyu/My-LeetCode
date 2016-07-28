@@ -147,7 +147,7 @@ public class Solution {
         int right = height.length - 1;
         int max = 0;
         
-        while (left < right) {
+        while (left <= right) {
             max = Math.max(max, getArea(height, left, right));
             if (height[left] <= height[right]) {
                 left++;
