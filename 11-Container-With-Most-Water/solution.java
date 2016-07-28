@@ -11,7 +11,10 @@
 
 // s1: brute force, 
 // O(n^2), O(1)
+// time limit exceeded
 
+
+/*
 public class Solution {
     public int maxArea(int[] height) {
         // corner case
@@ -37,4 +40,43 @@ public class Solution {
     //     }
     //     return result;
     // }
+}
+*/
+
+// s2: two pointers
+// O(n), O(1)
+
+public class Solution{
+    public int maxArea(int[] height) {
+        // corner case
+        if (height == null || height.length <= 1) {
+            return -1;
+        }
+        int i = 0;
+        int j = height.length - 1;
+        
+        while (i < j) {
+            int area = Math.min(height[i], height[j]) * (j - i);
+            int k = i;
+            int l = j;
+            while (k < l) {
+                if (height[k] <= height[i]) {
+                    k++;
+                }
+            }
+            while(k < l) {
+                if (height[l] <= height[j]) {
+                    l--;
+                }
+            }
+            if (k < l) {
+                int left_value = Math.min(height[i],height[l]) * (l - i); 
+                int right_value = Math.min(height[j], height[k]) * (j - k);
+                int area = Math.max(Math.max(left_value, right_value), area);
+            }
+            i = k;
+            j = l;
+        }
+        return area;
+    }
 }
