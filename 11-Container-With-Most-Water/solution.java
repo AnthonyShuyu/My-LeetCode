@@ -72,7 +72,7 @@ public class Solution{
             if (k < l) {
                 int left_value = Math.min(height[i],height[l]) * (l - i); 
                 int right_value = Math.min(height[j], height[k]) * (j - k);
-                int area = Math.max(Math.max(left_value, right_value), area);
+                area = Math.max(Math.max(left_value, right_value), area);
             }
             i = k;
             j = l;
