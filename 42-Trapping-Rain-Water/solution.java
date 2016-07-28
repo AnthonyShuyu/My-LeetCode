@@ -11,6 +11,7 @@ Given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.
 // O(n^2), O(1)
 // failed, too complicated to imagine
 
+/*
 public class Solution {
     public int trap(int[] height) {
         // corner case
@@ -32,7 +33,7 @@ public class Solution {
         }
     }
 }
-
+*/
 
 // s2: two pointers
 // O(n^2), O(1)
