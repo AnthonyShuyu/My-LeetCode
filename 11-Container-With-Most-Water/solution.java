@@ -23,18 +23,18 @@ public class Solution {
         int max = 0;
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
-                int lowest_height = findLowest(height, i, j);
-                max = Math.max(lowest_height, top * j - i);
+                int lowest = Math.min(height[i], height[j]);
+                max = Math.max(max, lowest * (j - i));
             }
         }
         return max;
     } 
     
-    public int findLowest(int[] height, int i, int j) {
-        int result = height[i];
-        for (int k = i + 1; k <= j; k++) {
-            result = Math.min(height[k], result);
-        }
-        return result;
-    }
+    // public int findLowest(int[] height, int i, int j) {
+    //     int result = height[i];
+    //     for (int k = i + 1; k <= j; k++) {
+    //         result = Math.min(height[k], result);
+    //     }
+    //     return result;
+    // }
 }
