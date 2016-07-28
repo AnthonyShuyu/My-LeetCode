@@ -86,8 +86,10 @@ public class Solution{
 */
 
 // s2: two pointers
-// 
+// O(n^2), O(1)
+// failed
 
+/*
 public class Solution{
     public int maxArea(int[] height) {
         // corner case
@@ -125,5 +127,38 @@ public class Solution{
             max_value = Math.max(max_value, (j - i) * height[j]);
         }
         return max_value;
+    }
+}
+*/
+
+
+
+// s2: two pointers
+// O(n), O(1)
+// tricky, mantain the heigher one each time
+
+public class Solution {
+    public int maxArea(int[] height) {
+        if (height == null || height.length <= 1) {
+            return -1;
+        }
+        
+        int left = 0;
+        int right = height.length - 1;
+        int max = 0;
+        
+        while (left < right) {
+            max = Math.max(max, getArea(height, left, right));
+            if (height[left] <= height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return max;
+    }
+    
+    public int getArea(int[] height, int i, int j) {
+        return (j - i) * Math.min(height[i], height[j]);
     }
 }
