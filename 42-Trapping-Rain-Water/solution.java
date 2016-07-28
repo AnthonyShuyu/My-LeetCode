@@ -36,7 +36,7 @@ public class Solution {
 */
 
 // *s2: two pointers
-// O(n^2), O(1)
+// O(n), O(1)
 
 public class Solution {
     public int trap(int[] height) {
