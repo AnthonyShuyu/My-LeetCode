@@ -27,9 +27,9 @@ public class Solution {
                 result.add(String.valueOf(nums[i]));
             } else {
                 StringBuilder sb = new StringBuilder();
-                sb.add(nums[index]);
+                sb.add(String.valueOf(nums[index]));
                 sb.add("->");
-                sb.add(nums[i]);
+                sb.add(String.valueOf(nums[i]));
                 result.add(sb.toString());
             }
             index = i + 1;
