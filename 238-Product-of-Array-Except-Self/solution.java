@@ -87,10 +87,11 @@ public class Solution {
 */
 
 
-// s3:
-// O(n), O(n)
-// without division and in O(n)
+// s3: output[i + 1] and output[i] have relation
+// O(n^2), O(n)
+// time limit exceeded
 
+/*
 public class Solution {
     public int[] productExceptSelf(int[] nums) {
         // corner case
@@ -111,3 +112,33 @@ public class Solution {
         return output;
     }
 }
+*/
+
+// *s3: when come to the nums[i], pay attention to the elements left of i and elments right of i
+// O(n^2), O(n)
+// trikcy, without division and in O(n)
+
+public class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        // corner case
+        if (nums == null || nums.length <= 1) {
+            return nums;
+        }
+        int[] output = new int[nums];
+        output[nums.length - 1] = nums[nums.length - 1];
+        for (int i = nums.length - 2; i >= 0; i--) {
+            output[i] *= output[i + 1]; 
+        }
+        
+        int temp = 1;
+        int left_product = 1;
+        for (int i = 0; i < nums.length - 1; i++) {
+            left_product = temp;
+            output[i] = left_product * output[i + 1];
+            temp *= nums[i];
+        }
+        output[nums.length - 1] = temp;
+        return output;
+    }
+}
+
