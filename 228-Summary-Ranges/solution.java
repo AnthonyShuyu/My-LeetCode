@@ -24,12 +24,13 @@ public class Solution {
                 i++;
             } 
             if (i == index) {
-                result.add(nums[i]);
+                result.add(String.valueOf(nums[i]));
             } else {
                 StringBuilder sb = new StringBuilder();
                 sb.add(nums[index]);
                 sb.add("->");
                 sb.add(nums[i]);
+                result.add(sb.toString());
             }
             index = i + 1;
         }
