@@ -71,7 +71,7 @@ public class Solution {
             }
         }
         if (index == 0 || index == nums.length - 1) {
-            result.add(String.valueOf(nums[index]);
+            result.add(String.valueOf(nums[index]));
         } else {
             StringBuilder sb = new StringBuilder();
             sb.append(nums[index]);
