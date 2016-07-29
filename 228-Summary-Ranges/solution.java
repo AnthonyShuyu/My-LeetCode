@@ -19,7 +19,7 @@ public class Solution {
         int index = 0;
         int i = 0;
         if (nums.length == 1) {
-            result.add(String.valueOf(nums[i]);
+            result.add(String.valueOf(nums[i]));
             return result;
         }
         while (i < nums.length - 1) {
