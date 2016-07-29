@@ -41,6 +41,7 @@ public class Solution {
 // O(n), O(n)
 // use division, handle the problem of 0
 
+/*
 public class Solution {
     public int[] productExceptSelf(int[] nums) {
         // corner case
@@ -81,6 +82,32 @@ public class Solution {
             }
             return output;
         }
-            
+    }
+}
+*/
+
+
+// s3:
+// O(n), O(n)
+// without division and in O(n)
+
+public class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        // corner case
+        if (nums == null || nums.length <= 1) {
+            return nums;
+        }
+        int[] output = new int[nums.length];
+        output[0] = nums[1];
+        output[1] = nums[0];
+        
+        for (int i = 2; i < nums.length; i++) {
+            output[i] = 1;
+            for (int j = 0; j < i; j++) {
+                output[j] *= nums[i];
+                output[i] *= nums[j];
+            }
+        }
+        return output;
     }
 }
