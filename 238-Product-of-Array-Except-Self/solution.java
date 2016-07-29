@@ -124,10 +124,10 @@ public class Solution {
         if (nums == null || nums.length <= 1) {
             return nums;
         }
-        int[] output = new int[nums];
+        int[] output = new int[nums.length];
         output[nums.length - 1] = nums[nums.length - 1];
         for (int i = nums.length - 2; i >= 0; i--) {
-            output[i] *= output[i + 1]; 
+            output[i] = nums[i] * output[i + 1]; 
         }
         
         int temp = 1;
