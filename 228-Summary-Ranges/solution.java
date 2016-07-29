@@ -57,7 +57,7 @@ public class Solution {
         }        
         
         if (nums.length == 1) {
-            result.add(String.valueOf(nums[0]);
+            result.add(String.valueOf(nums[0]));
             return result;
         }
         
@@ -72,6 +72,7 @@ public class Solution {
                 result.add(String.valueOf(nums[i]));
             } else {
                 String s = nums[index] + "->" + nums[i];
+                result.add(s);
             }
         }
         return result;
