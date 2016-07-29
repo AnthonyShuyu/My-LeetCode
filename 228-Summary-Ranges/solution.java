@@ -20,7 +20,7 @@ public class Solution {
         int i = 0;
         while (i < nums.length - 1) {
             i = index;
-            while (i < nums.length - 1 && nums[i] + 1 = nums[i + 1]) {
+            while (i < nums.length - 1 && nums[i] + 1 == nums[i + 1]) {
                 i++;
             } 
             if (i == index) {
