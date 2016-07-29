@@ -59,7 +59,7 @@ public class Solution {
         for (int i = 0; i < nums.length - 1; i++) {
             if (nums[i] + 1 != nums[i + 1]) {
                 if (index == i) {
-                    result.add(String.valueOf(nums[index]);
+                    result.add(String.valueOf(nums[index]));
                 } else {
                     StringBuilder sb = new StringBuilder();
                     sb.append(nums[index]);
