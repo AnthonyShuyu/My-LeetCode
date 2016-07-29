@@ -27,7 +27,7 @@ Could you solve it with constant space complexity? (Note: The output array **doe
 
 <div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton">[Array](/tag/array/)</span></div>
+<span class="hidebutton" style="display: none;">[Array](/tag/array/)</span></div>
 
 <div>
 
