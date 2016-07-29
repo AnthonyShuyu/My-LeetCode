@@ -18,6 +18,10 @@ public class Solution {
         }
         int index = 0;
         int i = 0;
+        if (nums.length == 1) {
+            result.add(String.valueOf(nums[i]);
+            return result;
+        }
         while (i < nums.length - 1) {
             i = index;
             while (i < nums.length - 1 && nums[i] + 1 == nums[i + 1]) {
@@ -27,9 +31,9 @@ public class Solution {
                 result.add(String.valueOf(nums[i]));
             } else {
                 StringBuilder sb = new StringBuilder();
-                sb.add(String.valueOf(nums[index]));
-                sb.add("->");
-                sb.add(String.valueOf(nums[i]));
+                sb.append(nums[index]);
+                sb.append("->");
+                sb.append(nums[i]);
                 result.add(sb.toString());
             }
             index = i + 1;
