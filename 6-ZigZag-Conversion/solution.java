@@ -10,6 +10,7 @@
 // s1: brute force, see the number of nRows * 2 - 2 as one group, find the rule
 // O(row * n), O(n)
 
+/*
 public class Solution {
     public String convert(String s, int numRows) {
         // corner case
@@ -42,6 +43,36 @@ public class Solution {
                         j += (i * 2);
                         index++;
                     }
+                }
+            }
+        }
+        return sb.toString();
+    }
+}
+*/
+
+
+// s2: brute force, same thought as s1
+// O(numRows * n), O(n)
+
+public class Solution {
+    public String convert(String s, int numRows) {
+        // corner case
+        if (s == null || s.length() < numRows) {
+            return s;
+        }
+        if (numRows <= 1) {
+            return s;
+        }
+        
+        int step = numRows * 2 - 2;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < numRows; i++) {
+            int interval = step - i * 2;
+            for (int j = i; j < s.length(); j += step) {
+                sb.append(charAt(j));
+                if (interval > 0 && interval < step && j + interval < s.length()) {
+                    sb.append(charAt(j + interval));
                 }
             }
         }
