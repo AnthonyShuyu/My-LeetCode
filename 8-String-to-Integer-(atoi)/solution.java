@@ -39,10 +39,22 @@ public class Solution {
             }            
         }
         
+        // rule out the string > 2^31 - 1 which is 2147483647 or string < -2^31 which is -2147483648
+        
         if (initial == 45) {
-            result = Integer.valueOf(str.substring(1, str.length())) * (-1);
+            result = Long.valueOf(str.substring(1, str.length()) * (-1));
+            if (result < -2147483648) {
+                return 0;
+            } else {
+                return (int)result;
+            }
         } else {
-            result = Integer.valueOf(str);
+            result = Long.valueOf(str);
+            if (result > 2147483647) {
+                return 0;
+            } else {
+                return result;
+            }
         }
         return result;
     }
