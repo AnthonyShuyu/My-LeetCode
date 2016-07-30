@@ -61,36 +61,52 @@ public class Solution {
         //     }            
         // }
         
-        if (str.length() > 11) {
-            return 0;
-        }
+
         
         // rule out the string > 2^31 - 1 which is 2147483647 or string < -2^31 which is -2147483648
         
         if (initial == 45) {
             int nonDigit = findNonDigit(str, 1);
+            if (nonDigit == 1) {
+                return 0;
+            }
             String tempStr = str.substring(1, nonDigit);
+            if (tempStr.length() > 10) {
+                return Integer.MIN_VALUE;
+             }
             temp = Long.valueOf(tempStr) * (-1);
             if (temp < -2147483648) {
-                return 0;
+                return Integer.MIN_VALUE;
             } else {
                 return (int)temp;
             }
         } else if (initial == 43) {
             int nonDigit = findNonDigit(str, 1);
+            if (nonDigit == 1) {
+                return 0;
+            }
             String tempStr = str.substring(1, nonDigit);
+            if (tempStr.length() > 10) {
+                return Integer.MAX_VALUE;
+            }
             temp = Long.valueOf(tempStr);
             if (temp > 2147483647) {
-                return 0;
+                return Integer.MAX_VALUE;
             } else {
                 return (int)temp;
             }
         } else {
             int nonDigit = findNonDigit(str, 0);
+            if (nonDigit == 0) {
+                return 0;
+            }
             String tempStr = str.substring(0, nonDigit);
+            if (tempStr.length() > 11) {
+                return Integer.MAX_VALUE;
+            }
             temp = Long.valueOf(tempStr);
             if (temp > 2147483647) {
-                return 0;
+                return Integer.MAX_VALUE;
             } else {
                 return (int)temp;
             }
