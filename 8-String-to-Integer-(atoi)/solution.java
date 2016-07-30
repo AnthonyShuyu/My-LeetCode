@@ -18,6 +18,7 @@ public class Solution {
             return 0;
         }
         int result = 0;
+        long temp = 0;
         if (str.length() == 1) {
             int num = str.charAt(0);
             if (num >= 48 && num <= 57) {
@@ -42,18 +43,18 @@ public class Solution {
         // rule out the string > 2^31 - 1 which is 2147483647 or string < -2^31 which is -2147483648
         
         if (initial == 45) {
-            result = Integer.valueOf((Long.valueOf(str.substring(1, str.length())) * (-1)));
-            if (result < -2147483648) {
+            temp = (Long.valueOf(str.substring(1, str.length())) * (-1));
+            if (temp < -2147483648) {
                 return 0;
             } else {
-                return (int)result;
+                return (int)temp;
             }
         } else {
-            result = Long.valueOf(str);
-            if (result > 2147483647) {
+            temp = Long.valueOf(str);
+            if (temp > 2147483647) {
                 return 0;
             } else {
-                return result;
+                return (int)temp;
             }
         }
         return result;
