@@ -70,9 +70,9 @@ public class Solution {
         for (int i = 0; i < numRows; i++) {
             int interval = step - i * 2;
             for (int j = i; j < s.length(); j += step) {
-                sb.append(charAt(j));
+                sb.append(s.charAt(j));
                 if (interval > 0 && interval < step && j + interval < s.length()) {
-                    sb.append(charAt(j + interval));
+                    sb.append(s.charAt(j + interval));
                 }
             }
         }
