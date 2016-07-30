@@ -57,6 +57,5 @@ public class Solution {
                 return (int)temp;
             }
         }
-        return result;
     }
 }
