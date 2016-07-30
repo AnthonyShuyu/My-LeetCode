@@ -15,7 +15,7 @@ public class Solution {
     public int myAtoi(String str) {
         // corner case
         if (str == null || str.length() == 0) {
-            return str;
+            return 0;
         }
         int result = Integer.valueOf(str);
         return result;
