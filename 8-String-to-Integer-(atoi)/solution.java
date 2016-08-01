@@ -154,7 +154,7 @@ public class Solution {
             if (sign == 1 && num > 2147483647) {
                 return Integer.MAV_VALUE;
             }
-            if (sign == -1 && num < 2147483648) {
+            if (sign == -1 && num < -2147483648) {
                 return Integer.MIN_VALUE;
             }
         }
