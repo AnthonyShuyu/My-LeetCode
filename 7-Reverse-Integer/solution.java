@@ -40,3 +40,26 @@ public class Solution {
         
     }
 }
+
+
+// s2: brute force, use num * 10 + num
+// O(n), O(1)
+
+public class Solution {
+    public int reverse(int x) {
+        // corner case
+        
+        int result = 0;
+        int num = x;
+        while (num != 0) {
+            int temp = result * 10 + num % 10;
+            if (temp / 10 != result) {
+                result = 0;
+                break;
+            }
+            num /= 10;
+            result = temp;
+        }
+        return result;
+    }
+}
