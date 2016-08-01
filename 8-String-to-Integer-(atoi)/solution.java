@@ -10,7 +10,7 @@ Hint: Carefully consider all possible input cases. If you want a challenge, plea
 // s1: brute force, clean the data
 // O(n), O(1)
 
-
+/*
 public class Solution {
     public int myAtoi(String str) {
         // corner case
@@ -120,5 +120,44 @@ public class Solution {
             }
         }
         return s.length();
+    }
+}
+*/
+
+
+//s2: use index and num = num * 10 + n
+// O(n), O(1)
+
+public class Solution {
+    public int myAtoi(String str) {
+        // corner case
+        if (str == null || str.length() == 0) {
+            return 0;
+        }
+        
+        int index = 0;
+        long num = 0;
+        int sign = 1;
+        
+        if (str.charAt(0) == '+') {
+            index++;
+        } else if (str.charAt(0) == '-') {
+            sign = -1;
+            index++;
+        }
+        
+        for (int i = index; i < str.length(); i++) {
+            if (str.charAt(i) < '0' || str.charAt(i) > '9') {
+                break;
+            }
+            num = num * 10 + Long.valueOf(str.charAt(i));
+            if (sign == 1 && num > 2147483647) {
+                return Integer.MAV_VALUE;
+            }
+            if (sign == -1 && num < 2147483648) {
+                return Integer.MIN_VALUE;
+            }
+        }
+        return Integer.valueOf(num);
     }
 }
