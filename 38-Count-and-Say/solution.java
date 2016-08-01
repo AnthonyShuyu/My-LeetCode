@@ -32,7 +32,7 @@ public class Solution {
         while (index < s.length()) {
             count = 0;
             int num = s.charAt(index) - '0';
-            while ((s.charAt(index) - '0') == num) {
+            while ((s.charAt(index) - '0') == num && index < s.length()) {
                 index++;
                 count++;
             }
