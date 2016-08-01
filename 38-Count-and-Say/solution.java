@@ -19,7 +19,7 @@ public class Solution {
             return null;
         }
         String s = "1";
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n - 1; i++) {
             s = generateNextString(s);
         }
         return s;
@@ -32,7 +32,7 @@ public class Solution {
         while (index < s.length()) {
             count = 0;
             int num = s.charAt(index) - '0';
-            while ((s.charAt(index) - '0') == num && index < s.length()) {
+            while ( index < s.length() && (s.charAt(index) - '0') == num ) {
                 index++;
                 count++;
             }
