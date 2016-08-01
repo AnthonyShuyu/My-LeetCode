@@ -214,6 +214,6 @@ public class Solution {
         if (num * sign <= Integer.MIN_VALUE) {
             return Integer.MIN_VALUE;
         }
-        return num * sign;
+        return (int)num * sign;
     }
 }
