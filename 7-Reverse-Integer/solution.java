@@ -11,6 +11,7 @@ Example2: x = -123, return -321
 // s1: brute force, use num * 10 + num;
 // O(n), O(1)
 
+/*
 public class Solution {
     public int reverse(int x) {
         // corner case
@@ -40,7 +41,7 @@ public class Solution {
         
     }
 }
-
+*/
 
 // s2: brute force, use num * 10 + num
 // O(n), O(1)
