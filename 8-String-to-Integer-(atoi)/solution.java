@@ -217,3 +217,6 @@ public class Solution {
         return (int)num * sign;
     }
 }
+
+// con: 1. str.charAt(i) - '0'
+//      2. Integer.MAX_VALUE = 2147483647
