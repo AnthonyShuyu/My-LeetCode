@@ -6,6 +6,7 @@
 Example1: x = 123, return 321
 Example2: x = -123, return -321
  * 
+ * 2 solutions
  */
 
 // s1: brute force, use num * 10 + num;
@@ -43,8 +44,9 @@ public class Solution {
 }
 */
 
-// s2: brute force, use num * 10 + num
+// *s2: brute force, use num * 10 + num
 // O(n), O(1)
+// tricky, don't need to do negative check
 
 public class Solution {
     public int reverse(int x) {
