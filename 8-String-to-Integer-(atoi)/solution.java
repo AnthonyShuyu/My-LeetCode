@@ -129,6 +129,7 @@ public class Solution {
 // O(n), O(1)
 // tricky
 
+/*
 public class Solution {
     public int myAtoi(String str) {
         // corner case
@@ -162,5 +163,57 @@ public class Solution {
             }
         }
         return sign == 1 ? (int)num : (int)num * (-1);
+    }
+}
+*/
+
+
+// *s2: use index and num = num * 10 + n, modified
+// O(n), O(1)
+// tricky
+
+
+public class Solution {
+    public int myAtoi(String str) {
+        // corner case
+        if (str == null || str.length() == 0) {
+            return 0;
+        }
+        
+        int index = 0;
+        long num = 0;
+        int sign = 1;
+        
+        str = str.trim();
+        
+        if (str.charAt(0) == '+') {
+            index++;
+        } else if (str.charAt(0) == '-') {
+            sign = -1;
+            index++;
+        }
+        
+        for (int i = index; i < str.length(); i++) {
+            if (str.charAt(i) < '0' || str.charAt(i) > '9') {
+                break;
+            }
+            num = num * 10 + (str.charAt(i) - '0');
+            if (num > Integer.MAX_VALUE) {
+                break;
+            }
+            // if (sign == 1 && num > 2147483647) {
+            //     return Integer.MAX_VALUE;
+            // }
+            // if (sign == -1 && num * (-1) < -2147483648) {
+            //     return Integer.MIN_VALUE;
+            // }
+        }
+        if (num * sign >= Integer.MAX_VALUE) {
+            return Integer.MAX_VALUE;
+        }
+        if (num * sign <= Integer.MIN_VALUE) {
+            return Integer.MIN_VALUE;
+        }
+        return num * sign;
     }
 }
