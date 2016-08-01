@@ -127,6 +127,7 @@ public class Solution {
 
 //s2: use index and num = num * 10 + n
 // O(n), O(1)
+// tricky
 
 public class Solution {
     public int myAtoi(String str) {
@@ -139,6 +140,8 @@ public class Solution {
         long num = 0;
         int sign = 1;
         
+        str = str.trim();
+        
         if (str.charAt(0) == '+') {
             index++;
         } else if (str.charAt(0) == '-') {
@@ -150,14 +153,14 @@ public class Solution {
             if (str.charAt(i) < '0' || str.charAt(i) > '9') {
                 break;
             }
-            num = num * 10 + Long.valueOf(str.charAt(i));
+            num = num * 10 + (str.charAt(i) - '0');
             if (sign == 1 && num > 2147483647) {
                 return Integer.MAX_VALUE;
             }
-            if (sign == -1 && num < -2147483648) {
+            if (sign == -1 && num * (-1) < -2147483648) {
                 return Integer.MIN_VALUE;
             }
         }
-        return Integer.valueOf(num);
+        return sign == 1 ? (int)num : (int)num * (-1);
     }
 }
