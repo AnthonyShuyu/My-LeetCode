@@ -152,7 +152,7 @@ public class Solution {
             }
             num = num * 10 + Long.valueOf(str.charAt(i));
             if (sign == 1 && num > 2147483647) {
-                return Integer.MAV_VALUE;
+                return Integer.MAX_VALUE;
             }
             if (sign == -1 && num < -2147483648) {
                 return Integer.MIN_VALUE;
