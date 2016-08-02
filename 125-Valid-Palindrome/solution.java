@@ -43,10 +43,11 @@ public class Solution {
     }
     
     public boolean isAlphaNumeric(char c) {
-        if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z')) {
-            return true;
-        } else {
-            return false;
-        }
+        // if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z')) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+        return Character.isLetter(c) || Character.isDigit(c);
     }
 }
