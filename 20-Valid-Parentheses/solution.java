@@ -22,7 +22,7 @@ public class Solution {
                 if (stack.isEmpty()) {
                     return false;
                 } else {
-                    if (stack.pop() != '(') {
+                    if ((char)stack.pop() != '(') {
                         return false;
                     }
                 }
