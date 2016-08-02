@@ -32,11 +32,11 @@ public class Solution {
             } else if (!Character.isDigit(s.charAt(i)) || i == s.length() - 1) {
                 if (sign == '+') {
                     stack.push(num);
-                } else if (sign = '-') {
+                } else if (sign == '-') {
                     stack.push(-num);
-                } else if (sign = '*') {
+                } else if (sign == '*') {
                     stack.push(stack.pop() * num);
-                } else if (sign = '/') {
+                } else if (sign == '/') {
                     stack.push(stack.pop() / num);
                 }
                 sign = s.charAt(i);
