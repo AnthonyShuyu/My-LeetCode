@@ -11,7 +11,7 @@
 
 
 // s1: two pointers
-// O(n), O(n)
+// O(n), O(1)
 
 public class Solution {
     public boolean isPalindrome(String s) {
