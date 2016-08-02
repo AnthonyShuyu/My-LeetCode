@@ -46,11 +46,11 @@ public class Solution {
                 return false;
             }
         }
-        if (stack.isEmpty()) {
-            return true;
-        } else {
-            return false;
-        }
-        
+        // if (stack.isEmpty()) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+        return stack.isEmpty();
     }
 }
