@@ -24,7 +24,7 @@ public class Solution {
             }
         } 
         
-        path = newpath;
+        path = newpath.toString();
         if (path.equals("/")) {
             return "/";
         }
