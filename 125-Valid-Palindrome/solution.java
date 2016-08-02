@@ -24,10 +24,10 @@ public class Solution {
         int end = s.length() - 1;
         
         while (start <= end) {
-            while (start <= end && !( (s.charAt(start) <= 'z' && s.charAt(start) >= 'a') || (s.charAt(start) >= '0' && s.charAt(start) <= '9'))) {
+            while (start <= end && !isAlphaNumeric(s.charAt(start))) {
                 start++;
             }
-            while (start <= end && !((s.charAt(end) <= 'z' && s.charAt(end) >= 'a') || (s.charAt(end) >= '0' && s.charAt(end) <= '9'))) {
+            while (start <= end && !isAlphaNumeric(s.charAt(end))) {
                 end--;
             }
             if (start <= end) {
@@ -42,8 +42,11 @@ public class Solution {
         return true;
     }
     
-    // public boolean isAlphaNumeric(char c) {
-    //     if (c >= '' && c <= )
-        
-    // }
+    public boolean isAlphaNumeric(char c) {
+        if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z')) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
