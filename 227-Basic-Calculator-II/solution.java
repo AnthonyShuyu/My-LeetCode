@@ -32,7 +32,7 @@ public class Solution {
                 int current_num = (int)(s.charAt(i) - '0');
                 num = num * 10 + current_num;
             } 
-            if ((!Character.isDigit(c) || i == s.length()) - 1 && c != ' ') {
+            if ((!Character.isDigit(c) || i == s.length() - 1)) {
                 if (sign == '+') {
                     stack.push(num);
                 } else if (sign == '-') {
@@ -42,7 +42,7 @@ public class Solution {
                 } else if (sign == '/') {
                     stack.push(stack.pop() / num);
                 }
-                sign = s.charAt(i);
+                sign = c;
                 num = 0;
             }
         }
