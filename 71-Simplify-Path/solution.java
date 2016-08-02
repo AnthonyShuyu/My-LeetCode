@@ -13,7 +13,7 @@ public class Solution {
             return path;
         }
         path = path.replace("//", "/");
-        if (path.equals("/../")) {
+        if (path.equals("/../") || path.equals("/")) {
             return "/";
         }
         List<String> arrayList = new ArrayList<String>();
