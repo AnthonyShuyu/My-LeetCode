@@ -11,6 +11,9 @@
 Given an integer n, generate the nth sequence.
  * 
  */
+ 
+// s1: brute force
+// O(n^2), O(n)
 
 public class Solution {
     public String countAndSay(int n) {
@@ -41,4 +44,21 @@ public class Solution {
         }
         return sb.toString();
     }
+    /*
+    public String generateNextString(String s) {
+        StringBuilder sb = new StringBuilder();
+        int count = 0;
+        int index = 0;
+        while (index < s.length()) {
+            count = 1;
+            while (index < s.length() - 1 && s.charAt(index) == s.charAt(index + 1)){
+                count++;
+                index++;
+            }
+            sb.append(count);
+            sb.append(s.charAt(index));
+        }
+        return sb.toString();
+    }
+    */
 }
