@@ -69,7 +69,9 @@ public class Solution {
 // This problem can be solved by using a stack. We keep pushing element to the stack, when ')" is met, calculate the expression up to the first "(".
     
 // O(n), O(n)
+// failed
 
+/*
 public class Solution {
     public int calculate(String s) {
         // corner case
@@ -88,6 +90,7 @@ public class Solution {
             }
             if (c == '(') {
                 stack1.push(null);
+                stack2.push('+');
             }
             if (Character.isDigit(c)) {
                 num = num * 10 + (int)(c - '0');
@@ -111,14 +114,72 @@ public class Solution {
                         temp += stack1.pop();
                     }
                     stack1.pop();
-                    stack1.push(temp);
+                    if (!stack2.isEmpty()) {
+                        char c2 = stack2.pop();
+                        if (c2 == '+') {
+                             stack1.push(temp);
+                        } else {
+                            stack1.push(-temp);
+                        }
+                    }
+
                 }
+                num = 0;
             }
-            int result = 0;
+
+        }
+        
+        int result = 0;
             for (int i : stack1) {
                 result += i;
             }
             return result;
+    }
+}
+*/
+
+
+// *s3: use 1 stack, and do something like 1 - (2 + 3) =   1 - 2 - 3
+// O(n), O(n)
+
+public class Solution {
+    public int calculate(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
         }
+        s = s.replace(" ", "");
+        
+        Stack<Integer> stack = new Stack<Integer>();
+        stack.push(1);  // the parenthesis current belonging sign is positive
+        int index = 0;
+        int sign = 1;   // the current sign
+        int result = 0;
+        
+        while (index < s.length()) {
+            char c = s.charAt(index);
+            if (c == '+') {
+                sign = 1;
+                index++;
+            } else if (c == '-') {
+                sign = -1;
+                index++;
+            } else if (c == '(') {          // if meet '(', stack.push the current belong sign, which equals to the current belonging sign * the current sign, and change sign to '+'
+                stack.push(sign * stack.peek());
+                sign = 1;
+                index++;
+            } else if (c == ')') {
+                stack.pop();
+                index++;
+            } else if (Character.isDigit(c)) {
+                int num = 0;
+                while (index < s.length() && Character.isDigit(s.charAt(index))) {
+                    num = num * 10 + (int)(s.charAt(index) - '0');
+                    index++;
+                }
+                result += num * sign * stack.peek();
+            }
+        }
+        return result;
+        
     }
 }
