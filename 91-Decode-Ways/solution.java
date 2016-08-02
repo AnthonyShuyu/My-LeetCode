@@ -4,8 +4,9 @@
  */
 
 // s1: DP
-// O(n)
+// O(n), O(n)
 
+/*
 public class Solution {
     public int numDecodings(String s) {
         // corner case
@@ -43,5 +44,32 @@ public class Solution {
             }
         }
         return result[s.length()];
+    }
+*/
+
+// s2: DP, more concise than s1
+// O(n), O(n)
+
+public class Solution {
+    public int numDecodings(String s) {
+        // corner case
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        
+        int[] result = new int[s.length() + 1];     // ith element represents the contain i elements in the result array
+        result[0] = 1;
+        result[1] = s.charAt(0) != '0' ? 1 : 0;
+        
+        for (int i = 2; i < s.length() + 1; i++) {
+            if (s.charAt(i) != 0) {
+                result[i] = result[i - 1];
+            }
+            int num = (s.charAt(i - 1) - '0') * 10 + (s.charAt(i) - '0');
+            if (num >= 10 && num <= 26) {
+                result[i] += result[i - 2];
+            }
+        }
+        return reuslt[s.length()];        
     }
 }
