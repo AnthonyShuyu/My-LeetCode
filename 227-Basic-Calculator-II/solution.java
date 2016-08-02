@@ -18,7 +18,7 @@ public class Solution {
         if (s == null || s.length() == 0) {
             return 0;
         }
-        
+        s = s.trim();
         Stack<Integer> stack = new Stack<Integer>();
         int num = 0;
         int result = 0;
@@ -26,10 +26,12 @@ public class Solution {
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == ' ') {
                 continue;
-            } else if (Character.isDigit(s.charAt(i))) {
+            } 
+            if (Character.isDigit(s.charAt(i))) {
                 int current_num = s.charAt(i) - '0';
                 num = num * 10 + current_num;
-            } else if (!Character.isDigit(s.charAt(i)) || i == s.length() - 1) {
+            } 
+            if (!Character.isDigit(s.charAt(i)) || i == s.length() - 1) {
                 if (sign == '+') {
                     stack.push(num);
                 } else if (sign == '-') {
@@ -40,10 +42,11 @@ public class Solution {
                     stack.push(stack.pop() / num);
                 }
                 sign = s.charAt(i);
+                num = 0;
             }
         }
-        for (int num : stack) {
-            result += num;
+        for (int n : stack) {
+            result += n;
         }
         return result;
     }
