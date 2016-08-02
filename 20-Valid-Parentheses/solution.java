@@ -14,7 +14,7 @@ public class Solution {
         if (s == null || s.length() <= 1) {
             return false;
         }
-        Stack stack = new Stack();
+        Stack<Character> stack = new Stack<Character>();
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{') {
                 stack.push(s.charAt(i));
@@ -22,7 +22,7 @@ public class Solution {
                 if (stack.isEmpty()) {
                     return false;
                 } else {
-                    if ((char)stack.pop() != '(') {
+                    if (stack.pop() != '(') {
                         return false;
                     }
                 }
