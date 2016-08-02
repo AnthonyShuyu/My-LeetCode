@@ -62,10 +62,10 @@ public class Solution {
         result[1] = s.charAt(0) != '0' ? 1 : 0;
         
         for (int i = 2; i < s.length() + 1; i++) {
-            if (s.charAt(i) != 0) {
+            if (s.charAt(i - 1) != '0') {
                 result[i] = result[i - 1];
             }
-            int num = (s.charAt(i - 1) - '0') * 10 + (s.charAt(i) - '0');
+            int num = (s.charAt(i - 2) - '0') * 10 + (s.charAt(i - 1) - '0');
             if (num >= 10 && num <= 26) {
                 result[i] += result[i - 2];
             }
