@@ -28,6 +28,7 @@ public class Solution {
         return s;
     }
     
+    /*
     public String generateNextString(String s) {
         StringBuilder sb = new StringBuilder();
         int count;
@@ -44,21 +45,21 @@ public class Solution {
         }
         return sb.toString();
     }
-    /*
+    */
     public String generateNextString(String s) {
         StringBuilder sb = new StringBuilder();
         int count = 0;
         int index = 0;
         while (index < s.length()) {
             count = 1;
-            while (index < s.length() - 1 && s.charAt(index) == s.charAt(index + 1)){
+            while (index < s.length() - 1 && (s.charAt(index) == s.charAt(index + 1))){
                 count++;
                 index++;
             }
             sb.append(count);
             sb.append(s.charAt(index));
+            index++;
         }
         return sb.toString();
     }
-    */
 }
