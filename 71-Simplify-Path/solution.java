@@ -12,8 +12,20 @@ public class Solution {
         if (path == null || path.length() == 0) {
             return path;
         }
-        path = path.replace("//", "/");
-        if (path.equals("/../") || path.equals("/")) {
+        
+        // solve the problem of duplicated "/"
+        StringBuilder newpath = new StringBuilder();
+        newpath.append(path.charAt(0));
+        for (int i = 1; i < path.length(); i++) {
+            if (path.charAt(i) == '/' && path.charAt(i - 1) == '/') {
+                continue;
+            } else {
+                newpath.append(path.charAt(i));
+            }
+        } 
+        
+        path = newpath;
+        if (path.equals("/")) {
             return "/";
         }
         List<String> arrayList = new ArrayList<String>();
