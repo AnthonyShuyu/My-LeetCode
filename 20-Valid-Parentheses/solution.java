@@ -30,7 +30,7 @@ public class Solution {
                 if (stack.isEmpty()) {
                     return false;
                 } else {
-                    if ((char)stack.pop() != '[') {
+                    if (stack.pop() != '[') {
                         return false;
                     }
                 }
@@ -38,7 +38,7 @@ public class Solution {
                 if (stack.isEmpty()) {
                     return false;
                 } else {
-                    if ((char)stack.pop() != '{') {
+                    if (stack.pop() != '{') {
                         return false;
                     }
                 }
