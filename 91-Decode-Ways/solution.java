@@ -70,6 +70,6 @@ public class Solution {
                 result[i] += result[i - 2];
             }
         }
-        return reuslt[s.length()];        
+        return result[s.length()];        
     }
 }
