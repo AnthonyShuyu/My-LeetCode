@@ -28,7 +28,7 @@ public class Solution {
             return 0;
         }
         while (index >= 0) {
-            if (Character.isLetter(s.charAt(index)) {
+            if (Character.isLetter(s.charAt(index))) {
                 count++;
                 index--;
             } else {
