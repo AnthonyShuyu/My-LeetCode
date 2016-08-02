@@ -12,8 +12,7 @@ public class Solution {
         if (path == null || path.length() == 0) {
             return path;
         }
-        
-        path = path.repalce("//", "/");
+        path = path.replace("//", "/");
         if (path.equals("/../")) {
             return "/";
         }
