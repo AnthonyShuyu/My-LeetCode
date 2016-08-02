@@ -12,7 +12,6 @@ The expression string contains only non-negative integers, +, -, *, / operators 
 // O(n), O(n)
 // I first already think about of the thought, but can not realize it using code, need more and more practice
 
-/*
 public class Solution {
     public int calculate(String s) {
         // corner case
@@ -50,30 +49,6 @@ public class Solution {
         for (int n : stack) {
             result += n;
         }
-        return result;
-    }
-}
-*/
-
-public class Solution {
-    public int calculate(String s){
-        Stack<Integer> stack = new Stack<Integer>();
-        int number = 0;
-        char sign = '+';
-        for(int i = 0; i < s.length(); i++){
-            char cur = s.charAt(i);
-            if(Character.isDigit(cur)) number = number * 10 + (int)(cur - '0');
-            if(!Character.isDigit(cur) || i == s.length() - 1 && cur != ' '){
-                if(sign == '+') stack.push(number);
-                else if(sign == '-') stack.push(-number);
-                else if(sign == '*') stack.push(stack.pop() * number);
-                else if(sign == '/') stack.push(stack.pop() / number);
-                sign = cur;
-                number = 0;
-            }
-        }
-        int result = 0;
-        for(int i : stack) result += i;
         return result;
     }
 }
