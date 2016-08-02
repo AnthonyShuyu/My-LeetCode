@@ -6,7 +6,6 @@
 // s1: DP
 // O(n)
 
-
 public class Solution {
     public int numDecodings(String s) {
         // corner case
