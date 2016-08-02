@@ -18,20 +18,21 @@ public class Solution {
         if (s == null || s.length() == 0) {
             return 0;
         }
-        s = s.trim();
+        // s = s.trim();
         Stack<Integer> stack = new Stack<Integer>();
         int num = 0;
         int result = 0;
         char sign = '+';
         for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == ' ') {
-                continue;
-            } 
-            if (Character.isDigit(s.charAt(i))) {
-                int current_num = s.charAt(i) - '0';
+            char c = s.charAt(i);
+            // if (s.charAt(i) == ' ') {
+            //     continue;
+            // } 
+            if (Character.isDigit(c)) {
+                int current_num = (int)(s.charAt(i) - '0');
                 num = num * 10 + current_num;
             } 
-            if (!Character.isDigit(s.charAt(i)) || i == s.length() - 1) {
+            if ((!Character.isDigit(c) || i == s.length()) - 1 && c != ' ') {
                 if (sign == '+') {
                     stack.push(num);
                 } else if (sign == '-') {
