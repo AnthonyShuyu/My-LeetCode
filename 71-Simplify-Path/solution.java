@@ -26,7 +26,7 @@ public class Solution {
                 if (arrayList.size() > 0) {
                     arrayList.remove(arrayList.size() - 1);
                 }
-            } else {
+            } else if (!str[i].equals(".")){
                 arrayList.add(strs[i]);
             }
         }
@@ -34,7 +34,7 @@ public class Solution {
             result += arrayList.get(i) + "/";
         }
         if (result.length() > 1) {
-            result = result.substring(0, result.size() - 1);
+            result = result.substring(0, result.length() - 1);
         }
         return result;
     }
