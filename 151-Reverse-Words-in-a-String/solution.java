@@ -59,10 +59,10 @@ public class Solution {
             }
         }
         String result = "";
-        for (int index = arrayList.size() - 1; index > 0; index--) {
+        for (int index = arrayList.size() - 1; index >= 0; index--) {
             result += arrayList.get(index) + " ";
         }
-        result += arrayList.get(0);
+        result = result.trim();
         return result;
     }
 }
