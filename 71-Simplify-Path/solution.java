@@ -25,38 +25,71 @@ public class Solution {
         } 
         
         path = newpath.toString();
-        if (path.equals("/")) {
-            return "/";
-        }
-        List<String> arrayList = new ArrayList<String>();
+        // if (path.equals("/")) {
+        //     return "/";
+        // }
+        // List<String> arrayList = new ArrayList<String>();
+        // int index = path.length() - 1;
+        // while (index >=  0) {
+        //     if (path.charAt(index) == '.') {
+        //         break;
+        //     }
+        //     if (Character.isDigit(path.charAt(index))) {
+        //         int j = index - 1;
+        //         while (j >= 0) {
+        //             if (Character.isDigit(path.charAt(j))) {
+        //                 j--;
+        //             } else {
+        //                 break;
+        //             }
+        //         }
+        //         if (j >= 0) {
+        //             String subpath = path.substring(j, index + 1);
+        //             subpath += "/";
+        //             arrayList.add(subpath);
+        //         }
+        //         index = j;
+        //     }
+        //     index--;
+        // }
+        
         int index = path.length() - 1;
-        while (index >=  0) {
+        while (index >= 0) {
+            if (Character.isLetter(path.charAt(index))) {
+                break;
+            } else {
+                index--;
+            }
+        }
+        int end = index;
+        while (index >= 0) {
             if (path.charAt(index) == '.') {
                 break;
+            } else {
+                index--;
             }
-            if (Character.isDigit(path.charAt(index))) {
-                int j = index - 1;
-                while (j >= 0) {
-                    if (Character.isDigit(path.charAt(j))) {
-                        j--;
-                    } else {
-                        break;
-                    }
-                }
-                if (j >= 0) {
-                    String subpath = path.substring(j, index + 1);
-                    subpath += "/";
-                    arrayList.add(subpath);
-                }
-                index = j;
-            }
-            index--;
         }
+        int start = index;
+        String str = path.substring(start + 1, end + 1);
+        int count = countSlash(path);
         
-        StringBuilder sb = new StringBuilder();
-        for (int i = arrayList.size(); i >= 0; i--) {
-            sb.append(arrayList.get(i));
+
+        if ((str.length() == 0 && count > 1) || path.equals("/.") {
+            return "/";
+        } else if (str.length() == 0) {
+            return path;
+        } else {
+            return str;
         }
-        return sb.toString();
+    }
+    
+    public int countSlath(String path) {
+        int result = 0;
+        for (int i = 0; i < path.length(); i++) {
+            if (path.charAt(i) == '/') {
+                result++;
+            }
+        }
+        return result;
     }
 }
