@@ -10,6 +10,7 @@
 // s1: regular expression, path.split("/+")
 // O(n), O(n)
 
+/*
 public class Solution {
     public String simplifyPath(String path) {
         // corner case
@@ -38,6 +39,41 @@ public class Solution {
         }
         return result;
     }
+}
+*/
+
+
+// s2: use stack
+// O(n), O(n)
+
+public class Solution {
+    public String simplifyPath(String path) {
+        // corner case
+        if (path == null || path.length() == 0) {
+            return path;
+        }
+        String[] strs = path.split("/+");
+        Stack<String> stack = new Stack<String>();
+        
+        for (int i = 0; i < strs.length; i++) {
+            if (strs[i].equals("..")) {
+                if (!stack.isEmpty()) {
+                    stack.pop();
+                } 
+            }
+            if (!strs[i].equals(".") && !strs[i].equals("")) {
+                stack.push(strs[i]);
+            }
+        }
+    }
+    String result = "/";
+    for (String s : stack) {
+        result += s + "/";
+    }
+    if (result.length() > 1) {
+        result = result.substring(0, result.length() - 1);
+    }
+    return result;
 }
 
 /*
