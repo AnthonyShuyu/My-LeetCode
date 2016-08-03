@@ -8,6 +8,7 @@
 // s1: use s.split() and regular expression
 // O(n), O(n)
 
+/*
 public class Solution {
     public String reverseWords(String s) {
         // corner case
@@ -25,6 +26,7 @@ public class Solution {
         return result;
     }
 }
+*/
 
 // s2: use two pointers
 // O(n), O(n)
