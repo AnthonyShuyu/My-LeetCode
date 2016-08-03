@@ -59,8 +59,8 @@ public class Solution {
             }
         }
         String result = "";
-        for (int i = arrayList.size() - 1; i > 0; i--) {
-            result += arrayList.get(i) + " ";
+        for (int index = arrayList.size() - 1; index > 0; index--) {
+            result += arrayList.get(index) + " ";
         }
         result.add(arrayList.get(0));
         return result;
