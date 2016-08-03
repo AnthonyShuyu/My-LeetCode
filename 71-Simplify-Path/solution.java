@@ -6,6 +6,41 @@
  */
 
 
+
+// s1: regular expression, path.split("/+")
+// O(n), O(n)
+
+public class Solution {
+    public String simplifyPath(String path) {
+        // corner case
+        if (path == null || path.length() == 0) {
+            return path;
+        }        
+        
+        String result = "/";
+        String[] strs = path.split("/+");
+        List<String> arrayList = new ArrayList<String>();
+        
+        for (int i = 0; i < strs.length; i++) {
+            if (strs[i].equals("..")) {
+                if (arrayList.size() > 0) {
+                    arrayList.remove(arrayList.size() - 1);
+                }
+            } else {
+                arrayList.add(strs[i]);
+            }
+        }
+        for (int i = 0; i < arrayList.size(); i++) {
+            result += arrayList.get(i) + "/";
+        }
+        if (result.length() > 1) {
+            result = result.substring(0, result.size() - 1);
+        }
+        return result;
+    }
+}
+
+/*
 public class Solution {
     public String simplifyPath(String path) {
         // corner case
@@ -83,7 +118,7 @@ public class Solution {
         }
     }
     
-    public int countSlath(String path) {
+    public int countSlash(String path) {
         int result = 0;
         for (int i = 0; i < path.length(); i++) {
             if (path.charAt(i) == '/') {
@@ -93,3 +128,5 @@ public class Solution {
         return result;
     }
 }
+
+*/
