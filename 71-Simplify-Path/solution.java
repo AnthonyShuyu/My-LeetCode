@@ -26,12 +26,12 @@ public class Solution {
                 if (arrayList.size() > 0) {
                     arrayList.remove(arrayList.size() - 1);
                 }
-            } else if (!str[i].equals(".")){
+            } else if (!strs[i].equals(".") && !strs[i].equals("")){       // "/..." split to "" and "..."
                 arrayList.add(strs[i]);
             }
         }
         for (int i = 0; i < arrayList.size(); i++) {
-            result += arrayList.get(i) + "/";
+            result += (arrayList.get(i) + "/");
         }
         if (result.length() > 1) {
             result = result.substring(0, result.length() - 1);
