@@ -61,19 +61,22 @@ public class Solution {
                     stack.pop();
                 } 
             }
-            if (!strs[i].equals(".") && !strs[i].equals("")) {
+            else if (!strs[i].equals(".") && !strs[i].equals("")) {
                 stack.push(strs[i]);
             }
         }
-    }
     String result = "/";
+    
     for (String s : stack) {
         result += s + "/";
     }
     if (result.length() > 1) {
         result = result.substring(0, result.length() - 1);
     }
-    return result;
+    return result;        
+        
+    }
+
 }
 
 /*
