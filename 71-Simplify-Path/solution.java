@@ -74,7 +74,7 @@ public class Solution {
         int count = countSlash(path);
         
 
-        if ((str.length() == 0 && count > 1) || path.equals("/.") {
+        if ((str.length() == 0 && count > 1) || path.equals("/.")) {
             return "/";
         } else if (str.length() == 0) {
             return path;
