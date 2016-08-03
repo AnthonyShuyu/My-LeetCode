@@ -25,3 +25,42 @@ public class Solution {
         return result;
     }
 }
+
+// s2: use two pointers
+// O(n), O(n)
+
+
+public class Solution {
+    public String revereseWords(String s) {
+        // corner case
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        int i = 0;
+        List<String> arrayList = new ArrayList<String>();
+        while (i < s.length()) {
+            if (s.charAt(i) == ' ') {
+                i++;
+                continue;
+            } else {
+                int j = i;
+                while (j < s.length()) {
+                    if (s.charAt(j) == ' ') {
+                        break;
+                    } else {
+                        j++;
+                    }
+                }
+                String newString = s.substring(i, j);
+                arrayList.add(newString);
+                i = j;
+            }
+        }
+        String result = "";
+        for (int i = arrayList.size() - 1; i > 0; i--) {
+            result += arrayList.get(i) + " ";
+        }
+        result.add(arrayList.get(0));
+        return result;
+    }
+}
