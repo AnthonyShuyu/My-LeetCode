@@ -33,7 +33,7 @@ public class Solution {
 
 
 public class Solution {
-    public String revereseWords(String s) {
+    public String reverseWords(String s) {
         // corner case
         if (s == null || s.length() == 0) {
             return s;
