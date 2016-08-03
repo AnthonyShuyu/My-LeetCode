@@ -62,7 +62,7 @@ public class Solution {
         for (int index = arrayList.size() - 1; index > 0; index--) {
             result += arrayList.get(index) + " ";
         }
-        result.add(arrayList.get(0));
+        result += arrayList.get(0);
         return result;
     }
 }
