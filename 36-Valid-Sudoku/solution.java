@@ -25,7 +25,7 @@ public class Solution {
         
         // columns
         for (int i = 0; i < 9; i++) {
-            int[] nums = new int[9];
+            char[] nums = new int[9];
             for (int j = 0; j < 9; j++) {
                 nums[j] = board[j][i];
             }
@@ -36,7 +36,7 @@ public class Solution {
         
         // 9 boxes
         for (int i = 0; i < 3; i++) {
-            int[] nums = new int[9];
+            char[] nums = new int[9];
             for (int j = 0; j < 3; j++) {
                 nums[0] = board[0 + 3 * i][0 + 3 * j];
                 nums[1] = board[0 + 3 * i][1 + 3 * j];
