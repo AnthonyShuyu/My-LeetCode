@@ -74,6 +74,10 @@ public class Solution {
 */
 
 
+// s3: optimize to Math.sqrt(n)
+// O(n^(2/3)), O(1)
+// time limit exceeded, 1500000
+
 public class Solution {
     public int countPrimes(int n) {
         // corner case
