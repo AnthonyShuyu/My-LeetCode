@@ -145,8 +145,9 @@ public class Solution {
 */
 
 
-// s5: use the boolean[] to represent the isPrime
+// *s5: use the boolean[] to represent the isPrime
 // O(n), O(n)
+// tricky
 
 public class Solution {
     public int countPrimes(int n) {
