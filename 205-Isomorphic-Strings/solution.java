@@ -1,14 +1,15 @@
 /**
  * 205. Isomorphic Strings
  * 
+ * Given two strings s and t, determine if they are isomorphic.
+Two strings are isomorphic if the characters in s can be replaced to get t.
  * 
  */
-
-
 
 // s1: brute force, map the string to the int[], compare the two int arrays
 // O(n), O(n)
 
+/*
 public class Solution {
     public boolean isIsomorphic(String s, String t) {
         // corner case
@@ -42,5 +43,34 @@ public class Solution {
         }
         return array;
     }
-    
+}
+*/
+
+// s2: HashMap
+// O(n), O(n)
+
+public class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        // corner case
+        if (s == null || t == null || s.length() != t.length()) {
+            return false;
+        }
+        
+        Map<Character, Character> hashMap = new HashMap<Character, Character>();
+        for (int i = 0; i < s.length(); i++) {
+            char sChar = s.charAt(i);
+            char tChar = t.charAt(i);
+            if (hashMap.containsKey(sChar)) {
+                if (hashMap.get(sChar) != tChar) {
+                    return false;
+                }
+            } else {
+                if (hashMap.containsValue(tChar)) {     // when meet new Schar but has already map to tChar before 
+                    return false;
+                } 
+                hashMap.put(sChar, tChar);  
+            }
+        }
+        return true;
+    }
 }
