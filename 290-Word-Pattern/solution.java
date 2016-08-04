@@ -13,7 +13,7 @@ public class Solution {
         if (pattern == null || str == null) {
             return false;
         }
-        String[] strs = str.split(' ');
+        String[] strs = str.split(" ");
         if (strs.length != pattern.length()) {
             return false;
         }
