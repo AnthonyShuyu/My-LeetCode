@@ -74,7 +74,10 @@ public class Solution {
 */
 
 
-// s3: optimize to Math.sqrt(n)
+// s3: optimize to Math.sqrt(n), 
+   // Loop's ending condition is i * i <= num instead of i <= sqrt(num)
+   // to avoid repeatedly calling an expensive function sqrt().
+
 // O(n^(2/3)), O(1)
 // time limit exceeded, 1500000
 
@@ -97,7 +100,7 @@ public class Solution {
         if (n <= 1) {
             return false;
         }
-        for (int i = 2; i <= Math.sqrt(n); i++) {
+        for (int i = 2; i * i <= n; i++) {
             if (n % i == 0) {
                 return false;
             }
@@ -105,3 +108,12 @@ public class Solution {
         return true;
     }
 }
+
+// public class Solution {
+//     public int countPrimes(int n) {
+//         // corner case
+//         if (n <= 1) {
+//             return 0;
+//         }
+//     }
+// }
