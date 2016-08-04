@@ -113,7 +113,10 @@ public class Solution {
 
 
 // s4: use hashSet to store the primes, and for loop to check each prime is or not a factor of n
+// time limit exceeded
+// O(n^2), O(n)
 
+/*
 public class Solution {
     public int countPrimes(int n) {
         // corner case
@@ -137,5 +140,36 @@ public class Solution {
             }
         }
         return hashSet.size();
+    }
+}
+*/
+
+
+// s5: use the boolean[] to represent the isPrime
+// O(n), O(n)
+
+public class Solution {
+    public int countPrimes(int n) {
+        // corner case
+        if (n <= 2) {
+            return 0;
+        }
+        boolean[] isPrimes = new boolean[n];
+        for (int i = 2; i < n; i++) {
+            isPrimes[i] = true;
+        }
+        
+        for (int i = 2; i * i < n; i++) {
+            for (int j = 2 * i; j < n; j += i) {
+                isPrimes[j] = false;
+            }
+        }
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (isPrimes[i]) {
+                count++;
+            }
+        }
+        return count;
     }
 }
