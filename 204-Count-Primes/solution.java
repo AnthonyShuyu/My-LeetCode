@@ -5,7 +5,7 @@
  */
 
 // s1: brute force
-// O(n), O(1)
+// O(n^2), O(1)
 // time limit exceeded， Last executed input:499979
 
 /*
@@ -38,9 +38,10 @@ public class Solution {
 */
 
 // s2: DP
-// O(n), O(n)
+// O(n^2), O(n)
 // time limit exceeded, last executed input: 499979
 
+/*
 public class Solution {
     public int countPrimes(int n) {
         // corner case
@@ -63,6 +64,36 @@ public class Solution {
             return false;
         }
         for (int i = 2; i <= n / 2; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+*/
+
+
+public class Solution {
+    public int countPrimes(int n) {
+        // corner case
+        if (n <= 1) {
+            return 0;
+        }
+        int count = 0;
+        for (int i = 2; i < n; i++) {
+            if (isPrime(i)) {
+                count++;
+            }
+        }
+        return count;
+    }
+    
+    public boolean isPrime(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(n); i++) {
             if (n % i == 0) {
                 return false;
             }
