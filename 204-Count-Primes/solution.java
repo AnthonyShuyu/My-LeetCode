@@ -81,6 +81,7 @@ public class Solution {
 // O(n^(2/3)), O(1)
 // time limit exceeded, 1500000
 
+/*
 public class Solution {
     public int countPrimes(int n) {
         // corner case
@@ -108,12 +109,33 @@ public class Solution {
         return true;
     }
 }
+*/
 
-// public class Solution {
-//     public int countPrimes(int n) {
-//         // corner case
-//         if (n <= 1) {
-//             return 0;
-//         }
-//     }
-// }
+
+// s4: use hashSet to store the primes, and for loop to check each prime is or not a factor of n
+
+public class Solution {
+    public int countPrimes(int n) {
+        // corner case
+        if (n <= 2) {
+            return 0;
+        }
+        
+        Set<Integer> hashSet = new HashSet<Integer>();
+        hashSet.add(2);
+        boolean isPrime;
+        for (int i = 3; i <= n- 1; i++) {
+            isPrime = true;
+            for (int num : hashSet) {
+                if (i % num == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                hashSet.add(i);
+            }
+        }
+        return hashSet.size();
+    }
+}
