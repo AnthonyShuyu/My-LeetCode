@@ -4,6 +4,8 @@
  * Given two strings s and t, determine if they are isomorphic.
 Two strings are isomorphic if the characters in s can be replaced to get t.
  * 
+ * 2 solutions
+ * 
  */
 
 // s1: brute force, map the string to the int[], compare the two int arrays
