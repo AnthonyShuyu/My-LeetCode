@@ -14,11 +14,12 @@ public class Solution {
             return 0;
         }
         int count = 0;
-        for (int i = 2; i <= n; i++) {
+        for (int i = 2; i < n; i++) {
             if (isPrime(i)) {
                 count++;
             }
         }
+        return count;
     }
     public boolean isPrime(int n) {
         if (n <= 1) {
