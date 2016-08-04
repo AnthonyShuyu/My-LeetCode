@@ -39,6 +39,7 @@ public class Solution {
 
 // s2: DP
 // O(n), O(n)
+// time limit exceeded, last executed input: 499979
 
 public class Solution {
     public int countPrimes(int n) {
