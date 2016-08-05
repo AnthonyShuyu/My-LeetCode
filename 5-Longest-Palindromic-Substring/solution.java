@@ -12,7 +12,7 @@ public class Solution {
         if (s == null || s.length() == 0) {
             return s;
         }
-        String result = s.charAt(0);
+        String result = String.valueOf(s.charAt(0));
         int max_length = 1;
         for (int i = 0; i < s.length(); i++) {
             for (int j = s.length; j > i; j--) {
