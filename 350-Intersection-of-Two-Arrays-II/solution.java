@@ -31,7 +31,7 @@ public class Solution {
                 }
             }
         }
-        int[] result = new int[arrayList.size()];
+        Integer[] result = new Integer[arrayList.size()];
         return arrayList.toArray(result);
     }
 }
