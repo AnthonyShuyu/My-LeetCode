@@ -97,7 +97,7 @@ public class Solution {
         String result = s.substring(0, 1);
         for (int i = 0; i < s.length(); i++) {
             String temp1 = findPalindrome(s, i, i);
-            if (temp.length() > result.length()) {
+            if (temp1.length() > result.length()) {
                 result = temp1;
             }
             
