@@ -8,6 +8,7 @@
 // O(n^2), O(1)
 // time limit exceeded
 
+/*
 public class Solution {
     public String longestPalindrome(String s) {
         if (s == null || s.length() == 0) {
@@ -47,6 +48,34 @@ public class Solution {
         }
         return true;
     }
-    
-    
+}
+*/
+
+// s2: DP
+// O(n^2), O(n)
+
+public class Solution {
+    public String longestPalindrome(String s) {
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        int n = s.length();
+        boolean[][] result = new boolean[n][n];
+        int max_len = 0;
+        String result = null;
+        
+        for (int len = 0; len < n; len++) {
+            for (int i = 0; i < n - len; i++) {
+                int j = i + len;
+                if (s.charAt(i) == s.chatAt(j) && (j - i <= 2 || result[i + 1][j - 1]) {
+                    result[i][j] = true;
+                    if (j - i + 1 > max_len) {
+                        max_len = j - i + 1;
+                        result = s.substring(i, j + 1);
+                    }
+                }
+            }
+        }
+        return result;
+    }
 }
