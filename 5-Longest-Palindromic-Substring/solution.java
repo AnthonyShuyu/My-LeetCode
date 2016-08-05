@@ -15,7 +15,7 @@ public class Solution {
         String result = String.valueOf(s.charAt(0));
         int max_length = 1;
         for (int i = 0; i < s.length(); i++) {
-            for (int j = s.length; j > i; j--) {
+            for (int j = s.length(); j > i; j--) {
                 String substring = s.substring(i, j);
                 if (isPalindrome(substring)) {
                     if (substring.length() > max_length) {
