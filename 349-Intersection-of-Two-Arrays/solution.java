@@ -1,14 +1,14 @@
 /**
  * 
  * 349. Intersection of Two Arrays
- * 
- * 
+ * Given two arrays, write a function to compute their intersection.
  * 
  * 
  */
 
 // s1: HashSet
 // O(n), O(n)
+// follow up, to be continued
 
 public class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
