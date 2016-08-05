@@ -96,12 +96,12 @@ public class Solution {
         }
         String result = s.substring(0, 1);
         for (int i = 0; i < s.length(); i++) {
-            String temp1 = findPalindrome(i, i);
+            String temp1 = findPalindrome(s, i, i);
             if (temp.length() > result.length()) {
                 result = temp1;
             }
             
-            String temp2 = findPalindrome(i, i + 1);
+            String temp2 = findPalindrome(s, i, i + 1);
             if (temp2.length() > result.length()) {
                 result = temp2;
             }
