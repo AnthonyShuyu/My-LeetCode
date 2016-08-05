@@ -83,6 +83,8 @@ public class Solution {
 }
 */
 
+// *s2: hashMap
+// O(n), O(n)
 
 public class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
