@@ -51,9 +51,11 @@ public class Solution {
 }
 */
 
-// s2: DP
-// O(n^2), O(n)
+// s2: DP, Let s be the input string, i and j are two indices of the string. Define a 2-dimension array "table" and let table[i][j] denote whether a substring from i to j is palindrome.
 
+// O(n^2), O(n^2)
+
+/*
 public class Solution {
     public String longestPalindrome(String s) {
         if (s == null || s.length() == 0) {
@@ -79,3 +81,41 @@ public class Solution {
         return result;
     }
 }
+*/
+
+
+// s3:  Given a center, either one letter or two letter, 
+// Find longest palindrome
+// O(n^2), O(1)
+
+public class Solution {
+    public String longestPalindrome(String s) {
+        // corner case
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        String result = s.substring(0, 1);
+        for (int i = 0; i < s.length(); i++) {
+            String temp1 = findPalindrome(i, i);
+            if (temp.length() > result.length()) {
+                result = temp1;
+            }
+            
+            String temp2 = findPalindrome(i, i + 1);
+            if (temp2.length() > result.length()) {
+                result = temp2;
+            }
+        }
+        return result;
+    }
+    
+    public String findPalindrome(String s, int start, int end) {
+        while (start >= 0 && end <= s.length() - 1 && s.charAt(start) == s.charAt(end)) {
+            start++;
+            end--;
+        }
+        return s.substring(start + 1, end);
+    }
+}
+
+
