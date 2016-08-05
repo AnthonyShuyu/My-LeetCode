@@ -11,11 +11,13 @@
 public class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
         // corner case
+        int[] result = new int[0];
+        
         if (nums1 == null || nums1.length == 0) {
-            return null;
+            return result;
         }
         if (nums2 == null || nums2.length == 0) {
-            return null;
+            return result;
         }
         
         Set<Integer> hashSet = new HashSet<Integer>();
@@ -27,11 +29,17 @@ public class Solution {
                     if (!hashSet.contains(j)) {
                         hashSet.add(j);
                         arrayList.add(num);
+                        break;
                     }
                 }
             }
         }
-        Integer[] result = new Integer[arrayList.size()];
-        return arrayList.toArray(result);
+        // Integer[] result = new Integer[arrayList.size()];
+        // return arrayList.toArray(result);
+        result = new int[arrayList.size()];
+        for (int i = 0; i < arrayList.size(); i++) {
+            result[i] = arrayList.get(i);
+        }
+        return result;
     }
 }
