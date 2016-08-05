@@ -67,7 +67,7 @@ public class Solution {
         for (int len = 0; len < n; len++) {
             for (int i = 0; i < n - len; i++) {
                 int j = i + len;
-                if (s.charAt(i) == s.chatAt(j) && (j - i <= 2 || result[i + 1][j - 1]) {
+                if (s.charAt(i) == s.chatAt(j) && (j - i <= 2 || result[i + 1][j - 1])) {
                     result[i][j] = true;
                     if (j - i + 1 > max_len) {
                         max_len = j - i + 1;
