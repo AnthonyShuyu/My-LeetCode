@@ -91,9 +91,10 @@ public class Solution {
 public class Solution {
     public String longestPalindrome(String s) {
         // corner case
-        if (s == null || s.length() == 0) {
+        if (s == null || s.length() <= 1) {
             return s;
         }
+
         String result = s.substring(0, 1);
         for (int i = 0; i < s.length(); i++) {
             String temp1 = findPalindrome(s, i, i);
@@ -110,7 +111,7 @@ public class Solution {
     }
     
     public String findPalindrome(String s, int start, int end) {
-        while (start >= 0 && end <= s.length() - 1 && start <= end && s.charAt(start) == s.charAt(end)) {
+        while (start >= 0 && end <= s.length() - 1&& s.charAt(start) == s.charAt(end)) {
             start++;
             end--;
         }
