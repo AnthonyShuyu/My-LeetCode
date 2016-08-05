@@ -110,7 +110,7 @@ public class Solution {
     }
     
     public String findPalindrome(String s, int start, int end) {
-        while (start >= 0 && end <= s.length() - 1 && s.charAt(start) == s.charAt(end)) {
+        while (start >= 0 && end <= s.length() - 1 && start <= end && s.charAt(start) == s.charAt(end)) {
             start++;
             end--;
         }
