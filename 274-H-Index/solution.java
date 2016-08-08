@@ -46,7 +46,7 @@ public class Solution {
         // return max;
         int result = citations.length;
         while (result > 0) {
-            if (isHIndex(hashMap, result)) {
+            if (isHIndex(result, citations)) {
                 break;              
             }
             result--;
