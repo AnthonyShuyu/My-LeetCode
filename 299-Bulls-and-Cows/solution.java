@@ -68,10 +68,10 @@ public class Solution {
         // corner case
 
         if (secret == null || secret.length() == 0) {
-            return result;
+            return null;
         }
         if (guess == null || guess.length() == 0) {
-            return guess;
+            return null;
         }
         if (secret.length() != guess.length()) {
             return null;
