@@ -148,7 +148,7 @@ public class Solution {
         }
         
         int countB = 0;
-        for (int i = 0; i < secret.length(); i++) {
+        for (int i = 0; i < 10; i++) {
             countB += Math.min(a1[i], a2[i]);
         }
         return countA + "A" + countB + "B";
