@@ -8,7 +8,6 @@
 // s1: HashMap
 // O(n), O(n)
 
-
 public class Solution {
     public String getHint(String secret, String guess) {
         // corner case
@@ -32,8 +31,6 @@ public class Solution {
             }
         }
         
-        
-        
         // countA + countB, use the HashMap to store the value and count of the number
         Map<Character, Integer> hashMap = new HashMap<Character, Integer>();
         for (int i = 0; i < secret.length(); i++) {
@@ -55,32 +52,63 @@ public class Solution {
         
         int countB = count - countA;
         
-        // // use hashMap to store index and value
-        // Map<Integer, Character> hashMap = new HashMap<Integer, Character>();
-        
-        // // use hashSet to store the different cows
-        // // Set<Character> hashSet = new HashSet<Character>();
-        
-        // for (int i = 0; i < secret.length(); i++) {
-        //     hashMap.put(i, secret.charAt(i));
-        // }
-        
-        // for (int i = 0; i < guess.length(); i++) {
-        //     if (hashMap.containsKey(i)) {
-        //         if (hashMap.get(i) == guess.charAt(i)) {
-        //             countA++;
-        //         } else {
-        //             if (hashMap.containsValue(guess.charAt(i))) {
-        //                 // if (!hashSet.contains(guess.charAt(i))) {
-        //                     countB++;
-        //                     // hashSet.add(guess.charAt(i));
-        //                 }
-        //             }
-        //         }
-        //     }
-        
         StringBuilder sb = new StringBuilder();
         sb.append(countA + "A" + countB + "B");
         return sb.toString();
+    }
+}
+
+
+// s2: optimize HashMap
+// O(n), O(n)
+
+public class Solution {
+    public String getHint(String secret, String guess) {
+        // corner case
+
+        if (secret == null || secret.length() == 0) {
+            return result;
+        }
+        if (guess == null || guess.length() == 0) {
+            return guess;
+        }
+        if (secret.length() != guess.length()) {
+            return null;
+        }
+        
+        // get bulls and use HashMap to store secret value map to the count of the value
+        int countA = 0;
+        Map<Character, Integer> hashMap = new HashMap<Character, Integer>();
+        
+        for (int i = 0; i < secret.length(); i++) {
+            char c1 = secret.charAt(i);
+            char c2 = guess.charAt(i);
+            if (c1 == c2) {
+                countA++;
+            } else {
+                if (hashMap.containsKey(c1)) {
+                    hashMap.put(c1, hashMap.get(c1) + 1);
+                } else {
+                    hashMap.put(c1, 1);
+                }
+            }
+        }
+        
+        // get cows
+        int countB = 0;
+        for (int i = 0; i < secret.length(); i++) {
+            char c1 = secret.charAt(i);
+            char c2 = guess.charAt(i);
+            if (c1 != c2) {
+                if (hashMap.containsKey(c2) && hashMap.get(c2) > 0) {
+                    countB++;
+                    hashMap.put(c2, hashMap.get(c2) - 1);
+                }
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(countA + "A" + countB + "B");
+        return sb.toString();
+                
     }
 }
