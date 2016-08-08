@@ -1,11 +1,12 @@
 /**
  * 274. H-Index
+ * 3 solutions
  * 
  */
 
 
 // s1: Array or HashMap, count from the length of citations to 0, how many >= the number
-// O(n), O(n)
+// O(n^2), O(n)
 
 /*
 public class Solution {
@@ -89,7 +90,9 @@ public class Solution {
 
 // s2: Arrays.sort()
 // O(nlogn), O(1)
+// tricky
 
+/*
 public class Solution {
     public int hIndex(int[] citations) {
         // corner case
@@ -103,5 +106,31 @@ public class Solution {
             result = Math.max(result, smaller);
         }
         return result;
+    }
+}
+*/
+
+public class Solution {
+    public int hIndex(int[] citations) {
+        // corner case
+        if (citations == null || citations.length == 0) {
+            return 0;
+        }
+        int[] array = new int[citations.length + 1];
+        for (int i = 0; i < citations.length; i++) {
+            if (citations[i] >= citations.length) {
+                array[citations.length]++;
+            } else {
+                array[citations[i]]++;
+            }
+        }
+        int h = 0;
+        for (int i = citations.length; i > 0; i--) {
+            h += array[i];
+            if (h >= i) {
+                return i;
+            }
+        }
+        return 0;
     }
 }
