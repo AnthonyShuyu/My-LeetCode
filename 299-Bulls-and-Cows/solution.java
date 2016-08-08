@@ -34,7 +34,6 @@ public class Solution {
         
         
         
-        
         // countA + countB, use the HashMap to store the value and count of the number
         Map<Character, Integer> hashMap = new HashMap<Character, Integer>();
         for (int i = 0; i < secret.length(); i++) {
