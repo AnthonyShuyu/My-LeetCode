@@ -37,7 +37,7 @@ Special thanks to [@jianchao.li.fighter](https://leetcode.com/discuss/user/jianc
 
 <div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton">[Hash Table](/tag/hash-table/) [Sort](/tag/sort/)</span></div>
+<span class="hidebutton" style="display: none;">[Hash Table](/tag/hash-table/) [Sort](/tag/sort/)</span></div>
 
 <div>
 
