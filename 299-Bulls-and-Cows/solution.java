@@ -60,9 +60,10 @@ public class Solution {
 }
 */
 
-// s2: optimize HashMap
+// *s2: optimize HashMap
 // O(n), O(n)
 
+/*
 public class Solution {
     public String getHint(String secret, String guess) {
         // corner case
@@ -111,5 +112,46 @@ public class Solution {
         sb.append(countA + "A" + countB + "B");
         return sb.toString();
                 
+    }
+}
+*/
+
+
+// s3: use Array
+// O(n), O(n)
+
+public class Solution {
+    public String getHint(String secret, String guess) {
+        // corner case
+        if (secret == null || secret.length() == 0) {
+            return null;
+        }
+        if (guess == null || guess.length() == 0) {
+            return null;
+        }
+        if (secret.length() != guess.length()) {
+            return null;
+        }
+        int[] a1 = new int[10];
+        int[] a2 = new int[10];
+        
+        int countA = 0;
+        for (int i = 0; i < secret.length(); i++) {
+            char c1 = secret.charAt(i);
+            char c2 = guess.charAt(i);
+            if (c1 == c2) {
+                countA++;
+            } else {
+                a1[c1 - '0']++;
+                a2[c2 - '0']++;
+            }
+        }
+        
+        int countB = 0;
+        for (int i = 0; i < secret.length(); i++) {
+            countB += Math.min(a1[i], a2[i]);
+        }
+        return countA + "A" + countB + "B";
+        
     }
 }
