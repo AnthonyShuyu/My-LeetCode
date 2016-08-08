@@ -17,7 +17,7 @@ public class Solution {
         Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
         for (int i = 0; i < citations.length; i++) {
             int n = citations[i];
-            if (hashMap.contains(n)) {
+            if (hashMap.containsKey(n)) {
                 hashMap.put(n, hashMap.get(n) + 1);
             } else {
                 hashMap.put(n, 1);
