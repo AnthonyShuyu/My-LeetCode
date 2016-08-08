@@ -8,6 +8,7 @@
 // s1: HashMap
 // O(n), O(n)
 
+/*  
 public class Solution {
     public String getHint(String secret, String guess) {
         // corner case
@@ -57,7 +58,7 @@ public class Solution {
         return sb.toString();
     }
 }
-
+*/
 
 // s2: optimize HashMap
 // O(n), O(n)
