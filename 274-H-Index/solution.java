@@ -7,6 +7,7 @@
 // s1: Array or HashMap, count from the length of citations to 0, how many >= the number
 // O(n), O(n)
 
+/*
 public class Solution {
     public int hIndex(int[] citations) {
         // corner case
@@ -84,6 +85,7 @@ public class Solution {
     }
     
 }
+*/
 
 // s2: Arrays.sort()
 // O(nlogn), O(1)
