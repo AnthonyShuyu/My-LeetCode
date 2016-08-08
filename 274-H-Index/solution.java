@@ -54,19 +54,33 @@ public class Solution {
         return result;
     }
     
-    public boolean isHIndex(Map<Integer, Integer> hashMap, int n) {
+    // public boolean isHIndex(Map<Integer, Integer> hashMap, int n) {
+    //     int count = 0;
+    //     for (Map.Entry<Integer, Integer> entry: hashMap.entrySet()) {
+    //         int key = entry.getKey();
+    //         int value = entry.getValue();
+    //         if (key >= n) {
+    //             count += value;
+    //         }
+    //     }
+    //     if (n <= count) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+    public boolean isHIndex(int n, int[] citations) {
         int count = 0;
-        for (Map.Entry<Integer, Integer> entry: hashMap.entrySet()) {
-            int key = entry.getKey();
-            int value = entry.getValue();
-            if (key >= n) {
-                count += value;
+        for (int i = 0; i < citations; i++) {
+            if (citations[i] >= n) {
+                count++;
             }
         }
-        if (n <= count) {
+        if (count >= n) {
             return true;
         } else {
             return false;
         }
     }
+    
 }
