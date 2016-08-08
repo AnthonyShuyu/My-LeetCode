@@ -71,7 +71,7 @@ public class Solution {
     // }
     public boolean isHIndex(int n, int[] citations) {
         int count = 0;
-        for (int i = 0; i < citations; i++) {
+        for (int i = 0; i < citations.length; i++) {
             if (citations[i] >= n) {
                 count++;
             }
