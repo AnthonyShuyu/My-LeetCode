@@ -99,7 +99,7 @@ public class Solution {
         Arrays.sort(citations);
         int result = 0;
         for (int i = 0; i < citations.length; i++) {
-            int smaller = Maht.min(citations[i], citations.length - i);
+            int smaller = Math.min(citations[i], citations.length - i);
             result = Math.max(result, smaller);
         }
         return result;
