@@ -110,6 +110,9 @@ public class Solution {
 }
 */
 
+// s3: array
+// O(n), O(n)
+// trikcy
 public class Solution {
     public int hIndex(int[] citations) {
         // corner case
