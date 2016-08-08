@@ -39,7 +39,7 @@ public class Solution {
         Map<Character, Integer> hashMap = new HashMap<Character, Integer>();
         for (int i = 0; i < secret.length(); i++) {
             char c = secret.charAt(i);
-            if(hashMap.containskey(c)) {
+            if(hashMap.containsKey(c)) {
                 hashMap.put(c, hashMap.get(c) + 1);
             } else {
                 hashMap.put(c, 1);
