@@ -1,6 +1,6 @@
 /**
  * 187. Repeated DNA Sequences
- * 
+ * 3 solutions
  * 
  */
 
