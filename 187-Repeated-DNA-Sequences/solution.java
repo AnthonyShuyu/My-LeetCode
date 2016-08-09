@@ -38,6 +38,7 @@ public class Solution {
 // s2: HashMap
 // O(n), O(n)
 
+/*
 public class Solution {
     public List<String> findRepeatedDnaSequences(String s) {
         // corner case
@@ -63,7 +64,7 @@ public class Solution {
         return result;
     }
 }
-
+*/
 
 
 // *s3: use HashSet
