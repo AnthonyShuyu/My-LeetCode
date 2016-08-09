@@ -1,7 +1,7 @@
 /**
  * 
  * 179. Largest Number
- * 
+ * 1 solution
  * 
  */
 
@@ -68,8 +68,9 @@ public class Solution {
 */
 
 
-// s2: Arrays.sort(nums, new NumbersComparator());
+// *s2: Arrays.sort(nums, new NumbersComparator());
 // O(nlogn), O(n)
+// tricky
 
 class NumberComparator implements Comparator<String>{
     public int compare(String s1, String s2) {
