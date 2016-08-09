@@ -91,15 +91,15 @@ public class Solution {
                    int index = hashMap.get(remainder);
                    String part1 = sb.substring(0, index).toString();
                     String part2 = sb.substring(index, sb.length()).toString();
-                    return part1 + "(" + part2 + ")";                   
-                                       
+                    // return part1 + "(" + part2 + ")";                   
+                    sb = "";
+                    sb.append(part1 + "(" + part2 + ")");
+                    return sb.toString();
                }
                hashMap.put(remainder, sb.length());
                factor = remainder / denominator;
                sb.append(factor);
                remainder = remainder % denominator * 10;
            }
-           
-           
     }
 }
