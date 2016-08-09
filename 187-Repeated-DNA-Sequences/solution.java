@@ -9,6 +9,7 @@
 // O(n^2), O(n)
 // time limit exceeded
 
+/*
 public class Solution {
     public List<String> findRepeatedDnaSequences(String s) {
         // corner case
@@ -31,3 +32,35 @@ public class Solution {
         return result;
     }
 }
+*/
+
+
+// s2: HashMap
+// O(n), O(n)
+
+public class Solution {
+    public List<String> findRepeatedDnaSequences(String s) {
+        // corner case
+        List<String> result = new ArrayList<String>();
+        if (s == null || s.length() <= 10) {
+            return result;
+        }
+        Map<String, Integer> hashMap = new HashMap<String, Integer>();
+        
+        for (int i = 0; i < s.length() - 9; i++) {
+            String str = s.substring(i, i + 10);
+            if (hashMap.containsKey(str)) {
+                int index = hashMap.get(str);
+                String temp = s.substring(index, index + 10);
+                if (!result.contains(temp)) {
+                    result.add(temp);
+                }
+                continue;
+            } else {
+                hashMap.put(str, i);
+            }
+        }
+        return result;
+    }
+}
+
