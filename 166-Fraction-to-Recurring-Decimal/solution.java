@@ -73,12 +73,17 @@ public class Solution {
                sb.append("-");
            }
            
-           long num = Math.abs(numerator);
-           long den = Math.abs(denominator);
+        //   long num = Math.abs(numerator);
+        //   long den = Math.abs(denominator);
+           long num = numerator;
+           long den = denominator;
+           num = Math.abs(num);
+           den = Math.abs(den);
+           
            
             // get the left of "."
            long factor = num / den;
-           long remainder = num % deno * 10;
+           long remainder = num % den * 10;
            sb.append(factor);
            
            if (remainder == 0) {
