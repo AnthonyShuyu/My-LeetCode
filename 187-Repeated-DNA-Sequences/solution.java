@@ -64,3 +64,29 @@ public class Solution {
     }
 }
 
+
+
+// *s3: use HashSet
+// O(n), O(n)
+
+public class Solution {
+    public List<String> findRepeatedDnaSequences(String s) {
+        // corner case
+        List<String> result = new ArrayList<String>();
+        if (s == null || s.length() <= 10) {
+            return result;
+        }
+        Set<String> hashSet = new HashSet<String>();
+        for (int i = 0; i < s.length() - 9; i++) {
+            String str = s.substring(i, i + 10);
+            if (hashSet.contains(str)) {
+                if (!result.contains(str)) {
+                    result.add(str);
+                }
+            } else {
+                hashSet.add(str);
+            }
+        }
+        return result;
+    }
+}
