@@ -73,12 +73,12 @@ public class Solution {
                sb.append("-");
            }
            
-           long numerator = Math.abs(numerator);
-           long denominator = Math.abs(denominator);
+           long num = Math.abs(numerator);
+           long den = Math.abs(denominator);
            
             // get the left of "."
-           long factor = numerator / denominator;
-           long remainder = numerator % denominator * 10;
+           long factor = num / den;
+           long remainder = num % deno * 10;
            sb.append(factor);
            
            if (remainder == 0) {
@@ -100,9 +100,9 @@ public class Solution {
                     return sb.toString();
                }
                hashMap.put(remainder, sb.length());
-               factor = remainder / denominator;
+               factor = remainder / den;
                sb.append(factor);
-               remainder = remainder % denominator * 10;
+               remainder = remainder % den * 10;
            }
            return sb.toString();
     }
