@@ -65,12 +65,11 @@ public class Solution {
             return result;
         }
         Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
-        Queue<Map.Entry<Integer, Integer>> priorityQueue = new PriorityQueue<Map.Entry<Integer, Integer>>({
+        Queue<Map.Entry<Integer, Integer>> priorityQueue = new PriorityQueue<Map.Entry<Integer, Integer>>(
             new Comparator<Map.Entry<Integer, Integer>>() {
                 public int compare(Map.Entry<Integer, Integer> e1, Map.Entry<Integer, Integer> e2) {
                     return e1.getValue() - e2.getValue();
                 }
-            }   
         });
         
         for (int i = 0; i < nums.length; i++) {
