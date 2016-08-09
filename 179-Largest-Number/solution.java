@@ -71,6 +71,13 @@ public class Solution {
 // s2: Arrays.sort(nums, new NumbersComparator());
 // O(nlogn), O(n)
 
+class NumberComparator implements Comparator<String>{
+    public int compare(String s1, String s2) {
+        return (s2 + s1).compareTo(s1 + s2);
+    }
+}
+
+
 public class Solution {
     public String largestNumber(int[] nums) {
         // corner case
@@ -83,20 +90,24 @@ public class Solution {
             strs[i] = String.valueOf(nums[i]);
         }
         
-        Arrays.sort(strs, new NumberComparator() implements Comparator<String> {
-                public int compare(String s1, String s2) {
-                    return (s2 + s1).compareTo(s1 + s2);
-                }
-            });
+        Arrays.sort(strs, new NumberComparator());
         
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < strs.length; i++) {
             sb.append(strs[i]);
         }
         
+        // return sb.toString();
+        int index = 0;
+        for (int i = 0; i < sb.length(); i++) {
+            if (sb.charAt(i) == '0') {
+                index = i;
+                break;
+            }
+        }
+        if (index = sb.length() - 1) {
+            return "0";
+        }
         return sb.toString();
-        // int index = 0;
-        // for (int i = 0; i < )
-        
     }
 }
