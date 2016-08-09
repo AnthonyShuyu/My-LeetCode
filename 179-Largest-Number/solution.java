@@ -7,7 +7,9 @@
 
 // s1: brute force, Arrays.sort() and two pointers
 // O(n^2), O(n)
+// failed
 
+/*
 public class Solution {
     public String largestNumber(int[] nums) {
         // corner case
@@ -22,7 +24,7 @@ public class Solution {
         }
         
         StringBuilder sb = new StringBuilder();
-        if (num.length == 1) {
+        if (nums.length == 1) {
             sb.append(nums[0]);
             return sb.toString();
         }
@@ -61,5 +63,40 @@ public class Solution {
             count++;
         }
         return count;
+    }
+}
+*/
+
+
+// s2: Arrays.sort(nums, new NumbersComparator());
+// O(nlogn), O(n)
+
+public class Solution {
+    public String largestNumber(int[] nums) {
+        // corner case
+        if (nums == null || nums.length == 0) {
+            return "";
+        }
+        
+        String[] strs = new String[nums.length];
+        for (int i = 0; i < strs.length; i++) {
+            strs[i] = String.valueOf(nums[i]);
+        }
+        
+        Arrays.sort(strs, new NumberComparator() implements Comparator<String> {
+                public int compare(String s1, String s2) {
+                    return (s2 + s1).compareTo(s1 + s2);
+                }
+            });
+        
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < strs.length; i++) {
+            sb.append(strs[i]);
+        }
+        
+        return sb.toString();
+        // int index = 0;
+        // for (int i = 0; i < )
+        
     }
 }
