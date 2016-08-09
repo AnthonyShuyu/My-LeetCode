@@ -73,9 +73,12 @@ public class Solution {
                sb.append("-");
            }
            
+           long numerator = Math.abs(numerator);
+           long denominator = Math.abs(denominator);
+           
             // get the left of "."
-           int factor = numerator / denominator;
-           int remainder = numerator % denominator * 10;
+           long factor = numerator / denominator;
+           long remainder = numerator % denominator * 10;
            sb.append(factor);
            
            if (remainder == 0) {
@@ -84,7 +87,7 @@ public class Solution {
            sb.append(".");
            
            // get the right of "."
-           Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
+           Map<Long, Integer> hashMap = new HashMap<Long, Integer>();
            
            while (remainder != 0) {
                if (hashMap.containsKey(remainder)) {
@@ -92,7 +95,7 @@ public class Solution {
                    String part1 = sb.substring(0, index).toString();
                     String part2 = sb.substring(index, sb.length()).toString();
                     // return part1 + "(" + part2 + ")";                   
-                    sb = "";
+                    sb = new StringBuilder();
                     sb.append(part1 + "(" + part2 + ")");
                     return sb.toString();
                }
@@ -101,5 +104,6 @@ public class Solution {
                sb.append(factor);
                remainder = remainder % denominator * 10;
            }
+           return sb.toString();
     }
 }
