@@ -82,17 +82,17 @@ public class Solution {
         
         for (Map.Entry<Integer, Integer> entry : hashMap.entrySet()) {
             if (priorityQueue.size() < k) {
-                priorityQueue.offer(entry.getKey());
+                priorityQueue.offer(entry);
             } else {
                 if (priorityQueue.peek() < entry.getValue()) {
                     priorityQueue.poll();
-                    priorityQueue.offer(entry.getKey());
+                    priorityQueue.offer(entry);
                 }
             }
         }
         
         for (Map.Entry<Integer, Integer> entry : priorityQueue) {
-            result.add(entry);
+            result.add(entry.getKey());
         }
         return result;
     }
