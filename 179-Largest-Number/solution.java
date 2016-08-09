@@ -99,13 +99,11 @@ public class Solution {
         
         // return sb.toString();
         int index = 0;
-        for (int i = 0; i < sb.length(); i++) {
-            if (sb.charAt(i) == '0') {
-                index = i;
-                break;
-            }
+        while (index < sb.length() && sb.charAt(index) == '0') {
+            index++;
         }
-        if (index = sb.length() - 1) {
+        
+        if (index == sb.length()) {
             return "0";
         }
         return sb.toString();
