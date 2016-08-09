@@ -84,7 +84,7 @@ public class Solution {
             if (priorityQueue.size() < k) {
                 priorityQueue.offer(entry);
             } else {
-                if (priorityQueue.peek() < entry.getValue()) {
+                if (priorityQueue.peek().getValue() < entry.getValue()) {
                     priorityQueue.poll();
                     priorityQueue.offer(entry);
                 }
