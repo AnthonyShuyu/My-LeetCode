@@ -1,0 +1,32 @@
+/**
+ * 187. Repeated DNA Sequences
+ * 
+ * 
+ */
+
+
+// s1: brute force
+// O(n^2), O(n)
+
+public class Solution {
+    public List<String> findRepeatedDnaSequences(String s) {
+        // corner case
+        List<String> result = new ArrayList<String>();
+        if (s == null || s.length() <= 10) {
+            return result;
+        }
+        for (int i = 0; i < s.length() - 9; i++) {
+            String str = s.substring(i, i + 10);
+            for (int j = i + 1; j < s.length() - 9; j++) {
+                String str2 = s.substring(j, j + 10);
+                if (str.equals(str2)) {
+                    if (!result.contains(str)) {
+                        result.add(str);
+                    }
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+}
