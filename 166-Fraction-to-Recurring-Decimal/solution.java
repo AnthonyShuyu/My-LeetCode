@@ -66,7 +66,7 @@ public class Solution {
                return "";
            }
            if (numerator == 0) {
-               return 0;
+               return "0";
            }
            StringBuilder sb = new StringBuilder();
            if ((numerator < 0) ^ (denominator < 0)) {
