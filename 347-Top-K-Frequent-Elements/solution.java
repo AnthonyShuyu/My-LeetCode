@@ -52,8 +52,8 @@ public class Solution {
 */
 
 
-// s2: HashMap + priorityQueue
-// O(n), O(n)
+// *s2: HashMap + priorityQueue
+// O(n), O(k)
 
 
 public class Solution {
