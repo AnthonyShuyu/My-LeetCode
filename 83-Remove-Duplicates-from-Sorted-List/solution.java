@@ -23,7 +23,7 @@ public class Solution {
         
         while (head.next != null) {
             int val = head.val;
-            while (head.next.val == val && head.next != null) {
+            while (head.next != null && head.next.val == val) {
                 head.next = head.next.next;
             }
             head = head.next;
