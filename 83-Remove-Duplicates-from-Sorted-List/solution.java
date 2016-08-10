@@ -21,7 +21,7 @@ public class Solution {
         }
         ListNode node = head;
         
-        while (head.next != null) {
+        while (head != null) {
             int val = head.val;
             while (head.next != null && head.next.val == val) {
                 head.next = head.next.next;
