@@ -18,6 +18,8 @@
 // s1: brute force, dummy node
 // O(n), O(1)
  
+
+/*
 public class Solution {
     public ListNode deleteDuplicates(ListNode head) {
         // corner case
@@ -42,3 +44,35 @@ public class Solution {
         return dummy.next;
     }
 }
+
+*/
+
+
+public class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        // corner case
+        if (head == null) {
+            return head;
+        }
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        head = dummy;
+        
+        while (head.next != null && head.next.next != null) {
+            if (head.next.val == head.next.next.val) {
+                int num = head.next.val;
+                while (head.next != null && head.next.val == num) {
+                    head.next = head.next.next;
+                }
+            } else {
+                head = head.next;
+            }
+        }
+        
+        return dummy.next;
+        
+    }
+}
+
+
+
