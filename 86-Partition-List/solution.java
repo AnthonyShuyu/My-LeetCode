@@ -1,6 +1,6 @@
 /**
  * 86. Partition List
- * 
+ * 3 solutions
  *
  */
 
@@ -89,18 +89,17 @@ public class Solution {
 
 */
 
-
+// s3: one dummy node, not recommended now
+// O(n), O(1)
 
 public class Solution {
     public ListNode partition(ListNode head, int x) {
         if (head == null || head.next == null) {
             return head;
         }
-        
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         head = dummy;
-        
         
         ListNode node = head;
         int n = 0;
@@ -108,7 +107,6 @@ public class Solution {
             node = node.next;
             n++;
         }
-        
         
         for (int i = 0; i < n; i++) {
             if (head.next.val < x) {
@@ -119,9 +117,7 @@ public class Solution {
                 head.next = head.next.next;
             }
         }
-        
         node.next = null;
         return dummy.next;
-      
     }
 }
