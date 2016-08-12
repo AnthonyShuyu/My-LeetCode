@@ -57,6 +57,7 @@ public class Solution {
 // *s2: two dummy nodes, two heads, don't forget: head2.next = null
 // O(n), O(1)
 
+/*
 public class Solution {
     public ListNode partition(ListNode head, int x) {
         // corner case
@@ -83,5 +84,44 @@ public class Solution {
         head1.next = dummy2.next;
         head2.next = null;
         return dummy1.next;
+    }
+}
+
+*/
+
+
+
+public class Solution {
+    public ListNode partition(ListNode head, int x) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        head = dummy;
+        
+        
+        ListNode node = head;
+        int n = 0;
+        while (node.next != null) {
+            node = node.next;
+            n++;
+        }
+        
+        
+        for (int i = 0; i < n; i++) {
+            if (head.next.val < x) {
+                head = head.next;
+            } else {
+                node.next = head.next;
+                node = node.next;
+                head.next = head.next.next;
+            }
+        }
+        
+        node.next = null;
+        return dummy.next;
+      
     }
 }
