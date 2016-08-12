@@ -25,11 +25,13 @@ public class Solution {
             return null;
         }
         
+        ListNode node = head;
+        
         //count the length of the list
         int length = 0;
-        while (head != null) {
+        while (node != null) {
             length++;
-            head = head.next;
+            node = node.next;
         }
         
         int step = length - n;
