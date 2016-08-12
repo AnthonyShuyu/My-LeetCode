@@ -52,7 +52,7 @@ public class Solution {
                 return null;
             }
         }
-        if (head.next != null) {
+        if (head != null && head.next != null) {
             head.next = head.next.next;
         }
         return dummy.next;
