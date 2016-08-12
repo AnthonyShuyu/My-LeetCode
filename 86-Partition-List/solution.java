@@ -32,11 +32,13 @@ public class Solution {
         ListNode dummy2 = node2;
         
         while (head != null) {
-            if (head.val >= x) {
-                node1.next = head;
+            if (head.val < x) {
+                ListNode node = new ListNode(head.val);
+                node1.next = node;
                 node1 = node1.next;
             } else {
-                node2.next = head;
+                ListNode node = new ListNode(head.val);
+                node2.next = node;
                 node2 = node2.next;
             }
             head = head.next;
