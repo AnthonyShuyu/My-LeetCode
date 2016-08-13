@@ -38,17 +38,19 @@ public class Solution {
 		while(node1 != null) {
 			int num1 = node1.val;
 			ListNode newNode = new ListNode((num1 + carry) % 10);
+			carry = (num1 + carry) / 10;
 			head.next = newNode;
 			head = head.next;
-			carry = (num1 + carry) / 10;
+			node1 = node1.next;
 		}
 		
 		while (node2 != null) {
 			int num2 = node2.val;
 			ListNode newNode = new ListNode((num2 + carry) % 10);
+			carry = (num2 + carry) / 10;
 			head.next = newNode;
 			head = head.next;
-			carry = (num2 + carry) / 10;
+            node2 = node2.next;
 		}
 		
 		if (carry == 1) {
