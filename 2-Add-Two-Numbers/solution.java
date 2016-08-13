@@ -14,7 +14,7 @@
  * }
  */
 public class Solution {
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    public ListNode addTwoNumbers(ListNode node1, ListNode node2) {
 		//corner case
 		if (node1 == null || node2 == null) {
 			return null;
