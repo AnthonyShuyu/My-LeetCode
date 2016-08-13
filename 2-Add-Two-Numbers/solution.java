@@ -54,7 +54,9 @@ public class Solution {
 		if (carry == 1) {
 			ListNode newNode = new ListNode(1);
 			head.next = newNode;
+			head = head.next;
 		}
+		head.next = null;
 		return dummy.next;
 
         
