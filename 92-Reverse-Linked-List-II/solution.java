@@ -1,6 +1,6 @@
 /**
  * 92. Reverse Linked List II
- * 
+ * 1 solution
  * 
  */
 
