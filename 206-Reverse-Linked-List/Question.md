@@ -34,4 +34,4 @@ A linked list can be reversed either iteratively or recursively. Could you imple
 
 <div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
 
-<span class="hidebutton" style="display: none;">[(M) Reverse Linked List II](/problems/reverse-linked-list-ii/) [(M) Binary Tree Upside Down](/problems/binary-tree-upside-down/) [(E) Palindrome Linked List](/problems/palindrome-linked-list/)</span></div>
+<span class="hidebutton">[(M) Reverse Linked List II](/problems/reverse-linked-list-ii/) [(M) Binary Tree Upside Down](/problems/binary-tree-upside-down/) [(E) Palindrome Linked List](/problems/palindrome-linked-list/)</span></div>
