@@ -87,6 +87,7 @@ public class Solution {
 // s3: reverse and compare
 // O(n), O(n)
 
+/*
 public class Solution {
     public boolean isPalindrome(ListNode head) {
         // corner case
@@ -116,3 +117,43 @@ public class Solution {
         return true;
     }
 }
+*/
+
+// s4: use stack to store the fisrt half of the linked list, compare the stack and iterate the ramaining linked list
+// O(n), O(n)
+
+public class Solution {
+    public boolean isPalindrome(ListNode head) {
+        // corner case
+        if (head == null || head.next == null) {
+            return true;
+        }
+        
+        ListNode slow = head;
+        ListNode fast = head.next;
+        
+        Stack<Integer> stack = new Stack<Integer>();
+        stack.push(slow.val);
+        
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            stack.push(slow.val);
+        }
+        
+        if (fast == null && !stack.isEmpty()) {
+            stack.pop();
+        }
+        slow = slow.next;
+        
+        while (!stack.isEmpty() && slow != null) {
+            if (stack.pop() != slow.val) {
+                return false;
+            }
+            slow = slow.next;
+        }
+        return true;
+    }
+}
+
+
