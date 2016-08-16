@@ -147,7 +147,7 @@ public class Solution {
         slow = slow.next;
         
         while (!stack.isEmpty() && slow != null) {
-            if (stack.pop() != slow.val) {
+            if ((int)stack.pop() != slow.val) {
                 return false;
             }
             slow = slow.next;
