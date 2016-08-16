@@ -39,7 +39,7 @@ public class Solution {
 */
 
 
-// s2: follow up, reverse and compare, fast and slow pointers
+// *s2: follow up, reverse the half of the original list and compare, fast and slow pointers
 // O(n), O(1)
 
 /*
