@@ -42,6 +42,7 @@ public class Solution {
 // s2: follow up, reverse and compare, fast and slow pointers
 // O(n), O(1)
 
+/*
 public class Solution {
     public boolean isPalindrome(ListNode head) {
         // corner case
@@ -77,6 +78,40 @@ public class Solution {
             }
             prev = prev.next;
             node1 = node1.next;
+        }
+        return true;
+    }
+}
+*/
+
+// s3: reverse and compare
+// O(n), O(n)
+
+public class Solution {
+    public boolean isPalindrome(ListNode head) {
+        // corner case
+        ListNode node = reverseAndCopy(head);
+        return compareLists(head, node);
+    }
+    
+    public ListNode reverseAndCopy(ListNode head) {
+        ListNode prev = null;
+        while (head != null) {
+            ListNode node = new ListNode(head.val);
+            node.next = prev;
+            prev = node;
+            head = head.next;
+        }
+        return prev;
+    }
+    
+    public boolean compareLists(ListNode node1, ListNode node2) {
+        while (node1 != null && node2 && null) {
+            if (node1.val != node2.val) {
+                return false;
+            }
+            node1 = node1.next;
+            node2 = node2.next;
         }
         return true;
     }
