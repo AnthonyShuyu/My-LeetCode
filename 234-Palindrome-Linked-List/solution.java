@@ -106,7 +106,7 @@ public class Solution {
     }
     
     public boolean compareLists(ListNode node1, ListNode node2) {
-        while (node1 != null && node2 && null) {
+        while (node1 != null && node2 != null) {
             if (node1.val != node2.val) {
                 return false;
             }
