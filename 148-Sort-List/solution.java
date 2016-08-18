@@ -34,8 +34,9 @@ public class Solution {
         node.next = null;
         ListNode left = head;
         
-        ListNode leftList = sortList(left);
         ListNode rightList = sortList(right);
+        ListNode leftList = sortList(left);
+
         return mergeLists(leftList, rightList);
         
     }
