@@ -69,9 +69,9 @@ public class Solution {
         } 
         
         slow = head;
-        while (slow != null && fast != null && slow != fast) {
+        while (slow != null && fast != null && fast.next != null && slow != fast) {
             slow = slow.next;
-            fast = fast.next;
+            fast = fast.next.next;
         }
         
         if (slow == fast) {
@@ -92,7 +92,6 @@ public class Solution {
         }
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        head = dummy;
         
         ListNode slow = head;
         ListNode fast = head.next;
@@ -109,7 +108,7 @@ public class Solution {
             return null;
         } 
         
-        slow = head;
+        slow = dummy;
         while (slow != null && fast != null && slow != fast) {
             slow = slow.next;
             fast = fast.next;
