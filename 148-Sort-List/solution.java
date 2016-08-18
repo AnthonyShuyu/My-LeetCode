@@ -76,12 +76,12 @@ public class Solution {
         
         if (head1 != null) {
             node.next = head1;
-            head1.next = head1;
+            head1 = head1.next;
         }
         
         if (head2 != null) {
             node.next = head2;
-            head2.next = head2;
+            head2 = head2.next;
         }
         return dummy.next;
     }
