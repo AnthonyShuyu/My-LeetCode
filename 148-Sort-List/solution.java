@@ -25,14 +25,21 @@ public class Solution {
             return head;
         }
         
-        // int length = countLength(head);
-        // ListNode node = head;
-        // for (int i = 0; i < length / 2; i++) {
-        //     node = node.next;
-        // }
-        // ListNode left = head;
+        int length = countLength(head);
+        ListNode node = head;
         
-        ListNode node = findMiddle(head);
+        int distance = 0;
+        if (length % 2 == 0) {
+            distance = length / 2 - 1;
+        } else {
+            distance = length / 2;
+        }
+        
+        for (int i = 0; i < distance; i++) {
+            node = node.next;
+        }
+        
+        // ListNode node = findMiddle(head);
         
         ListNode right = node.next;
         node.next = null;
