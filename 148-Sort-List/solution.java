@@ -29,6 +29,7 @@ public class Solution {
         for (int i = 0; i < length / 2; i++) {
             node = node.next;
         }
+        ListNode left = head;
         
         // ListNode right = node.next;
         // node.next = null;
@@ -40,7 +41,6 @@ public class Solution {
         ListNode right = node.next;
         ListNode rightList = sortList(right);
         node.next = null;
-        ListNode left = head;
         ListNode leftList = sortList(left);
 
         return mergeLists(leftList, rightList);
