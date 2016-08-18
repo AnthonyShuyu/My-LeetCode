@@ -30,15 +30,20 @@ public class Solution {
             node = node.next;
         }
         
+        // ListNode right = node.next;
+        // node.next = null;
+        // ListNode left = head;
+        
+        // ListNode rightList = sortList(right);
+        // ListNode leftList = sortList(left);
+
         ListNode right = node.next;
+        ListNode rightList = sortList(right);
         node.next = null;
         ListNode left = head;
-        
-        ListNode rightList = sortList(right);
         ListNode leftList = sortList(left);
 
         return mergeLists(leftList, rightList);
-        
     }
     
     public int countLength(ListNode head) {
