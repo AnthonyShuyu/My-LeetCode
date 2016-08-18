@@ -36,7 +36,7 @@ public class Solution {
         
         ListNode leftList = sortList(left);
         ListNode rightList = sortList(right);
-        return mergeList(leftList, rightList);
+        return mergeLists(leftList, rightList);
         
     }
     
