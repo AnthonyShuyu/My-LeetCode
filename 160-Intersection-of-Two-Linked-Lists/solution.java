@@ -23,8 +23,11 @@
 
 // s1: how to check if two linked lists are the same? the intersection is defined based on reference
 // To use brute force
+
 // O(n^2), O(1)
- 
+// Time limit exceeded
+
+/*
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if (headA == null || headB == null) {
@@ -42,6 +45,32 @@ public class Solution {
             }
             headA = headA.next;
             headB = node;
+        }
+        return null;
+    }
+}
+*/
+
+// s2: look for the solution, how to check two things have something in common? can use HashMap/HashSet data structure
+// O(n), O(n)
+
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+        Set<ListNode> hashSet = new HashSet<ListNode>();
+        
+        while (headA != null) {
+            hashSet.add(headA);
+            headA = headA.next;
+        }
+        while (headB != null) {
+            if (hashSet.contains(headB)) {
+                return headB;
+            } else {
+                headB = headB.next;
+            }
         }
         return null;
     }
