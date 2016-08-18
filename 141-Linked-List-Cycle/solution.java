@@ -19,6 +19,8 @@
  
 // s1: find repeatation, use HashSet data structure
 // O(n), O(n)
+
+/*
 public class Solution {
     public boolean hasCycle(ListNode head) {
         if (head == null || head.next == null) {
@@ -36,3 +38,23 @@ public class Solution {
         return false;
     }
 }
+*/
+
+// s2: try to achieve O(1) space, use slow and fast pointers
+// O(n), O(1)
+
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        if (head == null || head.next == null) {
+            return null;
+        } 
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while (fast != null && slow != fast) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return fast != null;
+    }
+}
+
