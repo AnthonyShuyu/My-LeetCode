@@ -26,7 +26,7 @@ public class Solution {
         
         int length = countLength(head);
         ListNode node = head;
-        for (int i = 0; i < count / 2; i++) {
+        for (int i = 0; i < length / 2; i++) {
             node = node.next;
         }
         
