@@ -1,6 +1,6 @@
 /**
  * 160. Intersection of Two Linked Lists
- * 2 solutions
+ * 3 solutions
  * 
  */
 
