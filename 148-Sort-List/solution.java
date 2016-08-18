@@ -59,12 +59,12 @@ public class Solution {
     
     // LeetCode 
     public ListNode mergeLists(ListNode head1, ListNode head2) {
-        if (head1 == null) {
-            return head2;
-        }
-        if (head2 == null) {
-            return head1;
-        }
+        // if (head1 == null) {
+        //     return head2;
+        // }
+        // if (head2 == null) {
+        //     return head1;
+        // }
         
         ListNode dummy = new ListNode(0);
         ListNode node = dummy;
