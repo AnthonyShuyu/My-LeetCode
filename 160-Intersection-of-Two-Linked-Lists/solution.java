@@ -54,6 +54,7 @@ public class Solution {
 // s2: look for the solution, how to check two things have something in common? can use HashMap/HashSet data structure
 // O(n), O(n)
 
+/*
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if (headA == null || headB == null) {
@@ -69,6 +70,50 @@ public class Solution {
             if (hashSet.contains(headB)) {
                 return headB;
             } else {
+                headB = headB.next;
+            }
+        }
+        return null;
+    }
+}
+*/
+
+// s3: how to achieve O(n) and O(1)? can not use other data structure, look for the solution here is the tricky, if they are not the same length, the longer one can drop of the first (len1 - len2) nodes because they are useless, if they are the intersection, they may be the part of another linkedList
+// O(n), O(1)
+
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+        int lengthA = 0;
+        int lengthB = 0;
+        ListNode nodeA = headA;
+        ListNode nodeB = headB;
+        while (nodeA != null) {
+            lengthA++;
+            nodeA = nodeA.next;
+        }
+        while (nodeB != null) {
+            lengthB++;
+            nodeB = nodeB.next;
+        }
+        if (lengthA < lengthB) {
+            ListNode temp = headA;
+            headA = headB;
+            headB = temp;
+        }
+        int diff = Math.abs(lengthA - lengthB);
+        for (int i = 0; i < diff; i++) {
+            headA = headA.next;
+        }
+        
+        // compare each other move the same step forward
+        while (headA != null && headB != null) {
+            if (headA == headB) {
+                return headA;
+            } else {
+                headA = headA.next;
                 headB = headB.next;
             }
         }
