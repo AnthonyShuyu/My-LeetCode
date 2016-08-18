@@ -44,7 +44,9 @@ public class Solution {
 
 // s2: achieve O(1) space, use slow and fast pointers
 // O(n), O(1)
+// failed, not consider the situation where the cycle node is the head
 
+/*
 public class Solution {
     public ListNode detectCycle(ListNode head) {
         if (head == null || head.next == null) {
@@ -77,4 +79,47 @@ public class Solution {
         }
         return null;
     }
+}
+*/
+
+// s2 modified: achieve O(1) space, use slow and fast pointers, plus dummy node
+// O(n), O(1)
+
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        head = dummy;
+        
+        ListNode slow = head;
+        ListNode fast = head.next;
+        
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                break;
+            }
+        }
+        
+        if (slow != fast) {
+            return null;
+        } 
+        
+        slow = head;
+        while (slow != null && fast != null && slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        
+        if (slow == fast) {
+            return slow;
+        }
+        return null;
+        
+        
+    } 
 }
