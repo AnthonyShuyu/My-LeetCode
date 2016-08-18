@@ -20,28 +20,31 @@
 
 public class Solution {
     public ListNode sortList(ListNode head) {
+        // corner case
         if (head == null || head.next == null) {
             return head;
         }
         
-        int length = countLength(head);
-        ListNode node = head;
-        for (int i = 0; i < length / 2; i++) {
-            node = node.next;
-        }
-        ListNode left = head;
-        
-        // ListNode right = node.next;
-        // node.next = null;
+        // int length = countLength(head);
+        // ListNode node = head;
+        // for (int i = 0; i < length / 2; i++) {
+        //     node = node.next;
+        // }
         // ListNode left = head;
         
-        // ListNode rightList = sortList(right);
-        // ListNode leftList = sortList(left);
-
-        ListNode right = (length % 2 == 1) ? node.next : node;
-        ListNode rightList = sortList(right);
+        ListNode node = findMiddle(head);
+        
+        ListNode right = node.next;
         node.next = null;
+        ListNode left = head;
+        
         ListNode leftList = sortList(left);
+        ListNode rightList = sortList(right);
+
+        // ListNode right = node.next;
+        // ListNode rightList = sortList(right);
+        // node.next = null;
+        // ListNode leftList = sortList(left);
 
         return mergeLists(leftList, rightList);
     }
@@ -55,6 +58,20 @@ public class Solution {
         return count;
     }
     
+    
+    // use slow and fast pointers to find middle node
+    public ListNode findMiddle(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
     
     
     // LeetCode 
