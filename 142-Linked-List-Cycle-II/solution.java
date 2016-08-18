@@ -82,7 +82,7 @@ public class Solution {
 }
 */
 
-// s2 modified: achieve O(1) space, use slow and fast pointers, plus dummy node
+// s2 modified: achieve O(1) space, use slow and fast pointers, plus dummy node(because we set fast = head.next)
 // O(n), O(1)
 
 public class Solution {
