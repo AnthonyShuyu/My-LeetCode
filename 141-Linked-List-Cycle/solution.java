@@ -1,6 +1,6 @@
 /**
  * 141. Linked List Cycle
- * 
+ * 2 solutions
  * 
  */
 
