@@ -1,4 +1,11 @@
 /**
+ * 
+ * 23. Merge k Sorted Lists
+ * 
+ * 
+ */
+
+/**
  * Definition for singly-linked list.
  * public class ListNode {
  *     int val;
@@ -8,7 +15,7 @@
  */
  
 // s1: brute force, merge two lists at one time
-// O(n * k), O(1), k is the length of lists, n is the average length of each listNode
+// O(n * k * k), O(1), k is the length of lists, n is the average length of each listNode
 // time limit exceeded
 
 /*
@@ -58,8 +65,9 @@ public class Solution {
 }
 */
 
+
 // s2: divide and conquer, look for the answer
-// O(nlogk), O(1)
+// O(n * k * logk), O(1)
 
 /*
 public class Solution {
@@ -118,8 +126,9 @@ public class Solution {
 
 
 // s3: use heap / priorityQueue
-// O(k * n *log(k)), O(k)
+// O(n * k * log(k)), O(k)
 
+/*
 public class Solution {
     
     // rewrite comparator
@@ -138,7 +147,6 @@ public class Solution {
         if (lists == null || lists.length == 0) {
             return null;
         }
-        
         
         
         ListNode dummy = new ListNode(0);
@@ -167,4 +175,47 @@ public class Solution {
         return dummy.next;
     }
 }
+*/
 
+// s3 modified: practice Comparator function
+// O(n * k * log(k)), O(1)
+
+
+public class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists == null || lists.length == 0) {
+            return null;
+        } 
+        
+        Queue<ListNode> queue = new PriorityQueue<ListNode>(new Comparator<ListNode>() {
+                @Override
+                public int compare(ListNode node1, ListNode node2) {
+                    if (node1 == null) {
+                        return 1;
+                    } else if (node2 == null){
+                        return -1;
+                    }
+                    return node1.val - node2.val;
+                }
+            });
+            
+       for (int i = 0;  i < lists.length; i++) {
+           if (lists[i] != null) {
+               queue.offer(lists[i]);
+           }
+       }
+       
+       ListNode dummy = new ListNode(0);
+       ListNode node = dummy;
+       
+       while (!queue.isEmpty()) {
+           ListNode temp = queue.poll();
+           node.next = temp;
+           node = node.next;
+           if (temp.next != null) {
+               queue.offer(temp.next);
+           }
+       }
+       return dummy.next;     
+    }
+}
