@@ -15,7 +15,7 @@ public class Solution {
         if (lists == null || lists.length == 0) {
             return null;
         }
-        ListNode list = Lists[0];
+        ListNode list = lists[0];
         for (int i = 1; i < lists.length; i++) {
             list = mergeTwoLists(list, lists[i]);
         }
