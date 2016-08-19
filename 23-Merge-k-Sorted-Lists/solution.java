@@ -122,7 +122,7 @@ public class Solution {
 
 public class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
-        if (lists == null || list.length == 0) {
+        if (lists == null || lists.length == 0) {
             return null;
         }
         ListNode dummy = new ListNode(0);
