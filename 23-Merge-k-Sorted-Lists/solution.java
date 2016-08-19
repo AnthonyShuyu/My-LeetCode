@@ -143,7 +143,9 @@ public class Solution {
                 node.next = temp;
                 node = node.next;
                 temp = temp.next;
-                queue.offer(temp);
+                if (temp != null) {
+                    queue.offer(temp);
+                }
             }
         }
         return dummy.next;
