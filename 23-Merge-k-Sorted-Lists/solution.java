@@ -131,6 +131,9 @@ public class Solution {
         Queue<ListNode> queue = new PriorityQueue<ListNode>();
         
         for (int i = 0; i < lists.length; i++) {
+            if (lists[i] == null) {
+                continue;
+            }
             queue.offer(lists[i]);
         }
         
