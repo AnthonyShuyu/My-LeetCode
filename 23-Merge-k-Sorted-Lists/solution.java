@@ -123,7 +123,7 @@ public class Solution {
 public class Solution {
     
     // rewrite comparator
-    public Comparator<ListNode> listNodeComparator = new Comparator<ListNode>({
+    public Comparator<ListNode> listNodeComparator = new Comparator<ListNode>(){
             public int compare(ListNode node1, ListNode node2) {
                 if (node1 == null) {
                     return 1;
@@ -132,10 +132,7 @@ public class Solution {
                 }
                 return node1.val - node2.val;
             }
-        });
-    
-    
-    
+        };
     
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists == null || lists.length == 0) {
