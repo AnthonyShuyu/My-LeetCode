@@ -180,7 +180,7 @@ public class Solution {
 // s3 modified: practice Comparator function
 // O(n * k * log(k)), O(1)
 
-
+/*
 public class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists == null || lists.length == 0) {
@@ -219,3 +219,67 @@ public class Solution {
        return dummy.next;     
     }
 }
+*/
+
+// s4: merge two lists one time, but different two lists
+// O(n * k * log(k)), O(k)
+
+public class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        // corner case
+        if (lists == null || lists.length == 0) {
+            return null;
+        }
+        
+        while (lists.length > 1) {
+            ListNode[] tempLists;
+            if (lists.length % 2 == 0) {
+                tempLists = new ListNode[lists.length / 2];
+            } else {
+                tempLists = new ListNode[lists.length / 2 + 1];
+            }
+            
+            for (int i = 0; i < lists.length - 1; i += 2) {
+                tempLists[i / 2] = mergeTwoLists(lists[i], lists[i + 1]);
+            }
+            if (lists.length % 2 != 0) {
+                tempLists[lists.length / 2] = lists[lists.length - 1];
+            }
+            lists = tempLists;
+        }
+        
+        return lists[0];
+    }
+    
+    public ListNode mergeTwoLists(ListNode node1, ListNode node2) {
+        if (node1 == null) {
+            return node2;
+        }
+        if (node2 == null) {
+            return node1;
+        }
+        ListNode dummy = new ListNode(0);
+        ListNode node = dummy;
+        
+        while (node1 != null && node2 != null) {
+            if (node1.val <= node2.val) {
+                node.next = node1;
+                node1 = node1.next;
+            } else {
+                node.next = node2;
+                node2 = node2.next;
+            }
+            node = node.next;
+        }
+        
+        if (node1 != null) {
+            node.next = node1;
+        }
+        if (node2 != null) {
+            node.next = node2;
+        }
+        return dummy.next;
+    }
+}
+
+
