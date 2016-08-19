@@ -121,14 +121,33 @@ public class Solution {
 // O(k * n *log(k)), O(k)
 
 public class Solution {
+    
+    // rewrite comparator
+    public Comparator<ListNode> listNodeComparator = new Comparator<ListNode>({
+            public int compare(ListNode node1, ListNode node2) {
+                if (node1 == null) {
+                    return 1;
+                } else if (node2 == null) {
+                    return -1;
+                }
+                return node1.val - node2.val;
+            }
+        });
+    
+    
+    
+    
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists == null || lists.length == 0) {
             return null;
         }
+        
+        
+        
         ListNode dummy = new ListNode(0);
         ListNode node = dummy;
         
-        Queue<ListNode> queue = new PriorityQueue<ListNode>();
+        Queue<ListNode> queue = new PriorityQueue<ListNode>(listNodeComparator);
         
         for (int i = 0; i < lists.length; i++) {
             if (lists[i] == null) {
