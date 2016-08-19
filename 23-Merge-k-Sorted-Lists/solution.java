@@ -8,7 +8,7 @@
  */
  
 // s1: brute force, merge two lists at one time
-// O(n * k), O(1)
+// O(n * k), O(1), k is the length of lists, n is the average length of each listNode
 // time limit exceeded
 
 /*
@@ -61,6 +61,7 @@ public class Solution {
 // s2: divide and conquer, look for the answer
 // O(nlogk), O(1)
 
+/*
 public class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
         // corner case
@@ -112,5 +113,37 @@ public class Solution {
         }
         return dummy.next;
     }    
-    
 }
+*/
+
+
+// s3: use heap / priorityQueue
+// O(k * n *log(k)), O(k)
+
+public class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists == null || list.length == 0) {
+            return null;
+        }
+        ListNode dummy = new ListNode(0);
+        ListNode node = dummy;
+        
+        Queue<ListNode> queue = new PriorityQueue<ListNode>();
+        
+        for (int i = 0; i < lists.length; i++) {
+            queue.offer(lists[i]);
+        }
+        
+        while (!queue.isEmpty()) {
+            ListNode temp = queue.poll();
+            if (temp != null) {
+                node.next = temp;
+                node = node.next;
+                temp = temp.next;
+                queue.offer(temp);
+            }
+        }
+        return dummy.next;
+    }
+}
+
