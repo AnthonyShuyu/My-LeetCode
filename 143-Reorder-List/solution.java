@@ -1,6 +1,6 @@
 /**
  * 143. Reorder List
- * 
+ * 1 solution
  * 
  * 
  */
