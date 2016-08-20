@@ -74,6 +74,7 @@ public class Solution {
                 ListNode temp = node.next;
                 node.next = head;
                 head.next = temp;
+                temp.next = null;
             }
             head = nextHead;
         }
