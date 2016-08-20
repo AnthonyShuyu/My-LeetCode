@@ -1,6 +1,6 @@
 /**
  * 147. Insertion Sort List
- * 
+ * 1 solution
  * 
  */
 
