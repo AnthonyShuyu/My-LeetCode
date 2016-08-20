@@ -29,7 +29,8 @@ public class Solution {
         ListNode right = reverseList(nNode);
         mNode.next = null;
         
-        head = mergeTwoLists(head, right);
+        ListNode left = head;
+        mergeTwoLists(left, right);
         
     }
     
