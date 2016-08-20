@@ -103,11 +103,15 @@ public class Solution {
             temp = temp.next;
         }
         
-        ListNode right = temp.next;
-        System.out.println(right.val);
+
+        // System.out.println(right.val);
+        // System.out.println(right.next);
         
         node.next = head;
+        // System.out.println(right.next);
         // ListNode right = temp.next;
+        
+        ListNode right = temp.next;
         temp.next = null;
         return right;
         
