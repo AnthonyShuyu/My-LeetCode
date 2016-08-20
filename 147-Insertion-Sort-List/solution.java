@@ -59,7 +59,6 @@ public class Solution {
         }
         
         ListNode dummy = new ListNode(0);
-        dummy.next = head;
         
         while (head != null) {
             ListNode node = dummy;
@@ -72,8 +71,7 @@ public class Solution {
             ListNode temp = node.next;
             node.next = head;
             head.next = temp;
-            // head.next = node.next;
-            // node.
+
             head = nextHead;
         }
         return dummy.next;
