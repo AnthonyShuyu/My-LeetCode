@@ -16,7 +16,9 @@
  
 // s1: 3 times reverse
 // O(n), O(1)
+// failed, it is complicated in the linkedlist to use 3 times reverse
  
+/*
 public class Solution {
     public ListNode rotateRight(ListNode head, int k) {
         // corner case
@@ -38,7 +40,7 @@ public class Solution {
         ListNode right = node.next;
         node.next = null;
         ListNode left = reverseList(head);
-        ListNode right = reverseList(right);
+        right = reverseList(right);
         ListNode result = left;
         while (left.next != null) {
             left = left.next;
@@ -70,5 +72,41 @@ public class Solution {
             head = head.next;
         }
         return count;
+    }
+}
+*/
+
+
+// s2: use 2 pointers, get the length of list and move one pointer to the end of the list at the same time
+// O(1), O(1)
+
+public class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+        // corner case
+        if (head == null && head.next == null) {
+            return head;
+        }
+        
+        // get length and move one pointer to the end of the list
+        int count = 1;
+        ListNode node = head;
+        while (node.next != null) {
+            count++;
+            node = node.next;
+        }
+        k = k % count;
+        
+        int step = n - k - 1;
+        
+        ListNode temp = head;
+        for (int i = 0; i < step; i++) {
+            temp = temp.next;
+        }
+        
+        ListNode right = temp.next;
+        temp.next = null;
+        node.next = head;
+        return node;
+        
     }
 }
