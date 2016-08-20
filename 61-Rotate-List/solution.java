@@ -90,7 +90,7 @@ public class Solution {
         // get length and move one pointer to the end of the list
         int count = 1;
         ListNode node = head;
-        while (node.next != null) {
+        while (node != null && node.next != null) {
             count++;
             node = node.next;
         }
@@ -103,10 +103,10 @@ public class Solution {
             temp = temp.next;
         }
         
+        node.next = head;
         ListNode right = temp.next;
         temp.next = null;
-        node.next = head;
-        return node;
+        return right;
         
     }
 }
