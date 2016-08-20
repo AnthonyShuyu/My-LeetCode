@@ -72,9 +72,9 @@ public class Solution {
             
             if (node.next != head) {
                 ListNode temp = node.next;
+                temp.next = null;
                 node.next = head;
                 head.next = temp;
-                temp.next = null;
             }
             head = nextHead;
         }
