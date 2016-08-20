@@ -60,21 +60,20 @@ public class Solution {
         
         ListNode dummy = new ListNode(0);
         
-        head = head.next;
         
         while (head != null) {
             ListNode node = dummy;
-            while (node.next != null && head.val >= node.next.val && node.next != head) {
+            while (node.next != null && head.val > node.next.val) {
                 node = node.next;
             } 
+           
             ListNode nextHead = head.next;
             
-            if (node.next != head) {
-                ListNode temp = node.next;
-                temp.next = null;
-                node.next = head;
-                head.next = temp;
-            }
+            ListNode temp = node.next;
+            node.next = head;
+            head.next = temp;
+            // head.next = node.next;
+            // node.
             head = nextHead;
         }
         return dummy.next;
