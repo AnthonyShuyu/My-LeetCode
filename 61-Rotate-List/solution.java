@@ -96,7 +96,7 @@ public class Solution {
         }
         k = k % count;
         
-        int step = n - k - 1;
+        int step = count - k - 1;
         
         ListNode temp = head;
         for (int i = 0; i < step; i++) {
