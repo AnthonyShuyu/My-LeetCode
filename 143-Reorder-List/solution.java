@@ -53,16 +53,29 @@ public class Solution {
     public ListNode mergeTwoLists(ListNode node1, ListNode node2) {
         ListNode dummy = new ListNode(0);
         ListNode node = dummy;
-        while (node1 != null && node2 != null) {
-            node.next = node1;
-            node = node.next;
-            node.next = node2;
-            node = node.next;
+        // while (node1 != null && node2 != null) {
+        //     node.next = node1;
+        //     node = node.next;
+        //     node.next = node2;
+        //     node = node.next;
             
-            node1 = node1.next;
-            node2 = node2.next;
-        }
+        //     node1 = node1.next;
+        //     node2 = node2.next;
+        // }
         
+        int n = 0;
+        while (node1 != null && node2 != null) {
+            if (n % 2 == 0) {
+                node.next = node1;
+                node1 = node1.next;
+            } else {
+                node.next = node2;
+                node2 = node2.next;
+            }
+            node = node.next;
+            n++;
+        }
+    
         if (node1 != null) {
             node.next = node1;
         }
