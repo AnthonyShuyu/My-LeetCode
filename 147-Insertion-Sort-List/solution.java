@@ -59,7 +59,6 @@ public class Solution {
         }
         
         ListNode dummy = new ListNode(0);
-        dummy.next = head;
         
         head = head.next;
         
