@@ -37,8 +37,8 @@ public class Solution {
         }
         ListNode right = node.next;
         node.next = null;
-        ListNode left = reverse(head);
-        ListNode right = reverse(right);
+        ListNode left = reverseList(head);
+        ListNode right = reverseList(right);
         ListNode result = left;
         while (left.next != null) {
             left = left.next;
