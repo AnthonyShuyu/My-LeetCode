@@ -24,14 +24,16 @@ public class Solution {
             return;
         }
         ListNode mNode = findMiddle(head);
-        ListNode right = reverseList(mNode.next);
+        ListNode nNode = mNode.next;
+        
+        ListNode right = reverseList(nNode);
         mNode.next = null;
         
         head = mergeTwoLists(head, right);
         
     }
     
-    public void reverseList(ListNode head) {
+    public ListNode reverseList(ListNode head) {
         // corner case
         if (head == null || head.next == null) {
             return head;
