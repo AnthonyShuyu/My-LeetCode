@@ -83,7 +83,7 @@ public class Solution {
 public class Solution {
     public ListNode rotateRight(ListNode head, int k) {
         // corner case
-        if (head == null && head.next == null) {
+        if (head == null || head.next == null) {
             return head;
         }
         
