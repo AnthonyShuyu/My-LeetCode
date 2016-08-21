@@ -88,10 +88,10 @@ public class Solution {
     }
     
     public RandomListNode split(ListNode head) {
-        ListNode dummy1 = new ListNode(0);
-        ListNode dummy2 = new ListNode(0);
-        ListNode list1 = dummy1;
-        ListNode list2 = dummy2;
+        RandomListNode dummy1 = new ListNode(0);
+        RandomListNode dummy2 = new ListNode(0);
+        RandomListNode list1 = dummy1;
+        RandomListNode list2 = dummy2;
         int n = 0;
         while (head != null) {
             if (n % 2 == 0) {
