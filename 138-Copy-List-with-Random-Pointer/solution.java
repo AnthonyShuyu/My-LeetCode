@@ -74,7 +74,7 @@ public class Solution {
     
     public void copyList(RandomListNode head) {
         while (head != null) {
-            RandomListNode newNode = new RandomListNode(head.val);
+            RandomListNode newNode = new RandomListNode(head.label);
             newNode.next = node.next;
             newNode.random = node.random;
             head.next = newNode;
@@ -106,11 +106,11 @@ public class Solution {
             head = head.next;
             n++;
         }
-        if (n % 2 == 0) {
-            list1.next = head;
-        } else {
-            list2.next = head;
-        }
+        // if (n % 2 == 0) {
+        //     list1.next = head;
+        // } else {
+        //     list2.next = head;
+        // }
         
         return dummy2.next;
     }
