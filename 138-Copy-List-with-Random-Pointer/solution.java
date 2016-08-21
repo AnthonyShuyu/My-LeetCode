@@ -72,7 +72,7 @@ public class Solution {
         return split(randomList);
     }
     
-    public RandomListNode copyList(ListNode head) {
+    public RandomListNode copyList(RandomListNode head) {
         while (head != null) {
             RandomListNode newNode = new RandomListNode(head.val);
             head.next = newNode;
@@ -80,14 +80,14 @@ public class Solution {
         }
     }
     
-    public RandomListNode copyRandom(ListNode head) {
+    public RandomListNode copyRandom(RandomListNode head) {
         while (head != null) {
             head.next.random = head.random.next;
             head = head.next.next;
         }
     }
     
-    public RandomListNode split(ListNode head) {
+    public RandomListNode split(RandomListNode head) {
         RandomListNode dummy1 = new ListNode(0);
         RandomListNode dummy2 = new ListNode(0);
         RandomListNode list1 = dummy1;
