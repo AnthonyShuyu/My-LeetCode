@@ -67,20 +67,22 @@ public class Solution {
             return null;
         }
         
-        RandomListNode list = copyList(head);
+        copyList(head);
         RandomListNode randomList = copyRandom(list);
         return split(randomList);
     }
     
-    public RandomListNode copyList(RandomListNode head) {
+    public void copyList(RandomListNode head) {
         while (head != null) {
             RandomListNode newNode = new RandomListNode(head.val);
+            newNode.next = node.next;
+            newNode.random = node.random;
             head.next = newNode;
             head = head.next.next;
         }
     }
     
-    public RandomListNode copyRandom(RandomListNode head) {
+    public void copyRandom(RandomListNode head) {
         while (head != null) {
             head.next.random = head.random.next;
             head = head.next.next;
