@@ -84,7 +84,9 @@ public class Solution {
     
     public void copyRandom(RandomListNode head) {
         while (head != null) {
-            head.next.random = head.random.next;
+            if (head.random != null) {
+                head.next.random = head.random.next;
+            }
             head = head.next.next;
         }
     }
@@ -106,11 +108,11 @@ public class Solution {
             head = head.next;
             n++;
         }
-        // if (n % 2 == 0) {
-        //     list1.next = head;
-        // } else {
-        //     list2.next = head;
-        // }
+        if (n % 2 == 0) {
+            list1.next = head;
+        } else {
+            list2.next = head;
+        }
         
         return dummy2.next;
     }
