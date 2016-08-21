@@ -32,7 +32,7 @@ public class Solution {
         RandomListNode newNode;
         while (head != null) {
             if (!hashMap.containsKey(head)) {
-                newNode = new RandomListNode(head.val);
+                newNode = new RandomListNode(head.label);
                 hashMap.put(head, newNode);
             } else {
                 newNode = hashMap.get(head);
@@ -41,7 +41,7 @@ public class Solution {
             
             if (head.random != null) {
                 if (!hashMap.containsKey(head.random)) {
-                    newNode.random = new RandomListNode(head.random.val);
+                    newNode.random = new RandomListNode(head.random.label);
                     hashMap.put(head.random, newNode.random);
                 } else {
                     newNode.random = hashMap.get(head.random);
