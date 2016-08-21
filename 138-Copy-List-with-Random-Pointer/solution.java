@@ -1,6 +1,7 @@
 /**
  * 
  * 138. Copy List with Random Pointer
+ * 2 solutions
  * 
  */
 
@@ -108,6 +109,8 @@ public class Solution {
             head = head.next;
             n++;
         }
+        
+        // this is important, same as list1 or list2.next = null
         if (n % 2 == 0) {
             list1.next = head;
         } else {
