@@ -68,7 +68,7 @@ public class Solution {
         }
         
         copyList(head);
-        RandomListNode randomList = copyRandom(list);
+        copyRandom(list);
         return split(randomList);
     }
     
@@ -106,6 +106,12 @@ public class Solution {
             head = head.next;
             n++;
         }
+        if (n % 2 == 0) {
+            list1.next = head;
+        } else {
+            list2.next = head;
+        }
+        
         return dummy2.next;
     }
 }
