@@ -18,6 +18,7 @@
 // s1: use hahsMap to map original node to the new node
 // O(n), O(n)
 
+/*
 public class Solution {
     public RandomListNode copyRandomList(RandomListNode head) {
         // corner case
@@ -51,5 +52,58 @@ public class Solution {
             head = head.next;
         }
         return dummy.next;
+    }
+}
+*/
+
+
+// s2: copy list and copy random to double the original list, then split the list
+// O(n), O(1)
+
+public class Solution {
+    public RandomListNode copyRandomList(RandomListNode head) {
+        // corner case
+        if (head == null) {
+            return null;
+        }
+        
+        RandomListNode list = copyList(head);
+        RandomListNode randomList = copyRandom(list);
+        return split(randomList);
+    }
+    
+    public RandomListNode copyList(ListNode head) {
+        while (head != null) {
+            RandomListNode newNode = new RandomListNode(head.val);
+            head.next = newNode;
+            head = head.next.next;
+        }
+    }
+    
+    public RandomListNode copyRandom(ListNode head) {
+        while (head != null) {
+            head.next.random = head.random.next;
+            head = head.next.next;
+        }
+    }
+    
+    public RandomListNode split(ListNode head) {
+        ListNode dummy1 = new ListNode(0);
+        ListNode dummy2 = new ListNode(0);
+        ListNode list1 = dummy1;
+        ListNode list2 = dummy2;
+        int n = 0;
+        while (head != null) {
+            if (n % 2 == 0) {
+                list1.next = head;
+                list1 = list1.next;
+            } else {
+                list2.next = head;
+                list2 = list2.next;
+            }
+            head = head.next;
+            n++;
+        }
+        return dummy2.next;
     }
 }
