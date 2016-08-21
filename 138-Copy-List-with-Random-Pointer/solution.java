@@ -75,8 +75,8 @@ public class Solution {
     public void copyList(RandomListNode head) {
         while (head != null) {
             RandomListNode newNode = new RandomListNode(head.label);
-            newNode.next = node.next;
-            newNode.random = node.random;
+            newNode.next = head.next;
+            newNode.random = head.random;
             head.next = newNode;
             head = head.next.next;
         }
