@@ -68,8 +68,8 @@ public class Solution {
         }
         
         copyList(head);
-        copyRandom(list);
-        return split(randomList);
+        copyRandom(head);
+        return split(head);
     }
     
     public void copyList(RandomListNode head) {
