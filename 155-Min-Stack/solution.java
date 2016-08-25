@@ -64,7 +64,7 @@ public class MinStack {
     }
 
     public void push(int x) {
-        if (x < min) {
+        if (x <= min) {
             min = x;
             minValueStack.push(x);
         }
@@ -72,26 +72,33 @@ public class MinStack {
     }
     
     public void pop() {
-        if (stack == null || minValueStack == null) {
-            throw new EmptyStackException();
+        if (stack.isEmpty() || minValueStack.isEmpty()) {
+            // throw new EmptyStackException();
+            return;
         }
         int val = stack.pop();
         if (val == minValueStack.peek()) {
             minValueStack.pop();
-            min = minValueStack.peek();
+            if (!minValueStack.isEmpty()) {
+                min = minValueStack.peek();
+            } else {
+                min = Math.MAX_VALUE;
+            }
         }
     }
     
     public int top() {
-        if (stack == null) {
-            throw new EmptyStackException();
+        if (stack.isEmpty()) {
+            // throw new EmptyStackException();
+            return -1;
         }
         return stack.peek();
     }
     
     public int getMin() {
-        if (minValueStack == null) {
-            throw new EmptyStackException();
+        if (minValueStack.isEmpty()) {
+            // throw new EmptyStackException();
+            return min;
         }
         return minValueStack.peek();
     }
