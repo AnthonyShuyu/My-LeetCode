@@ -52,6 +52,8 @@ public class MinStack {
 // s2: use 2 stacks and 1 variable
 // 
 
+import java.util*;
+
 public class MinStack {
     
     Stack<Integer> stack;
@@ -73,8 +75,8 @@ public class MinStack {
     
     public void pop() {
         if (stack.isEmpty() || minValueStack.isEmpty()) {
-            // throw new EmptyStackException();
-            return;
+            throw new EmptyStackException();
+            // return;
         }
         int val = stack.pop();
         if (val == minValueStack.peek()) {
@@ -89,16 +91,16 @@ public class MinStack {
     
     public int top() {
         if (stack.isEmpty()) {
-            // throw new EmptyStackException();
-            return -1;
+            throw new EmptyStackException();
+            // return -1;
         }
         return stack.peek();
     }
     
     public int getMin() {
         if (minValueStack.isEmpty()) {
-            // throw new EmptyStackException();
-            return min;
+            throw new EmptyStackException();
+            // return min;
         }
         return minValueStack.peek();
     }
