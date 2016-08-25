@@ -73,8 +73,7 @@ public class MinStack {
     
     public void pop() {
         if (stack == null || minValueStack == null) {
-            // throw new EmptyStackException();
-            return;
+            throw new EmptyStackException();
         }
         int val = stack.pop();
         if (val == minValueStack.peek()) {
@@ -85,16 +84,14 @@ public class MinStack {
     
     public int top() {
         if (stack == null) {
-            // throw new EmptyStackException();
-            return -1;
+            throw new EmptyStackException();
         }
         return stack.peek();
     }
     
     public int getMin() {
         if (minValueStack == null) {
-            // throw new EmptyStackException();
-            return -1;
+            throw new EmptyStackException();
         }
         return minValueStack.peek();
     }
