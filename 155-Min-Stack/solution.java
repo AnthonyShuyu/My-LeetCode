@@ -52,7 +52,7 @@ public class MinStack {
 // s2: use 2 stacks and 1 variable
 // 
 
-import java.util*;
+import java.util.*;
 
 public class MinStack {
     
