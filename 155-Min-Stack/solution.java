@@ -79,7 +79,7 @@ public class MinStack {
         }
     }
     
-    public int peek() {
+    public int top() {
         return stack.peek();
     }
     
