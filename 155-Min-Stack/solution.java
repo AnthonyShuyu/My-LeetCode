@@ -82,7 +82,7 @@ public class MinStack {
             if (!minValueStack.isEmpty()) {
                 min = minValueStack.peek();
             } else {
-                min = Math.MAX_VALUE;
+                min = Integer.MAX_VALUE;
             }
         }
     }
