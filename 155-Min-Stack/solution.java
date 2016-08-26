@@ -1,7 +1,7 @@
 /**
  * 
  * 155. Min Stack
- * 
+ * 2 solutions
  * 
  */
 
