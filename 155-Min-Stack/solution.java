@@ -169,6 +169,7 @@ public class MinStack {
 // *s2 modified: just use 2 stacks, one regular stack and one min stack to store the min value on the top of the stack
 // O(1), O(n)
 
+/*
 import java.util.*;
 
 public class MinStack {
@@ -211,7 +212,57 @@ public class MinStack {
         return minStack.peek();
     }
 }
+*/
 
+
+// s3: use 2 stacks, but the same height
+// O(1), O(n)
+
+import java.util.*;
+
+public class MinStack {
+    Stack<Integer> stack;
+    Stack<Integer> minStack;
+    
+    public MinStack() {
+        stack = new Stack<Integer>();
+        minStack = new Stack<Integer>();
+    }
+    
+    public void push(int val) {
+        stack.push(val);
+        if (minStack.isEmpty()) {
+            minStack.push(val);
+        } else if (val <= minStack.peek()){
+            minStack.push(val);
+        } else {
+            minStack.push(minStack.peek());
+        }
+    }
+    
+    public void pop() {
+        if (stack.isEmpty() || minStack.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        stack.pop();
+        minStack.pop();
+    }
+    
+    public int top() {
+        if (stack.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return stack.peek();
+    }
+    
+    public int getMin() {
+        if (minStack.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return minStack.peek();
+    }
+    
+}
 
 
 
