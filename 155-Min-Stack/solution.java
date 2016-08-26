@@ -50,8 +50,9 @@ public class MinStack {
 */
 
 // s2: use 2 stacks and 1 variable
-// 
+// O(1), O(n)
 
+/*
 import java.util.*;
 
 public class MinStack {
@@ -105,9 +106,62 @@ public class MinStack {
         return minValueStack.peek();
     }
 }
+*/
 
+// s2 again: use 2 stacks and 1 variable
+// O(1), O(n)
 
+import java.util.*;
 
+public class MinStack {
+    Stack<Integer> stack;
+    Stack<Integer> minValueStack;
+    int min;
+    
+    public MinStack() {
+        stack = new Stack<Integer>();
+        minValueStack = new Stack<Integer>();
+        min = Integer.MAX_VALUE;
+    }
+    
+    public void push(int val) {
+        stack.push(val);
+        if (val <= min) {
+            minValueStack.push(val);
+            min = val;
+        }
+    }
+    
+    public void pop() {
+        if (stack.isEmpty() || minValueStack.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        int value = stack.pop();
+        if (value.equals(minValueStack.peek())) {
+            minValueStack.pop();
+        }
+        if (minValueStack.isEmpty()) {
+            min = Integer.MAX_VALUE;
+        } else {
+            min = minValueStack.peek();
+        }
+    }
+    
+    public int peek() {
+        if (stack.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return stack.peek();
+    }
+    
+    public int getMin() {
+        if (minValueStack.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return minValueStack.peek();
+    }
+    
+}
 
 
 
