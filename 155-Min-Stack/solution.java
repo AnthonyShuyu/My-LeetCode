@@ -137,7 +137,7 @@ public class MinStack {
             throw new EmptyStackException();
         }
         int value = stack.pop();
-        if (value.equals(minValueStack.peek())) {
+        if (Integer.valueOf(value).equals(minValueStack.peek())) {
             minValueStack.pop();
         }
         if (minValueStack.isEmpty()) {
