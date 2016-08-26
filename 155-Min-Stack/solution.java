@@ -8,7 +8,7 @@
 
 
 // s1: use a variable to store the min value
-// seem not available, because of the pop operation, the min will have to be stored every time, so I think of using another stack to store every time's min values, maybe not every time, just need to store the smaller one
+// failed, because of the pop operation, the min will have to be stored every time, so I think of using another stack to store every time's min values, maybe not every time, just need to store the smaller one
 
 /*
 public class MinStack {
@@ -111,6 +111,7 @@ public class MinStack {
 // s2 again: use 2 stacks and 1 variable
 // O(1), O(n)
 
+/*
 import java.util.*;
 
 public class MinStack {
@@ -162,6 +163,55 @@ public class MinStack {
     }
     
 }
+*/
+
+
+// *s2 modified: just use 2 stacks, one regular stack and one min stack to store the min value on the top of the stack
+// O(1), O(n)
+
+import java.util.*;
+
+public class MinStack {
+    
+    Stack<Integer> stack;
+    Stack<Integer> minStack;
+    
+    public MinStack() {
+        stack = new Stack<Integer>();
+        minStack = new Stack<Integer>();
+    }
+    
+    public void push(int val) {
+        stack.push(val);
+        if (minStack.isEmpty() || val <= minStack.peek()) {
+            minStack.push(val);
+        }
+    }
+    
+    public void pop() {
+        if (stack.isEmpty() || minStack.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        if (stack.pop().equals(minStack.peek())) {
+            minStack.pop();
+        }
+    }
+    
+    public int top() {
+        if (stack.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return stack.peek();
+    }
+    
+    public int getMin() {
+        if (minStack.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return minStack.peek();
+    }
+}
+
 
 
 
