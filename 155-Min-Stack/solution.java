@@ -147,7 +147,7 @@ public class MinStack {
         }
     }
     
-    public int peek() {
+    public int top() {
         if (stack.isEmpty()) {
             throw new EmptyStackException();
         }
