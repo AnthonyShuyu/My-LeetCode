@@ -29,7 +29,7 @@ class MyQueue {
     // Get the front element.
     public int peek() {
         convert(stack1, stack2);
-        int result = stack2.peek();
+        int result = (int)stack2.peek();
         convert(stack2, stack1);
         return result;
     }
