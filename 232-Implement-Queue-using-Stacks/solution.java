@@ -12,7 +12,7 @@
 class MyQueue {
     
     Stack stack1 = new Stack();
-    Stack stack2 = new Stac();
+    Stack stack2 = new Stack();
     
     // Push element x to the back of queue.
     public void push(int x) {
