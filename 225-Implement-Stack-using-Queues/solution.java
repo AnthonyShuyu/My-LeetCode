@@ -26,14 +26,14 @@ class MyStack {
     public void pop() {
         if (queue1.isEmpty()) {
             while (!queue2.isEmpty()) {
-                int val = queue2.pop();
+                int val = queue2.poll();
                 if (!queue2.isEmpty()) {
                     queue1.offer(val);
                 } 
             }
         } else if (queue2.isEmpty()) {
             while (!queue1.isEmpty()) {
-                int val = queue1.pop();
+                int val = queue1.poll();
                 if (!queue1.isEmpty()) {
                     queue2.offer(val);
                 }
@@ -46,12 +46,12 @@ class MyStack {
         int val = 0;
         if (queue1.isEmpty()) {
             while (!queue2.isEmpty()) {
-                val = queue2.pop();
+                val = queue2.poll();
                 queue1.offer(val);
             }
         } else if (queue2.isEmpty()) {
             while (!queue1.isEmpty()) {
-                val = queue1.pop();
+                val = queue1.poll();
                 queue2.offer(val);
             }
         }
