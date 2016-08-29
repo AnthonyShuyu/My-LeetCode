@@ -1,15 +1,15 @@
 /**
  * 
  * 232. Implement Queue using Stacks
- * 
+ * 2 methods
  * 
  */
 
 
-// s1: use 2 stacks
-// assume that the stacks' elements are integers
+// s1: use 2 stacks, and a convert method
 // O(1), O(n)
 
+/*
 class MyQueue {
     
     Stack stack1 = new Stack();
@@ -47,5 +47,40 @@ class MyQueue {
             stack2.push(stack1.pop());
         }
     }
+}
+*/
+
+// *s2: use 2 stacks but modified, more flexible
+// assume that the stacks' elements are integers
+// O(1), O(n)
+
+public class MyQueue {
+    Stack<Integer> stack1 = new Stack<Integer>();
+    Stack<Integer> stack2 = new Stack<Integer>();
     
+    public void push(int x) {
+        stack1.push(x);
+    }
+    
+    public int pop() {
+        if (stack2.isEmpty()) {
+            while (!stack1.isEmpty()) {
+                stack2.push(stack1.pop());
+            }
+        }
+        return stack2.pop();
+    }
+    
+    public int peek() {
+        if (stack2.isEmpty()) {
+            while (!stack1.isEmpty()) {
+                stack2.push(stack1.pop());
+            }
+        }
+        return stack2.peek();
+    }
+    
+    public boolean isEmpty() {
+        return stack1.isEmpty() && stack2.isEmpty();
+    }
 }
