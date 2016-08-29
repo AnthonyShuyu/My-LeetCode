@@ -80,7 +80,7 @@ public class MyQueue {
         return stack2.peek();
     }
     
-    public boolean isEmpty() {
+    public boolean empty() {
         return stack1.isEmpty() && stack2.isEmpty();
     }
 }
