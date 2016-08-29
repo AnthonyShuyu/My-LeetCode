@@ -7,6 +7,7 @@
 
 
 // s1: use 2 stacks
+// assume that the stacks' elements are integers
 // O(1), O(n)
 
 class MyQueue {
