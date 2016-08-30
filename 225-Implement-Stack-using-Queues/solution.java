@@ -1,6 +1,8 @@
 /**
  * 225. Implement Stack using Queues
  * 
+ * Java is pass by value!!! a copy of a reference, may only change the content
+ * 
  * 
  */
 
