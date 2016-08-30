@@ -8,6 +8,7 @@
 // Assume that the queue's elements are all integers
 // O(1), O(n)
 
+/*
 class MyStack {
     
     Queue<Integer> queue1 = new LinkedList<Integer>();
@@ -61,6 +62,53 @@ class MyStack {
     // Return whether the stack is empty.
     public boolean empty() {
         return queue1.isEmpty() && queue2.isEmpty();
+    }
+}
+*/
+
+
+// *s2: use 2 queues, move method and swap method
+// assume the queues' elements are all integers
+// O(1), O(n)
+
+public MyStack {
+    
+    Queue<Integer> queue1 = new LinkedList<Integer>();
+    Queue<Integer> queue2 = new LinkedList<Integer>();
+    
+    public void push(int x) {
+        queue1.push(x);
+    }
+    
+    public int pop() {
+        move(queue1, queue2);
+        int val = queue1.poll();
+        swap(queue1, queue2);
+        return val;
+    }
+    
+    public int top() {
+        move(queue1, queue2);
+        int val = queue1.poll();
+        swap(queue1, queue2);
+        queue1.offer(val);
+        return val;
+    }
+    
+    public boolean empty() {
+        return queue1.isEmpty();
+    }
+    
+    public void move(queue1, queue2) {
+        while (queue1.size() != 1) {
+            queue2.offer(queue1.poll());
+        }
+    }
+    
+    public void swap(queue1, queue2) {
+        Queue<Integer> temp = queue1;
+        queue1 = queue2;
+        queue2 = temp;
     }
     
 }
