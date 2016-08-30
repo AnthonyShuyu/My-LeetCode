@@ -99,13 +99,13 @@ public class MyStack {
         return queue1.isEmpty();
     }
     
-    public void move(queue1, queue2) {
+    public void move(Queue<Integer >queue1, Queue<Integer> queue2) {
         while (queue1.size() != 1) {
             queue2.offer(queue1.poll());
         }
     }
     
-    public void swap(queue1, queue2) {
+    public void swap(Queue<Integer> queue1, Queue<Integer> queue2) {
         Queue<Integer> temp = queue1;
         queue1 = queue2;
         queue2 = temp;
