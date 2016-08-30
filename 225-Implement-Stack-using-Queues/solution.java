@@ -81,16 +81,16 @@ public class MyStack {
     }
     
     public int pop() {
-        move(queue1, queue2);
+        move();
         int val = queue1.poll();
-        swap(queue1, queue2);
+        swap();
         return val;
     }
     
     public int top() {
-        move(queue1, queue2);
+        move();
         int val = queue1.poll();
-        swap(queue1, queue2);
+        swap();
         queue1.offer(val);
         return val;
     }
@@ -99,13 +99,13 @@ public class MyStack {
         return queue1.isEmpty();
     }
     
-    public void move(Queue<Integer >queue1, Queue<Integer> queue2) {
+    public void move() {
         while (queue1.size() != 1) {
             queue2.offer(queue1.poll());
         }
     }
     
-    public void swap(Queue<Integer> queue1, Queue<Integer> queue2) {
+    public void swap() {
         Queue<Integer> temp = queue1;
         queue1 = queue2;
         queue2 = temp;
