@@ -71,7 +71,7 @@ class MyStack {
 // assume the queues' elements are all integers
 // O(1), O(n)
 
-public MyStack {
+public class MyStack {
     
     Queue<Integer> queue1 = new LinkedList<Integer>();
     Queue<Integer> queue2 = new LinkedList<Integer>();
