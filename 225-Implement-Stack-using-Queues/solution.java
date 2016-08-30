@@ -77,7 +77,7 @@ public class MyStack {
     Queue<Integer> queue2 = new LinkedList<Integer>();
     
     public void push(int x) {
-        queue1.push(x);
+        queue1.offer(x);
     }
     
     public int pop() {
