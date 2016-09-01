@@ -6,7 +6,9 @@
 
 // s1: use a stack, when push into the stack, do the evaluation at the same time
 // O(n), O(n)
+// Character.isDigit(char)  
 
+/*
 public class Solution {
     public int evalRPN(String[] tokens) {
         // corner case
@@ -74,27 +76,27 @@ public class Solution {
         return true;
     }
     
-    public int convertToInt(String s) {
-        if (s == null || s.length() == 0) {
-            return -1;
-        }
-        int sign = 1;
-        if (s.charAt(0) == '-') {
-            sign = -1;
-        }
-        String sub;
-        if (sign == 1) {
-            sub = s;
-        } else {
-            sub = s.substring(1);
-        }
-        int n = Integer.valueOf(sub);
-        if (sign == 1) {
-            return n;
-        } else {
-            return n * (-1);
-        }
-    }
+    // public int convertToInt(String s) {
+    //     if (s == null || s.length() == 0) {
+    //         return -1;
+    //     }
+    //     int sign = 1;
+    //     if (s.charAt(0) == '-') {
+    //         sign = -1;
+    //     }
+    //     String sub;
+    //     if (sign == 1) {
+    //         sub = s;
+    //     } else {
+    //         sub = s.substring(1);
+    //     }
+    //     int n = Integer.valueOf(sub);
+    //     if (sign == 1) {
+    //         return n;
+    //     } else {
+    //         return n * (-1);
+    //     }
+    // }
     
     public boolean isSign(String s) {
         if (s == null || s.length() != 1) {
@@ -105,5 +107,47 @@ public class Solution {
         } else {
             return false;
         }
+    }
+}
+*/
+
+
+
+// s2: assume that the input are all valid
+// O(n), O(n)
+// s.contains(string)
+
+public class Solution {
+    public int evalRPN(String[] tokens) {
+        // corner case
+        if (tokens == null || tokens.length == 0) {
+            return 0;
+        }
+        
+        Stack<Integer> stack = new Stack<Integer>();
+        String s = "+-*/";
+        for (int i = 0; i < tokens.length; i++) {
+            if (!s.contains(tokens[i])) {
+                stack.push(Integer.valueOf(tokens[i]));
+            } else {
+                if (stack.size() < 2) {
+                    return 0;
+                }
+                int n2 = stack.pop();
+                int n1 = stack.pop();
+                int n3 = 0;
+                if (tokens[i].equals("+")) {
+                    n3 = n1 + n2;
+                } else if (tokens[i].equals("-")) {
+                    n3 = n1 - n2;
+                } else if (tokens[i].equals("*")) {
+                    n3 = n1 * n2;
+                } else if (tokens[i].equals("/")) {
+                    n3 = n1 / n2;
+                }
+                stack.push(n3);
+            }
+        }
+        return stack.peek();
     }
 }
