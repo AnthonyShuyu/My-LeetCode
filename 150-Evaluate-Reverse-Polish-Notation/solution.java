@@ -77,7 +77,12 @@ public class Solution {
         if (s.charAt(0) == '-') {
             sign = -1;
         }
-        String sub = s.substring(1);
+        String sub;
+        if (sign == 1) {
+            sub = s;
+        } else {
+            sub = s.substring(1);
+        }
         int n = Integer.valueOf(sub);
         if (sign == 1) {
             return n;
