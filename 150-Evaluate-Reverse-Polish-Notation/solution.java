@@ -19,7 +19,7 @@ public class Solution {
         Stack<Integer> stack = new Stack<Integer>();
         for (int i = 0; i < tokens.length; i++) {
             if (isInteger(tokens[i])) {
-                stack.push(convertToInt(tokens[0]));
+                stack.push(convertToInt(tokens[i]));
             } else if (isSign(tokens[i])) {
                 if (stack.size() < 2) {
                     return 0;
@@ -56,10 +56,8 @@ public class Solution {
             return false;
         }
         char c = s.charAt(0);
-        // int sign = 1;
         int i = 0;
         if (c == '-') {
-            // sign = -1;
             i = 1;
         }
         
