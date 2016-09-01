@@ -19,7 +19,7 @@ public class Solution {
         Stack<Integer> stack = new Stack<Integer>();
         for (int i = 0; i < tokens.length; i++) {
             if (isInteger(tokens[i])) {
-                stack.push(Integer.valueOf(tokens[0]));
+                stack.push(convertToInt(tokens[0]));
             } else if (isSign(tokens[i])) {
                 if (stack.size() < 2) {
                     return 0;
@@ -42,12 +42,12 @@ public class Solution {
                 } else {
                     return 0;
                 }
-                result = n3;
                 stack.push(n3);
             } else {
                 return 0;
             }
         }
+        result = stack.peek();
         return result;
     }
     
@@ -55,7 +55,15 @@ public class Solution {
         if (s == null || s.length() == 0) {
             return false;
         }
-        for (int i = 0; i < s.length(); i++) {
+        char c = s.charAt(0);
+        // int sign = 1;
+        int i = 0;
+        if (c == '-') {
+            // sign = -1;
+            i = 1;
+        }
+        
+        for (; i < s.length(); i++) {
             if (!Character.isDigit(s.charAt(i))) {
                 return false;
             }
@@ -63,11 +71,28 @@ public class Solution {
         return true;
     }
     
+    public int convertToInt(String s) {
+        if (s == null || s.length() == 0) {
+            return -1;
+        }
+        int sign = 1;
+        if (s.charAt(0) == '-') {
+            sign = -1;
+        }
+        String sub = s.substring(1);
+        int n = Integer.valueOf(sub);
+        if (sign == 1) {
+            return n;
+        } else {
+            return n * (-1);
+        }
+    }
+    
     public boolean isSign(String s) {
         if (s == null || s.length() != 1) {
             return false;
         }
-        if (s.charAt(0) == '+' || s.chatAt(0) == '-' || s.charAt(0) == '*' || s.charAt(0) == '/') {
+        if (s.charAt(0) == '+' || s.charAt(0) == '-' || s.charAt(0) == '*' || s.charAt(0) == '/') {
             return true;
         } else {
             return false;
