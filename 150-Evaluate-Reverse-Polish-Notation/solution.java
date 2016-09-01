@@ -19,7 +19,8 @@ public class Solution {
         Stack<Integer> stack = new Stack<Integer>();
         for (int i = 0; i < tokens.length; i++) {
             if (isInteger(tokens[i])) {
-                stack.push(convertToInt(tokens[i]));
+                // stack.push(convertToInt(tokens[i]));
+                stack.push(Integer.valueOf(tokens[i]));
             } else if (isSign(tokens[i])) {
                 if (stack.size() < 2) {
                     return 0;
