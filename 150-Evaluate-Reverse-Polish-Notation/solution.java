@@ -61,6 +61,10 @@ public class Solution {
             i = 1;
         }
         
+        if (c == '-' && s.length() == 1) {
+            return false;
+        }
+        
         for (; i < s.length(); i++) {
             if (!Character.isDigit(s.charAt(i))) {
                 return false;
