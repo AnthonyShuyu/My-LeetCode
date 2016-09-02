@@ -24,7 +24,9 @@
  
 // s1: use Queue, every time is not empty, poll and offer all the nested elements
 // O(n), O(n)
+// failed, index out of bounds
  
+/* 
 public class NestedIterator implements Iterator<Integer> {
 
     List<NestedInteger> nestedList;
@@ -64,9 +66,56 @@ public class NestedIterator implements Iterator<Integer> {
         return result.size() != 0;
     }
 }
+*/
 
 /**
  * Your NestedIterator object will be instantiated and called as such:
  * NestedIterator i = new NestedIterator(nestedList);
  * while (i.hasNext()) v[f()] = i.next();
  */
+ 
+// s2: write a function to use recursion
+// O(n), O(n)
+
+public class NestedIterator implements Iterator<Integer> {
+
+    // List<NestedInteger> nestedList;
+    // Queue<NestedInteger> queue; 
+    List<Integer> list = new ArrayList<Integer>();
+    int index = 0;
+    // Queue<Integer> result = new LinkedList<Integer>();
+    
+    
+    public NestedIterator(List<NestedInteger> nestedList) {
+        // this.nestedList = nestedList;
+        // queue = new LinkedList<NestedInteger>();
+        list = flattenList(nestedList);
+    }
+
+    public List<Integer> flattenList(List<NestedInteger> nestedList) {
+        List<Integer> temp = new ArrayList<Integer>();
+        for (int i = 0; i < nestedList.size(); i++) {
+            NestedInteger ni = nestedList.get(i);
+            if (ni.isInteger()) {
+                temp.add(ni.getInteger());
+            } else {
+                temp.addAll(flattenList(ni.getList()));
+            }
+        }
+        return temp;
+    }
+    
+    
+    @Override
+    public Integer next() {
+        int nextVal = list.get(index);
+        index++;
+        return nextVal;
+    }
+
+    @Override
+    public boolean hasNext() {
+        return index < list.size();
+    } 
+} 
+ 
