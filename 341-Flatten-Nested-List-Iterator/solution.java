@@ -77,6 +77,7 @@ public class NestedIterator implements Iterator<Integer> {
 // s2: write a function to use recursion
 // O(n), O(n)
 
+/*
 public class NestedIterator implements Iterator<Integer> {
 
     // List<NestedInteger> nestedList;
@@ -118,4 +119,48 @@ public class NestedIterator implements Iterator<Integer> {
         return index < list.size();
     } 
 } 
- 
+*/
+
+
+// *s3: use stack (you calm down and will find that you can not use queue but you can use stack instead)
+// O(n), O(n)
+
+public class NestedIterator implements iterator<Integer>() {
+    
+    Stack<NestedInteger> stack;
+    
+    public NestedIterator(List<NestedInteger> nestedList) {
+        // corner case
+        if (nestedList == null || nestedList.size() == 0) {
+            stack = null;
+        }
+        stack = new Stack<NestedInteger>();
+        for (int i = nestedList.size() - 1; i >= 0; i--) {
+            stack.push(nestedList.get(i));
+        }
+        
+    }
+    
+    @Override 
+    public Integer next() {
+        return stack.pop().getInteger();
+    }
+    
+    @Override
+    public boolean hasNext() {
+        if (stack == null || stack.isEmpty()) {
+            return false;
+        }
+        while (stack != null && !stack.isEmpty()) {
+            NestedInteger ni = stack.peek();
+            if (ni.isInteger()) {
+                return true;
+            } else {
+                stack.pop();
+                for (int i = ni.getList().size() - 1; i >= 0; i--) {
+                    stack.push(ni.getList().get(i));
+                }
+            }
+        }
+    }
+}
