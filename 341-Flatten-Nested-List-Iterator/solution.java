@@ -1,6 +1,6 @@
 /**
  * 341. Flatten Nested List Iterator
- * 
+ * 2 methods
  * 
  */
  
