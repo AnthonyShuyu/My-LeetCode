@@ -127,7 +127,7 @@ public class NestedIterator implements Iterator<Integer> {
 
 public class NestedIterator implements Iterator<Integer> {
     
-    Stack<NestedInteger> stack = new Stack<NestedInteger>;
+    Stack<NestedInteger> stack = new Stack<NestedInteger>();
     
     public NestedIterator(List<NestedInteger> nestedList) {
         // corner case
