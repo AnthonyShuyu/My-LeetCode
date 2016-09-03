@@ -125,7 +125,7 @@ public class NestedIterator implements Iterator<Integer> {
 // *s3: use stack (you calm down and will find that you can not use queue but you can use stack instead)
 // O(n), O(n)
 
-public class NestedIterator implements iterator<Integer>() {
+public class NestedIterator implements iterator<Integer> {
     
     Stack<NestedInteger> stack;
     
