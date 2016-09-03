@@ -162,5 +162,6 @@ public class NestedIterator implements Iterator<Integer> {
                 }
             }
         }
+        return false;
     }
 }
