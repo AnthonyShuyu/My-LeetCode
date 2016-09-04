@@ -76,7 +76,7 @@ public class Solution {
                 } else {
                     stack.push(niInteger);
                 }
-                index = index_end + 1;
+                index = index_end;
             } else if (c == ',') {
                 index++;
             } else if (c == ']') {
@@ -84,16 +84,14 @@ public class Solution {
                     NestedInteger ni = stack.pop();
                     if (!stack.isEmpty()) {
                         NestedInteger temp = stack.peek();
-                        temp.add(tempResult);
+                        temp.add(ni);
                     } else {
                         return ni;
                     }
                 }
                 index++;
             }
-            
         }
-
         return stack.peek();
     }
 }
