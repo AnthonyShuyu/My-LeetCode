@@ -80,13 +80,13 @@ public class Solution {
                 index++;
             } else if (c == ']') {
                 if (!stack.isEmpty()) {
-                    NestedInteger ni = stack.poll();
+                    NestedInteger ni = stack.pop();
                     NestedInteger temp = stack.peek();
                     temp.add(ni);
                 }
             }
             
         }
-        return stack.poll();
+        return stack.pop();
     }
 }
