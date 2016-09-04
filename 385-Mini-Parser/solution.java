@@ -86,6 +86,7 @@ public class Solution {
                         temp.add(ni);
                     }
                 }
+                index++;
             }
             
         }
