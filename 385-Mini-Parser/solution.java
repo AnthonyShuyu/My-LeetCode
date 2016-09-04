@@ -50,6 +50,7 @@ public class Solution {
             return null;
         }
         Stack<NestedInteger> stack = new Stack<NestedInteger>();
+        // NestedInteger tempResult = new NestedInteger();
         int index = 0;
         while (index < s.length()) {
             char c = s.charAt(index);
@@ -83,13 +84,16 @@ public class Solution {
                     NestedInteger ni = stack.pop();
                     if (!stack.isEmpty()) {
                         NestedInteger temp = stack.peek();
-                        temp.add(ni);
+                        temp.add(tempResult);
+                    } else {
+                        return ni;
                     }
                 }
                 index++;
             }
             
         }
-        return stack.pop();
+
+        return stack.peek();
     }
 }
