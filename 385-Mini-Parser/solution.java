@@ -81,8 +81,10 @@ public class Solution {
             } else if (c == ']') {
                 if (!stack.isEmpty()) {
                     NestedInteger ni = stack.pop();
-                    NestedInteger temp = stack.peek();
-                    temp.add(ni);
+                    if (!stack.isEmpty()) {
+                        NestedInteger temp = stack.peek();
+                        temp.add(ni);
+                    }
                 }
             }
             
