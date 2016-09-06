@@ -56,11 +56,11 @@ public class Solution {
                 }
                 index = index3;
             } else if (c == ']') {
-                String s = sbStack.poll().toString();
+                String temp = sbStack.poll().toString();
                 int n = integerStack.poll();
                 StringBuilder tempsb = new StringBuilder();
                 for (int i = 0; i < n; i++) {
-                    tempsb.append(s);
+                    tempsb.append(temp);
                 }
                 if (sbStack.isEmpty()) {
                     result.append(tempsb);
