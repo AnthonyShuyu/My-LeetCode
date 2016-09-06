@@ -80,7 +80,7 @@ public class Solution {
             } else if (c == ',') {
                 index++;
             } else if (c == ']') {
-                if (!stack.isEmpty()) {
+                // if (!stack.isEmpty()) {
                     NestedInteger ni = stack.pop();
                     if (!stack.isEmpty()) {
                         NestedInteger temp = stack.peek();
@@ -88,7 +88,7 @@ public class Solution {
                     } else {
                         return ni;
                     }
-                }
+                // }
                 index++;
             }
         }
