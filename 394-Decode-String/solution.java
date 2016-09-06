@@ -56,8 +56,8 @@ public class Solution {
                 }
                 index = index3;
             } else if (c == ']') {
-                String temp = sbStack.poll().toString();
-                int n = integerStack.poll();
+                String temp = sbStack.pop().toString();
+                int n = integerStack.pop();
                 StringBuilder tempsb = new StringBuilder();
                 for (int i = 0; i < n; i++) {
                     tempsb.append(temp);
