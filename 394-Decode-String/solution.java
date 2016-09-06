@@ -16,7 +16,7 @@ public class Solution {
         }
         StringBuilder result = new StringBuilder();
         Stack<Integer> integerStack = new Stack<Integer>();
-        Stack<StringBuilder> sbStack = new Stack<Integer>();
+        Stack<StringBuilder> sbStack = new Stack<StringBuilder>();
         
         int index = 0;
         while (index < s.length()) {
@@ -70,7 +70,6 @@ public class Solution {
                 index++;
             }
         }
-        
         return result.toString();
     }
 }
