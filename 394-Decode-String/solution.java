@@ -31,7 +31,7 @@ public class Solution {
                         break;
                     }
                 }
-                int num = s.substring(index, index2);
+                int num = Integer.valueOf(s.substring(index, index2));
                 integerStack.push(num);
                 index = index2;
             } else if (c == '[') {
