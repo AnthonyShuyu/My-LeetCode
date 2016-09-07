@@ -16,7 +16,7 @@ public class Solution {
         }
         int max = 0;
         int min_height = 0;
-        for (int i = 0; i < heigths.length; i++) {
+        for (int i = 0; i < heights.length; i++) {
             min_height = heights[i];
             for (int j = i; j < heigths.length; j++) {
                 min_height = Math.min(min_height, height[j]);
