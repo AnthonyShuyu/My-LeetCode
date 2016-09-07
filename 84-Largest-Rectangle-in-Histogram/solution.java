@@ -102,7 +102,9 @@ public class Solution {
 
 // s3: two pointers retry
 // O(n^2), O(1)
+// failed
 
+/*
 public class Solution {
     public int largestRectangleArea(int[] heights) {
         // corner case
@@ -121,7 +123,7 @@ public class Solution {
                 max_area = Math.max(max_area, countArea(start + 1, end, heights));
             }
             start++;
-            if (end >= 0 && heights[end - 1] > heights[end]) {
+            if (end - 1 >= 0 && heights[end - 1] > heights[end]) {
                 max_area = Math.max(max_area, countArea(start, end - 1, heights));
             }
             end--;
@@ -139,10 +141,44 @@ public class Solution {
         }
         return (end - start + 1) * min_height; 
     }
-    
-    
 }
+*/
 
+
+// *s2: use stack to store the increaing heights
+// O(n), O(n)
+
+public class Solution {
+    public int largestRectangleArea(int[] heights) {
+        // corner case
+        if (heights == null || heights.length == 0) {
+            return 0;
+        }
+        Stack<Integer> stack = new Stack<Integer>();
+        int max = 0;
+        for (int i = 0; i <= heights.length; i++) {
+            int current_height;
+            if (i == heights.length) {
+                current_height = -1;
+            } else {
+                current_height = heights[i];
+            }
+            while (!stack.isEmpty() && current_height <= heights[stack.peek()]) {
+                int temp = stack.pop();
+                int height = heights[temp];
+                int width;
+                if (!stack.isEmpty()) {
+                    width = i - stack.peek() - 1;
+                } else {
+                    width = i;
+                }
+                max = Math.max(max, height * width);
+            }
+            stack.push(i);
+        }
+        return max;
+    }
+}
 
 
 
