@@ -50,8 +50,8 @@ public class Solution {
             area = Math.max(area, countArea(start, end, heights));
             System.out.println(area);
             int left = findRightLarger(start, end, heights);
-
-            if (left <= right) {
+            
+            if (left <= end) {
                 area = Math.max(area, countArea(left, right, heights));
             }
             
