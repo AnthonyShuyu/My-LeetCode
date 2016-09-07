@@ -117,11 +117,11 @@ public class Solution {
         
         while (start <= end) {
             max_area = Math.max(max_area, countArea(start, end, heights));
-            if (heights[start + 1] > heights[start]) {
+            if (start + 1 < heights.length && heights[start + 1] > heights[start]) {
                 max_area = Math.max(max_area, countArea(start + 1, end, heights));
             }
             start++;
-            if (heights[end - 1] > heights[end]) {
+            if (end >= 0 && heights[end - 1] > heights[end]) {
                 max_area = Math.max(max_area, countArea(start, end - 1, heights));
             }
             end--;
