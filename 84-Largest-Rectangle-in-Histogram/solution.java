@@ -32,9 +32,12 @@ public class Solution {
 */
 
 
+
 // s2: two pointers
 // O(n^2), O(1)
+// failed
 
+/*
 public class Solution {
     public int largestRectangleArea(int[] heights) {
         // corner case
@@ -52,7 +55,7 @@ public class Solution {
             int left = findRightLarger(start, end, heights);
             
             if (left <= end) {
-                area = Math.max(area, countArea(left, right, heights));
+                area = Math.max(area, countArea(left, end, heights));
             }
             
             int right = findLeftLarger(start, end, heights);
@@ -92,6 +95,52 @@ public class Solution {
         }
         return (right - left + 1) * min;
     }
+}
+*/
+
+
+
+// s3: two pointers retry
+// O(n^2), O(1)
+
+public class Solution {
+    public int largestRectangleArea(int[] heights) {
+        // corner case
+        if (heights == null || heights.length == 0) {
+            return 0;
+        }
+        
+        int start = 0;
+        int end = heights.length - 1;
+        int max_area = heights[start];
+        
+        
+        while (start <= end) {
+            max_area = Math.max(max_area, countArea(start, end, heights));
+            if (heights[start + 1] > heights[start]) {
+                max_area = Math.max(max_area, countArea(start + 1, end, heights));
+            }
+            start++;
+            if (heights[end - 1] > heights[end]) {
+                max_area = Math.max(max_area, countArea(start, end - 1, heights));
+            }
+            end--;
+        }
+        return max_area;
+    }
+    
+    public int countArea(int start, int end, int[] heights) {
+        if (start > end) {
+            return 0;
+        }
+        int min_height = heights[start];
+        for (int i = start + 1; i <= end; i++) {
+            min_height = Math.min(min_height, heights[i]);
+        }
+        return (end - start + 1) * min_height; 
+    }
+    
+    
 }
 
 
