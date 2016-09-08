@@ -205,7 +205,7 @@ public class Solution {
                 current_height = heights[i];
             }
             
-            while (!stack.isEmpty() && current_height <= stack.peek(heights[i - 1])) {
+            while (!stack.isEmpty() && current_height <= heights[stack.peek()]) {
                 int height = heights[stack.pop()];
                 int width;
                 if (stack.isEmpty()) {
@@ -215,6 +215,8 @@ public class Solution {
                 }
                 max = Math.max(max, width * height);
             }
+            
+            stack.push(i);
         }
         return max;
     }
