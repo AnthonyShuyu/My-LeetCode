@@ -145,9 +145,11 @@ public class Solution {
 */
 
 
-// *s2: use stack to store the increaing heights
+// *s2: use stack to store the increaing heights, to maintain the increasing stack, and find the first left and right ones lower than it
 // O(n), O(n)
+// tricky
 
+/*
 public class Solution {
     public int largestRectangleArea(int[] heights) {
         // corner case
@@ -179,7 +181,44 @@ public class Solution {
         return max;
     }
 }
+*/
 
+
+// s2: stack, retry
+// O(n), O(n)
+// tricky
+
+public class Solution {
+    public int largestRectangleArea(int[] heights) {
+        // corner case
+        if (heights == null || heights.length == 0) {
+            return 0;
+        }
+        // use a stack to store the increaing height
+        Stack<Integer> stack = new Stack<Integer>();
+        int max = 0;
+        for (int i = 0; i <= heights.length; i++) {
+            int current_height;
+            if (i == heights.length) {
+                current_height = -1;
+            } else {
+                current_height = heights[i];
+            }
+            
+            while (!stack.isEmpty() && current_height <= stack.peek(heights[i - 1])) {
+                int height = heights[stack.pop()];
+                int width;
+                if (stack.isEmpty()) {
+                    width = i;
+                } else {
+                    width = i - stack.peek() - 1;                  
+                }
+                max = Math.max(max, width * height);
+            }
+        }
+        return max;
+    }
+}
 
 
 
