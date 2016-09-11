@@ -15,7 +15,7 @@ public class Solution {
     public char findTheDifference(String s, String t) {
         // corner case
         if (s == null || t == null) {
-            return '';
+            return ' ';
         }
         
         int[] array = new int[26];
@@ -31,6 +31,6 @@ public class Solution {
                 return c;
             }
         }
-        return '';
+        return ' ';
     }
 }
