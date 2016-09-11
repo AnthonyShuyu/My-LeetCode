@@ -21,13 +21,13 @@ public class Solution {
         int[] array = new int[26];
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            array[c - '0']++;
+            array[c - 'a']++;
         }
         
         for (int i = 0; i < t.length(); i++) {
             char c = t.charAt(i);
-            array[c - '0']--;
-            if (array[c - '0'] < 0) {
+            array[c - 'a']--;
+            if (array[c - 'a'] < 0) {
                 return c;
             }
         }
