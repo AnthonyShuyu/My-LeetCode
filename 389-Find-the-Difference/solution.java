@@ -24,7 +24,7 @@ public class Solution {
             array[c - '0']++;
         }
         
-        for (int i = 0; i < t.length(); t++) {
+        for (int i = 0; i < t.length(); i++) {
             char c = t.charAt(i);
             array[c - '0']--;
             if (array[c - '0'] < 0) {
