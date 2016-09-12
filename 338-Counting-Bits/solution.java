@@ -19,9 +19,7 @@ public class Solution {
         for (int i = 0; i <= num; i++) {
             result[i] = countBit(i);
         }
-        
         return result;
-        
     }
     
     public int countBit(int n) {
