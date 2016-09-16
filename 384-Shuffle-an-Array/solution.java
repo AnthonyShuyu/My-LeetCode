@@ -7,10 +7,13 @@
 public class Solution {
         
     private int[] nums;
-    int[] new_nums = new int[nums.length];
+    int[] new_nums;
     
     public Solution(int[] nums) {
         this.nums = nums;
+        if (nums.length >= 0) {
+            new_nums = new int[nums.length];
+        }
         for (int i = 0; i < nums.length; i++) {
             new_nums[i] = nums[i];
         }
@@ -28,11 +31,11 @@ public class Solution {
         Random random = new Random();
         for (int i = 0; i < nums.length; i++) { 
             int n = random.nextInt(nums.length);
-            while (!hashSet.contains(n)) {
-                array[i] = nums[n];
-                hashSet.add(n);
-                break;
+            while (hashSet.contains(n)) {
+                n = random.nextInt(nums.length);
             }
+            hashSet.add(n);
+            array[i] = nums[n];
         }
         return array;
     }
