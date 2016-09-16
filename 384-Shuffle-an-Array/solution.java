@@ -18,7 +18,7 @@ public class Solution {
     
     /** Resets the array to its original configuration and return it. */
     public int[] reset() {
-        return new_nums[];
+        return new_nums;
     }
     
     /** Returns a random shuffling of the array. */
