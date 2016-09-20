@@ -72,6 +72,7 @@ public class Solution {
 // O(nlogn), O(n)
 // tricky
 
+/*
 class NumberComparator implements Comparator<String>{
     public int compare(String s1, String s2) {
         return (s2 + s1).compareTo(s1 + s2);
@@ -92,6 +93,51 @@ public class Solution {
         }
         
         Arrays.sort(strs, new NumberComparator());
+        
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < strs.length; i++) {
+            sb.append(strs[i]);
+        }
+        
+        // return sb.toString();
+        int index = 0;
+        while (index < sb.length() && sb.charAt(index) == '0') {
+            index++;
+        }
+        
+        if (index == sb.length()) {
+            return "0";
+        }
+        return sb.toString();
+    }
+}
+*/
+
+
+// s2: Arrays.sort(nums, numberComparator)
+
+    
+public class Solution {
+    
+    private Comparator<String> numberComparator = new Comparator<String>() {
+        @Override
+        public int compare(String s1, String s2) {
+            return (s2 + s1).compareTo(s1 + s2);
+        }
+    };
+
+    public String largestNumber(int[] nums) {
+        // corner case
+        if (nums == null || nums.length == 0) {
+            return "";
+        }
+        
+        String[] strs = new String[nums.length];
+        for (int i = 0; i < strs.length; i++) {
+            strs[i] = String.valueOf(nums[i]);
+        }
+        
+        Arrays.sort(strs, numberComparator);
         
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < strs.length; i++) {
