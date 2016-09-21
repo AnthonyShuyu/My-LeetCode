@@ -28,18 +28,22 @@ public class Solution {
         int max = 0;
         
         for (int i = 0; i < m * n; i++) {
-            for (int j = i; j < m * n && j % n >= i % n) {
-                for (int k = i; k <= j; k++) {
-                    if (matrix[k / n][k % n] == '0') {
+            System.out.println("i = " + i);
+            for (int j = i; j < m * n ; j++) {
+                System.out.println("j = " + j);
+                if (j % n < i % n) {
+                    continue;
+                }
+                for (int row = i / n, col = i % n; row <= j / n, col <= j % n; row++, col++) {
+                    if (matrix[row][col] == '0') {
                         isRectangle = false;
                         break;
                     }
                 }
                 if (isRectangle) {
-                    max = Math.max(max, j - i + 1);
+                    max = Math.max(max, (j / n - i / n + 1) * (j % n - i % n + 1));
                 } else {
                     isRectangle = true;
-                    break;
                 }
             } 
         }
