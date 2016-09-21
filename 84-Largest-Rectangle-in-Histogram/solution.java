@@ -188,6 +188,7 @@ public class Solution {
 // O(n), O(n)
 // tricky
 
+/*
 public class Solution {
     public int largestRectangleArea(int[] heights) {
         // corner case
@@ -222,6 +223,41 @@ public class Solution {
     }
 }
 
+*/
+
+
+// s2: stack, reretry
+// O(n), O(n)
+// tricky, to maintain an increasing stack, stack stores the indexes of the heights
+
+public class Solution {
+    public int largestRectangleArea(int[] heights) {
+        if (heights == null || heights.length == 0) {
+            return 0;
+        }
+        
+        Stack<Integer> stack = new Stack<Integer>();
+        int max = 0;
+        for (int i = 0; i <= heights.length; i++) {
+            int current_height = 0;
+            if (i != heights.length) {
+                current_height = heights[i];
+            }
+            
+            while (!stack.isEmpty() && current_height <= heights[stack.peek()]) {
+                int height = heights[stack.pop()];
+                int width = 0;
+                if (stack.isEmpty()) {
+                    width = i;
+                } else {
+                    int width = i - stack.peek() - 1;
+                }
+                max = Math.max(max, height * width);
+            }
+            stack.push(i);
+        }
+    }    
+}
 
 
 
