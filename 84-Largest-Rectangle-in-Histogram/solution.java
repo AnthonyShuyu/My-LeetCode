@@ -256,6 +256,7 @@ public class Solution {
             }
             stack.push(i);
         }
+        return max;
     }    
 }
 
