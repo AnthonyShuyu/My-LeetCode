@@ -34,8 +34,11 @@ public class Solution {
                 if (j % n < i % n) {
                     continue;
                 }
-                for (int row = i / n, col = i % n; row <= j / n, col <= j % n; row++, col++) {
-                    if (matrix[row][col] == '0') {
+                for (int k = i; k <= j; k++) {
+                    if (k % n < i % n || k % n > j % n) {
+                        continue;
+                    }
+                    if (matrix[k / n][k % n] == '0') {
                         isRectangle = false;
                         break;
                     }
