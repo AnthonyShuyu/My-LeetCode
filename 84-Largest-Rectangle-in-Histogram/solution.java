@@ -250,7 +250,7 @@ public class Solution {
                 if (stack.isEmpty()) {
                     width = i;
                 } else {
-                    int width = i - stack.peek() - 1;
+                    width = i - stack.peek() - 1;
                 }
                 max = Math.max(max, height * width);
             }
