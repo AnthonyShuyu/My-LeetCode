@@ -191,7 +191,7 @@ public class Solution {
                     } else {
                         width = j - stack.peek() - 1;
                     }
-                    // System.out.println("height is : " + height + "width is : " + width);
+                    System.out.println("height is : " + height + "width is : " + width);
                     max = Math.max(max, height * width);
                 }                
                 stack.push(j);
