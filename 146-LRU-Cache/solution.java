@@ -10,7 +10,7 @@
 
 // s1: use HashMap and use an arrayList to represent the LRU elements
 // O(n), O(n)
-// time limit exceeded
+// succeeded
 
 public class LRUCache {
     
@@ -35,7 +35,8 @@ public class LRUCache {
     
     public void set(int key, int value) {
         
-        if (num <= capacity && hashMap.containsKey(key)) {
+        // if (num <= capacity && hashMap.containsKey(key)) {
+        if (hashMap.containsKey(key)) {
             updateList(key);
             hashMap.put(key, value);
             return;
