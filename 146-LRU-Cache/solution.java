@@ -25,8 +25,7 @@ public class LRUCache {
     
     public int get(int key) {
         if (hashMap.containsKey(key)) {
-            arrayList.remove(Integer.valueOf(key));
-            arrayList.add(key);
+            updateList(key);
             return hashMap.get(key);
         } else {
             return -1;
@@ -36,8 +35,7 @@ public class LRUCache {
     public void set(int key, int value) {
         
         if (num <= capacity && hashMap.containsKey(key)) {
-            arrayList.remove(Integer.valueOf(key));
-            arrayList.add(key);
+            updateList(key);
             hashMap.put(key, value);
             return;
         }
@@ -53,5 +51,10 @@ public class LRUCache {
             hashMap.put(key, value);
             num++;
         }
+    }
+    
+    public void updateList(int key) {
+        arrayList.remove(Integer.valueOf(key));
+        arrayList.add(key);
     }
 }
