@@ -92,7 +92,7 @@ public class LRUCache {
         }
         
         if (hashMap.containsKey(key)) {
-            updateListNode(key, listNode);
+            updateListNode(key);
             return hashMap.get(key);
         } else {
             return -1;
@@ -106,30 +106,30 @@ public class LRUCache {
         }
         
         if (hashMap.containsKey(key)) {
-            updateListNode(key, listNode);
+            updateListNode(key);
             hashMap.put(key, value);
             return;
         }
         
         if (num < capacity) {
-            appendToTail(key, listNode);
+            appendToTail(key);
             hashMap.put(key, value);
             num++;
         } else {
             hashMap.remove(listNode.value);
             hashMap.put(key, value);
-            removeHeadAndAppendToTail(key, listNode);
+            removeHeadAndAppendToTail(key);
         }
         
         
     }
     
-    public void updateListNode(int key, ListNode listNode) {
+    public void updateListNode(int key) {
         ListNode node = listNode;
         if (key == node.value) {
-            removeHeadAndAppendToTail(key, listNode);
+            removeHeadAndAppendToTail(key);
         } else {
-            while (node != null) {
+            while (node != null && node.next != null) {
                 if (node.next.value == key) {
                     node.next = node.next.next;
                     break;
@@ -137,11 +137,11 @@ public class LRUCache {
                     node = node.next;
                 }               
             }
-            appendToTail(key, listNode);
+            appendToTail(key);
         }
     }
     
-    public void appendToTail(int key, ListNode listNode) {
+    public void appendToTail(int key) {
         ListNode node = new ListNode(key);
         if (listNode == null) {
             listNode = node;
@@ -151,12 +151,11 @@ public class LRUCache {
         }
     }
     
-    public void removeHeadAndAppendToTail(int key, ListNode listNode) {
-        appendToTail(key, listNode);
+    public void removeHeadAndAppendToTail(int key) {
+        appendToTail(key);
         // ListNode dummy = new ListNode(0);
         // dummy.next = listNode;
         listNode = listNode.next;
-        
     }
     
     public ListNode findTheTailNode(ListNode listNode) {
