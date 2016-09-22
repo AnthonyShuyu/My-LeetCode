@@ -47,7 +47,7 @@ public class LRUCache {
             // arrayList.add(key);
             // System.out.println("The old key is: " + old_key);
             // updateList(old_key);
-            appentToList(key);   // remove the first at the same time
+            appendToList(key);   // remove the first at the same time
             hashMap.remove(old_key);
             hashMap.put(key, value);
         } else {
