@@ -12,7 +12,6 @@
 // O(n), O(n)
 // succeeded
 
-/*
 public class LRUCache {
     int capacity;
     Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
@@ -46,6 +45,7 @@ public class LRUCache {
             int old_key = arrayList.get(0);
             arrayList.remove(0);
             arrayList.add(key);
+            // updateList(old_key);
             hashMap.remove(old_key);
             hashMap.put(key, value);
         } else {
@@ -59,13 +59,14 @@ public class LRUCache {
         arrayList.add(key);
     }
 }
-*/
 
 
 
 // s2: use a HashMap and singly Linked List
 // O(n), O(n)
+// time limit exceeded
 
+/*
 public class LRUCache {
     
     
@@ -120,8 +121,6 @@ public class LRUCache {
             hashMap.put(key, value);
             removeHeadAndAppendToTail(key);
         }
-        
-        
     }
     
     public void updateListNode(int key) {
@@ -167,8 +166,10 @@ public class LRUCache {
         }
         return listNode;
     }
-    
-    
-    
-
 }
+
+*/
+
+// s3: use a HashMap and a doubly linked list
+
+// public class LRUCache {
