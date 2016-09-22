@@ -10,6 +10,7 @@
 
 // s1: use HashMap and use an arrayList to represent the LRU elements
 // O(n), O(n)
+// time limit exceeded
 
 public class LRUCache {
     
