@@ -43,9 +43,11 @@ public class LRUCache {
         
         if (num >= capacity) {
             int old_key = arrayList.get(0);
-            arrayList.remove(0);
-            arrayList.add(key);
+            // arrayList.remove(0);
+            // arrayList.add(key);
+            // System.out.println("The old key is: " + old_key);
             // updateList(old_key);
+            appentToList(key);   // remove the first at the same time
             hashMap.remove(old_key);
             hashMap.put(key, value);
         } else {
@@ -55,7 +57,14 @@ public class LRUCache {
         }
     }
     public void updateList(int key) {
+        // System.out.println("the key is: " + key);
         arrayList.remove(Integer.valueOf(key));
+        // System.out.println("The arrayList is : " + arrayList);
+        arrayList.add(key);
+    }
+    
+    public void appendToList(int key) {
+        arrayList.remove(0);
         arrayList.add(key);
     }
 }
