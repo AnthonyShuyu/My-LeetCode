@@ -254,7 +254,7 @@ public class LRUCache {
         newNode.prev = tail;
         tail = newNode;
     }
-    
+/*    
     public void removeHeadAndAppendToTail(int key) {
         if (head == null) {
             return;
@@ -267,7 +267,8 @@ public class LRUCache {
         }
         appendToTail(key);
     }
-    
+
+*/    
     public void updateList(int key) {
         if (head == null) {
             return;
