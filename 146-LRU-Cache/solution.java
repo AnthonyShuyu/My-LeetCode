@@ -237,11 +237,14 @@ public class LRUCache {
             if (node.value == key && node.prev != null && node.post != null) {
                 node.prev.post = node.post;
                 node.post.prev = node.prev;
-            } else if (node.value == key && node.prev == null) {
+            } else if (node.value == key && node.prev == null && node.post != null ) {
                 node.post.prev = node.prev;
                 listNode = listNode.post;
-            } else if (node.value == key && node.post == null) {
+            } else if (node.value == key && node.post == null && node.prev != null) {
                 node.prev.post = node.post;
+            } else if (node.value == key && node.post == null && node.prev == null){
+                listNode = null;
+                break;
             } else {
                 node = node.post;
             }
