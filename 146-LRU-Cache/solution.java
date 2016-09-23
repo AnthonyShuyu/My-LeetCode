@@ -8,7 +8,7 @@
 
 
 
-// s1: use HashMap and use an arrayList to represent the LRU elements
+// *s1: use HashMap and use an arrayList to represent the LRU elements
 // O(n), O(n)
 // succeeded
 
@@ -180,119 +180,96 @@ public class LRUCache {
 
 */
 
-
-
-// s3: use a doubly linked list and a HashMap
+// **s4: use a Doubly Linkedlist and a HashMap
 // O(n), O(n)
-// time limite exceeded
-
+// stricky: store the key, node in the HashMap and store the key, value in the node, (in this way, it will not have to find element when do updateList
 public class LRUCache {
     
     private class ListNode {
+        int key;
         int value;
         ListNode prev;
         ListNode post;
-        public ListNode(int value) {
+        public ListNode(int key, int value) {
+            this.key = key;
             this.value = value;
         }
     }
     
-    int capacity;
-    int num;
     
+    int capacity;
+    Map<Integer, ListNode> hashMap = new HashMap<Integer, ListNode>();
+    int num = 0;
     ListNode head;
     ListNode tail;
-    
-    Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
     
     public LRUCache(int capacity) {
         this.capacity = capacity;
     }
-
+    
     public int get(int key) {
         if (hashMap.containsKey(key)) {
-            updateList(key);
-            return hashMap.get(key);
+            ListNode node = hashMap.get(key);
+            removeNode(node);
+            appendToTail(node);
+            return node.value;
         } else {
             return -1;
         }
     }
     
     public void set(int key, int value) {
+        ListNode new_node = new ListNode(key, value);
         if (hashMap.containsKey(key)) {
-            updateList(key);
-            hashMap.put(key, value);
-            return;
+            ListNode old_node = hashMap.get(key);
+            hashMap.put(key, new_node);
+            removeNode(old_node);
+            appendToTail(new_node);
         }
         
         if (num < capacity) {
-            appendToTail(key);
-            hashMap.put(key, value);
+            hashMap.put(key, new_node);
+            appendToTail(new_node);            
             num++;
         } else {
-            hashMap.remove(head.value);
-            hashMap.put(key, value);
-            // removeHeadAndAppendToTail(key);
-            head = head.post;
-            if (head == null) {
-                tail = null;
-            } else {
-                head.prev = null;
-            }
-            appendToTail(key);            
+            hashMap.remove(head.val);
+            hashMap.put(key, new_node);
+            removeNode(head);
+            appendToTail(new_node);
         }
     }
     
-    public void appendToTail(int key) {
-        ListNode newNode = new ListNode(key);
-        if (head == null && tail == null) {
-            head = newNode;
-            tail = newNode;
-            return;
-        } 
-        tail.post = newNode;
-        newNode.prev = tail;
-        tail = newNode;
-    }
-/*    
-    public void removeHeadAndAppendToTail(int key) {
-        if (head == null) {
-            return;
-        }
-        head = head.post;
-        if (head == null) {
-            tail = null;
-        } else {
-            head.prev = null;
-        }
-        appendToTail(key);
-    }
-
-*/    
-    public void updateList(int key) {
-        if (head == null) {
-            return;
-        }
-        ListNode node = head;
-        while (node != null) {
-            if (node.value == key) {
-                if (node == head && node == tail) {
-                    head = null;
-                    tail = null;
-                } else if (node == head && node != tail) {
-                    head = head.post;
-                    head.prev = null;
-                } else if (node != head && node == tail) {
-                    tail = tail.prev;
-                    tail.post = null;
-                } else {
-                    node.prev.post = node.post;
-                    node.post.prev = node.prev;
-                }
-                break;
+    public void removeNode(ListNode node) {
+        if (node == head) {
+            head = head.post;
+            if (head == null) {
+                tail = null;
+                return;
+            } else {
+                head.prev = null;
             }
-            node = node.post;
+        } else if (node == tail) {
+            tail = tail.prev;
+            if (tail == null) {
+                head = null;
+                return;
+            } else {
+                tail.post = null;
+            }
+        } else {
+            node.prev.post = node.post;
+            node.post.prev = node.prev;
         }
-        appendToTail(key);
+    }
+    
+    public void appendToTail(ListNode node) {
+        if (head == null && tail == null) {
+            head = node;
+            tail = node;
+            return;
+        }
+        tail.post = node;
+        node.prev = tail;
+        tail = tail.post;
     }
 }
