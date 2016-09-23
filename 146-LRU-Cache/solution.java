@@ -252,7 +252,7 @@ public class LRUCache {
         }
         head = head.post;
         if (head == null) {
-            tail == null;
+            tail = null;
         } else {
             head.prev = null;
         }
