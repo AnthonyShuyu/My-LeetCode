@@ -180,7 +180,10 @@ public class LRUCache {
 
 */
 
-// s3: use a HashMap and a doubly linked list
+
+
+// s3: use a doubly linked list and a HashMap
+// O(n), O(n)
 
 public class LRUCache {
     
@@ -194,86 +197,92 @@ public class LRUCache {
     }
     
     int capacity;
+    int num;
+    
+    ListNode head;
+    ListNode tail;
+    
+    Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
+    
     public LRUCache(int capacity) {
         this.capacity = capacity;
     }
-    
-    ListNode listNode = null;
-    Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
-    int num = 0;
-    
+
     public int get(int key) {
         if (hashMap.containsKey(key)) {
-            updateLinkedList(key);
+            updateList(key);
             return hashMap.get(key);
         } else {
             return -1;
         }
-        
     }
     
     public void set(int key, int value) {
         if (hashMap.containsKey(key)) {
+            updateList(key);
             hashMap.put(key, value);
-            updateLinkedList(key);
             return;
         }
         
         if (num < capacity) {
-            hashMap.put(key, value);
             appendToTail(key);
+            hashMap.put(key, value);
             num++;
         } else {
-            int old_key = listNode.value;
-            hashMap.remove(old_key);
+            removeHeadAndAppendToTail(key);
             hashMap.put(key, value);
-            removeFirstAndAppendToTail(key);
         }
-    }
-    
-    public void updateLinkedList(int key) {
-        ListNode node = listNode;
-        while (node != null) {
-            if (node.value == key && node.prev != null && node.post != null) {
-                node.prev.post = node.post;
-                node.post.prev = node.prev;
-            } else if (node.value == key && node.prev == null && node.post != null ) {
-                node.post.prev = node.prev;
-                listNode = listNode.post;
-            } else if (node.value == key && node.post == null && node.prev != null) {
-                node.prev.post = node.post;
-            } else if (node.value == key && node.post == null && node.prev == null){
-                listNode = null;
-                break;
-            } else {
-                node = node.post;
-            }
-        }
-        appendToTail(key);
     }
     
     public void appendToTail(int key) {
         ListNode newNode = new ListNode(key);
-        if (listNode == null) {
-            listNode = newNode;
+        if (head == null && tail == null) {
+            head = newNode;
+            tail = newNode;
             return;
-        }
-        ListNode node = listNode;
-        
-        while (node != null && node.post != null) {
-            node = node.post;
-        }
-        node.post = newNode;
-        newNode.prev = node;
+        } 
+        tail.post = newNode;
+        newNode.prev = tail;
+        tail = newNode;
     }
     
-    public void removeFirstAndAppendToTail(int key) {
-        if (listNode.post == null) {
-            listNode = null;
+    public void removeHeadAndAppendToTail(int key) {
+        if (head == null) {
+            return;
+        }
+        head = head.post;
+        if (head == null) {
+            tail == null;
         } else {
-            listNode.post.prev = null;
-            listNode = listNode.post;
+            head.prev = null;
         }
         appendToTail(key);
     }
-}    
+    
+    public void updateList(int key) {
+        if (head == null) {
+            return;
+        }
+        ListNode node = head;
+        while (node != null) {
+            if (node.val == key) {
+                if (node == head && node == tail) {
+                    head = null;
+                    tail = null;
+                } else if (node == head && node != tail) {
+                    head = head.post;
+                    head.prev = null;
+                } else if (node != head && node == tail) {
+                    tail = tail.prev;
+                    tail.post = null;
+                } else {
+                    node.prev.post = node.post;
+                    node.post.prev = node.prev;
+                }
+                break;
+            }
+            node = node.post;
+        }
+        appendToTail(key);
+    }
+}
