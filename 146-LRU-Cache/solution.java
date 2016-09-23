@@ -234,9 +234,14 @@ public class LRUCache {
     public void updateLinkedList(int key) {
         ListNode node = listNode;
         while (node != null) {
-            if (node.value == key) {
+            if (node.value == key && node.prev != null && node.post != null) {
                 node.prev.post = node.post;
                 node.post.prev = node.prev;
+            } else if (node.value == key && node.prev == null) {
+                node.post.prev = node.prev;
+                listNode = listNode.post;
+            } else if (node.value == key && node.post == null) {
+                node.prev.post = node.post;
             } else {
                 node = node.post;
             }
