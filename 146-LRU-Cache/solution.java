@@ -225,18 +225,22 @@ public class LRUCache {
             hashMap.put(key, new_node);
             removeNode(old_node);
             appendToTail(new_node);
+            
         }
-        
+        else {
         if (num < capacity) {
             hashMap.put(key, new_node);
             appendToTail(new_node);            
             num++;
         } else {
-            hashMap.remove(head.val);
+            hashMap.remove(head.key);
             hashMap.put(key, new_node);
             removeNode(head);
             appendToTail(new_node);
         }
+        }
+        System.out.println("Head key: " + head.key);
+        System.out.println("Tail key: " + tail.key);
     }
     
     public void removeNode(ListNode node) {
