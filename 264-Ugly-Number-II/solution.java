@@ -53,7 +53,7 @@ public class Solution {
         hashSet.add(Long.valueOf(1));
         int count = 0;
         while (!queue.isEmpty()) {
-            int num = Integer.valueOf(queue.poll());
+            int num = (int)queue.poll();
             count++;
             if (count == n) {
                 return num;
