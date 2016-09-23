@@ -50,28 +50,19 @@ public class Solution {
         Queue<Integer> queue = new PriorityQueue<Integer>();
         Set<Integer> hashSet = new HashSet<Integer>();
         queue.offer(1);
-        hashSet.add(1);
         int count = 0;
         while (!queue.isEmpty()) {
             int num = queue.poll();
-            if (isUgly(num)) {
+            if (isUgly(num) && !hashSet.contains(num)) {
                 count++;
+                hashSet.add(num);
             }
             if (count == n) {
                 return num;
             }
-            if (!hashSet.contains(num * 2)) {
-                queue.offer(num * 2);    
-                hashSet.add(num * 2);
-            }
-            if (!hashSet.contains(num * 3)) {
-                queue.offer(num * 3);    
-                hashSet.add(num * 3);
-            }
-            if (!hashSet.contains(num * 5)) {
-                queue.offer(num * 5);    
-                hashSet.add(num * 5);
-            }
+            queue.offer(num * 2);    
+            queue.offer(num * 3);    
+            queue.offer(num * 5);    
         }
         return -1;
     }
