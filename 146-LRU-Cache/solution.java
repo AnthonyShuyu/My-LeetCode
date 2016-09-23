@@ -239,8 +239,8 @@ public class LRUCache {
             appendToTail(new_node);
         }
         }
-        System.out.println("Head key: " + head.key);
-        System.out.println("Tail key: " + tail.key);
+        // System.out.println("Head key: " + head.key);
+        // System.out.println("Tail key: " + tail.key);
     }
     
     public void removeNode(ListNode node) {
