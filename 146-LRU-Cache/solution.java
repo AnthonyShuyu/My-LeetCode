@@ -246,7 +246,12 @@ public class LRUCache {
     
     public void appendToTail(int key) {
         ListNode newNode = new ListNode(key);
+        if (listNode == null) {
+            listNode = newNode;
+            return;
+        }
         ListNode node = listNode;
+        
         while (node != null && node.post != null) {
             node = node.post;
         }
