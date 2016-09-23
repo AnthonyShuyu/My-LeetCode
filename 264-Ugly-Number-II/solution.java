@@ -53,7 +53,7 @@ public class Solution {
         int count = 0;
         while (!queue.isEmpty()) {
             int num = queue.poll();
-            if (isUgly(num) && !hashSet.contains(num)) {
+            if (!hashSet.contains(num)) {
                 count++;
                 hashSet.add(num);
             }
@@ -67,20 +67,20 @@ public class Solution {
         return -1;
     }
     
-    public boolean isUgly(int num) {
-        // corner case
-        if (num <= 0) {
-            return false;
-        }
-        while (num % 2 == 0) {
-            num /= 2;
-        }
-        while (num % 3 == 0) {
-            num /= 3;
-        }
-        while (num % 5 == 0) {
-            num /= 5;
-        }
-        return num == 1;
-    }
+    // public boolean isUgly(int num) {
+    //     // corner case
+    //     if (num <= 0) {
+    //         return false;
+    //     }
+    //     while (num % 2 == 0) {
+    //         num /= 2;
+    //     }
+    //     while (num % 3 == 0) {
+    //         num /= 3;
+    //     }
+    //     while (num % 5 == 0) {
+    //         num /= 5;
+    //     }
+    //     return num == 1;
+    // }
 }
