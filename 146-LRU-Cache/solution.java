@@ -12,6 +12,7 @@
 // O(n), O(n)
 // succeeded
 
+/*
 public class LRUCache {
     int capacity;
     Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
@@ -68,7 +69,7 @@ public class LRUCache {
     //     arrayList.add(key);
     // }
 }
-
+*/
 
 
 // s2: use a HashMap and singly Linked List
@@ -181,4 +182,81 @@ public class LRUCache {
 
 // s3: use a HashMap and a doubly linked list
 
-// public class LRUCache {
+public class LRUCache {
+    
+    private class ListNode {
+        int value;
+        ListNode prev;
+        ListNode post;
+        public ListNode(int value) {
+            this.value = value;
+        }
+    }
+    
+    int capacity;
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+    }
+    
+    ListNode listNode = null;
+    Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
+    int num = 0;
+    
+    public int get(int key) {
+        if (hashMap.containsKey(key)) {
+            updateLinkedList(key);
+            return hashMap.get(key);
+        } else {
+            return -1;
+        }
+        
+    }
+    
+    public void set(int key, int value) {
+        if (hashMap.containsKey(key)) {
+            hashMap.put(key, value);
+            updateLinkedList(key);
+            return;
+        }
+        
+        if (num < capacity) {
+            hashMap.put(key, value);
+            appendToTail(key);
+            num++;
+        } else {
+            int old_key = listNode.value;
+            hashMap.remove(old_key);
+            hashMap.put(key, value);
+            removeFirstAndAppendToTail(key);
+        }
+    }
+    
+    public void updateLinkedList(int key) {
+        ListNode node = listNode;
+        while (node != null) {
+            if (node.value == key) {
+                node.prev.post = node.post;
+                node.post.prev = node.prev;
+            } else {
+                node = node.post;
+            }
+        }
+        appendToTail(key);
+    }
+    
+    public void appendToTail(int key) {
+        ListNode newNode = new ListNode(key);
+        ListNode node = listNode;
+        while (node != null && node.post != null) {
+            node = node.post;
+        }
+        node.post = newNode;
+        newNode.prev = node;
+    }
+    
+    public void removeFirstAndAppendToTail(int key) {
+        listNode.post.prev = null;
+        listNode = listNode.post;
+        appendToTail(key);
+    }
+}    
