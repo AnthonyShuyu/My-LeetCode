@@ -234,7 +234,12 @@ public class LRUCache {
             hashMap.put(key, value);
             // removeHeadAndAppendToTail(key);
             head = head.post;
-            head.prev = null;
+            if (head == null) {
+                tail = null;
+            } else {
+                head.prev = null;
+            }
+            appendToTail(key);            
         }
     }
     
