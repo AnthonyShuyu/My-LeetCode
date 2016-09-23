@@ -184,6 +184,7 @@ public class LRUCache {
 
 // s3: use a doubly linked list and a HashMap
 // O(n), O(n)
+// time limite exceeded
 
 public class LRUCache {
     
@@ -231,7 +232,9 @@ public class LRUCache {
         } else {
             hashMap.remove(head.value);
             hashMap.put(key, value);
-            removeHeadAndAppendToTail(key);
+            // removeHeadAndAppendToTail(key);
+            head = head.post;
+            head.prev = null;
         }
     }
     
