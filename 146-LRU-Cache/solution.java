@@ -268,8 +268,12 @@ public class LRUCache {
     }
     
     public void removeFirstAndAppendToTail(int key) {
-        listNode.post.prev = null;
-        listNode = listNode.post;
+        if (listNode.post == null) {
+            listNode = null;
+        } else {
+            listNode.post.prev = null;
+            listNode = listNode.post;
+        }
         appendToTail(key);
     }
 }    
