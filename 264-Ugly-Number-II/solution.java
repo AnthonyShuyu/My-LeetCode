@@ -47,22 +47,29 @@ public class Solution {
 // O(n), O(n)
 public class Solution {
     public int nthUglyNumber(int n) {
-        Queue<Integer> queue = new PriorityQueue<Integer>();
-        Set<Integer> hashSet = new HashSet<Integer>();
+        Queue<Long> queue = new PriorityQueue<Long>();
+        Set<Long> hashSet = new HashSet<Long>();
         queue.offer(1);
+        hashSet.add(1);
         int count = 0;
         while (!queue.isEmpty()) {
             int num = queue.poll();
-            if (!hashSet.contains(num)) {
-                count++;
-                hashSet.add(num);
-            }
+            count++;
             if (count == n) {
                 return num;
             }
-            queue.offer(num * 2);    
-            queue.offer(num * 3);    
-            queue.offer(num * 5);    
+            if (!hashSet.contains(num * 2)) {
+                queue.offer(num * 2);
+                hashSet.add(num * 2);
+            }
+            if (!hashSet.contains(num * 3)) {
+                queue.offer(num * 3);
+                hashSet.add(num * 3);
+            }
+            if (!hashSet.contains(num * 5)) {
+                queue.offer(num * 5);
+                hashSet.add(num * 5);
+            }
         }
         return -1;
     }
