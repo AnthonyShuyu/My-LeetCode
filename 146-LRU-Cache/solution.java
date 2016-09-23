@@ -229,8 +229,9 @@ public class LRUCache {
             hashMap.put(key, value);
             num++;
         } else {
-            removeHeadAndAppendToTail(key);
+            hashMap.remove(head.value);
             hashMap.put(key, value);
+            removeHeadAndAppendToTail(key);
         }
     }
     
@@ -265,7 +266,7 @@ public class LRUCache {
         }
         ListNode node = head;
         while (node != null) {
-            if (node.val == key) {
+            if (node.value == key) {
                 if (node == head && node == tail) {
                     head = null;
                     tail = null;
