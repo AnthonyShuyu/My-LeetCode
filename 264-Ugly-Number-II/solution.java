@@ -49,8 +49,8 @@ public class Solution {
     public int nthUglyNumber(int n) {
         Queue<Long> queue = new PriorityQueue<Long>();
         Set<Long> hashSet = new HashSet<Long>();
-        queue.offer(1);
-        hashSet.add(1);
+        queue.offer(Integer.valueOf(1));
+        hashSet.add(Integer.valueOf(1));
         int count = 0;
         while (!queue.isEmpty()) {
             int num = queue.poll();
