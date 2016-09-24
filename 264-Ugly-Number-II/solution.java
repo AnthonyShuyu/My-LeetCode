@@ -1,6 +1,6 @@
 /**
  * 264. Ugly Number II
- * 
+ * 2 solutions
  * 
  */
 
@@ -43,7 +43,7 @@ public class Solution {
 
 */
 
-// s2: priorityQueue + hashSet
+// s2: priorityQueue + hashSet + DP
 // O(nlogn), O(n)
 
 /*
@@ -78,6 +78,9 @@ public class Solution {
 }
 */
 
+// s2 modified: HashSet + priorityQueue
+// O(nlogn), O(n)
+// Long a;   int b = a.intValue();
 
 public class Solution {
     public int nthUglyNumber(int n) {
@@ -105,3 +108,6 @@ public class Solution {
         return result.intValue();
     }
 }
+
+
+
