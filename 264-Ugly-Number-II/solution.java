@@ -44,7 +44,9 @@ public class Solution {
 */
 
 // s2: priorityQueue + hashSet
-// O(n), O(n)
+// O(nlogn), O(n)
+
+/*
 public class Solution {
     public int nthUglyNumber(int n) {
         Queue<Integer> queue = new PriorityQueue<Integer>();
@@ -73,21 +75,31 @@ public class Solution {
         }
         return -1;
     }
-    
-    // public boolean isUgly(int num) {
-    //     // corner case
-    //     if (num <= 0) {
-    //         return false;
-    //     }
-    //     while (num % 2 == 0) {
-    //         num /= 2;
-    //     }
-    //     while (num % 3 == 0) {
-    //         num /= 3;
-    //     }
-    //     while (num % 5 == 0) {
-    //         num /= 5;
-    //     }
-    //     return num == 1;
-    // }
+}
+*/
+
+
+public class Solution {
+    public int nthUglyNumber(int n) {
+        Queue<Long> queue = new PriorityQueue<Long>();
+        Set<Long> hashSet = new HashSet<Long>();
+        int count = 0;
+        queue.offer(Long.valueOf(1));
+        hashSet.add(Long.valueOf(1));
+        int[] nums = new int[]{2, 3, 5};
+        while (!queue.isEmpty()) {
+            long num = queue.poll();
+            count++;
+            if (count == n) {
+                return num.intValue();
+            }
+            for (int i = 0; i < 3; i++) {
+                if (!hashSet.contains(num * nums[i])) {
+                    queue.offer(num * nums[i]);
+                    hashSet.add(num * nums[i]);
+                }
+            }
+        }
+        return -1;
+    }
 }
