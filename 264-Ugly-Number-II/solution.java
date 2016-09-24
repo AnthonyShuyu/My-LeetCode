@@ -86,12 +86,14 @@ public class Solution {
         int count = 0;
         queue.offer(Long.valueOf(1));
         hashSet.add(Long.valueOf(1));
+        Long result = Long.valueOf(1);
         int[] nums = new int[]{2, 3, 5};
         while (!queue.isEmpty()) {
             long num = queue.poll();
             count++;
             if (count == n) {
-                return num.intValue();
+                result = num;
+                break;
             }
             for (int i = 0; i < 3; i++) {
                 if (!hashSet.contains(num * nums[i])) {
@@ -100,6 +102,6 @@ public class Solution {
                 }
             }
         }
-        return -1;
+        return result.intValue();
     }
 }
