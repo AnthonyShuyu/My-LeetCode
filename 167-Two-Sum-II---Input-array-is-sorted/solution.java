@@ -80,13 +80,16 @@ public class Solution {
         for (int i = 0; i < numbers.length; i++) {
             int num = target - numbers[i];
             int index = binarySearch(numbers, num);
-            if (index == -1 || index == i) {
-                return result;
-            } else if (index < i){
-                swap(index, i);
-            }
-            result[0] = i + 1;
-            result[1] = index + 1;
+            System.out.println("i is:" + i);
+            System.out.println("index is: " + index);
+            if (index != -1 && index != i) {
+                if (index < i){
+                    swap(index, i);
+                }
+                result[0] = i + 1;
+                result[1] = index + 1;
+                break;
+            } 
         }
         return result;
     }
@@ -97,10 +100,11 @@ public class Solution {
         b = temp;
     }
     
+    // find the last element equals to n
     public int binarySearch(int[] numbers, int n) {
         // corner case
         if (numbers == null || numbers.length == 0) {
-            return false;
+            return -1;
         }
         int start = 0;
         int end = numbers.length - 1;
@@ -108,19 +112,20 @@ public class Solution {
         while (start + 1 < end) {
             int mid = start + (end - start) / 2;
             if (numbers[mid] == n) {
-                return mid;
+                start = mid;
             } else if (numbers[mid] < n) {
                 start = mid;
             } else {
                 end = mid;
             }
         }
-        if (numbers[start] == n) {
-            return start;
-        }
         if (numbers[end] == n) {
             return end;
         }
+        if (numbers[start] == n) {
+            return start;
+        }
+
         return -1;
     }
 }
