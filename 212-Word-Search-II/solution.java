@@ -5,6 +5,7 @@
 
 // s1: recursion, find the word one by one
 // O(m^2 * n), O(n)
+// time limit exceeded
 
 public class Solution {
     public List<String> findWords(char[][] board, String[] words) {
