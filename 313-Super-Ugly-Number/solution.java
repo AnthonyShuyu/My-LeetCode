@@ -64,13 +64,28 @@ public class Solution {
         int count = 0;
         int result = 0;
         
-        while (!queue.isEmpty()) {
+    //     while (!queue.isEmpty()) {
+    //         int num = queue.poll();
+    //         result = num;
+    //         count++;
+    //         if (count == n) {
+    //             break;
+    //         }
+    //         for (int i = 0; i < primes.length; i++) {
+    //             int new_num = num * primes[i];
+    //             if (!hashSet.contains(new_num)) {
+    //                 queue.offer(new_num);
+    //                 hashSet.add(new_num);
+    //             }
+    //         }
+    //     }
+    //     return result;
+    // }
+    
+        while (count < n) {
             int num = queue.poll();
-            result = num;
             count++;
-            if (count == n) {
-                break;
-            }
+            result = num;
             for (int i = 0; i < primes.length; i++) {
                 int new_num = num * primes[i];
                 if (!hashSet.contains(new_num)) {
@@ -80,5 +95,4 @@ public class Solution {
             }
         }
         return result;
-    }
 }
