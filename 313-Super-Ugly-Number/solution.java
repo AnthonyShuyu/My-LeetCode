@@ -21,7 +21,7 @@ public class Solution {
         int result = -1;
         
         while (count < n) {
-            if (isSuperUglyNumber(num)) {
+            if (isSuperUglyNumber(num, primes)) {
                 count++;
                 result = num;
             }
