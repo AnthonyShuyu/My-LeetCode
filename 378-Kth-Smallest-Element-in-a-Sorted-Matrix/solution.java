@@ -64,7 +64,7 @@ public class Solution {
         while (index < m * n) {
             int num = matrix[index /n][index % n];
             if (num < pq.peek()) {
-                pq.poll;
+                pq.poll();
                 pq.offer(num);
             }
             index++;
