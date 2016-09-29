@@ -48,7 +48,9 @@ public class Solution {
 
 // s2: use heap + hashSet
 // O(n), O(n)
+// time limit exceeded
 
+/*
 public class Solution {
     public int nthSuperUglyNumber(int n, int[] primes) {
         // corner case
@@ -95,6 +97,40 @@ public class Solution {
             }
         }
         return result;
+    }
+}
+*/
+
+
+// s3: use a array to represent times each primes are used
+// O(n^2), O(n)
+// tricky
+
+public class Solution {
+    public int nthSuperUglyNumber(int n, int[] primes) {
+        // corner case
+        if (primes == null || primes.length == 0) {
+            return -1;
+        }
         
+        int[] times = new int[primes.length];
+        int[] nums = new int[n];
+        nums[0] = 1;
+        
+        for (int i = 1; i < n; i++) {
+            int min = Integer.MAX_VALUE;
+            
+            for (int j = 0; j < primes.length; j++) {
+                min = Math.min(min, nums[times[j]] * primes[j]);
+            }
+            nums[i] = min;
+            
+            for (int j = 0; j < primes.length; j++) {
+                if (nums[times[j]] * primes[j] == min) {
+                    times[j]++;
+                }
+            }
+        }
+        return nums[n - 1];       
     }
 }
