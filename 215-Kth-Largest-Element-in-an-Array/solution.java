@@ -61,7 +61,7 @@ public class Solution {
         Arrays.sort(nums, new Comparator<Integer>() {
                 @Override
                 public int compare(Integer o1, Integer o2) {
-                    return o2 - o1;
+                    return (int)o2 - (int)o1;
                 }
             });
         
