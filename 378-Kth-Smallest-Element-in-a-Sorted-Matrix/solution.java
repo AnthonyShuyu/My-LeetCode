@@ -213,5 +213,6 @@ public class Solution {
         if (nx1 < matrix.length && ny1 < matrix[0].length && !hash[nx1][ny1]) {
             return true;
         }
+        return false;
     }
 }
