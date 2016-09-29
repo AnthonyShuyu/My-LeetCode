@@ -1,7 +1,7 @@
 /**
  * 
  * 313. Super Ugly Number
- * 
+ * 3 solutions
  * 
  */
 
