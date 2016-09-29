@@ -142,7 +142,7 @@ public class Solution {
         }
         for (int i = start, j = end; i < j; i++, j--) {
             int num = nums[i];
-            num[i] = nums[j];
+            nums[i] = nums[j];
             nums[j] = num;
         }
     }
