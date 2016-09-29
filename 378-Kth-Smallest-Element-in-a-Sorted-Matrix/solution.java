@@ -128,7 +128,7 @@ public class Solution {
            Number num = queue.poll();
            int x = num.x;
            int y = num.y;
-           for (int j = 0; i < 2; j++) {
+           for (int j = 0; j < 2; j++) {
                int nx = x + dx[j];
                int ny = y + dy[j];
                if (isValid(nx, ny, matrix, hash)) {
