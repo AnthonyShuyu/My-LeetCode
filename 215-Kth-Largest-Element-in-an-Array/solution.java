@@ -51,21 +51,45 @@ public class Solution {
 // s1: Arrays.sort() method
 // O(nlogn), O(1)
 
+/*
 public class Solution {
     public int findKthLargest(int[] nums, int k) {
         // corner case
         if (nums == null || nums.length == 0) {
             return -1;
         }
+        Arrays.sort(nums);
+        return nums[nums.length - k];
+    }
+}
+*/
+
+// s1: Arrays.sort() method
+// O(nlogn), O(1)
+
+public class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        // corner case
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        
+        // convert int[] to Integer[]
+        Integer[] newNums = new Integer[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            newNums[i] = Integer.valueOf(nums[i]);
+        }
+        
+        
         // Arrays.sort(nums);
-        Arrays.sort(nums, new Comparator<Integer>() {
+        Arrays.sort(newNums, new Comparator<Integer>() {
                 @Override
                 public int compare(Integer o1, Integer o2) {
-                    return (int)o2 - (int)o1;
+                    return o2 - o1;
                 }
             });
         
         // return nums[nums.length - k];
-        return nums[k - 1];
+        return newNums[k - 1];
     }
 }
