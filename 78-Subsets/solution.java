@@ -12,7 +12,7 @@ public class Solution {
         //  corner case
         List<List<Integer>> result = new ArrayList<List<Integer>>();
         if (nums == null || nums.length == 0) {
-            return list;
+            return result;
         }
         List<Integer> list = new ArrayList<Integer>();
         Arrays.sort(nums);
