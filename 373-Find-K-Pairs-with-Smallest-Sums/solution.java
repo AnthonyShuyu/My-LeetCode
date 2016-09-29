@@ -39,7 +39,7 @@ public class Solution {
         Queue<Number> queue = new PriorityQueue<Number>(new Comparator<Number>(){
                 @Override
                 public int compare(Number n1, Number n2) {
-                    return nums1[n1.x] + nums2[n1.y] - nums1[n2.x] + nums2[n2.y];
+                    return (nums1[n1.x] + nums2[n1.y]) - (nums1[n2.x] + nums2[n2.y]);
                 }
             });
         boolean[][] hash = new boolean[nums1.length][nums2.length];
@@ -50,7 +50,9 @@ public class Solution {
         int[] dx = {0, 1};
         int[] dy = {1, 0};
         
-        for (int i = 0; i < k; i++) {
+        int min = Math.min(k, nums1.length * nums2.length);
+        
+        for (int i = 0; i < min; i++) {
             Number num = queue.poll();
             int[] array = new int[2];
             array[0] = nums1[num.x];
