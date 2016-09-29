@@ -194,14 +194,14 @@ public class Solution {
             int nx1 = x;
             int ny1 = y + 1;
             if (isValid(nx1, ny1, matrix, hash)) {
-                queue.offer(nx1, ny1, matrix[nx1][ny1]);                
+                queue.offer(new Number(nx1, ny1, matrix[nx1][ny1]));                
                 hash[nx1][ny1] = true;
             }
             
             int nx2 = x + 1;
             int ny2 = y;
             if (isValid(nx2, ny2, matrix, hash)) {
-                queue.offer(nx2, ny2, matrix[nx2][ny2]);
+                queue.offer(new Number(nx2, ny2, matrix[nx2][ny2]));
                 hash[nx2][ny2] = true;
             }
         }
