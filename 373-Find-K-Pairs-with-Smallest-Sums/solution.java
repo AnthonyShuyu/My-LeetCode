@@ -18,7 +18,7 @@ public class Solution {
     class Number{
         int x;
         int y;
-        public Number(int x, int y, int val) {
+        public Number(int x, int y) {
             this.x = x;
             this.y = y;
         }
