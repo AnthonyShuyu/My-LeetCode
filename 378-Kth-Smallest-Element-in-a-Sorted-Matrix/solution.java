@@ -182,9 +182,12 @@ public class Solution {
                 }
             });
         
-        boolean[][] hash = new boolean[matrix.length][matrix[0].length];
-        queue.offer(new Number(0, 0, matrix[0][0]));
-        hash[0][0] = true;
+        // boolean[][] hash = new boolean[matrix.length][matrix[0].length];
+        Set<Number> hashSet = new HashSet<Number>();
+        Number head = new Number(0, 0, matrix[0][0]);
+        queue.offer(head);
+        // hash[0][0] = true;
+        hashSet.add(head);
         
         for (int i = 0; i < k - 1; i++) {
             Number num = queue.poll();
@@ -193,24 +196,28 @@ public class Solution {
             
             int nx1 = x;
             int ny1 = y + 1;
-            if (isValid(nx1, ny1, matrix, hash)) {
-                queue.offer(new Number(nx1, ny1, matrix[nx1][ny1]));                
-                hash[nx1][ny1] = true;
+            if (isValid(nx1, ny1, matrix, hashSet)) {
+                Number num1 = new Number(nx1, ny1, matrix[nx1][ny1]);
+                queue.offer(num1);                
+                // hash[nx1][ny1] = true;
+                hashSet.add(num1);
             }
             
             int nx2 = x + 1;
             int ny2 = y;
-            if (isValid(nx2, ny2, matrix, hash)) {
-                queue.offer(new Number(nx2, ny2, matrix[nx2][ny2]));
-                hash[nx2][ny2] = true;
+            if (isValid(nx2, ny2, matrix, hashSet)) {
+                Number num2 = new Number(nx2, ny2, matrix[nx2][ny2])
+                queue.offer(num2);
+                // hash[nx2][ny2] = true;
+                hashSet.add(num2);
             }
         }
         return queue.peek().val;
         
     }
     
-    public boolean isValid(int nx1, int ny1, int[][] matrix, boolean[][] hash) {
-        if (nx1 < matrix.length && ny1 < matrix[0].length && !hash[nx1][ny1]) {
+    public boolean isValid(int nx1, int ny1, int[][] matrix, Set<Number> hashSet) {
+        if (nx1 < matrix.length && ny1 < matrix[0].length && !hashSet.contains(new Number(nx1, ny1, matrix[nx1][ny1]))) {
             return true;
         }
         return false;
