@@ -38,7 +38,7 @@ public class Solution {
         }
         Queue<Number> queue = new PriorityQueue<Number>(new Comparator<Number>(){
                 @Override
-                int public compare(Number n1, Number n2) {
+                public int compare(Number n1, Number n2) {
                     return nums1[n1.x] + nums2[n1.y] > nums1[n2.x] + nums2[n2.y]
                 }
             });
