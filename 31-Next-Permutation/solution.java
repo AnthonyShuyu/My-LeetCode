@@ -121,6 +121,7 @@ public class Solution {
         }
         if (index1 == -1) {
             reverse(0, nums.length - 1, nums);
+            return;
         }
         
         // find the first index that > index1
@@ -133,7 +134,7 @@ public class Solution {
         }
         
         swap(index1, index2, nums);
-        reverse(index1 + 1, index2, nums);
+        reverse(index1 + 1, nums.length - 1, nums);
     }
     
     public void reverse(int start, int end, int[] nums) {
