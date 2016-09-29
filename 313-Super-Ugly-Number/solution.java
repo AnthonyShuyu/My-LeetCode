@@ -8,6 +8,7 @@
 
 // s1: brute force, check if a number is super ugly number
 // O(n), O(1)
+// time limit exceeded
 
 public class Solution {
     public int nthSuperUglyNumber(int n, int[] primes) {
