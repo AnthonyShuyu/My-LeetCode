@@ -34,7 +34,7 @@ public class Solution {
 
 
 // s2: use a maxHeap
-// O(nlogk), O(k)
+// O(n^2logk), O(k)
 
 /*
 public class Solution {
@@ -78,7 +78,7 @@ public class Solution {
 
 
 // s3*: use minHeap and Hash matrix
-// O(klogk), O(k)
+// O(klogk), O(n^2)
 // tricky
 
 public class Solution {
