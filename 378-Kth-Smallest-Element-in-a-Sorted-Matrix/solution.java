@@ -81,7 +81,6 @@ public class Solution {
 // O(klogk), O(n^2)
 // tricky
 
-/*
 public class Solution {
     
     // implement a new class called Number
@@ -148,12 +147,13 @@ public class Solution {
         return false;
     }
 }        
-*/
 
-// s3 again, use minHeap and hash matrix
+// s3 again, use minHeap and hashSet
 // O(klogk), O(n^2)
-// tricky
+// tricky, failed
+// HashSet may check if the element1.equals(element2), you need to rewrite the equals method, otherwise it will only compare the original hashCode
 
+/*
 public class Solution {
     
     class Number{
@@ -206,7 +206,7 @@ public class Solution {
             int nx2 = x + 1;
             int ny2 = y;
             if (isValid(nx2, ny2, matrix, hashSet)) {
-                Number num2 = new Number(nx2, ny2, matrix[nx2][ny2])
+                Number num2 = new Number(nx2, ny2, matrix[nx2][ny2]);
                 queue.offer(num2);
                 // hash[nx2][ny2] = true;
                 hashSet.add(num2);
@@ -223,3 +223,4 @@ public class Solution {
         return false;
     }
 }
+*/
