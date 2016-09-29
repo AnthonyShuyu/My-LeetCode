@@ -119,7 +119,7 @@ public class Solution {
                 break;
             }
         }
-        if (index1 = -1) {
+        if (index1 == -1) {
             reverse(0, nums.length - 1, nums);
         }
         
