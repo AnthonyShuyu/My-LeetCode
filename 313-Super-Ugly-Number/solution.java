@@ -12,7 +12,7 @@
 public class Solution {
     public int nthSuperUglyNumber(int n, int[] primes) {
         // corner case
-        if (primes == null || prime.length == 0) {
+        if (primes == null || primes.length == 0) {
             return -1;
         }
         
