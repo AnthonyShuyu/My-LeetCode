@@ -1,7 +1,7 @@
 /**
  * 
  * 203. Remove Linked List Elements
- * 
+ * 1 solution
  * 
  * 
  */
@@ -48,6 +48,7 @@ public class Solution {
 // s1 modified: dummy node
 // O(n), O(1)
 
+/*
 public class Solution {
     public ListNode removeElements(ListNode head, int val) {
         // corner case
@@ -68,4 +69,31 @@ public class Solution {
         }
         return dummy.next;   
     }
+}
+*/
+
+
+// s1 again, OA practice
+// O(n), O(1)
+
+public class Solution {
+    public ListNode removeElements(ListNode head, int val) {
+        // corner case
+        ListNode node = null;
+        if (head == null) {
+            return node;
+        }
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        head = dummy;
+        
+        while (head.next != null) {
+            if (head.next.val == val) {
+                head.next = head.next.next;
+            } else {
+                head = head.next;
+            }
+        }
+        return dummy.next;
+    }    
 }
