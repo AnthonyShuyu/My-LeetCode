@@ -115,6 +115,8 @@ public class Solution {
 
 
 // s2: Arrays.sort(nums, numberComparator)
+// O(nlogn), O(n)
+// inner class
 
 /*    
 public class Solution {
@@ -160,6 +162,9 @@ public class Solution {
 */
 
 
+// *s2 modified: Arrays.sort()
+// O(nlogn), O(n)
+// anonymous method
 
 public class Solution {
     
