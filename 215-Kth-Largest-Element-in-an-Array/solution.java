@@ -64,9 +64,10 @@ public class Solution {
 }
 */
 
-// s1: Arrays.sort() method
+// s1: Arrays.sort() method again
 // O(nlogn), O(1)
 
+/*
 public class Solution {
     public int findKthLargest(int[] nums, int k) {
         // corner case
@@ -91,5 +92,32 @@ public class Solution {
         
         // return nums[nums.length - k];
         return newNums[k - 1];
+    }
+}
+*/
+
+// s2: use max heap
+// O(nlogn), O(n)
+
+public class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        // corner case
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        Queue<Integer> queue = new PriorityQueue<Integer>(new Comparator<Integer>() {
+                @Override
+                public int compare(Integer o1, Integer o2) {
+                    return o2 - o1;
+                }                
+            });
+        for (int i = 0; i < nums.length; i++) {
+            queue.offer(nums[i]);
+        }
+        int result = 0;
+        for (int i = 0; i < k; i++) {
+            result = queue.poll();
+        }
+        return result;
     }
 }
