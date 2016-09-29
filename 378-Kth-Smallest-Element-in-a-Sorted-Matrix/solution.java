@@ -7,6 +7,8 @@
 
 // s1: Arrays.sort() method
 // O(n^2), O(n^2)
+
+/*
 public class Solution {
     public int kthSmallest(int[][] matrix, int k) {
         // corner case
@@ -28,16 +30,45 @@ public class Solution {
         return array[k - 1];
     }
 }
+*/
 
 
+// s2: use a maxHeap
+// O(n), O(k)
 
-/*
-
-    Queue<Integer> queue = new PriorityQueue<Integer>(new Comparator<Integer>() {
-        @Override
-		public int compare(int n1, int n2) {
-			return n2 - n1;
-		}
-	});
-	
-*/	
+public class Solution {
+    public int kthSmallest(int[][] matrix, int k) {
+        // corner case      
+        if (matrix == null || matrix.length == 0) {
+            return -1;
+        }
+        if (matrix[0] == null || matrix[0].length == 0) {
+            return -1;
+        }
+        
+        // implement a maxHeap
+        Queue<Integer> pq = new PriorityQueue<Integer>(new Comparator<Integer>() {
+                @Override
+                public int compare(Integer o1, Integer o2) {
+                    return o2 - o1;
+                }
+            });
+        
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int index = 0;
+        for (int i = 0; i < k; i++) {
+            pq.offer(matrix[index / n][index % n]);
+            index++;
+        }
+        while (index < m * n) {
+            int num = matrix[index /n][index % n];
+            if (num < pq.peek()) {
+                pq.poll;
+                pq.offer(num);
+            }
+            index++;
+        }
+        return pq.peek();
+    }    
+}
