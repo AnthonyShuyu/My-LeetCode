@@ -57,7 +57,15 @@ public class Solution {
         if (nums == null || nums.length == 0) {
             return -1;
         }
-        Arrays.sort(nums);
-        return nums[nums.length - k];
+        // Arrays.sort(nums);
+        Arrays.sort(nums, new Comparator<Integer>() {
+                @Override
+                public int compare(Integer o1, Integer o2) {
+                    return o2 - o1;
+                }
+            });
+        
+        // return nums[nums.length - k];
+        return nums[k - 1];
     }
 }
