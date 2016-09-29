@@ -115,7 +115,7 @@ public class Solution {
         int index1 = -1;
         for (int i = nums.length - 2; i >= 0; i--) {
             if (nums[i] < nums[i + 1]) {
-                index = i;
+                index1 = i;
                 break;
             }
         }
