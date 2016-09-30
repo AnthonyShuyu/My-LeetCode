@@ -156,6 +156,7 @@ public class Solution {
 // O(n), O(1)
 // ticky, T(n) = T(n / 2) + O(n),   T(n) = O(n)
 
+/*
 public class Solution {
     public int findKthLargest(int[] nums, int k) {
         // corner case
@@ -202,71 +203,58 @@ public class Solution {
         nums[end] = temp;
     }
 }
+*/
 
 // s3* again: use quick sort partition
 // O(n), O(1)   use O(n) time to get O(n) to O(n/2)    T(n) = T(n / 2) + O(n)
 // failed
 
-/*
-public class Solution {
-    public int findKthLargest(int[] nums, int k) {
-        // corner case
-        if (nums == null || nums.length == 0) {
-            return -1;
-        }
-        
-        int start = 0;
-        int end = nums.length - 1;
-        k = nums.length - k + 1;
-        return helper(start, end, nums, k);
-        
-    }
-    
-    public int helper(int start, int end, int[] nums, int k) {
-        if (start == end) {
-            return nums[start];
-        }
-        
-        int index = partition(start, end, nums);
-        System.out.println("index id: " + index);
-        if (index + 1 >= k) {
-            return nums[k - 1];
-        } else {
-            System.out.println("111start is: " + start + "end is: " + end);
-            return helper(index, end, nums, k - index);
-        }
-        // else {
-            // System.out.println("222start is: " + start + "end is : "  + end);
-            // return helper(start, index - 1, nums, k);
-        // }
-        
-        
-    }
-    
-    public int partition(int start, int end, int[] nums) {
-        int left = start;
-        int right = end;
-        int pivot = nums[left];
-        while (left <= right) {
-            while (left <= right && nums[left] < pivot) {
-                left++;
-            }
-            while (left <= right && pivot < nums[right]) {
-                right--;
-            }
-            if (left <= right) {
-                swap(left, right, nums);
-                left++;
-                right--;
-            }
-        }
-        return left;
-    }
-    
-    public void swap(int left, int right, int[] nums) {
-        int temp = nums[left];
-        nums[left] = nums[right];
-        nums[right] = temp;
-    }
+
+public int findKthLargest(int[] nums, int k) {
+	if (k < 1 || nums == null) {
+		return 0;
+	}
+ 
+	return getKth(nums.length - k +1, nums, 0, nums.length - 1);
 }
-*/
+ 
+public int getKth(int k, int[] nums, int start, int end) {
+ 
+	int pivot = nums[end];
+ 
+	int left = start;
+	int right = end;
+ 
+	while (true) {
+ 
+		while (nums[left] < pivot && left < right) {
+			left++;
+		}
+ 
+		while (nums[right] >= pivot && right > left) {
+			right--;
+		}
+ 
+		if (left == right) {
+			break;
+		}
+ 
+		swap(nums, left, right);
+	}
+ 
+	swap(nums, left, end);
+ 
+	if (k == left + 1) {
+		return pivot;
+	} else if (k < left + 1) {
+		return getKth(k, nums, start, left - 1);
+	} else {
+		return getKth(k, nums, left + 1, end);
+	}
+}
+ 
+public void swap(int[] nums, int n1, int n2) {
+	int tmp = nums[n1];
+	nums[n1] = nums[n2];
+	nums[n2] = tmp;
+}
