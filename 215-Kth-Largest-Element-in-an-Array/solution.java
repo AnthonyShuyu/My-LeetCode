@@ -1,15 +1,51 @@
-/**
- * 215. Kth Largest Element in an Array
- * 
- */ 
-
-
-
-
-
-
-
-
+/*
+public class Solution {
+    // Use quick sort 
+    public int findKthLargest(int[] nums, int k) {
+        if (nums == null || nums.length == 0 || k > nums.length) {
+            return Integer.MIN_VALUE;
+        }
+        k = nums.length - k;
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int index = partition(nums, left, right) ;
+            if (index < k) {
+                left = index + 1;
+            } else if (index > k) {
+                right = index - 1;
+            } else {
+                break;
+            }
+        }
+        return nums[k];
+    }
+    
+    public int partition(int[] nums, int left, int right) {
+        int pivot = nums[left];
+        while (left <= right) {
+            while(nums[left] < pivot) {
+                left++;
+            }
+            while(nums[right] > pivot) {
+                right--;
+            }
+            if (left <= right) {
+                swap(nums, left, right);
+                left++;
+                right--;
+            }
+        }
+        return left;        
+    }
+    
+    public void swap(int[] nums, int left, int right) {
+        int temp = nums[left];
+        nums[left] = nums[right];
+        nums[right] = temp;
+    }
+}
+*/
 
 // s1: Arrays.sort() method
 // O(nlogn), O(1)
@@ -170,9 +206,7 @@ public class Solution {
 
 // s3* again: use quick sort partition
 // O(n), O(1)   use O(n) time to get O(n) to O(n/2)    T(n) = T(n / 2) + O(n)
-// failed
 
-/*
 class Solution {
 public int findKthLargest(int[] nums, int k) {
 	if (k < 1 || nums == null) {
@@ -222,70 +256,4 @@ public void swap(int[] nums, int n1, int n2) {
 	nums[n1] = nums[n2];
 	nums[n2] = tmp;
 }
-}
-*/
-
-
-// s3* again: use quick sort partition
-// O(n), O(1)   use O(n) time to get O(n) to O(n/2)    T(n) = T(n / 2) + O(n)
-
-public class Solution {
-    public int findKthLargest(int[] nums, int k) {
-        // corner case
-        if (nums == null || nums.length == 0) {
-            return -1;
-        }
-        
-        int start = 0;
-        int end = nums.length - 1;
-        k = nums.length - k + 1;
-        return helper(start, end, nums, k);
-        
-    }
-    
-    public int helper(int start, int end, int[] nums, int k) {
-        if (start == end) {
-            return nums[start];
-        }
-        
-        int index = partition(start, end, nums);
-        if (index + 1 == k) {
-            return nums[index];
-        } else if (index + 1 < k) {
-            return helper(index + 1, end, nums, k);
-        } else {
-            return helper(start, index - 1, nums, k);
-        }
-    }
-    
-    public int partition(int start, int end, int[] nums) {
-        int left = start;
-        int right = end;
-        int pivot = nums[left + (right - left) / 2];
-        while (left <= right) {
-            while (left < right && nums[left] < pivot) {
-                left++;
-            }
-            while (left < right && pivot < nums[right]) {
-                right--;
-            }
-            if (left == right) {
-                // swap(left, right, nums);
-                // left++;
-                // right--;
-                break;
-            }
-            swap(left, right, nums);
-            
-        }
-
-        
-        return left;
-    }
-    
-    public void swap(int left, int right, int[] nums) {
-        int temp = nums[left];
-        nums[left] = nums[right];
-        nums[right] = temp;
-    }
 }
