@@ -261,9 +261,9 @@ class Solution {
         if (left == k) {
             return nums[left - 1]; 
         } else if (left < k) {
-            return quickSelect(left, end, nums, k);
+            return quickSelect(left + 1, end, nums, k);
         } else {
-            return quickSelect(start, left, nums, k);
+            return quickSelect(start, left - 1, nums, k);
         }
         
     }
