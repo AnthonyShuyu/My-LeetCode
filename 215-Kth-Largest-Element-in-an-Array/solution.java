@@ -156,7 +156,6 @@ public class Solution {
 // O(n), O(1)
 // ticky, T(n) = T(n / 2) + O(n),   T(n) = O(n)
 
-/*
 public class Solution {
     public int findKthLargest(int[] nums, int k) {
         // corner case
@@ -203,11 +202,12 @@ public class Solution {
         nums[end] = temp;
     }
 }
-*/
 
 // s3* again: use quick sort partition
 // O(n), O(1)   use O(n) time to get O(n) to O(n/2)    T(n) = T(n / 2) + O(n)
+// failed
 
+/*
 public class Solution {
     public int findKthLargest(int[] nums, int k) {
         // corner case
@@ -230,10 +230,10 @@ public class Solution {
         int index = partition(start, end, nums);
         System.out.println("index id: " + index);
         if (index + 1 >= k) {
-            return nums[index];
-        } else (index + 1 < k) {
+            return nums[k - 1];
+        } else {
             System.out.println("111start is: " + start + "end is: " + end);
-            return helper(index + 1, end, nums, k - (index + 1));
+            return helper(index, end, nums, k - index);
         }
         // else {
             // System.out.println("222start is: " + start + "end is : "  + end);
@@ -269,3 +269,4 @@ public class Solution {
         nums[right] = temp;
     }
 }
+*/
