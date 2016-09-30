@@ -260,10 +260,10 @@ class Solution {
         
         if (left == k) {
             return nums[left - 1]; 
-        } else (left < k) {
-            return quickSelect(left, end, nums, k - left);
+        } else if (left < k) {
+            return quickSelect(left, end, nums, k);
         } else {
-            return quickSelect(start, left - 1, nums, k);
+            return quickSelect(start, left, nums, k);
         }
         
     }
