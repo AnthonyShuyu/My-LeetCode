@@ -250,14 +250,11 @@ public class Solution {
                 right--;
             }
             if (left <= right) {
-                System.out.println("left is: " + left + "right is :" + right);
                 swap(left, right, nums);
                 left++;
                 right--;
             }
         }
-        System.out.println("right is : " + right );
-        System.out.println(left);
         return left;
     }
     
