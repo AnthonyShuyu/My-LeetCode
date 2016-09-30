@@ -107,7 +107,6 @@ public class Solution {
 // O(n), O(1)
 // ticky, T(n) = T(n / 2) + O(n),   T(n) = O(n)
 
-/*
 public class Solution {
     public int findKthLargest(int[] nums, int k) {
         // corner case
@@ -143,8 +142,10 @@ public class Solution {
         }       
         if (left - start < k) {
             return helper(left, end, nums, k - (left - start));
-        } else {
+        } else if (left - start > k){
             return helper(start, left - 1, nums, k);
+        } else {
+            return nums[left - start + 1];
         }
     }
     
@@ -154,7 +155,6 @@ public class Solution {
         nums[end] = temp;
     }
 }
-*/
 
 // s3* again: use quick sort partition
 // O(n), O(1)   use O(n) time to get O(n) to O(n/2)    T(n) = T(n / 2) + O(n)
@@ -209,70 +209,3 @@ public void swap(int[] nums, int n1, int n2) {
 }
 }
 */
-
-
-
-// *s3: use quick sort, final version
-// O(n), O(1)
-// ticky, use O(n) time to get O(n) to O(n/2)    T(n) = T(n / 2) + O(n)
-
-class Solution {
-    public int findKthLargest(int[] nums, int k) {
-    	if (nums == null || nums.length == 0) {
-    		return -1;
-    	}
-    	int start = 0;
-    	int end = nums.length - 1;
-    	k = nums.length - k + 1;
-    	return quickSelect(start, end, nums, k);
-    }    	
-    
-    public int quickSelect(int start, int end, int[] nums, int k) {
-        if (start >= end) {
-            return nums[start];
-        }        
-        
-        int left = start;
-        int right = end;
-        int pivot = nums[(left + right) / 2];
-        
-        while (left <= start) {
-            while (left <= start && nums[left] < pivot) {
-                left++;
-            }
-            while (left <= start && pivot < nums[right]) {
-                right--;
-            }
-            if (left <= right) {
-                swap(left, right, nums);
-                left++;
-                right--;
-            }
-        }
-        
-        // if (right + 1 == k) {
-        //     return nums[right];
-        // } else if (right + 1 < k) {
-        //     return quickSelect(right + 1, end, nums, k - right - 1);
-        // } else {
-        //     return quickSelect(start, right - 1, nums, k);
-        // }
-        
-        if (left == k) {
-            return nums[left - 1]; 
-        } else if (left < k) {
-            return quickSelect(left + 1, end, nums, k);
-        } else {
-            return quickSelect(start, left - 1, nums, k);
-        }
-        
-    }
-    
-    
-    public void swap(int start, int end, int[] nums) {
-        int temp = nums[start];
-        nums[start] = nums[end];
-        nums[end] = temp;
-    }
-    
-}    	
