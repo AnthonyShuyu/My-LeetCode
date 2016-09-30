@@ -194,7 +194,7 @@ public class Solution {
                 right--;
             }
         }
-        
+    
         if (left - start < k) {
             return helper(left, end, nums, k - (left - start));
         } else {
