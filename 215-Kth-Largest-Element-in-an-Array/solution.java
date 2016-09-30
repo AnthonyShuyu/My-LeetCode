@@ -270,11 +270,14 @@ public class Solution {
                 right--;
             }
             if (left == right) {
-                swap(left, right, nums);
-                left++;
-                right--;
+                // swap(left, right, nums);
+                // left++;
+                // right--;
+                break;
             }
         }
+        swap(left, right, nums);
+        
         return left;
     }
     
