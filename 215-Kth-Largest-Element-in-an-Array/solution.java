@@ -231,7 +231,7 @@ public class Solution {
         System.out.println("index id: " + index);
         if (index + 1 >= k) {
             return nums[index];
-        } else if (index + 1 < k) {
+        } else (index + 1 < k) {
             System.out.println("111start is: " + start + "end is: " + end);
             return helper(index + 1, end, nums, k - (index + 1));
         }
@@ -239,6 +239,8 @@ public class Solution {
             // System.out.println("222start is: " + start + "end is : "  + end);
             // return helper(start, index - 1, nums, k);
         // }
+        
+        
     }
     
     public int partition(int start, int end, int[] nums) {
