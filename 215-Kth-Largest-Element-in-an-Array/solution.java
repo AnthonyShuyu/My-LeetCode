@@ -275,8 +275,10 @@ public class Solution {
                 // right--;
                 break;
             }
+            swap(left, right, nums);
+            
         }
-        swap(left, right, nums);
+
         
         return left;
     }
