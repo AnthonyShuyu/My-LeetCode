@@ -224,12 +224,17 @@ public class Solution {
             if (index < k) {
                 start = index;
             } else if (index > k) {
-                end = index - 1;
+                end = index;
             } else {
                 break;
             }
         }
-        return nums[k];
+        for (int i = 0; i < nums.length; i++) {
+            System.out.print(nums[i]);
+            System.out.print(" ");
+        }
+        System.out.println(k);
+        return nums[k - 1];
     }   
     
     public int partition(int start, int end, int[] nums) {
@@ -259,53 +264,3 @@ public class Solution {
         nums[right] = temp;
     }
 }
-
-
-/*
-public class Solution {
-    // Use quick sort 
-    public int findKthLargest(int[] nums, int k) {
-        if (nums == null || nums.length == 0 || k > nums.length) {
-            return Integer.MIN_VALUE;
-        }
-        k = nums.length - k;
-        int left = 0;
-        int right = nums.length - 1;
-        while (left < right) {
-            int index = partition(nums, left, right) ;
-            if (index < k) {
-                left = index + 1;
-            } else if (index > k) {
-                right = index - 1;
-            } else {
-                break;
-            }
-        }
-        return nums[k];
-    }
-    
-    public int partition(int[] nums, int left, int right) {
-        int pivot = nums[left];
-        while (left <= right) {
-            while(nums[left] < pivot) {
-                left++;
-            }
-            while(nums[right] > pivot) {
-                right--;
-            }
-            if (left <= right) {
-                swap(nums, left, right);
-                left++;
-                right--;
-            }
-        }
-        return left;        
-    }
-    
-    public void swap(int[] nums, int left, int right) {
-        int temp = nums[left];
-        nums[left] = nums[right];
-        nums[right] = temp;
-    }
-}
-*/
