@@ -137,7 +137,7 @@ public class Solution {
         Queue<Integer> queue = new PriorityQueue<Integer>();
         
         for (int i = 0; i < k; i++) {
-            queue.offer(nums[k]);
+            queue.offer(nums[i]);
         }
         
         for (int i = k; i < nums.length; i++) {
