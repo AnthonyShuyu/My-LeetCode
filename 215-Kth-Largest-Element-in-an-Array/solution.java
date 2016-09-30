@@ -162,7 +162,8 @@ public class Solution {
         if (nums == null || nums.length == 0) {
             return -1;
         }
-        int result = helper(0, nums.length - 1, nums, k);
+        int k2 = nums.length - k + 1
+        int result = helper(0, nums.length - 1, nums, k2);
         return result;
     }
     
@@ -189,10 +190,11 @@ public class Solution {
             }
         }       
         if (left <= k) {
-            helper(left, end, nums, k - left);
+            return helper(left, end, nums, k - left);
         } else {
-            helper(start, left - 1, nums, k);
+            return helper(start, left - 1, nums, k);
         }
+        
     }
     
     public void swap(int start, int end, int[] nums) {
