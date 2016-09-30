@@ -215,16 +215,16 @@ public class Solution {
             return -1;
         }
         
-        int left = 0;
-        int right = nums.length - 1;
-        k = nums.length - k;
+        int start = 0;
+        int end = nums.length - 1;
+        k = nums.length - k + 1;
         
-        while (left < right) {
-            int index = partition(left, right, nums);
+        while (start < end) {
+            int index = partition(start, end, nums);
             if (index < k) {
-                left = index + 1;
+                start = index;
             } else if (index > k) {
-                right = index - 1;
+                end = index - 1;
             } else {
                 break;
             }
@@ -232,7 +232,10 @@ public class Solution {
         return nums[k];
     }   
     
-    public int partition(int left, int right, int[] nums) {
+    public int partition(int start, int end, int[] nums) {
+        int left = start;
+        int right = end;
+        
         int pivot = nums[left + (right - left) / 2];
         while (left <= right) {
             while (left <= right && nums[left] < pivot) {
