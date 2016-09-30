@@ -223,7 +223,7 @@ public class Solution {
     }
     
     public int helper(int start, int end, int[] nums, int k) {
-        if (start > end) {
+        if (start == end) {
             return nums[start];
         }
         
