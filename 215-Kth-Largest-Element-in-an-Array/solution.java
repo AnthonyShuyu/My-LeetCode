@@ -194,7 +194,6 @@ public class Solution {
         } else {
             return helper(start, left - 1, nums, k);
         }
-        
     }
     
     public void swap(int start, int end, int[] nums) {
