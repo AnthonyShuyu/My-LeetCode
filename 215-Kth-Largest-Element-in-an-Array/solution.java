@@ -99,6 +99,7 @@ public class Solution {
 // s2: use max heap
 // O(nlogn), O(n)
 
+/*
 public class Solution {
     public int findKthLargest(int[] nums, int k) {
         // corner case
@@ -121,3 +122,35 @@ public class Solution {
         return result;
     }
 }
+*/
+
+
+// s2*: use heap, maintain the k size
+// O(nlogk), O(n)
+
+public class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        // corner case
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        Queue<Integer> queue = new PriorityQueue<Integer>();
+        
+        for (int i = 0; i < k; i++) {
+            queue.offer(nums[k]);
+        }
+        
+        for (int i = k; i < nums.length; i++) {
+            if (nums[i] > queue.peek()) {
+                queue.poll();
+                queue.offer(nums[i]);
+            }
+        }
+        return queue.peek();
+    }
+}
+
+
+
+
+
