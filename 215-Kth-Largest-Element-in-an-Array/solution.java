@@ -211,7 +211,7 @@ class Solution {
      * @param nums : array of nums
      * @return: description of return
      */
-    public int kthLargestElement(int k, int[] nums) {
+    public int kthLargestElement(int[] nums, int k) {
         // write your code here
         if (nums == null || nums.length == 0) {
             return 0;
