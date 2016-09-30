@@ -210,6 +210,7 @@ public class Solution {
 // failed
 
 
+class Solution {
 public int findKthLargest(int[] nums, int k) {
 	if (k < 1 || nums == null) {
 		return 0;
@@ -257,4 +258,5 @@ public void swap(int[] nums, int n1, int n2) {
 	int tmp = nums[n1];
 	nums[n1] = nums[n2];
 	nums[n2] = tmp;
+}
 }
