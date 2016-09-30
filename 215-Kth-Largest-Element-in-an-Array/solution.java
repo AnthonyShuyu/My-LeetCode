@@ -142,7 +142,7 @@ public class Solution {
         }       
         if (left - start < k) {
             return helper(left, end, nums, k - (left - start));
-        } else if (left - start >= k){
+        } else {
             return helper(start, left - 1, nums, k);
         }
     }
