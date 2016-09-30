@@ -174,6 +174,9 @@ public class Solution {
     }
     
     public int helper(int start, int end, int[] nums, int k) {
+        if (start >= end) {
+            return nums[start];
+        }
         int left = start;
         int right = end;
         int pivot = nums[(left + right) / 2];
