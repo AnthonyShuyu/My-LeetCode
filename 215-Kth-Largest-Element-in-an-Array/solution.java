@@ -255,7 +255,7 @@ class Solution {
         } else if (right + 1 < k) {
             return quickSelect(right + 1, end, nums, k - right - 1);
         } else {
-            return quickSelect(start, right, nums, k);
+            return quickSelect(start, right - 1, nums, k);
         }
         
     }
