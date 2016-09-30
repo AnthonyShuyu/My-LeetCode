@@ -162,7 +162,7 @@ public class Solution {
         if (nums == null || nums.length == 0) {
             return -1;
         }
-        int k = nums.length - k + 1;
+        k = nums.length - k + 1;
         int result = helper(0, nums.length - 1, nums, k);
         return result;
     }
@@ -189,8 +189,8 @@ public class Solution {
                 right--;
             }
         }       
-        if (left <= k) {
-            return helper(left, end, nums, k - left);
+        if (left - start < k) {
+            return helper(left, end, nums, k - (left - start));
         } else {
             return helper(start, left - 1, nums, k);
         }
