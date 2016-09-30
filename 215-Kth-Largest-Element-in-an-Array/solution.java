@@ -155,7 +155,6 @@ public class Solution {
 // O(n), O(1)
 // ticky, T(n) = T(n / 2) + O(n),   T(n) = O(n)
 
-/*
 public class Solution {
     public int findKthLargest(int[] nums, int k) {
         // corner case
@@ -202,11 +201,11 @@ public class Solution {
         nums[end] = temp;
     }
 }
-*/
 
 // s3* again: use quick sort partition
 // O(n), O(1)   use O(n) time to get O(n) to O(n/2)    T(n) = T(n / 2) + O(n)
 
+/*
 class Solution {
 public int findKthLargest(int[] nums, int k) {
 	if (k < 1 || nums == null) {
@@ -223,7 +222,7 @@ public int helper(int k, int[] nums, int start, int end) {
 	int left = start;
 	int right = end;
  
-	while (left <= right) {
+	while (true) {
  
 		while (nums[left] < pivot && left < right) {
 			left++;
@@ -239,7 +238,6 @@ public int helper(int k, int[] nums, int start, int end) {
 		swap(nums, left, right);
 	}
  
-	swap(nums, left, end);
  
 	if (k == left + 1) {
 		return pivot;
@@ -256,3 +254,4 @@ public void swap(int[] nums, int n1, int n2) {
 	nums[n2] = tmp;
 }
 }
+*/
