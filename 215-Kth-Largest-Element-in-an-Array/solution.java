@@ -218,31 +218,31 @@ public class Solution {
         int start = 0;
         int end = nums.length - 1;
         k = nums.length - k + 1;
+        return helper(start, end, nums, k);
         
-        while (start < end) {
-            int index = partition(start, end, nums);
-            if (index < k) {
-                start = index;
-            } else if (index > k) {
-                end = index;
-            } else {
-                break;
-            }
+    }
+    
+    public int helper(int start, int end, int[] nums, int k) {
+        if (start >= end) {
+            return nums[start];
         }
-        for (int i = 0; i < nums.length; i++) {
-            System.out.print(nums[i]);
-            System.out.print(" ");
+        
+        int index = partition(start, end, nums);
+        if (index + 1 == k) {
+            return nums[index];
+        } else if (index + 1 < k) {
+            return helper(start + 1, end, nums, k);
+        } else {
+            return helper(start, end - 1, nums, k);
         }
-        System.out.println(k);
-        return nums[k - 1];
-    }   
+    }
     
     public int partition(int start, int end, int[] nums) {
         int left = start;
         int right = end;
         
         int pivot = nums[left + (right - left) / 2];
-        while (left <= right) {
+        while (left < right) {
             while (left <= right && nums[left] < pivot) {
                 left++;
             }
@@ -250,11 +250,14 @@ public class Solution {
                 right--;
             }
             if (left <= right) {
+                System.out.println("left is: " + left + "right is :" + right);
                 swap(left, right, nums);
                 left++;
                 right--;
             }
         }
+        System.out.println("right is : " + right );
+        System.out.println(left);
         return left;
     }
     
