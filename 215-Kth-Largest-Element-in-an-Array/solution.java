@@ -162,8 +162,8 @@ public class Solution {
         if (nums == null || nums.length == 0) {
             return -1;
         }
-        int k2 = nums.length - k + 1
-        int result = helper(0, nums.length - 1, nums, k2);
+        int k = nums.length - k + 1;
+        int result = helper(0, nums.length - 1, nums, k);
         return result;
     }
     
