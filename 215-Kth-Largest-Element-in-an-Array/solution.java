@@ -105,7 +105,7 @@ public class Solution {
 
 // s3: use quick sort
 // O(n), O(1)
-// ticky, T(n) = T(n / 2) + O(n),   T(n) = O(n)
+// tricky,  use O(n) time to get O(n) to O(n/2)    T(n) = T(n / 2) + O(n)
 
 /*
 public class Solution {
@@ -156,55 +156,53 @@ public class Solution {
 }
 */
 
-// s3* again: use quick sort partition
-// O(n), O(1)   use O(n) time to get O(n) to O(n/2)    T(n) = T(n / 2) + O(n)
 
-class Solution {
-public int findKthLargest(int[] nums, int k) {
-	if (k < 1 || nums == null) {
-		return 0;
-	}
- 
-	return helper(nums.length - k +1, nums, 0, nums.length - 1);
-}
- 
-public int helper(int k, int[] nums, int start, int end) {
- 
-	int pivot = nums[end];
- 
-	int left = start;
-	int right = end;
- 
-	while (left < right) {
- 
-		while (nums[left] < pivot && left < right) {
-			left++;
-		}
- 
-		while (nums[right] >= pivot && right > left) {
-			right--;
-		}
- 
-        if (left <= right) {
- 		    swap(nums, left, right);    
- 		    left++;
- 		    right--;
+// *s3: use quick sort method, final version
+// O(n), O(1)
+// tricky, use O(n) time to get O(n) to O(n/2)    T(n) = T(n / 2) + O(n), left means at least left elements <= pivot
+
+public class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        // corner case
+        if (nums == null || nums.length == 0) {
+            return -1;
         }
-	}
- 
- 
-	if (k == left + 1) {
-		return pivot;
-	} else if (k < left + 1) {
-		return helper(k, nums, start, left - 1);
-	} else {
-		return helper(k, nums, left + 1, end);
-	}
-}
- 
-public void swap(int[] nums, int n1, int n2) {
-	int tmp = nums[n1];
-	nums[n1] = nums[n2];
-	nums[n2] = tmp;
-}
+        int start = 0;
+        int end = nums.length - 1;
+        k = nums.length - k + 1;
+        return helper(start, end, nums, k);
+    }
+    
+    public int helper(int start, int end, int[] nums, int k) {
+        int left = start;
+        int right = end;
+        int pivot = nums[(left + right) / 2];
+        
+        while (left <= right) {
+            while (left <= right && nums[left] < pivot) {
+                left++;
+            }
+            while (left <= right && nums[right] > pivot) {
+                right--;
+            }
+            if (left <= right) {
+                swap(left, right, nums);
+                left++;
+                right--;
+            }
+        }
+        
+        if (left - start < k) {
+            return helper(left, end, nums, k - (left - start));
+        } else {
+            return helper(start, left - 1, nums, k);            
+        }
+    }
+    
+    public void swap(int start, int end, int[] nums) {
+        int temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
+    }
+    
 }
