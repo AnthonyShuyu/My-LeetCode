@@ -205,62 +205,55 @@ public class Solution {
 }
 */
 
-// s3* again: use quick sort partition
-// O(n), O(1)   use O(n) time to get O(n) to O(n/2)    T(n) = T(n / 2) + O(n)
-
-public class Solution {
-    public int findKthLargest(int[] nums, int k) {
-        // corner case
+class Solution {
+    /*
+     * @param k : description of k
+     * @param nums : array of nums
+     * @return: description of return
+     */
+    public int kthLargestElement(int k, int[] nums) {
+        // write your code here
         if (nums == null || nums.length == 0) {
-            return -1;
+            return 0;
         }
-        
-        int start = 0;
-        int end = nums.length - 1;
-        k = nums.length - k + 1;
-        return helper(start, end, nums, k);
+        if (k <= 0) {
+            return 0;
+        }
+        return helper(nums, 0, nums.length - 1, nums.length - k + 1);
         
     }
-    
-    public int helper(int start, int end, int[] nums, int k) {
-        if (start == end) {
-            return nums[start];
+    public int helper(int[] nums, int l, int r, int k) {
+        if (l == r) {
+            return nums[l];
         }
-        
-        int index = partition(start, end, nums);
-        // System.out.println(index);
-        if (index + 1 == k) {
-            return nums[k];
-        } else if (index + 1 < k) {
-            return helper(index + 1, end, nums, k);
-        } else {
-            return helper(start, index - 1, nums, k);
+        int position = partition(nums, l, r);
+        if (position + 1 == k) {
+            return nums[position];
+        } else if (position + 1 < k) {
+            return helper(nums, position + 1, r, k);
+        }  else {
+            return helper(nums, l, position - 1, k);
         }
     }
-    
-    public int partition(int start, int end, int[] nums) {
-        int left = start;
-        int right = end;
-        int pivot = nums[left + (right - left) / 2];
-        while (left <= right) {
-            while (left <= right && nums[left] < pivot) {
-                left++;
-            }
-            while (left <= right && pivot < nums[right]) {
+    public int partition(int[] nums, int l, int r) {
+        // 初始化左右指针和pivot
+        int left = l, right = r;
+        int pivot = nums[left];
+        
+        // 进行partition
+        while (left < right) {
+            while (left < right && nums[right] >= pivot) {
                 right--;
             }
-            if (left <= right) {
-                swap(left, right, nums);
+            nums[left] = nums[right];
+            while (left < right && nums[left] <= pivot) {
                 left++;
-                right--;
             }
+            nums[right] = nums[left];
         }
-        return left;
+        
+        // 返还pivot点到数组里面
+        nums[left] = pivot;
+        return left;         
     }
-    
-    public void swap(int left, int right, int[] nums) {
-        int temp = nums[left];
-        nums[left] = nums[right];
-        nums[right] = temp;
-    }
-}
+};
