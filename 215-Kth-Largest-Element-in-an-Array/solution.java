@@ -228,7 +228,7 @@ public class Solution {
         }
         
         int index = partition(start, end, nums);
-        System.out.println(index);
+        // System.out.println(index);
         if (index + 1 == k) {
             return nums[index];
         } else if (index + 1 < k) {
@@ -241,7 +241,6 @@ public class Solution {
     public int partition(int start, int end, int[] nums) {
         int left = start;
         int right = end;
-        
         int pivot = nums[left + (right - left) / 2];
         while (left <= right) {
             while (left <= right && nums[left] < pivot) {
