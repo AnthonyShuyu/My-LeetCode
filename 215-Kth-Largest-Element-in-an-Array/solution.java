@@ -250,12 +250,20 @@ class Solution {
             }
         }
         
-        if (right + 1 == k) {
-            return nums[right];
-        } else if (right + 1 < k) {
-            return quickSelect(right + 1, end, nums, k - right - 1);
+        // if (right + 1 == k) {
+        //     return nums[right];
+        // } else if (right + 1 < k) {
+        //     return quickSelect(right + 1, end, nums, k - right - 1);
+        // } else {
+        //     return quickSelect(start, right - 1, nums, k);
+        // }
+        
+        if (left == k) {
+            return nums[left - 1]; 
+        } else (left < k) {
+            return quickSelect(left, end, nums, k - left);
         } else {
-            return quickSelect(start, right - 1, nums, k);
+            return quickSelect(start, left - 1, nums, k);
         }
         
     }
