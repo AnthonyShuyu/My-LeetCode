@@ -175,7 +175,7 @@ public int helper(int k, int[] nums, int start, int end) {
 	int left = start;
 	int right = end;
  
-	while (left <= right) {
+	while (left < right) {
  
 		while (nums[left] < pivot && left < right) {
 			left++;
