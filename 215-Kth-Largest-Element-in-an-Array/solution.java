@@ -163,6 +163,7 @@ public class Solution {
             return -1;
         }
         int result = helper(0, nums.length - 1, nums, k);
+        return result;
     }
     
     public int helper(int start, int end, int[] nums, int k) {
