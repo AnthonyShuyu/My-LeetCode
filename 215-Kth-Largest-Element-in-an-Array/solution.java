@@ -128,6 +128,7 @@ public class Solution {
 // s2*: use heap, maintain the k size
 // O(nlogk), O(n)
 
+/*
 public class Solution {
     public int findKthLargest(int[] nums, int k) {
         // corner case
@@ -149,8 +150,55 @@ public class Solution {
         return queue.peek();
     }
 }
+*/
 
+// s3*: use quick sort
+// O(n), O(1)
+// ticky, T(n) = T(n / 2) + O(n),   T(n) = O(n)
 
-
+public class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        // corner case
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        int result = helper(0, nums.length - 1, nums, k);
+    }
+    
+    public int helper(int start, int end, int[] nums, int k) {
+        if (start >= end) {
+            return nums[start];
+        }
+        int left = start;
+        int right = end;
+        
+        int pivot = nums[(start + end) / 2];
+        
+        while (left <= right) {
+            while (left <= right && nums[left] < pivot) {
+                left++;
+            }
+            while (left <= right && nums[right] > pivot) {
+                right--;
+            }
+            if (left <= right) {
+                swap(left, right, nums);
+                left++;
+                right--;
+            }
+        }       
+        if (left <= k) {
+            helper(left, end, nums, k - left);
+        } else {
+            helper(start, left - 1, nums, k);
+        }
+    }
+    
+    public void swap(int start, int end, int[] nums) {
+        int temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
+    }
+}
 
 
