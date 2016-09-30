@@ -225,18 +225,17 @@ public int helper(int k, int[] nums, int start, int end) {
  
 	while (left <= right) {
  
-		while (nums[left] < pivot && left <= right) {
+		while (nums[left] < pivot && left < right) {
 			left++;
 		}
  
-		while (nums[right] >= pivot && right >= left) {
+		while (nums[right] >= pivot && right > left) {
 			right--;
 		}
  
 		if (left == right) {
 			break;
 		}
- 
 		swap(nums, left, right);
 	}
  
