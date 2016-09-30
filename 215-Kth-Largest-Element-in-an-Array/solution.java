@@ -230,11 +230,11 @@ public class Solution {
         int index = partition(start, end, nums);
         // System.out.println(index);
         if (index + 1 == k) {
-            return nums[index];
+            return nums[k];
         } else if (index + 1 < k) {
-            return helper(start + 1, end, nums, k);
+            return helper(index + 1, end, nums, k);
         } else {
-            return helper(start, end - 1, nums, k);
+            return helper(start, index - 1, nums, k);
         }
     }
     
