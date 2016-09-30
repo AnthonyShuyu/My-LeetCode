@@ -216,10 +216,10 @@ public int findKthLargest(int[] nums, int k) {
 		return 0;
 	}
  
-	return getKth(nums.length - k +1, nums, 0, nums.length - 1);
+	return helper(nums.length - k +1, nums, 0, nums.length - 1);
 }
  
-public int getKth(int k, int[] nums, int start, int end) {
+public int helper(int k, int[] nums, int start, int end) {
  
 	int pivot = nums[end];
  
@@ -248,9 +248,9 @@ public int getKth(int k, int[] nums, int start, int end) {
 	if (k == left + 1) {
 		return pivot;
 	} else if (k < left + 1) {
-		return getKth(k, nums, start, left - 1);
+		return helper(k, nums, start, left - 1);
 	} else {
-		return getKth(k, nums, left + 1, end);
+		return helper(k, nums, left + 1, end);
 	}
 }
  
