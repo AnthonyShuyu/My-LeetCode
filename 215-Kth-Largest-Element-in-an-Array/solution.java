@@ -250,14 +250,21 @@ class Solution {
             }
         }
         
-        if (left + 1 == k) {
-            return nums[left];
-        } else if (left + 1 < k) {
-            return quickSelect(left + 1, end, nums, k - left - 1);
+        if (right + 1 == k) {
+            return nums[right];
+        } else if (right + 1 < k) {
+            return quickSelect(right + 1, end, nums, k - right - 1);
         } else {
-            return quickSelect(start, left - 1, nums, k);
+            return quickSelect(start, right - 1, nums, k);
         }
         
+    }
+    
+    
+    public void swap(int start, int end, int[] nums) {
+        int temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
     }
     
 }    	
