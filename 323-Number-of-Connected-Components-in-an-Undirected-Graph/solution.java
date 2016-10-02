@@ -32,11 +32,8 @@ public class Solution {
 }
 */
 
-
-
 // s2: union find
 // O(n*m), O(n)
-
 
 public class Solution {
     
@@ -62,7 +59,6 @@ public class Solution {
                 }  
             }
         }
-        
         
         // second traverse, union the elements
         for (int i = 0; i < edges.length; i++) {
