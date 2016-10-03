@@ -176,8 +176,8 @@ public class Solution {
                             int row = num / n;
                             int col = num % n;
                             for (int k = 0; k < dx.length; k++) {
-                                drow = row + dx[k];
-                                dcol = col + dy[k];
+                                int drow = row + dx[k];
+                                int dcol = col + dy[k];
                                 if (drow < 0 || drow >= m || dcol < 0 || dcol >= n) {
                                     continue;
                                 }
@@ -191,6 +191,8 @@ public class Solution {
                 }
             }
         }
+        
+        return count;
      }
     
     
