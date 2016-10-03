@@ -48,14 +48,10 @@ public class Solution {
                 }
             }
         }
-        
-        
-        
-        
     }
     
     // O(1) find
-    public find(int x) {
+    public int find(int x) {
         int parent = x;
         while (parent != hashMap.get(parent)) {
             parent = hashMap.get(parent);
