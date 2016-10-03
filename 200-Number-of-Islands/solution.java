@@ -66,7 +66,7 @@ public class Solution {
             hashMap.put(x, parent);
             x = next;
         }
-        return parent
+        return parent;
     }
     
     public void union(int x, int y) {
