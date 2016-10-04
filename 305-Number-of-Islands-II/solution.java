@@ -84,13 +84,16 @@ public class Solution {
         for (int i = 0; i < nums.length; i++) {
             nums[i] = positions[i][0] * n + positions[i][1];
             hashMap.put(nums[i], nums[i]);
-            if (hashMap.containsKey(nums[i] - n)) {
+            if (nums[i] / n > 0 && hashMap.containsKey(nums[i] - n)) {
                 union(nums[i] - n, nums[i]);
-            } else if (hashMap.containsKey(nums[i] - 1)) {
+            }
+            if (nums[i] % n > 0 && hashMap.containsKey(nums[i] - 1)) {
                 union(nums[i] - 1, nums[i]);
-            } else if (hashMap.containsKey(nums[i] + 1)) {
+            }
+            if (nums[i] % n < n - 1 && hashMap.containsKey(nums[i] + 1)) {
                 union(nums[i], nums[i] + 1);
-            } else if (hashMap.containsKey(nums[i] + n)) {
+            } 
+            if (nums[i] / n < m - 1 && hashMap.containsKey(nums[i] + n)) {
                 union(nums[i], nums[i] + n);
             }
             int count = countIslands(hashMap);
@@ -102,7 +105,7 @@ public class Solution {
     
     
     public int countIslands(Map<Integer, Integer> hashMap) {
-        Set<Intger> hashSet = new HashSet<Integer>();
+        Set<Integer> hashSet = new HashSet<Integer>();
         for (int key : hashMap.keySet()) {
             hashSet.add(find(key));
         }
