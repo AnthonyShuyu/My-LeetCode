@@ -9,7 +9,9 @@
 
 // s1: dfs
 // O(n * m), O(n * m)
+// Stack overflow error
 
+/*
 public class Solution {
     Set<Integer> hashSet = new HashSet<Integer>();
     public void solve(char[][] board) {
@@ -78,3 +80,66 @@ public class Solution {
         }
     }
 }
+*/
+
+// s1: dfs again
+// O(m * n), O(m * n)
+// tricky, from the edges 'O', change all the adjacent 'O' to 'D', then change back at last
+// 
+
+public class Solution {
+    public void solve(char[][] board) {
+        // corner case
+        if (board == null || board.length == 0) {
+            return;
+        }
+        if (board[0] == null || board[0].length == 0) {
+            return;
+        }
+        int m = board.length;
+        int n = board[0].length;
+        
+        for (int i = 0; i < m; i++) {
+            if (board[i][0] == 'O') {
+                dfs(i, 0, board);
+            }
+            if (board[i][n - 1] == 'O') {
+                dfs(i, n - 1, board);
+            }
+        }
+        
+        for (int i = 1; i < n - 1; i++) {
+            if (board[0][i] == 'O') {
+                dfs(0, i, board);
+            }
+            if (board[m - 1][i] == 'O') {
+                dfs(m - 1, i, board);
+            }
+        }        
+        
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (board[i][j] == 'A') {
+                    board[i][j] = 'O';
+                } else if (board[i][j] == 'O') {
+                    board[i][j] = 'X';
+                }
+            }
+        }
+        
+        
+        
+    }
+    
+    public void dfs(int x, int y, char[][] board) {
+        int m = board.length;
+        int n = board[0].length;
+        if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] == 'O') {
+            board[x][y] = 'A';
+            dfs(x - 1, y, board);
+            dfs(x + 1, y, board);
+            dfs(x, y + 1, board);
+            dfs(x, y - 1, board);
+        }
+    }
+}    
