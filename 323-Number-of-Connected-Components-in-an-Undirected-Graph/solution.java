@@ -85,12 +85,12 @@ public class Solution {
         }
         
         
-        int next;
-        while (x != hashMap.get(x)) {
-            next = hashMap.get(x);
-            hashMap.put(x, parent);
-            x = next;
-        }
+        // int next;
+        // while (x != hashMap.get(x)) {
+        //     next = hashMap.get(x);
+        //     hashMap.put(x, parent);
+        //     x = next;
+        // }
         return parent;
     }
     
