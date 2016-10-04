@@ -67,22 +67,15 @@ public class Solution {
         
         // get the result
         
-        // int count = n - hashSet.size();
-        // Set<Integer> countSet = new HashSet<Integer>();
-        // for (int key: hashMap.keySet()) {
-        //     if (!countSet.contains(find(key))) {
-        //         count++;
-        //         countSet.add(find(key));
-        //     }
-        // }
-        
-        int count = n;
-        for (int i = 0; i < n; i++) {
-            if (find(edges[i][0]) == find(edges[i][1])) {
-                count--;
+        int count = n - hashSet.size();
+        Set<Integer> countSet = new HashSet<Integer>();
+        for (int key: hashMap.keySet()) {
+            if (!countSet.contains(find(key))) {
+                count++;
+                countSet.add(find(key));
             }
         }
-        return count;
+        
     }
     
     public int find(int x) {
