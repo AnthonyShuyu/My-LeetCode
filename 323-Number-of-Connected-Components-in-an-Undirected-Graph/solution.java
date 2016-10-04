@@ -75,7 +75,7 @@ public class Solution {
                 countSet.add(find(key));
             }
         }
-        
+        return count;
     }
     
     public int find(int x) {
