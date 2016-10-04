@@ -117,7 +117,7 @@ public class Solution {
             parent = hashMap.get(parent);
         }
         
-        int next
+        int next;
         while (x != hashMap.get(x)) {
             next = hashMap.get(x);
             hashMap.put(x, parent);
