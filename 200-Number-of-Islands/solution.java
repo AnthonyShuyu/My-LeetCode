@@ -201,7 +201,7 @@ public class Solution {
 }
 */
 
-// s4: use DFS
+// s4*: use DFS
 // O(m * n), O(1)
 
 public class Solution {
