@@ -86,7 +86,7 @@ public class Solution {
             hashMap.put(nums[i], nums[i]);
             if (hashMap.containsKey(nums[i] - n)) {
                 union(nums[i] - n, nums[i]);
-            } else if (hashMap.containsKey(num[i] - 1)) {
+            } else if (hashMap.containsKey(nums[i] - 1)) {
                 union(nums[i] - 1, nums[i]);
             } else if (hashMap.containsKey(nums[i] + 1)) {
                 union(nums[i], nums[i] + 1);
