@@ -120,6 +120,7 @@ public class Solution {
 // s3: use bfs
 // O(n * m), O(n * m)
 
+/*
 public class Solution {
     public int numIslands(char[][] grid) {
         // corner case
@@ -198,11 +199,11 @@ public class Solution {
         return x * grid[0].length + y;
     }
 }
+*/
 
 // s4: use DFS
 // O(m * n), O(1)
 
-/*
 public class Solution {
     public int numIslands(char[][] grid) {
         // corner case
@@ -244,4 +245,3 @@ public class Solution {
         
     }
 }
-*/
