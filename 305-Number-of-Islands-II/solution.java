@@ -174,7 +174,7 @@ public class Solution {
             int x = positions[i][0];
             int y = positions[i][1];
             map[x][y] = true;
-            hashMap.put(x * n + y);
+            hashMap.put(x * n + y, x * n + y);
             for (int j = 0; j < 4; j++) {
                 int nx = x + dx[j];
                 int ny = y + dy[j];
@@ -182,7 +182,7 @@ public class Solution {
                     if (find(x * n + y) != find(nx * n + ny)) {
                         count--;
                     }
-                    union(x * n + y, nx * n + ny);
+                     union(x * n + y, nx * n + ny);
                 }
             }
             result.add(count);
@@ -208,6 +208,6 @@ public class Solution {
     public void union(int x, int y) {
         int parentX = hashMap.get(x);
         int parentY = hashMap.get(y);
-        
+        hashMap.put(parentX, parentY);
     }
 }
