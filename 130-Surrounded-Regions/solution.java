@@ -63,6 +63,10 @@ public class Solution {
     }
     
     public void dfs(int i, int j, char[][] board) {
+        if (i < 0 || i >= m || j < 0 || j >= n) {
+            return;
+        }
+        
         if (board[i][j] == 'O') {
             board[i][j] = 'X';
         dfs(i - 1, j, board);
