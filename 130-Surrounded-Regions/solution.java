@@ -155,7 +155,7 @@ public class Solution {
         if (board[0] == null || board[0].length == 0) {
             return;
         }
-    }
+    
     
         int m = board.length;
         int n = board[0].length;
