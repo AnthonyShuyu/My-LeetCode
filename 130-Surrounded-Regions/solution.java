@@ -45,6 +45,7 @@ public class Solution {
     }
     
     public boolean dfsCheck(int i, int j, char[][] map) {
+        int n = map[0].length;
         if (map[i][j] == 'O') {
             hashSet.add(i * n + j);
         }
