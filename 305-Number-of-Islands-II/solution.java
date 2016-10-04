@@ -90,7 +90,7 @@ public class Solution {
                 union(nums[i] - 1, nums[i]);
             } else if (hashMap.containsKey(nums[i] + 1)) {
                 union(nums[i], nums[i] + 1);
-            } else if (hashMap.containsKey(num[i] + n)) {
+            } else if (hashMap.containsKey(nums[i] + n)) {
                 union(nums[i], nums[i] + n);
             }
             int count = countIslands(hashMap);
