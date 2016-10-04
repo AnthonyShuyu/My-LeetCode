@@ -136,30 +136,28 @@ public class Solution {
         Queue<Integer> queue;
         Set<Integer> hashSet = new HashSet<Integer>();
         int count = 0;
-        /*
-        for (int i = 0; i < m * n; i++) {
-            if (grid[i / n][i % n] == '1') {
-                if (!hashSet.contains(i)) {
-                    hashSet.add(i);
-                    result++;
-                    queue = new LinkedList<Integer>();
-                    queue.offer(i);
-                    while (!queue.isEmpty()) {
-                        int num = queue.poll();
-                        // check right and down
-                        if (i / n - 1 >= 0 && grid[i / n - 1][i % n] == '1' && hashSet.contains()) {
-                            queue.offer();
-                        }
+        // for (int i = 0; i < m * n; i++) {
+        //     if (grid[i / n][i % n] == '1') {
+        //         if (!hashSet.contains(i)) {
+        //             hashSet.add(i);
+        //             result++;
+        //             queue = new LinkedList<Integer>();
+        //             queue.offer(i);
+        //             while (!queue.isEmpty()) {
+        //                 int num = queue.poll();
+        //                 // check right and down
+        //                 if (i / n - 1 >= 0 && grid[i / n - 1][i % n] == '1' && hashSet.contains()) {
+        //                     queue.offer();
+        //                 }
                         
-                        if (i % n < grid[0].length && grid[i / n][i % n] == '1') {
-                            queue.offer();
-                        }
+        //                 if (i % n < grid[0].length && grid[i / n][i % n] == '1') {
+        //                     queue.offer();
+        //                 }
                         
-                    }
-                }
-            }
-        }
-        */
+        //             }
+        //         }
+        //     }
+        // }
         int[] dx = {-1, 0, 1, 0};
         int[] dy = {0, 1, 0, -1};
         
