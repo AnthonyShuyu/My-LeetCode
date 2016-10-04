@@ -70,6 +70,7 @@ public class Solution {
 // O(k * m * n), O(m * n)
 // time limit exceeded
 
+/*
 public class Solution {
     Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
     public List<Integer> numIslands2(int m, int n, int[][] positions) {
@@ -150,12 +151,12 @@ public class Solution {
         }
     }
 }
+*/
 
 // s3*: union find again
 // O(m * n + k), O(m * n)
-// tircky
+// tircky, to check if the two elements are the same set, just try find(nums[i]) == find(nums[i] + x)
 
-/*
 public class Solution {
     Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
     public List<Integer> numIslands2(int m, int n, int[][] positions) {
@@ -164,11 +165,29 @@ public class Solution {
         if (positions == null || positions.length == 0 || positions[0] == null || positions[0].length == 0) {
             return result;
         }
-        
-        int[][] map = new int[m][n];
-        
-        
-        
+        int[] dx = {-1, 0, 1, 0};
+        int[] dy = {0, 1, 0, -1};
+        int count = 0;
+        boolean[][] map = new boolean[m][n];
+        for (int i = 0; i < positions.length; i++) {
+            count++;
+            int x = positions[i][0];
+            int y = positions[i][1];
+            map[x][y] = true;
+            hashMap.put(x * n + y);
+            for (int j = 0; j < 4; j++) {
+                int nx = x + dx[j];
+                int ny = y + dy[j];
+                if (nx >= 0 && nx < m && ny >= 0 && ny < n && map[nx][ny]) {
+                    if (find(x * n + y) != find(nx * n + ny)) {
+                        count--;
+                    }
+                    union(x * n + y, nx * n + ny);
+                }
+            }
+            result.add(count);
+        }
+        return result;
     }
     
     
@@ -192,4 +211,3 @@ public class Solution {
         
     }
 }
-*/
