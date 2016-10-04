@@ -83,6 +83,14 @@ public class Solution {
         while (parent != hashMap.get(parent)) {
             parent = hashMap.get(parent);
         }
+        
+        
+        int next;
+        while (x != hashMap.get(x)) {
+            next = hashMap.get(x);
+            hashMap.put(x, parent);
+            x = next;
+        }
         return parent;
     }
     
