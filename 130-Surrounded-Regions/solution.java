@@ -63,6 +63,8 @@ public class Solution {
     }
     
     public void dfs(int i, int j, char[][] board) {
+        int m = board.length;
+        int n = board[0].length;
         if (i < 0 || i >= m || j < 0 || j >= n) {
             return;
         }
