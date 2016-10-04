@@ -1,7 +1,7 @@
 /**
  * 
  * 200. Number of Islands
- * 
+ * 2 solutions
  * 
  * 
  */
@@ -120,6 +120,7 @@ public class Solution {
 // s3: use bfs
 // O(n * m), O(n * m)
 
+/*
 public class Solution {
     public int numIslands(char[][] grid) {
         // corner case
@@ -198,5 +199,51 @@ public class Solution {
     
     public int change(int x, int y, char[][] grid) {
         return x * grid[0].length + y;
+    }
+}
+*/
+
+// s4: use DFS
+// O(m * n), O(1)
+
+public class Solution {
+    public int numIslands(char[][] grid) {
+        // corner case
+        if (grid == null || grid.length == 0) {
+            return 0;
+        }
+        if (grid[0] == null || grid[0].length == 0) {
+            return 0;
+        }
+        
+        int m = grid.length;
+        int n = grid[0].length;
+        
+        int result = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == '1') {
+                    result++;
+                    dfs(i, j, grid);
+                }
+            }
+        }
+        return result;
+    }
+    
+    // use dfs to traverse, and change '1' to '0'
+    public void dfs(int x, int y, char[][] grid) {
+        if (x < 0 || x >= grid.length || y < 0 || y >= grid[0].length) {
+            return;
+        }
+        
+        if (grid[x][y] == '1') {
+            grid[x][y] = '0';
+            dfs(x - 1, y, grid);
+            dfs(x + 1, y, grid);
+            dfs(x, y - 1, grid);
+            dfs(x, y + 1, grid);
+        }
+        
     }
 }
