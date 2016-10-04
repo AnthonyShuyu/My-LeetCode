@@ -66,7 +66,7 @@ public class Solution {
         }
         
         // get the result
-        
+        /* 
         int count = n - hashSet.size();
         Set<Integer> countSet = new HashSet<Integer>();
         for (int key: hashMap.keySet()) {
@@ -76,6 +76,14 @@ public class Solution {
             }
         }
         return count;
+        */
+        
+        int result = 0;
+        Set<Integer> resultSet = new HashSet<Integer>();
+        for (int i = 0; i < n; i++) {
+            resultSet.add(find(edges[i][0]));
+        }
+        return resultSet.size();
     }
     
     public int find(int x) {
