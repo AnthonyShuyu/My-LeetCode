@@ -135,7 +135,8 @@ public class Solution {
 
 
 // s2: use Trie + dfs
-// O(n * m), O(k)
+// O(n * m * k), O(k)
+// tricky, 1. to get the result, pass the result as the parameters; 2. String will not be changed as parameters in methods
 
 // implement Trie first
 class TrieNode {
@@ -230,7 +231,7 @@ public class Solution {
         return result;
     }
     
-    
+    // !!! the String will not change when passed as the parameters of 
     public void find(Trie t, char[][] board, int i, int j, String s, List<String> result) {
         if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) {
             return;
