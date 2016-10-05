@@ -7,6 +7,7 @@
 // O(m^2 * n), O(n)
 // time limit exceeded
 
+/*
 public class Solution {
     public List<String> findWords(char[][] board, String[] words) {
         List<String> result = new ArrayList<String>();
@@ -58,3 +59,68 @@ public class Solution {
         return result;
     }
 }
+*/
+
+// s1 again: recursion dfs, find the word one by one
+// O(m * n * k), O(1)
+
+public class Solution {
+    public List<String> findWords(char[][] board, String[] words) {
+        List<String> result = new ArrayList<String>();
+        // corner case
+        if (board == null || board.length == 0) {
+            return result;
+        }
+        if (board[0] == null || board[0].length == 0) {
+            return result;
+        }
+        if (words == null || words.length == 0) {
+            return result;
+        }
+        
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0 && find(board, words[i])) {
+                result.add(words[i]);
+            }
+        }
+        return result;
+    }
+    
+    public boolean find(char[][] board, String word) {
+        int m = board.length;
+        int n = board[0].length;
+        int index = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (board[i][j] == word.charAt(0)) {
+                    if (checkWord(board, i, j, word, index)) {
+                        return true;
+                    }                    
+                }
+            }
+        }
+        return false;
+    }
+    
+    public boolean checkWord(char[][] board, int x, int y, String word, int index) {
+        if (x < 0 || x >= board.length || y < 0 || y >= board[0].length) {
+            return false
+        }
+        if (board[x][y] == word.charAt(index)) {
+            char[x][y] = '#';
+            int[] dx = {-1, 0, 1, 0};
+            int[] dy = {0, -1, 0, 1};
+            boolean result = false;
+            for (int i = 0; i < 4; i++) {
+                int nx = x + dx[i];
+                int ny = y + dy[i];
+                result = result || checkWord(board, nx, ny, word, index + 1);
+            }
+            return result;            
+        } else {
+            return false;
+        }
+        
+        
+    }
+}    
