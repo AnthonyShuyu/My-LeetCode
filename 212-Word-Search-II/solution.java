@@ -80,7 +80,9 @@ public class Solution {
         
         for (int i = 0; i < words.length; i++) {
             if (words[i].length() > 0 && find(board, words[i])) {
-                result.add(words[i]);
+                if (result.contains(word[i])) {
+                    result.add(words[i]);
+                }
             }
         }
         return result;
@@ -103,11 +105,15 @@ public class Solution {
     }
     
     public boolean checkWord(char[][] board, int x, int y, String word, int index) {
+        if (index == word.length()) {
+            return true;
+        }
         if (x < 0 || x >= board.length || y < 0 || y >= board[0].length) {
             return false;
         }
+        
         if (board[x][y] == word.charAt(index)) {
-            char[x][y] = '#';
+            board[x][y] = '#';                      // tricky, to avoid repeated traverse
             int[] dx = {-1, 0, 1, 0};
             int[] dy = {0, -1, 0, 1};
             boolean result = false;
@@ -116,6 +122,7 @@ public class Solution {
                 int ny = y + dy[i];
                 result = result || checkWord(board, nx, ny, word, index + 1);
             }
+            board[x][y] = word.charAt(index); // don't forget to put back the original char
             return result;            
         } else {
             return false;
