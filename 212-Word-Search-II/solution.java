@@ -250,7 +250,7 @@ public class Solution {
             for (int k = 0; k < 4; k++) {
                 int nx = i + dx[k];
                 int ny = j + dy[k];
-                new_s = find(t, board, nx, ny, s);
+                new_s = find(t, board, nx, ny, s, result);
                 if (new_s != null) {
                     result.add(new_s);
                 }
