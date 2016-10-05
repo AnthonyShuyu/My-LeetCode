@@ -34,15 +34,9 @@ If the current candidate does not exist in all words' prefix, you could stop bac
 
 <div>
 
-[Subscribe](/subscribe/) to see which companies asked this question
-
-</div>
-
-<div>
-
 <div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton">[Airbnb](/company/airbnb/) [Google](/company/google/) [Microsoft](/company/microsoft/)</span></div>
+<span class="hidebutton">[Microsoft](/company/microsoft/) [Google](/company/google/) [Airbnb](/company/airbnb/)</span></div>
 
 <div>
 
