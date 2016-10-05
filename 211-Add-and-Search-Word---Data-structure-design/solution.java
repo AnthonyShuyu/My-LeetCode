@@ -89,7 +89,7 @@ public class WordDictionary {
         return searchWord(word, 0, node);
     }
     
-    public boolean searchWord(String word, int index, Trie node) {
+    public boolean searchWord(String word, int index, TrieNode node) {
         if (index == word.length()) {
             return true;
         }
