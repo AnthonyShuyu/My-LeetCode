@@ -239,14 +239,12 @@ public class Solution {
         s = s + c;
         if (!t.startsWith(s)) {
             return;
-        } else if (t.search(s)) {
+        }
+        if (t.search(s)) {
             if (!result.contains(s)) {
                 result.add(s);
             }
-            return;
-        } else {
-            TrieNO
-            
+        }    
             board[i][j] = '#';
             int[] dx = {1, 0, -1, 0};
             int[] dy = {0, 1, 0, -1};
@@ -257,6 +255,5 @@ public class Solution {
             }
             board[i][j] = c;
             // return new_s;
-        }
     }
 }    
