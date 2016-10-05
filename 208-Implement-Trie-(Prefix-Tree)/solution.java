@@ -107,7 +107,7 @@ public class Trie {
         TrieNode node = root;
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if (node.hashMap.containsKey(c) {
+            if (node.hashMap.containsKey(c)) {
                 node = node.hashMap.get(c);
             } else {
                 TrieNode new_node = new TrieNode(c);
