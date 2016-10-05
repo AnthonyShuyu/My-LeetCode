@@ -207,7 +207,7 @@ public class Solution {
     public List<String> findWords(char[][] board, String[] words) {
         List<String> result = new ArrayList<String>();
         if (board == null || board.length == 0 || board[0] == null || board[0].length == 0 || words == null || words.length == 0) {
-            return false;
+            return null;
         }
         List<String> result = new ArrayList<String>();
         
