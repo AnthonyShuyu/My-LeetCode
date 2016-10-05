@@ -62,8 +62,10 @@ public class Solution {
 */
 
 // s1 again: recursion dfs, find the word one by one
-// O(m * n * k), O(1)
+// O(m * n * k), O(n)
+// time limit exceeded
 
+/*
 public class Solution {
     public List<String> findWords(char[][] board, String[] words) {
         List<String> result = new ArrayList<String>();
@@ -127,7 +129,131 @@ public class Solution {
         } else {
             return false;
         }
+    }
+}    
+*/
+
+
+// s2: use Trie + dfs
+// O(n * m), O(k)
+
+// implement Trie first
+class TrieNode {
+    char c;
+    Map<Character, TrieNode> hashMap = new HashMap<Character, TrieNode>();
+    boolean hasWord;
+    public TrieNode() {
+    }
+    public TrieNode(char c) {
+        this.c = c;
+    }
+    
+}
+
+class Trie {
+    TrieNode root;
+    public Trie() {
+        root = new TrieNode();
+    }
+    
+    public void insert(String s) {
+        TrieNode node = root;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (node.hashMap.containsKey(c)) {
+                node = node.hashMap.get(c);
+            } else {
+                TrieNode new_node = new TrieNode(c);
+                node.hashMap.put(c, new_node);
+                node = new_node;
+            }
+        }
+        node.hasWord = true;
+    }
+    
+    public boolean search(String s) {
+        TrieNode node = searchPos(s);
+        if (node == null || !node.hasWord) {
+            return false;
+        } 
+        return true;
+    }
+    
+    public boolean startsWith(String s) {
+        TrieNode node = searchPos(s);
+        if (node == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    public TrieNode searchPos(String s) {
+        TrieNode node = root;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (!node.hashMap.containsKey(c)) {
+                return null;
+            } else {
+                node = node.hashMap.get(c);
+            }
+        }
+        return node;
+    }
+}
+
+
+public class Solution {
+    public List<String> findWords(char[][] board, String[] words) {
+        List<String> result = new ArrayList<String>();
+        if (board == null || board.length == 0 || board[0] == null || board[0].length == 0 || words == null || words.length == 0) {
+            return false;
+        }
+        List<String> result = new ArrayList<String>();
         
+        Trie t = new Trie();
+        for (int i = 0; i < words.length; i++) {
+            trie.insert(words[i]);
+        }
         
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                String s = "";
+                String string = find(t, board, i, j, s));
+                if (string != null) {
+                    result.add(string);
+                }    
+            }
+        }
+        return result;
+    }
+    
+    
+    public String find(Trie t, char[][] board, int i, int j, String s) {
+        if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) {
+            return null;
+        }
+        char c = board[i][j];
+        s = s + c;
+        if (!t.startsWith(s)) {
+            return null;
+        } else if (t.search(s)) {
+            return s;
+        } else {
+            board[i][j] = '#';
+            int[] dx = {1, 0, -1, 0};
+            int[] dy = {0, 1, 0, -1};
+            String new_s = null;
+            for (int i = 0; i < 4; i++) {
+                int nx = i + dx;
+                int ny = j + dy;
+                new_s = find(t, board, nx, ny, s);
+                if (new_s != null) {
+                    break;
+                }
+            }
+            board[i][j] = c;
+            return new_s;
+        }
     }
 }    
