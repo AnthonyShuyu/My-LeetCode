@@ -227,7 +227,7 @@ public class Solution {
         // third traverse, change 'O' to 'X'
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (!hashSet.contains(find(i * n + j))) {
+                if (board[i][j] == 'O' && !hashSet.contains(find(i * n + j))) {
                     board[i][j] = 'X';
                 }
             }
