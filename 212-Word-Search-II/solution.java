@@ -218,41 +218,45 @@ public class Solution {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
                 String s = "";
-                String string = find(t, board, i, j, s);
-                if (string != null) {
-                    result.add(string);
-                }    
+                // String string = find(t, board, i, j, s);
+                // if (string != null) {
+                //     if (!result.contains(string)) {
+                //         result.add(string);
+                //     }
+                // }    
+                find(t, board, i, j, s, result);
             }
         }
         return result;
     }
     
     
-    public String find(Trie t, char[][] board, int i, int j, String s) {
+    public void find(Trie t, char[][] board, int i, int j, String s, List<String> result) {
         if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) {
-            return null;
+            return;
         }
         char c = board[i][j];
         s = s + c;
         if (!t.startsWith(s)) {
-            return null;
+            return;
         } else if (t.search(s)) {
-            return s;
+            result.add(s);
+            return;
         } else {
             board[i][j] = '#';
             int[] dx = {1, 0, -1, 0};
             int[] dy = {0, 1, 0, -1};
             String new_s = null;
-            for (int k = 0; k < 4; i++) {
+            for (int k = 0; k < 4; k++) {
                 int nx = i + dx[k];
                 int ny = j + dy[k];
                 new_s = find(t, board, nx, ny, s);
                 if (new_s != null) {
-                    break;
+                    result.add(new_s);
                 }
             }
             board[i][j] = c;
-            return new_s;
+            // return new_s;
         }
     }
 }    
