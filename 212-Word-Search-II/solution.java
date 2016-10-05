@@ -80,7 +80,7 @@ public class Solution {
         
         for (int i = 0; i < words.length; i++) {
             if (words[i].length() > 0 && find(board, words[i])) {
-                if (result.contains(word[i])) {
+                if (!result.contains(words[i])) {
                     result.add(words[i]);
                 }
             }
