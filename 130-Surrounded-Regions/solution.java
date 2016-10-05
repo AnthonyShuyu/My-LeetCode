@@ -70,6 +70,7 @@ public class Solution {
 
 // s2: bfs, since use dfs will get Stack Overflow error
 // O(m * n), O(m * n)
+// tricky, from 4 sides to iterate, then change the 'O' to 'A' first
 
 /*
 public class Solution {
@@ -157,7 +158,7 @@ public class Solution {
 
 // s3: use union find
 // O(m * n), O(m * n)
-
+// triky
 
 public class Solution {
     
