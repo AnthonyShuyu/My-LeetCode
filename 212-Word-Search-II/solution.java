@@ -137,6 +137,7 @@ public class Solution {
 // s2: use Trie + dfs
 // O(n * m * k), O(k)
 // tricky, 1. to get the result, pass the result as the parameters; 2. String will not be changed as parameters in methods
+// 3. let current element be '#' and change back to original after dfs
 
 // implement Trie first
 class TrieNode {
