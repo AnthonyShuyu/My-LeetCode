@@ -7,8 +7,11 @@
  * 
  */
 
+// s1: use HashMap
+// O(n), O(n)
+// ticky,  Map<Character, TrieNode> hashMap = new HashMap<Character, TrieNode>();
 
-
+/*
 class TrieNode {
     // Initialize your data structure here.
     char c;
@@ -73,6 +76,76 @@ public class Trie {
             }
         }
             return true;
+    }
+}
+*/
+
+
+// s2*: hashMap again, but create another mothod to reduce code duplicates
+// O(n), O(n)
+// tricky
+
+class TrieNode {
+    char c;
+    Map<Character, TrieNode> hashMap = new HashMap<Character, TrieNode>();
+    boolean hasWord;
+    public TrieNode() {
+    }
+    public TrieNode(char c) {
+        this.c = c;
+    }
+    
+}
+
+public class Trie {
+    TrieNode root;
+    public Trie() {
+        root = new TrieNode();
+    }
+    
+    public void insert(String s) {
+        TrieNode node = root;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (node.hashMap.containsKey(c) {
+                node = node.hashMap.get(c);
+            } else {
+                TrieNode new_node = new TrieNode(c);
+                node.hashMap.put(c, new_node);
+                node = new_node;
+            }
+        }
+        node.hasWord = true;
+    }
+    
+    public boolean search(String s) {
+        TrieNode node = searchPos(s);
+        if (node == null || !node.hasWord) {
+            return false;
+        } 
+        return true;
+    }
+    
+    public boolean startsWith(String s) {
+        TrieNode node = searchPos(s);
+        if (node == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    public TrieNode searchPos(String s) {
+        TrieNode node = root;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (!node.hashMap.containsKey(c)) {
+                return null;
+            } else {
+                node = node.hashMap.get(c);
+            }
+        }
+        return node;
     }
 }
 
