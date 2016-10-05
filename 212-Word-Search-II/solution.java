@@ -212,7 +212,7 @@ public class Solution {
         
         Trie t = new Trie();
         for (int i = 0; i < words.length; i++) {
-            trie.insert(words[i]);
+            t.insert(words[i]);
         }
         
         for (int i = 0; i < board.length; i++) {
