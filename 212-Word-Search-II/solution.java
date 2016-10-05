@@ -243,9 +243,9 @@ public class Solution {
             int[] dx = {1, 0, -1, 0};
             int[] dy = {0, 1, 0, -1};
             String new_s = null;
-            for (int i = 0; i < 4; i++) {
-                int nx = i + dx;
-                int ny = j + dy;
+            for (int k = 0; k < 4; i++) {
+                int nx = i + dx[k];
+                int ny = j + dy[k];
                 new_s = find(t, board, nx, ny, s);
                 if (new_s != null) {
                     break;
