@@ -104,7 +104,7 @@ public class Solution {
     
     public boolean checkWord(char[][] board, int x, int y, String word, int index) {
         if (x < 0 || x >= board.length || y < 0 || y >= board[0].length) {
-            return false
+            return false;
         }
         if (board[x][y] == word.charAt(index)) {
             char[x][y] = '#';
