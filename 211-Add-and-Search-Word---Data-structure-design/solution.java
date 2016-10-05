@@ -32,7 +32,7 @@ class Trie {
         TrieNode node = root;
         for (int i = 0; i < s.length(); i++) {
             if (node.hashMap.containsKey(s.charAt(i))) {
-                node = hashMap.get(s.charAt(i));
+                node = node.hashMap.get(s.charAt(i));
             } else {
                 TrieNode new_node = new TrieNode(s.charAt(i));
                 node.hashMap.put(s.charAt(i), new_node);
