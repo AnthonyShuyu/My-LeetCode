@@ -81,16 +81,20 @@ public class WordDictionary {
     // Returns if the word is in the data structure. A word could
     // contain the dot character '.' to represent any one letter.
     public boolean search(String word) {
-        TrieNode node = t.root;
         // corner case
         if (word == null || word.length() == 0) {
             return false;
         }
+        
+        if (t.search(word)) {
+            return true;
+        }
+        TrieNode node = t.root;
         return searchWord(word, 0, node);
     }
     
-    public boolean searchWord(String word, int index, TrieNode node) {
-        if (index == word.length()) {
+    public boolean searchWord(String word, int index, TrieNode t) {
+        if (index >= word.length() && t.hasWord) {
             return true;
         }
         char c = word.charAt(index);
@@ -99,15 +103,18 @@ public class WordDictionary {
             if (!node.hashMap.containsKey(c)) {
                 return false;
             } else {
+                if (index == word.length() - 1) {
+                    return true;
+                }
                 node = node.hashMap.get(c);
                 return searchWord(word, index + 1, node);                
             }
         } else {
-            if (index == word.length() - 1) {
+            if (node.hashMap.size() > 0 && index == word.length() - 1) {
                 return true;
             }
             boolean result = false;
-            for (Trie value: node.hashMap.values()) {
+            for (TrieNode value: node.hashMap.values()) {
                 result = result || searchWord(word, index + 1, value);
             }
             return result;
