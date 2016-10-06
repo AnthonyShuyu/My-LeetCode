@@ -94,11 +94,11 @@ public class WordDictionary {
     }
     
     public boolean searchWord(String word, int index, TrieNode t) {
-        if (index >= word.length() && t.hasWord) {
+        TrieNode node = t;
+        if (index >= word.length() && node.hasWord) {
             return true;
         }
         char c = word.charAt(index);
-        
         if (c != '.') {
             if (!node.hashMap.containsKey(c)) {
                 return false;
@@ -110,9 +110,6 @@ public class WordDictionary {
                 return searchWord(word, index + 1, node);                
             }
         } else {
-            if (node.hashMap.size() > 0 && index == word.length() - 1) {
-                return true;
-            }
             boolean result = false;
             for (TrieNode value: node.hashMap.values()) {
                 result = result || searchWord(word, index + 1, value);
