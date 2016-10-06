@@ -96,11 +96,17 @@ public class WordDictionary {
     public boolean searchWord(String word, int index, TrieNode t) {
         TrieNode node = t;
         if (index >= word.length()) {
-            if (node.hashMap.size() == 0) {
+            // if (node.hashMap.size() == 0) {
+            //     return true;
+            // } else {
+            //     return false;
+            // }
+            if (node.hasWord) {
                 return true;
             } else {
                 return false;
             }
+            
         }
         char c = word.charAt(index);
         if (c != '.') {
