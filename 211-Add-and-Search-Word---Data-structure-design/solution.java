@@ -1,14 +1,12 @@
 /**
  * 
  * 211. Add and Search Word - Data structure design
- * 
+ * 1 solution
  * 
  */
  
- 
 // s1: use Trie, recursion
 // O(n), O(n)
-
 
 class TrieNode {
     char c;
