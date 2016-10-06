@@ -99,12 +99,13 @@ public class WordDictionary {
             // } else {
             //     return false;
             // }
-            if (node.hasWord) {
-                return true;
-            } else {
-                return false;
-            }
             
+            // if (node.hasWord) {
+            //     return true;
+            // } else {
+            //     return false;
+            // }
+            return false;
         }
         char c = word.charAt(index);
         if (c != '.') {
