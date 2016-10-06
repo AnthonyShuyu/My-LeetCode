@@ -95,23 +95,29 @@ public class WordDictionary {
     
     public boolean searchWord(String word, int index, TrieNode t) {
         TrieNode node = t;
-        if (index >= word.length() && node.hasWord) {
-            return true;
+        if (index >= word.length()) {
+            if (node.hashMap.size() == 0) {
+                return true;
+            } else {
+                return false;
+            }
         }
         char c = word.charAt(index);
         if (c != '.') {
             if (!node.hashMap.containsKey(c)) {
                 return false;
             } else {
-                if (index == word.length() - 1) {
+                if (index == word.length() - 1 && node.hashMap.get(c).hasWord) {
                     return true;
                 }
-                node = node.hashMap.get(c);
-                return searchWord(word, index + 1, node);                
+                return searchWord(word, index + 1, node.hashMap.get(c));                
             }
         } else {
             boolean result = false;
             for (TrieNode value: node.hashMap.values()) {
+                if (index == word.length() - 1 && value.hasWord) {
+                    return true;
+                }
                 result = result || searchWord(word, index + 1, value);
             }
             return result;
