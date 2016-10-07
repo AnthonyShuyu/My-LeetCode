@@ -9,10 +9,11 @@
  */
 
 // assume a person can attend both if one's end = another's start 
+
 // s1: sort the intervals and traverse
 // O(nlogn), O(1)
  
- 
+/*
 public class Solution {
     public boolean canAttendMeetings(Interval[] intervals) {
         // corner case
@@ -35,3 +36,33 @@ public class Solution {
         return true;
     }
 }
+*/
+
+
+// s2: use minHeap
+// O(nlogn), O(n)
+
+public class Solution {
+    public boolean canAttendMeetings(Interval[] intervals) {
+        // corner case
+        if (intervals == null || intervals.length == 0) {
+            return true;
+        }
+        
+        Arrays.sort(intervals, new Comparator<Interval>() {
+                @Override
+                public int compare(Interval i1, Interval i2) {
+                    return i1.start - i2.start;
+                }
+            });
+        Queue<Integer> queue = new PriorityQueue<Integer>();
+        for (int i = 0; i < intervals.length; i++) {
+            Interval interval = intervals[i];
+            if (interval.start < queue.peek()) {
+                return false;
+            }
+            queue.offer(interval.end);
+        }
+        return true;       
+    }
+}    
