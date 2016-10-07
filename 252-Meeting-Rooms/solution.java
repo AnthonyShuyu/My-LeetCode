@@ -58,10 +58,13 @@ public class Solution {
         Queue<Integer> queue = new PriorityQueue<Integer>();
         for (int i = 0; i < intervals.length; i++) {
             Interval interval = intervals[i];
-            if (interval.start < queue.peek()) {
-                return false;
+            if (!queue.isEmpty() && interval.start >= queue.peek()) {
+                queue.poll();
             }
             queue.offer(interval.end);
+            if (queue.size() > 1) {
+                return false;
+            }
         }
         return true;       
     }
