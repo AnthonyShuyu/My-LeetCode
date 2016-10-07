@@ -100,7 +100,7 @@ public class Solution {
                 int smaller = height[right];
                 while (left < right && height[right] <= smaller) {
                     result += smaller - height[right];
-                    right++;
+                    right--;
                 }
             }
         }
