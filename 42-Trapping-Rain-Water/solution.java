@@ -39,6 +39,7 @@ public class Solution {
 // O(n), O(1)
 // tricky
 
+/*
 public class Solution {
     public int trap(int[] height) {
         // corner case
@@ -65,5 +66,44 @@ public class Solution {
             }
         }
         return area;
+    }
+}
+*/
+
+
+// s2 again, two pointers
+// O(n), O(1)
+
+public class Solution {
+    public int trap(int[] height) {
+        // corner case
+        if (height == null || height.length <= 2) {
+            return 0;
+        }
+        
+        
+        int left = 0;
+        int right = height.length - 1;
+        
+        // int heightLeft = height[left];
+        // int heightRight = height[right];
+        
+        int result = 0;
+        while (left < right) {
+            if (height[left] <= height[right]) {
+                int smaller = height[left];
+                while (left < right && height[left] <= smaller) {
+                    result += smaller - height[left];
+                    left++;
+                }
+            } else {
+                int smaller = height[right];
+                while (left < right && height[right] <= smaller) {
+                    result += smaller - height[right];
+                    right++;
+                }
+            }
+        }
+        return result;
     }
 }
