@@ -65,16 +65,15 @@ public class Solution {
                 int nx = p.x + dx[i];
                 int ny = p.y + dy[i];
                 if (isValid(nx, ny, map)) {
-                    if (height[nx][ny] < h) {
-                        result += h - height[nx][ny];
+                    if (heightMap[nx][ny] < h) {
+                        result += h - heightMap[nx][ny];
                         Point new_p = new Point(nx, ny, h);
                         queue.offer(new_p);
                     } else {
-                        Point new_p = new Point(nx, ny, height[nx][ny]);
+                        Point new_p = new Point(nx, ny, heightMap[nx][ny]);
                         queue.offer(new_p);
                     }
                     map[nx][ny] = 1;
-                    break;
                 }
             }
         }
