@@ -14,7 +14,9 @@
 
 // s1: use HashMap
 // O(k), O(k), k is the all counts of minutes
+// time limit exceeded
 
+/*
 public class Solution {
     public int minMeetingRooms(Interval[] intervals) {
         // corner case
@@ -36,5 +38,31 @@ public class Solution {
             }
         }
         return result;
+    }
+}
+*/
+
+
+// s2: use minHeap
+// O(nlogn), O(n)
+
+public class Solution {
+    public int minMeetingRooms(Interval[] intervals) {
+        // corner case
+        if (intervals == null || intervals.length == 0) {
+            return 0;
+        }
+        
+        Queue<Integer> queue = new PriorityQueue<Integer>();
+        int count = 0;
+        for (int i = 0; i < intervals.length; i++) {
+            Interval interval = intervals[i];
+            while (!queue.isEmpty() && interval.start >= queue.peek()) {
+                queue.poll;
+            }
+            queue.offer(interval.end);
+            count = Math.max(count, queue.size);
+        }
+        return count;
     }
 }
