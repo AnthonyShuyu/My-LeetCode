@@ -129,10 +129,10 @@ public class Solution {
         for (int i = 0; i < points.length; i++) {
             if (points[i].isStart) {
                 count++;
-                result = Math.max(result, count);
             } else {
                 count--;
             }
+            result = Math.max(result, count);
         }
         return result;
     }    
