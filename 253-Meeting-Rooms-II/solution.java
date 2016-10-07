@@ -47,6 +47,7 @@ public class Solution {
 // O(nlogn), O(n)
 // don't forget to sort first
 
+/*
 public class Solution {
     public int minMeetingRooms(Interval[] intervals) {
         // corner case
@@ -61,8 +62,6 @@ public class Solution {
                 }
             });
         
-        
-        
         Queue<Integer> queue = new PriorityQueue<Integer>();
         int count = 0;
         for (int i = 0; i < intervals.length; i++) {
@@ -75,4 +74,66 @@ public class Solution {
         }
         return count;
     }
+}
+*/
+
+
+// s3: use sweep line
+// O(nlogn), O(n)
+// don't forget to sort the points
+
+public class Solution {
+    class Point {
+        int time;
+        boolean isStart;
+        public Point(int time, boolean isStart) {
+            this.time = time;
+            this.isStart = isStart;
+        }
+    }
+ 
+    public int minMeetingRooms(Interval[] intervals) {
+        // corner case
+        if (intervals == null || intervals.length == 0) {
+            return 0;
+        }
+        
+        Point[] points = new Point[intervals.length * 2];
+        
+        for (int i = 0; i < intervals.length; i++) {
+            Interval interval = intervals[i];
+            points[i * 2] = new Point(interval.start, true);
+            points[i * 2 + 1] = new Point(interval.end, false);
+        }
+        
+        Arrays.sort(points, new Comparator<Point>() {
+            @Override
+            public int compare(Point p1, Point p2) {
+                if (p1.time == p2.time) {
+                    if (p1.isStart && !p2.isStart) {
+                        return 1;
+                    } else if (!p1.isStart && p2.isStart) {
+                        return -1;
+                    } else {
+                        return 0;
+                    }
+                } else {
+                    return p1.time - p2.time;
+                }
+            }
+        });
+        
+        int result = 0;
+        int count = 0;
+        
+        for (int i = 0; i < points.length; i++) {
+            if (points[i].isStart) {
+                count++;
+                result = Math.max(result, count);
+            } else {
+                count--;
+            }
+        }
+        return result;
+    }    
 }
