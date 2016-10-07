@@ -45,6 +45,7 @@ public class Solution {
 
 // s2: use minHeap
 // O(nlogn), O(n)
+// don't forget to sort first
 
 public class Solution {
     public int minMeetingRooms(Interval[] intervals) {
@@ -52,6 +53,15 @@ public class Solution {
         if (intervals == null || intervals.length == 0) {
             return 0;
         }
+        
+        Arrays.sort(intervals, new Comparator<Interval>() {
+                @Override
+                public int compare(Interval i1, Interval i2) {
+                    return i1.start - i2.start;
+                }
+            });
+        
+        
         
         Queue<Integer> queue = new PriorityQueue<Integer>();
         int count = 0;
@@ -61,7 +71,7 @@ public class Solution {
                 queue.poll();
             }
             queue.offer(interval.end);
-            count = Math.max(count, queue.size);
+            count = Math.max(count, queue.size());
         }
         return count;
     }
