@@ -58,7 +58,7 @@ public class Solution {
         for (int i = 0; i < intervals.length; i++) {
             Interval interval = intervals[i];
             while (!queue.isEmpty() && interval.start >= queue.peek()) {
-                queue.poll;
+                queue.poll();
             }
             queue.offer(interval.end);
             count = Math.max(count, queue.size);
