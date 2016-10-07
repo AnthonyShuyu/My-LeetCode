@@ -169,6 +169,7 @@ public class Solution {
 // O(n), O(1)
 // tricky, use O(n) time to get O(n) to O(n/2)    T(n) = T(n / 2) + O(n), left means at least left elements <= pivot
 
+/*
 public class Solution {
     public int findKthLargest(int[] nums, int k) {
         // corner case
@@ -215,5 +216,56 @@ public class Solution {
         nums[start] = nums[end];
         nums[end] = temp;
     }
-    
 }
+*/
+
+
+// *s3: use quick sort method, final version
+// O(n), O(1)
+// tricky, use O(n) time to get O(n) to O(n/2)    T(n) = T(n / 2) + O(n), left means at least left elements <= pivot
+
+public class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        k = nums.length - k;
+        
+        int start = 0;
+        int end = nums.length - 1;
+        return quickSelect(nums, k, start, end);
+    }
+    
+    public int quickSelect(int[] nums, int k, int start, int end) {
+        int pivot = nums[start + (end - start) / 2];
+        int left = start;
+        int right = end;
+        
+        while (left <= right) {
+            while (left <= right && nums[left] < pivot) {
+                left++;
+            }
+            while (left <= right && nums[right] > pivot) {
+                right--;
+            }
+            if (left <= right) {
+                swap(nums, left, right);
+                left++;
+                right--;
+            }
+        }
+        if (left < end && k >= left) {
+            quickSelect(nums, k, left, end);
+        }
+        if (start < right && k <= right) {
+            quickSelect(nums, k, start, right);
+        }
+        return nums[k];
+    }
+    
+    public void swap(int[] nums, int left, int right) {
+        int temp = nums[left];
+        nums[left] = nums[right];
+        nums[right] = temp;
+    }
+}    
