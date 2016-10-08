@@ -6,8 +6,8 @@
 
 
 // s1: use Heap
-// O(nlogn), O(n)
-
+// O(n^2logn), O(n)
+// time limit exceeded
 
 public class MedianFinder {
 
