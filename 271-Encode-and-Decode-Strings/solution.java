@@ -22,7 +22,7 @@ public class Codec {
             int length = s.length();
             sb.append(length + "|" + s);
         }
-        return sb;
+        return sb.toString();
     }
 
     // Decodes a single string to a list of strings.
