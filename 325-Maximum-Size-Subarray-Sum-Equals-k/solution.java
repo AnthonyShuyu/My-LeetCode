@@ -1,6 +1,7 @@
 /**
  * 
  * 325. Maximum Size Subarray Sum Equals k
+ * 3 methods
  * 
  */
 
