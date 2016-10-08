@@ -38,7 +38,7 @@ public class Codec {
                 i++;
             }
             String string = s.substring(i + 1, i + 1 + length);
-            list.add(sting);
+            list.add(string);
             i = i + length + 1;
         }
         return list;
