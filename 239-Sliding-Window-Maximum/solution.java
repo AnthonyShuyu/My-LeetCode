@@ -107,28 +107,33 @@ public class Solution {
         for (int i = 0; i < k; i++) {
             int num = nums[i];
             while (!queue.isEmpty()) {
-                if (num >= queue.peekLast()) {
+                if (num >= nums[queue.peekLast()]) {
                     queue.removeLast();
                 } else {
                     break;
                 }
             }
-            queue.addLast(num);
+            queue.addLast(i);
         }
         
-        result[0] = queue.peekFirst();
-        for (int i = 1; i < nums.length - k + 1; i++) {
-            int num = nums[i + k - 1];
-            if (queue.size() >= k) {
+        result[0] = nums[queue.peekFirst()];
+        for (int i = k; i < nums.length; i++) {
+            int num = nums[i];
+            // if (queue.size() >= k) {
+            //     queue.removeFirst();
+            // }
+            if (i - k == queue.peekFirst()) {
                 queue.removeFirst();
             }
             while (!queue.isEmpty()) {
-                if (num >= queue.peekLast()) {
+                if (num >= nums[queue.peekLast()]) {
                     queue.removeLast();
+                } else {
+                    break;
                 }
             }
-            queue.addLast(num);
-            result[i] = queue.peekFirst();
+            queue.addLast(i);
+            result[i] = nums[queue.peekFirst()];
         }
         return result;
     }
