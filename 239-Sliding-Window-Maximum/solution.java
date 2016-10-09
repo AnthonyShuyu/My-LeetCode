@@ -114,7 +114,7 @@ public class Solution {
             //         break;
             //     }
             // }
-            while (!queue.isEmpty() && num >= nums[queue.peekLast()]) {
+            while (!queue.isEmpty() && num > nums[queue.peekLast()]) {
                 queue.removeLast();
             }
             queue.addLast(i);
@@ -132,7 +132,7 @@ public class Solution {
             }
             
             while (!queue.isEmpty()) {
-                if (num >= nums[queue.peekLast()]) {
+                if (num > nums[queue.peekLast()]) {
                     queue.removeLast();
                 } else {
                     break;
