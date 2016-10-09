@@ -8,7 +8,7 @@
 
 
 // s1: brute force
-// O(n * k * k), O(n * k)
+// O(n * k), O(n * k)
 
 public class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
@@ -21,23 +21,30 @@ public class Solution {
         int[] array = new int[k];
         
         for (int i = 0; i < nums.length - k + 1; i++) {
-            for (int j = 0; j < k; j++) {
-                array[j] = nums[i + j];
-            }
-            result[i] = getMax(array);            
+            // for (int j = 0; j < k; j++) {
+            //     array[j] = nums[i + j];
+            // }
+            result[i] = getMax(nums, i, i + k - 1);            
         }
         return result;
     }
     
-    public int getMax(int[] array) {
-        int result = array[0];
-        for (int i = 0; i < array.length; i++) {
-            result = Math.max(result, array[i]);
+    // public int getMax(int[] array) {
+    //     int result = array[0];
+    //     for (int i = 0; i < array.length; i++) {
+    //         result = Math.max(result, array[i]);
+    //     }
+    //     return result;
+    // }
+    
+    public int getMax(int[] nums, int start, int end) {
+        int result = nums[start];
+        for (int i = start; i <= end; i++) {
+            result = Math.max(result, nums[i]);
         }
         return result;
     }
 }
-
 
 // s2: use maxHeap, and remove() operation
 // O(n * k), O(n)
@@ -72,3 +79,8 @@ public class Solution {
     }
 }
 */
+
+
+// s3: TreeMap ? 
+// O(nlogk), O(k)
+// to be continued
