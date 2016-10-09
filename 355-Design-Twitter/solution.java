@@ -70,10 +70,12 @@ public class Twitter {
                 Tweet t = tweets.get(i);
                 if (!queue.isEmpty() && queue.size() == 10) {
                     if (t.time > queue.peek().time) {
-                        queue.poll();                        
+                        queue.poll(); 
+                        queue.offer(t);   
                     }
+                } else {
+                    queue.offer(t);
                 }
-                queue.offer(t);                
             }
         }
         while (!queue.isEmpty()) {
@@ -92,6 +94,9 @@ public class Twitter {
     
     /** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */
     public void unfollow(int followerId, int followeeId) {
+        if (!userMap.containsKey(followerId) || followerId == followeeId) {
+            return;
+        }
         if (userMap.get(followerId).contains(followeeId)) {
             userMap.get(followerId).remove(followeeId);
         }
