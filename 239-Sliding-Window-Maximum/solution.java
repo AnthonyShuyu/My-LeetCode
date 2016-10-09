@@ -89,7 +89,7 @@ public class Solution {
 
 
 
-// ***s4: Deque
+// *s4: Deque
 // O(n), O(k)
 // tricky,  maintain a decreasing (stack) and at the same time can peek() or poll() from the beginning(queue), so use Deque
 // monotonic decreasing deque
