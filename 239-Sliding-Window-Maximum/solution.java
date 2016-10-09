@@ -109,7 +109,9 @@ public class Solution {
             while (!queue.isEmpty()) {
                 if (num >= queue.peekLast()) {
                     queue.removeLast();
-                }                
+                } else {
+                    break;
+                }
             }
             queue.addLast(num);
         }
