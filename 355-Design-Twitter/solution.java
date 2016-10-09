@@ -90,7 +90,7 @@ public class Twitter {
     /** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */
     public void unfollow(int followerId, int followeeId) {
         if (userMap.get(followerId).contains(followeeId)) {
-            userMap.get(followerId).remove(foloweeId);
+            userMap.get(followerId).remove(followeeId);
         }
     }
 }
