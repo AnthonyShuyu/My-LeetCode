@@ -10,7 +10,6 @@
 // s1: brute force
 // O(n * k * k), O(n * k)
 
-/*
 public class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         // corner case
@@ -38,12 +37,12 @@ public class Solution {
         return result;
     }
 }
-*/
 
 
 // s2: use maxHeap, and remove() operation
 // O(n * k), O(n)
 
+/*
 public class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         // corner case
@@ -72,3 +71,4 @@ public class Solution {
         return result;
     }
 }
+*/
