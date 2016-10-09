@@ -61,8 +61,8 @@ public class Twitter {
                 }
             });
         
-        for (int userId : userSets) {
-            List<Tweet> tweets = tweetMap.get(userId);
+        for (int num : userSets) {
+            List<Tweet> tweets = tweetMap.get(num);
             for (int i = 0; i < tweets.size(); i++) {
                 Tweet t = tweets.get(i);
                 if (!queue.isEmpty() && queue.size() == 10) {
