@@ -95,6 +95,7 @@ public class Solution {
 // monotonic decreasing deque
 // Deque to store the index, and compare the new index and the deque first index
 
+/*
 public class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         // corner case
@@ -126,9 +127,11 @@ public class Solution {
             // if (queue.size() >= k) {
             //     queue.removeFirst();
             // }
-            if (i - k == queue.peekFirst()) {
-                queue.removeFirst();
-            }
+            
+            // if (i - k == queue.peekFirst()) {
+            //     queue.removeFirst();
+            // }
+            
             while (!queue.isEmpty()) {
                 if (num >= nums[queue.peekLast()]) {
                     queue.removeLast();
@@ -140,5 +143,88 @@ public class Solution {
             result[i - k + 1] = nums[queue.peekFirst()];
         }
         return result;
+    }
+}
+*/
+
+
+// *s4 again: Deque
+// O(n), O(k)
+// tricky,  maintain a decreasing (stack) and at the same time can peek() or poll() from the beginning(queue), so use Deque
+// monotonic decreasing deque
+// Deque to store the index, and compare the new index and the deque first index
+
+
+// public class Solution {
+//     public int[] maxSlidingWindow(int[] nums, int k) {
+//         // corner case
+//         if (nums == null || nums.length == 0) {
+//             return new int[0];
+//         }
+        
+//         int[] result = new int[nums.length - k + 1];
+//         Deque<Integer> deque = new LinkedList<Integer>();
+ 
+//         for (int i = 0; i < k; i++) {
+//             inQueue(deque, nums[i]);
+//         }
+//         result[0] = deque.peekFirst();        
+        
+//         for (int i = k; i < nums.length; i++) {
+//             if (nums[i - k] == deque.peekFirst()) {
+//                 deque.removeFirst();
+//             }
+//             inQueue(deque, nums[i]);
+//             result[i - k + 1] = deque.peekFirst();
+//         }
+//         return result;
+//     }    
+    
+//     public void inQueue(Deque<Integer> deque, int num) {
+//         while (!deque.isEmpty() && num >= deque.peekLast()) {
+//             deque.removeLast();
+//         } 
+//         deque.addLast(num);                
+//     }
+// }
+
+
+public class Solution {
+    
+    /**
+     * @param nums: A list of integers.
+     * @return: The maximum number inside the window at each moving.
+     */
+    void inQueue(Deque<Integer> deque, int num) {
+        while (!deque.isEmpty() && deque.peekLast() < num) {
+            deque.pollLast();
+        }
+        deque.offer(num);
+    }
+    
+    void outQueue(Deque<Integer> deque, int num) {
+        if (deque.peekFirst() == num) {
+            deque.pollFirst();
+        }
+    }
+    
+    public ArrayList<Integer> maxSlidingWindow(int[] nums, int k) {
+        // write your code here
+    	ArrayList<Integer> ans = new ArrayList<Integer>();
+        Deque<Integer> deque = new ArrayDeque<Integer>();
+        if (nums.length == 0) {
+            return ans;
+        }
+        for (int i = 0; i < k - 1; i++) {
+            inQueue(deque, nums[i]);
+        }
+        
+        for(int i = k - 1; i < nums.length; i++) {
+            inQueue(deque, nums[i]);
+            ans.add(deque.peekFirst());
+            outQueue(deque, nums[i - k + 1]);
+        }
+        return ans;
+
     }
 }
