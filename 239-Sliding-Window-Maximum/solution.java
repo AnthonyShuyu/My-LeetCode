@@ -155,46 +155,43 @@ public class Solution {
 // Deque to store the index, and compare the new index and the deque first index
 
 
-// public class Solution {
-//     public int[] maxSlidingWindow(int[] nums, int k) {
-//         // corner case
-//         if (nums == null || nums.length == 0) {
-//             return new int[0];
-//         }
+public class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        // corner case
+        if (nums == null || nums.length == 0) {
+            return new int[0];
+        }
         
-//         int[] result = new int[nums.length - k + 1];
-//         Deque<Integer> deque = new LinkedList<Integer>();
+        int[] result = new int[nums.length - k + 1];
+        Deque<Integer> deque = new LinkedList<Integer>();
  
-//         for (int i = 0; i < k; i++) {
-//             inQueue(deque, nums[i]);
-//         }
-//         result[0] = deque.peekFirst();        
+        for (int i = 0; i < k; i++) {
+            inQueue(deque, nums[i]);
+        }
+        result[0] = deque.peekFirst();        
         
-//         for (int i = k; i < nums.length; i++) {
-//             if (nums[i - k] == deque.peekFirst()) {
-//                 deque.removeFirst();
-//             }
-//             inQueue(deque, nums[i]);
-//             result[i - k + 1] = deque.peekFirst();
-//         }
-//         return result;
-//     }    
+        for (int i = k; i < nums.length; i++) {
+            if (nums[i - k] == deque.peekFirst()) {
+                deque.removeFirst();
+            }
+            inQueue(deque, nums[i]);
+            result[i - k + 1] = deque.peekFirst();
+        }
+        return result;
+    }    
     
-//     public void inQueue(Deque<Integer> deque, int num) {
-//         while (!deque.isEmpty() && num >= deque.peekLast()) {
-//             deque.removeLast();
-//         } 
-//         deque.addLast(num);                
-//     }
-// }
+    public void inQueue(Deque<Integer> deque, int num) {
+        while (!deque.isEmpty() && num > deque.peekLast()) {
+            deque.removeLast();
+        } 
+        deque.addLast(num);                
+    }
+}
 
 
+/*
 public class Solution {
     
-    /**
-     * @param nums: A list of integers.
-     * @return: The maximum number inside the window at each moving.
-     */
     void inQueue(Deque<Integer> deque, int num) {
         while (!deque.isEmpty() && deque.peekLast() < num) {
             deque.pollLast();
@@ -203,7 +200,13 @@ public class Solution {
     }
     
     void outQueue(Deque<Integer> deque, int num) {
+        int i = 1;
+        System.out.println(i + "     " + deque.peekFirst());
+        System.out.println(i + "     " + num + "");
+        System.out.println(deque.peekFirst() == num);
+        
         if (deque.peekFirst() == num) {
+            System.out.println(deque);
             deque.pollFirst();
         }
     }
@@ -215,7 +218,7 @@ public class Solution {
         Deque<Integer> deque = new ArrayDeque<Integer>();
         if (nums.length == 0) {
             // return ans;
-            result;
+            return result;
         }
         for (int i = 0; i < k - 1; i++) {
             inQueue(deque, nums[i]);
@@ -226,7 +229,8 @@ public class Solution {
             result[i - k + 1] = deque.peekFirst();
             outQueue(deque, nums[i - k + 1]);
         }
-        return ans;
+        return result;
 
     }
 }
+*/
