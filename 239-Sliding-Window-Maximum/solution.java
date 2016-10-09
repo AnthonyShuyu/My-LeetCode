@@ -117,13 +117,13 @@ public class Solution {
             queue.addLast(i);
         }
         
-        // result[0] = nums[queue.peekFirst()];
-        for (int i = k - 1; i < nums.length; i++) {
+        result[0] = nums[queue.peekFirst()];
+        for (int i = k; i < nums.length; i++) {
             int num = nums[i];
             // if (queue.size() >= k) {
             //     queue.removeFirst();
             // }
-            if (!queue.isEmpty() && i - k == queue.peekFirst()) {
+            if (i - k == queue.peekFirst()) {
                 queue.removeFirst();
             }
             while (!queue.isEmpty()) {
