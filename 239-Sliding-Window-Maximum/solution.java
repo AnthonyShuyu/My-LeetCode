@@ -95,7 +95,6 @@ public class Solution {
 // monotonic decreasing deque
 // Deque to store the index, and compare the new index and the deque first index
 
-/*
 public class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         // corner case
@@ -128,9 +127,9 @@ public class Solution {
             //     queue.removeFirst();
             // }
             
-            // if (i - k == queue.peekFirst()) {
-            //     queue.removeFirst();
-            // }
+            if (i - k == queue.peekFirst()) {
+                queue.removeFirst();
+            }
             
             while (!queue.isEmpty()) {
                 if (num >= nums[queue.peekLast()]) {
@@ -145,7 +144,6 @@ public class Solution {
         return result;
     }
 }
-*/
 
 
 // *s4 again: Deque
@@ -154,7 +152,7 @@ public class Solution {
 // monotonic decreasing deque
 // Deque to store the index, and compare the new index and the deque first index
 
-
+/*
 public class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         // corner case
@@ -187,7 +185,7 @@ public class Solution {
         deque.addLast(num);                
     }
 }
-
+*/
 
 /*
 public class Solution {
