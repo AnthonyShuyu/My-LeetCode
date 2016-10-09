@@ -62,6 +62,9 @@ public class Twitter {
             });
         
         for (int num : userSets) {
+            if (!tweetMap.containsKey(num)) {
+                continue;
+            }
             List<Tweet> tweets = tweetMap.get(num);
             for (int i = 0; i < tweets.size(); i++) {
                 Tweet t = tweets.get(i);
