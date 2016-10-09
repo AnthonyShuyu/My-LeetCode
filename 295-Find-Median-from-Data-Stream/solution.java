@@ -42,7 +42,7 @@ public class MedianFinder {
 public class MedianFinder {
     
     Queue<Integer> minQueue = new PriorityQueue<Integer>();
-    Queue<Integer> maxQueue = new PriotityQueue<Integer>(new Comparator<Integer>() {
+    Queue<Integer> maxQueue = new PriorityQueue<Integer>(new Comparator<Integer>() {
             @Override
             public int compare(Integer i1, Integer i2) {
                 return i2 - i1;
@@ -86,7 +86,7 @@ public class MedianFinder {
         } else if (maxQueue.size() < minQueue.size()) {
             return minQueue.peek();
         } else {
-            return (double)((maxQueue.peek() + minQueue.peek()) / 2);
+            return (double)(maxQueue.peek() + minQueue.peek()) / 2;
         }
         
     }
