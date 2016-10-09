@@ -105,7 +105,7 @@ public class Solution {
         int[] result = new int[nums.length - k + 1];
         Deque<Integer> queue = new LinkedList<Integer>();
         
-        for (int i = 0; i < k - 1; i++) {
+        for (int i = 0; i < k;  i++) {
             int num = nums[i];
             while (!queue.isEmpty()) {
                 if (num >= nums[queue.peekLast()]) {
