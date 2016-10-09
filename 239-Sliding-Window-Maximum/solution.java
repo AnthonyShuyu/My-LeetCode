@@ -10,6 +10,7 @@
 // s1: brute force
 // O(n * k), O(n * k)
 
+/*
 public class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         // corner case
@@ -45,6 +46,7 @@ public class Solution {
         return result;
     }
 }
+*/
 
 // s2: use maxHeap, and remove() operation
 // O(n * k), O(n)
@@ -84,3 +86,48 @@ public class Solution {
 // s3: TreeMap ? 
 // O(nlogk), O(k)
 // to be continued
+
+
+
+// s4: Deque
+// O(n), O(k)
+// tricky,  maintain a decreasing (stack) and at the same time can peek() or poll() from the beginning(queue), so use Deque
+// monotonic decreasing deque
+
+public class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        // corner case
+        if (nums == null || nums.length == 0) {
+            return new int[0];
+        }
+        
+        int[] result = new int[nums.length - k + 1];
+        Deque<Integer> queue = new LinkedList<Integer>();
+        
+        for (int i = 0; i < k; i++) {
+            int num = nums[i];
+            while (!queue.isEmpty()) {
+                if (num >= queue.peekLast()) {
+                    queue.removeLast();
+                }                
+            }
+            queue.addLast(num);
+        }
+        
+        result[0] = queue.peekFirst();
+        for (int i = 1; i < nums.length - k + 1; i++) {
+            int num = nums[i + k - 1];
+            if (queue.size() >= k) {
+                queue.removeFirst();
+            }
+            while (!queue.isEmpty()) {
+                if (num >= queue.peekLast()) {
+                    queue.removeLast();
+                }
+            }
+            queue.addLast(num);
+            result[i] = queue.peekFirst();
+        }
+        return result;
+    }
+}
