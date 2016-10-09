@@ -208,12 +208,14 @@ public class Solution {
         }
     }
     
-    public ArrayList<Integer> maxSlidingWindow(int[] nums, int k) {
+    public int[] maxSlidingWindow(int[] nums, int k) {
         // write your code here
-    	ArrayList<Integer> ans = new ArrayList<Integer>();
+    // 	ArrayList<Integer> ans = new ArrayList<Integer>();
+        int[] result = new int[nums.length - k + 1];
         Deque<Integer> deque = new ArrayDeque<Integer>();
         if (nums.length == 0) {
-            return ans;
+            // return ans;
+            result;
         }
         for (int i = 0; i < k - 1; i++) {
             inQueue(deque, nums[i]);
@@ -221,7 +223,7 @@ public class Solution {
         
         for(int i = k - 1; i < nums.length; i++) {
             inQueue(deque, nums[i]);
-            ans.add(deque.peekFirst());
+            result[i - k + 1] = deque.peekFirst();
             outQueue(deque, nums[i - k + 1]);
         }
         return ans;
