@@ -26,7 +26,7 @@ public class Twitter {
     int time = 0;
     
     public Twitter() {
-        userMap = new HashMap<Integer, HashSet<Integer>>();
+        userMap = new HashMap<Integer, Set<Integer>>();
         tweetMap = new HashMap<Integer, List<Tweet>>();
     }
     
