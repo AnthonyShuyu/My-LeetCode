@@ -1,6 +1,8 @@
 /**
  * 
  * 295. Find Median from Data Stream
+ * 1 solution
+ * 
  * 
  */
 
