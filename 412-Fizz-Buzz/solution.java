@@ -20,7 +20,7 @@ public class Solution {
             } else if (i % 5 == 0) {
                 result.add("Buzz");
             } else {
-                result.add(i);
+                result.add(String.valueOf(i));
             }
         }
         return result;
