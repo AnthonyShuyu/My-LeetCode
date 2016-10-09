@@ -2,6 +2,7 @@
  * 
  * 
  * 355. Design Twitter
+ * 1 solution
  * 
  * 
  */
