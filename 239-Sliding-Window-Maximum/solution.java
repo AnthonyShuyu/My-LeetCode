@@ -107,12 +107,15 @@ public class Solution {
         
         for (int i = 0; i < k;  i++) {
             int num = nums[i];
-            while (!queue.isEmpty()) {
-                if (num >= nums[queue.peekLast()]) {
-                    queue.removeLast();
-                } else {
-                    break;
-                }
+            // while (!queue.isEmpty()) {
+            //     if (num >= nums[queue.peekLast()]) {
+            //         queue.removeLast();
+            //     } else {
+            //         break;
+            //     }
+            // }
+            while (!queue.isEmpty() && num >= nums[queue.peekLast()]) {
+                queue.removeLast();
             }
             queue.addLast(i);
         }
