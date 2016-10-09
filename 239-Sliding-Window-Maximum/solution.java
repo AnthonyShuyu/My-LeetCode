@@ -133,7 +133,7 @@ public class Solution {
                 }
             }
             queue.addLast(i);
-            result[i] = nums[queue.peekFirst()];
+            result[i - k + 1] = nums[queue.peekFirst()];
         }
         return result;
     }
