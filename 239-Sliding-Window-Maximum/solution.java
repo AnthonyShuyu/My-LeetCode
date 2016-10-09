@@ -123,7 +123,7 @@ public class Solution {
             // if (queue.size() >= k) {
             //     queue.removeFirst();
             // }
-            if (i - k == queue.peekFirst()) {
+            if (!queue.isEmpty() && i - k == queue.peekFirst()) {
                 queue.removeFirst();
             }
             while (!queue.isEmpty()) {
