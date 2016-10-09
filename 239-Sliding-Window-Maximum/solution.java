@@ -94,6 +94,7 @@ public class Solution {
 // tricky,  maintain a decreasing (stack) and at the same time can peek() or poll() from the beginning(queue), so use Deque
 // monotonic decreasing deque
 // Deque to store the index, and compare the new index and the deque first index
+// be cautions about the index >= or > here
 
 public class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
@@ -114,7 +115,7 @@ public class Solution {
             //         break;
             //     }
             // }
-            while (!queue.isEmpty() && num > nums[queue.peekLast()]) {
+            while (!queue.isEmpty() && num >= nums[queue.peekLast()]) {
                 queue.removeLast();
             }
             queue.addLast(i);
@@ -132,7 +133,7 @@ public class Solution {
             }
             
             while (!queue.isEmpty()) {
-                if (num > nums[queue.peekLast()]) {
+                if (num >= nums[queue.peekLast()]) {
                     queue.removeLast();
                 } else {
                     break;
