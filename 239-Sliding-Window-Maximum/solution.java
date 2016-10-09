@@ -89,10 +89,11 @@ public class Solution {
 
 
 
-// s4: Deque
+// *s4: Deque
 // O(n), O(k)
 // tricky,  maintain a decreasing (stack) and at the same time can peek() or poll() from the beginning(queue), so use Deque
 // monotonic decreasing deque
+// Deque to store the index, and compare the new index and the deque first index
 
 public class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
