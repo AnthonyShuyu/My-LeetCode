@@ -27,7 +27,7 @@ public class Solution {
             return 0;
         }
         
-        int min = Integer.MAX_VALUE();
+        int min = Integer.MAX_VALUE;
         int value = root.val;
         
         TreeNode node = root;
