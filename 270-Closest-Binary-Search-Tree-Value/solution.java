@@ -39,7 +39,7 @@ public class Solution {
             double value = node.val;
             
             if (value == target) {
-                return value;
+                return Integer.valueOf(value);
             } else if (value > target) {
                 // System.out.println(value);
                 // System.out.println(value - target);
