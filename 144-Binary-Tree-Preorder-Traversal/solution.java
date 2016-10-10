@@ -20,6 +20,7 @@
 // s1: divide and conquer
 // O(n), O(n)
 
+/*
 public class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<Integer>();
@@ -36,5 +37,26 @@ public class Solution {
         result.addAll(rightList);
         
         return result;
+    }
+}
+*/
+
+// s2: traverse, recursion
+// O(n), O(n)
+
+public class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<Integer>();
+        helper(result, root);
+        return result;
+    }
+    
+    public void helper(List<Integer> result, TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        result.add(root.val);
+        helper(result, root.left);
+        helper(result, root.right);
     }
 }
