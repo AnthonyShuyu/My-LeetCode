@@ -81,8 +81,12 @@ public class Solution {
         while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
             result.add(node.val);
-            stack.push(node.right);
-            stack.push(node.left);
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
         }
         return result;
     }
