@@ -18,9 +18,10 @@
  */
  
  
-// s1: use Queue
+// s1: use BFS: Queue
 // O(n), O(n)
 
+/*
 public class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         // corner case
@@ -49,4 +50,49 @@ public class Solution {
         }
         return result;
     }
+}
+
+
+*/
+
+
+// s2: use DFS, but not with Stack
+// O(n), O(n)
+
+
+public class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        // corner case
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        if (root == null) {
+            return result;
+        }
+        
+        List<Integer> list = null;
+        int max_level = 0;
+        while (true) {
+            list = new ArrayList();
+            int current_level = 0;
+            dfs(list, root, max_level, current_level);
+            if (list.size() == 0) {
+                break;
+            }
+            result.add(list);
+            max_level++;
+        }
+        return result;
+    }
+    
+    public void dfs(List<Integer> list, TreeNode root, int max_level, int current_level) {
+        if (root == null || current_level > max_level) {
+            return;
+        }
+        if (current_level == max_level) {
+            list.add(root.val);
+            return;
+        }
+        dfs(list, root.left, max_level, current_level + 1);
+        dfs(list, root.right, max_level, current_level + 1);
+    }
+    
 }
