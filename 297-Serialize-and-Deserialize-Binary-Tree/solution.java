@@ -114,7 +114,7 @@ public class Codec {
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         String[] strs = data.split(",");
         for (int i = 0; i < strs.length; i++) {
-            if (strs[i] == "null") {
+            if (strs[i].equals("null")) {
                 queue.offer(null);
             } else {
                 queue.offer(new TreeNode(Integer.valueOf(strs[i])));
