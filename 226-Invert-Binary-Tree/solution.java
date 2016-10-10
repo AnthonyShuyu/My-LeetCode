@@ -15,7 +15,7 @@
  * }
  */
  
-// s1: divide and conquer
+// s1: divide and conquer, postorder traverse
 // O(n), O(n)
 
 /*
@@ -54,14 +54,11 @@ public class Solution {
             return null;
         }
 
-        invertTree(root.left);
-        
         TreeNode temp = root.left;
         root.left = root.right;
         root.right = temp;
-        
         invertTree(root.left);
-        
+        invertTree(root.right);
 
         return root;
     }
