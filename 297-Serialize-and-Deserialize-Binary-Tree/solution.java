@@ -52,11 +52,11 @@ public class Codec {
         return sb.toString();
     }
 
-    // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
+//     // Decodes your encoded data to tree.
+//     public TreeNode deserialize(String data) {
         
-    }
-}
+//     }
+// }
 
 
 /*
@@ -79,28 +79,28 @@ class Codec {
         }
         
         //Of course we can delete this.
-        /*
-        while (queue.get(queue.size() - 1) == null) {
-            queue.remove(queue.size() - 1);
-        }
-        */
+        // /*
+        // while (queue.get(queue.size() - 1) == null) {
+        //     queue.remove(queue.size() - 1);
+        // }
+        // */
         
-        StringBuilder sb = new StringBuilder();
-        sb.append("{");
-        sb.append(queue.get(0).val);//remember to add .val
-        System.out.println(queue.size());
-        for (int i = 1; i < queue.size(); i++) {
-            if (queue.get(i) == null) {
-                sb.append(",#");
-            } else {
-                sb.append(",");
-                sb.append(queue.get(i).val);
-            }
-        }
-        sb.append("}");
-        System.out.println(sb.toString());
-        return sb.toString(); //sb is not String, we have to transform
-    }
+    //     StringBuilder sb = new StringBuilder();
+    //     sb.append("{");
+    //     sb.append(queue.get(0).val);//remember to add .val
+    //     System.out.println(queue.size());
+    //     for (int i = 1; i < queue.size(); i++) {
+    //         if (queue.get(i) == null) {
+    //             sb.append(",#");
+    //         } else {
+    //             sb.append(",");
+    //             sb.append(queue.get(i).val);
+    //         }
+    //     }
+    //     sb.append("}");
+    //     System.out.println(sb.toString());
+    //     return sb.toString(); //sb is not String, we have to transform
+    // }
 
     public TreeNode deserialize(String data) { //more tricky!
         if (data.equals("{}")) {
