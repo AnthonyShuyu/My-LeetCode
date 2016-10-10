@@ -44,6 +44,7 @@ public class Solution {
 // s2: traverse, recursion
 // O(n), O(n)
 
+/*
 public class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<Integer>();
@@ -58,5 +59,31 @@ public class Solution {
         result.add(root.val);
         helper(result, root.left);
         helper(result, root.right);
+    }
+}
+*/
+
+
+// s3: use Stack, dfs
+// O(n), O(n)
+
+public class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<Integer>();
+        // corner case
+        if (root == null) {
+            return result;
+        }
+        
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        stack.push(root);
+        
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            result.add(node.val);
+            stack.push(node.right);
+            stack.push(node.left);
+        }
+        return result;
     }
 }
