@@ -30,8 +30,7 @@ public class Codec {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
-        queue.offer(root);
-        sb.append("," + root.val);
+        sb.append(root.val);
         queue.offer(root.left);
         queue.offer(root.right);
         
@@ -49,6 +48,7 @@ public class Codec {
             }
         }
         sb.append("}");        
+        System.out.println(sb.toString());
         return sb.toString();
     }
 
