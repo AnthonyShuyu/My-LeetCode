@@ -94,6 +94,7 @@ class Codec {
             }
         }
         sb.append("}");
+        System.out.println(sb.toString());
         return sb.toString(); //sb is not String, we have to transform
     }
 
