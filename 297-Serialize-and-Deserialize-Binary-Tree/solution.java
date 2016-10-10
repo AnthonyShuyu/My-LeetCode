@@ -1,6 +1,8 @@
 /**
  * 
  * 297. Serialize and Deserialize Binary Tree
+ * 2 solutions
+ * 
  * 
  */
 
@@ -20,7 +22,7 @@
 // O(n), O(n)
 // tricky when do deserialize
 
-
+/*
 public class Codec {
 
     // Encodes a tree to a single string.
@@ -84,6 +86,69 @@ public class Codec {
         return root;
     }
 }
+*/
+
+
+// s2: use dfs, recursion, divide and conquer
+// O(n), O(n)
+
+public class Codec {
+
+    // Encodes a tree to a single string.
+    public String serialize(TreeNode root) {
+        if (root == null) {
+            return "null";
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(root.val);
+        String left = serialize(root.left);
+        String right = serialize(root.right);
+        sb.append("," + left + "," + right);
+        return sb.toString();
+    }
+    
+    public TreeNode deserialize(String data) {
+        if (data.equals("null")) {
+            return null;
+        }
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        String[] strs = data.split(",");
+        for (int i = 0; i < strs.length; i++) {
+            if (strs[i] == "null") {
+                queue.offer(null);
+            } else {
+                queue.offer(new TreeNode(Integer.valueOf(strs[i])));
+            }
+        }
+        helper(queue);        
+    }
+    
+    public TreeNode helper(Queue<TreeNode> queue) {
+        TreeNode node = queue.poll();
+        if (node == null) {
+            return null;
+        }
+        node.left = helper(queue);
+        node.right = helper(queue);
+        return node;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
