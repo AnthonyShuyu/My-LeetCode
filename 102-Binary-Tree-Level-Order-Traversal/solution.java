@@ -77,10 +77,10 @@ public class Solution {
             if (node != null) {
                 list.add(node.val);
                 if (node.left != null) {
-                    queue.offer(left);
+                    queue.offer(node.left);
                 }
                 if (node.right != null) {
-                    queue.offer(right);
+                    queue.offer(node.right);
                 }
             } else {
                 if (list.size() == 0) {
