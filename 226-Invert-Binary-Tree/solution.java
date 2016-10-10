@@ -17,6 +17,8 @@
  
 // s1: divide and conquer
 // O(n), O(n)
+
+/*
 public class Solution {
     public TreeNode invertTree(TreeNode root) {
         if (root == null) {
@@ -41,7 +43,7 @@ public class Solution {
         return root;
     }
 }
-
+*/
 
 // s2: preorder traverse
 // O(n), O(n)
@@ -57,7 +59,7 @@ public class Solution {
         root.right = temp;
         
         invertTree(root.left);
-        invertTree(root.right):
+        invertTree(root.right);
         return root;
     }
 }
