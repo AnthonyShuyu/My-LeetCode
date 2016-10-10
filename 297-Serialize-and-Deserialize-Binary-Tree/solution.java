@@ -120,7 +120,7 @@ public class Codec {
                 queue.offer(new TreeNode(Integer.valueOf(strs[i])));
             }
         }
-        helper(queue);        
+        return helper(queue);
     }
     
     public TreeNode helper(Queue<TreeNode> queue) {
