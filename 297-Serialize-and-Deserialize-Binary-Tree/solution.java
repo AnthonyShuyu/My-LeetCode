@@ -19,34 +19,36 @@
 // s1: bfs
 // O(n), O(n)
 
-/*
 public class Codec {
 
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
+        if (root == null) {
+            return "";
+        }
+        
         StringBuilder sb = new StringBuilder();
+        sb.append("{");
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         queue.offer(root);
-        sb.append(root.val);
+        sb.append("," + root.val);
+        queue.offer(root.left);
+        queue.offer(root.right);
+        
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
-                if (node.left != null) {
+                if (node != nul) {
+                    sb.append("," + node.val);
                     queue.offer(node.left);
-                    sb.append(node.left.val);
-                } else {
-                    sb.append("n");
-                }
-                
-                if (node.right != null) {
                     queue.offer(node.right);
-                    sb.append(node.right.val);
                 } else {
-                    sb.append("n");
+                    sb.append(",#");
                 }
             }
         }
+        sb.append("}");        
         return sb.toString();
     }
 
@@ -55,8 +57,9 @@ public class Codec {
         
     }
 }
-*/
 
+
+/*
 
 class Codec {
 
@@ -85,6 +88,7 @@ class Codec {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         sb.append(queue.get(0).val);//remember to add .val
+        System.out.println(queue.size());
         for (int i = 1; i < queue.size(); i++) {
             if (queue.get(i) == null) {
                 sb.append(",#");
@@ -135,6 +139,8 @@ class Codec {
         return root;
     }
 }
+
+*/
 
 // Your Codec object will be instantiated and called as such:
 // Codec codec = new Codec();
