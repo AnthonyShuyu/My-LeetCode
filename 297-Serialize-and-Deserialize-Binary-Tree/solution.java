@@ -18,6 +18,8 @@
  
 // s1: bfs
 // O(n), O(n)
+// tricky when do deserialize
+
 
 public class Codec {
 
@@ -28,7 +30,6 @@ public class Codec {
         }
         
         StringBuilder sb = new StringBuilder();
-        sb.append("{");
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         sb.append(root.val);
         queue.offer(root.left);
@@ -47,16 +48,40 @@ public class Codec {
                 }
             }
         }
-        sb.append("}");        
         System.out.println(sb.toString());
         return sb.toString();
     }
 
-//     // Decodes your encoded data to tree.
-//     public TreeNode deserialize(String data) {
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String data) {
+        if (data.equals("")) {
+            return null;
+        }
         
-//     }
-// }
+        String[] strs = data.split(",");
+        List<TreeNode> list = new ArrayList<TreeNode>();
+        TreeNode root = new TreeNode(Integer.valueOf(strs[0]))
+        list.add(root);
+        int index = 0;
+        boolean isLeft = true;
+        for (int i = 1; i < strs.length; i++) {
+            if (!strs[i].equals("#")) {
+                if (isLeft) {
+                    list.get(index).left = new TreeNode(Integer.valueOf(strs[i]));
+                } else {
+                    list.get(index).right = new TreeNode(Integer.valueOf(strs[i]));
+                }
+            }
+            
+            if (!isLeft) {
+                index++;
+            }
+            isLeft = !isLeft;            
+        }
+        
+        return root;
+    }
+}
 
 
 /*
@@ -79,29 +104,27 @@ class Codec {
         }
         
         //Of course we can delete this.
-        // /*
         // while (queue.get(queue.size() - 1) == null) {
         //     queue.remove(queue.size() - 1);
         // }
-        // */
         
-    //     StringBuilder sb = new StringBuilder();
-    //     sb.append("{");
-    //     sb.append(queue.get(0).val);//remember to add .val
-    //     System.out.println(queue.size());
-    //     for (int i = 1; i < queue.size(); i++) {
-    //         if (queue.get(i) == null) {
-    //             sb.append(",#");
-    //         } else {
-    //             sb.append(",");
-    //             sb.append(queue.get(i).val);
-    //         }
-    //     }
-    //     sb.append("}");
-    //     System.out.println(sb.toString());
-    //     return sb.toString(); //sb is not String, we have to transform
-    // }
-
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        sb.append(queue.get(0).val);//remember to add .val
+        System.out.println(queue.size());
+        for (int i = 1; i < queue.size(); i++) {
+            if (queue.get(i) == null) {
+                sb.append(",#");
+            } else {
+                sb.append(",");
+                sb.append(queue.get(i).val);
+            }
+        }
+        sb.append("}");
+        System.out.println(sb.toString());
+        return sb.toString(); //sb is not String, we have to transform
+    }
+    
     public TreeNode deserialize(String data) { //more tricky!
         // if (data.equals("{}")) {
         //     return null;
@@ -143,7 +166,7 @@ class Codec {
         return root;
     }
 }
-
+*/
 
 // Your Codec object will be instantiated and called as such:
 // Codec codec = new Codec();
