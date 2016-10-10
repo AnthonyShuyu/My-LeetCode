@@ -4,6 +4,7 @@
  * 100. Same Tree
  * Given two binary trees, write a function to check if they are equal or not.
  * 
+ * 3 solutions
  * 
  */ 
 
