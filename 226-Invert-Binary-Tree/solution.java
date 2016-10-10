@@ -48,6 +48,7 @@ public class Solution {
 // s2: preorder traverse
 // O(n), O(n)
 
+/*
 public class Solution {
     public TreeNode invertTree(TreeNode root) {
         if (root == null) {
@@ -63,4 +64,33 @@ public class Solution {
         return root;
     }
 }
+*/
 
+
+// s3: use Stack, no recursion
+// O(n), O(n)
+
+public class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        stack.push(root);
+        
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            TreeNode temp = node.left;
+            node.left = node.right;
+            node.right = temp;
+            
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+        }
+        return root;
+    }
+}
