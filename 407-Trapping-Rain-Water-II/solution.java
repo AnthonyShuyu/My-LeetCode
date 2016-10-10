@@ -1,12 +1,12 @@
 /**
  * 
  * 407. Trapping Rain Water II
- * 
+ * 1 solution
  * 
  */
 
 
-// s1: use Heap
+// s1*: use Heap
 // O(m*n*log(m*n)), O(m * n)
 // tricky
 
