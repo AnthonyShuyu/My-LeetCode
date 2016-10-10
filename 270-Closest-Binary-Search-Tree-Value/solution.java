@@ -19,6 +19,8 @@
  
 // s1: binary tree
 // O(logn), O(n)
+// to avoid Integer overflow
+
 
 public class Solution {
     public int closestValue(TreeNode root, double target) {
@@ -27,28 +29,34 @@ public class Solution {
             return 0;
         }
         
-        int min = Integer.MAX_VALUE;
-        int value = root.val;
+        double min = Double.MAX_VALUE;
+        
+        int result = root.val;
         
         TreeNode node = root;
+        
         while (node != null) {
-            if (node.val == target) {
-                return 0;
-            } else if (node.val > target) {
-                if (node.val - target < min) {
-                    value = node.val;
-                    min = node.val - target;
+            double value = node.val;
+            
+            if (value == target) {
+                return value;
+            } else if (value > target) {
+                // System.out.println(value);
+                // System.out.println(value - target);
+                if (value - target < min) {
+                    result = node.val;
+                    min = value - target;
                 }
                 node = node.left;
             } else {
                 if (target - node.val < min) {
-                    value = node.val;
-                    min = target - node.val;
+                    result = node.val;
+                    min = target - value;
                 }
                 node = node.right;
             }
         }
-        return value;
+        return result;
         
     }
 }
