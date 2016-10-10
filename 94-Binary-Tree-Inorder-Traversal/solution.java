@@ -19,6 +19,7 @@
 // s1: divide and conquer
 // O(n), O(n)
 
+/*
 public class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<Integer>();
@@ -35,5 +36,32 @@ public class Solution {
         result.add(root.val);
         result.addAll(rightList);
         return result;
+    }
+}
+*/
+
+
+// s2: use recursion to traverse
+// O(n), O(n)
+
+public class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<Integer>();
+        // corner case
+        if (root == null) {
+            return result;
+        }
+        helper(result, root);
+        return result;
+    }
+    
+    public void helper(List<Integer> result, TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        
+        helper(result, root.left);
+        result.add(root.val);
+        helper(result, root.right);
     }
 }
