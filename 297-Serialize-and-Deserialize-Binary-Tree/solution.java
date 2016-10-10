@@ -60,7 +60,7 @@ public class Codec {
         
         String[] strs = data.split(",");
         List<TreeNode> list = new ArrayList<TreeNode>();
-        TreeNode root = new TreeNode(Integer.valueOf(strs[0]))
+        TreeNode root = new TreeNode(Integer.valueOf(strs[0]));
         list.add(root);
         int index = 0;
         boolean isLeft = true;
