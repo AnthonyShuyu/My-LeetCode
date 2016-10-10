@@ -24,6 +24,12 @@ public class Solution {
         }
         
         // Divide
+        
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        
+        
         TreeNode leftNode = invertTree(root.left);
         TreeNode rightNode = invertTree(root.right);
         
@@ -32,8 +38,8 @@ public class Solution {
         // leftNode = rightNode;
         // rightNode = tempNode;
         
-        root.left = rightNode;
-        root.right = leftNode;
+        // root.left = rightNode;
+        // root.right = leftNode;
         return root;
     }
 }
