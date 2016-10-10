@@ -103,7 +103,11 @@ class Codec {
     // }
 
     public TreeNode deserialize(String data) { //more tricky!
-        if (data.equals("{}")) {
+        // if (data.equals("{}")) {
+        //     return null;
+        // }
+        
+        if (data.equals("")) {
             return null;
         }
         
