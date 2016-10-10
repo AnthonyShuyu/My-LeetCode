@@ -45,7 +45,7 @@ public class Solution {
 // s2: serialize a tree to a String, to compare the two Strings
 // O(n), O(n)
 
-
+/*
 public class Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
         // corner case      
@@ -86,5 +86,58 @@ public class Solution {
         }
         return sb.toString();
     }
+}
+
+*/
+
+
+
+// s3: use 2 queues to compare each time
+// O(n), O(n)
+
+public class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if (p == null && q == null) {
+            return true;
+        }
+        if (p == null || q == null) {
+            return false;
+        }
+        
+        Queue<TreeNode> q1 = new LinkedList<TreeNode>();
+        Queue<TreeNode> q2 = new LinkedList<TreeNode>();
+        
+        q1.offer(p);
+        q2.offer(q);
+        
+        while (!q1.isEmpty() && !q2.isEmpty()) {
+            TreeNode n1 = q1.poll();
+            TreeNode n2 = q2.poll();
+            
+            if (n1.val != n2.val) {
+                return false;
+            }
+            if (n1.left != null) {
+                q1.offer(n1.left);
+            }
+            if (n2.left != null) {
+                q2.offer(n2.left);
+            }  
+            if (q1.size() != q2.size()) {
+                return false;
+            }            
+            if (n1.right != null) {
+                q1.offer(n1.right);
+            }
+            if (n2.right != null) {
+                q2.offer(n2.right);
+            }
+            if (q1.size() != q2.size()) {
+                return false;
+            }
+        }
+        return q1.size() == q2.size();
+    }
+    
     
 }
