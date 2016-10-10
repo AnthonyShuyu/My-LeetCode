@@ -111,23 +111,37 @@ public class Codec {
         if (data.equals("null")) {
             return null;
         }
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        // Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        // String[] strs = data.split(",");
+        // for (int i = 0; i < strs.length; i++) {
+        //     if (strs[i].equals("null")) {
+        //         queue.offer(null);
+        //     } else {
+        //         queue.offer(new TreeNode(Integer.valueOf(strs[i])));
+        //     }
+        // }
+        
+        Queue<String> queue = new LinkedList<String>();
         String[] strs = data.split(",");
         for (int i = 0; i < strs.length; i++) {
-            if (strs[i].equals("null")) {
-                queue.offer(null);
-            } else {
-                queue.offer(new TreeNode(Integer.valueOf(strs[i])));
-            }
+            queue.offer(strs[i]);
         }
         return helper(queue);
     }
     
-    public TreeNode helper(Queue<TreeNode> queue) {
-        TreeNode node = queue.poll();
-        if (node == null) {
+    public TreeNode helper(Queue<String> queue) {
+        // TreeNode node = queue.poll();
+        // if (node == null) {
+        //     return null;
+        // }
+        // node.left = helper(queue);
+        // node.right = helper(queue);
+        // return node;
+        String s = queue.poll();
+        if (s.equals("null")) {
             return null;
         }
+        TreeNode node = new TreeNode(Integer.valueOf(s));
         node.left = helper(queue);
         node.right = helper(queue);
         return node;
