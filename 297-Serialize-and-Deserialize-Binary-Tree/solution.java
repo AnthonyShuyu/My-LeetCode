@@ -58,7 +58,7 @@ public class Codec {
 */
 
 
-class Solution {
+class Codec {
 
     public String serialize(TreeNode root) {
         if (root == null) {
