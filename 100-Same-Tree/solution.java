@@ -94,6 +94,7 @@ public class Solution {
 
 // s3: use 2 queues to compare each time
 // O(n), O(n)
+// when you do poll, always remember to check the empty()
 
 public class Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
