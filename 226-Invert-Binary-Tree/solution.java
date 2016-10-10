@@ -24,11 +24,9 @@ public class Solution {
         }
         
         // Divide
-        
-        TreeNode temp = root.left;
-        root.left = root.right;
-        root.right = temp;
-        
+        // TreeNode temp = root.left;
+        // root.left = root.right;
+        // root.right = temp;
         
         TreeNode leftNode = invertTree(root.left);
         TreeNode rightNode = invertTree(root.right);
@@ -38,8 +36,29 @@ public class Solution {
         // leftNode = rightNode;
         // rightNode = tempNode;
         
-        // root.left = rightNode;
-        // root.right = leftNode;
+        root.left = rightNode;
+        root.right = leftNode;
         return root;
     }
 }
+
+
+// s2: preorder traverse
+// O(n), O(n)
+
+public class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        
+        invertTree(root.left);
+        invertTree(root.right):
+        return root;
+    }
+}
+
