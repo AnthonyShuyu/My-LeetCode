@@ -66,11 +66,13 @@ public class Codec {
         boolean isLeft = true;
         for (int i = 1; i < strs.length; i++) {
             if (!strs[i].equals("#")) {
+                TreeNode node = new TreeNode(Integer.valueOf(strs[i]));
                 if (isLeft) {
-                    list.get(index).left = new TreeNode(Integer.valueOf(strs[i]));
+                    list.get(index).left = node;
                 } else {
-                    list.get(index).right = new TreeNode(Integer.valueOf(strs[i]));
+                    list.get(index).right = node;
                 }
+                list.add(node);
             }
             
             if (!isLeft) {
