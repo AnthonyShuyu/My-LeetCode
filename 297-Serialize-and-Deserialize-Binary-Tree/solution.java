@@ -39,7 +39,7 @@ public class Codec {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
-                if (node != nul) {
+                if (node != null) {
                     sb.append("," + node.val);
                     queue.offer(node.left);
                     queue.offer(node.right);
