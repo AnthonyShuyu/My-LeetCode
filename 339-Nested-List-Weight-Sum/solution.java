@@ -1,6 +1,8 @@
 /**
  * 
  * 339. Nested List Weight Sum
+ * Given a nested list of integers, return the sum of all integers in the list weighted by their depth.
+ * 
  * 2 solutions
  * 
  */
@@ -61,6 +63,7 @@ public class Solution {
 
 // s2: non recursion, use a Queue
 // O(n), O(n)
+// tricky, 341. Flatten Nested List Iterator
 
 public class Solution {
     public int depthSum(List<NestedInteger> nestedList) {
