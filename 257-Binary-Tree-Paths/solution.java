@@ -75,10 +75,10 @@ public class Solution {
             result.add(path);
         }
         if (root.left != null) {
-            result.add(helper(root.left, path + "->" + String.valueOf(root.left), result));
+            helper(root.left, path + "->" + String.valueOf(root.left.val), result);
         }
         if (root.right != null) {
-            result.add(helper(root.right, path + "->" + String.valueOf(root.right), result));
+            helper(root.right, path + "->" + String.valueOf(root.right.val), result);
         }
         
     }
