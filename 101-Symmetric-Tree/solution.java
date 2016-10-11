@@ -2,8 +2,8 @@
  * 
  * 
  * 101. Symmetric Tree
- * 
- * 
+ * Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
+ * 3 solutions
  * 
  */
 
@@ -127,6 +127,7 @@ public class Solution {
 // s3: don't invert the root, use a queue, level order traverse
 // O(n), O(n)
 
+/*
 public class Solution {
 
     public boolean isSymmetric(TreeNode root) {
@@ -171,3 +172,36 @@ public class Solution {
         return true;
     }
 }
+*/
+
+
+
+// s4: use dfs, recursion
+// O(n), O(n)
+
+
+public class Solution {
+
+    public boolean isSymmetric(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        return checkSymmetric(root.left, root.right);
+   }
+   
+   public boolean checkSymmetric(TreeNode node1, TreeNode node2) {
+       if (node1 == null && node2 == null) {
+           return true;
+       }
+       if (node1 == null || node2 == null) {
+           return false;
+       }
+       if (node1.val != node2.val) {
+           return false;
+       }
+       return checkSymmetric(node1.left, node2.right) && checkSymmetric(node1.right, node2.left);
+   }
+}
+
+
+
