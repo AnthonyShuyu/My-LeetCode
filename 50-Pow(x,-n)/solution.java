@@ -39,7 +39,6 @@ public class Solution {
             num = t1 * t1 * x;
         }
 
-        
         if (isPositive) {
             return num;
         } else {
