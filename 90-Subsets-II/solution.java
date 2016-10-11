@@ -17,7 +17,7 @@ public class Solution {
         if (nums == null || nums.length == 0) {
             return result;
         }
-        // Arrays.sort(nums);
+        Arrays.sort(nums);  // this is very important
         List<Integer> list = new ArrayList<Integer>();
         int pos = 0;
         dfs(result, list, nums, pos);
