@@ -1,7 +1,7 @@
 /**
  * 
  * 339. Nested List Weight Sum
- * 
+ * 2 solutions
  * 
  */
 
@@ -25,7 +25,7 @@
  */
  
  
-// s1: dfs
+// s1: dfs, recursion
 // O(n), O(1)
 public class Solution {
     public int depthSum(List<NestedInteger> nestedList) {
@@ -35,15 +35,6 @@ public class Solution {
         }
         int sum = 0;
         int depth = 1;
-        // for (NestedInteger ni : nestedList) {
-        //     if (ni.isInteger()) {
-        //         sum = sum + depth * ni.getInteger();
-        //     } else {
-        //         depth++;
-        //         sum = sum + depthSum(ni.getList());
-        //         depth--;
-        //     }            
-        // }
         sum = sum + helper(nestedList, depth);
         return sum;
     }
