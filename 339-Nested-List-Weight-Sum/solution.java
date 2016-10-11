@@ -35,19 +35,32 @@ public class Solution {
         }
         int sum = 0;
         int depth = 1;
-        for (NestedInteger ni : nestedList) {
-            if (ni.isInteger()) {
-                sum = sum + depth * ni.getInteger();
-            } else {
-                depth++;
-                sum = sum + depthSum(ni.getList());
-            }            
-        }
+        // for (NestedInteger ni : nestedList) {
+        //     if (ni.isInteger()) {
+        //         sum = sum + depth * ni.getInteger();
+        //     } else {
+        //         depth++;
+        //         sum = sum + depthSum(ni.getList());
+        //         depth--;
+        //     }            
+        // }
         sum = sum + helper(nestedList, depth);
         return sum;
     }
     
-    // public int helper(List<NestedInteger>) {
+    public int helper(List<NestedInteger> nestedList, int depth) {
+        int result = 0;
+        if (nestedList == null || nestedList.size() == 0) {
+            return result;
+        }
         
-    // }
+        for (NestedInteger ni : nestedList) {
+            if (ni.isInteger()) {
+                result += depth * ni.getInteger();
+            } else {
+                result += helper(ni.getList(), depth + 1);
+            }
+        }
+        return result;
+    }
 }
