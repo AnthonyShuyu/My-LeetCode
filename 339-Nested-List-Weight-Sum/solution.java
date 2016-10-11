@@ -27,6 +27,7 @@
  
 // s1: dfs, recursion
 // O(n), O(1)
+/*
 public class Solution {
     public int depthSum(List<NestedInteger> nestedList) {
         // corner case
@@ -53,5 +54,42 @@ public class Solution {
             }
         }
         return result;
+    }
+}
+*/
+
+
+// s2: non recursion, use a Queue
+// O(n), O(n)
+
+public class Solution {
+    public int depthSum(List<NestedInteger> nestedList) {
+        // corner case
+        if (nestedList == null || nestedList.size() == 0) {
+            return 0;
+        }
+        
+        Queue<NestedInteger> queue = new LinkedList<NestedInteger>();
+        for (NestedInteger ni : nestedList) {
+            queue.offer(ni);
+        }
+        int depth = 0;
+        int sum = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            depth++;
+            for (int i = 0; i < size; i++) {
+                NestedInteger ni = queue.poll();
+                if (ni.isInteger()) {
+                    sum += depth * ni.getInteger();
+                } else {
+                    for (NestedInteger i : ni.getList()) {
+                        queue.offer(i);
+                    }                    
+                }
+            }
+        }
+        return sum;       
+        
     }
 }
