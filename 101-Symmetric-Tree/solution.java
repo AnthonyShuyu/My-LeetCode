@@ -108,7 +108,7 @@ public class Solution {
         while (!queue.isEmpty()) {
             TreeNode node = queue.poll();
             if (node == null) {
-                sb.append(",#"):
+                sb.append(",#");
             } else {
                 sb.append("," + node.val);
                 queue.offer(ndoe.left);
