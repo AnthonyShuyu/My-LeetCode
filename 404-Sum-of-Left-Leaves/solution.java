@@ -26,6 +26,11 @@ public class Solution {
         if (root == null) {
             return 0;
         }
-        return root.left.val + sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
+        int sum = 0;
+        if (root.left != null) {
+            sum = root.left + val;
+        }
+        sum = sum + sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
+        return sum;
     }
 }
