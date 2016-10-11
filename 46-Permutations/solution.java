@@ -18,13 +18,11 @@ public class Solution {
         }
         
         List<Integer> list = new ArrayList<Integer>();
-        int pos = 0;    
-        dfs(result, list, nums, pos);
-        
+        dfs(result, list, nums);
         return result;
     }
     
-    public void dfs(List<List<Integer>> result, List<Integer> list, int[] nums, int pos) {
+    public void dfs(List<List<Integer>> result, List<Integer> list, int[] nums) {
         if (list.size() == nums.length) {
             result.add(new ArrayList<Integer>(list));
         }
@@ -33,9 +31,8 @@ public class Solution {
                 continue;
             }
             list.add(nums[i]);
-            dfs(result, list, nums, i);
+            dfs(result, list, nums);
             list.remove(list.size() - 1);
         }
-        
     }
 }
