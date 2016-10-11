@@ -111,7 +111,7 @@ public class Solution {
                 sb.append(",#");
             } else {
                 sb.append("," + node.val);
-                queue.offer(ndoe.left);
+                queue.offer(node.left);
                 queue.offer(node.right);
             }
         }
