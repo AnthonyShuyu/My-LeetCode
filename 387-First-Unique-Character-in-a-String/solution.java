@@ -1,7 +1,7 @@
 /**
  * 
  * 387. First Unique Character in a String
- * 
+ * 3 solutions
  * 
  * 
  */
@@ -84,6 +84,7 @@ public class Solution {
 
 // s3: LinkedHashMap, to maintain the order
 // O(n), O(n)
+// tricky
 
 public class Solution {
 
