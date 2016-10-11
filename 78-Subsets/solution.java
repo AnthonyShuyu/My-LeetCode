@@ -1,6 +1,8 @@
 /**
  * 78. Subsets
+ * Given a set of distinct integers, nums, return all possible subsets.
  * 
+ * 2 solutions
  * 
  */
 
