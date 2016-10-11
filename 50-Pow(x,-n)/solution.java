@@ -7,6 +7,10 @@
  * 
  */
 
+// s1: binary search
+// O(logn), O(1)
+// tricky, n needs to be checked,1. negative or positive and 2. will exceeded Integer max value
+
 public class Solution {
     public double myPow(double x, int n) {
         // corner case
