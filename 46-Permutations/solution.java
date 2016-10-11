@@ -8,7 +8,7 @@
  */ 
 
 // s1: DFS
-// O(2^n * n), O(n * n!)
+// O(n! * n), O(n * n!)
 
 public class Solution {
     public List<List<Integer>> permute(int[] nums) {
