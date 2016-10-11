@@ -21,11 +21,14 @@ public class Solution {
             n = -n;
         }
         double num = 0;
-        if (n % 2 == 0) {
-            num = myPow(x, n / 2) * myPow(x, n / 2);
-        } else {
-            num = myPow(x, n / 2) * myPow(x, n / 2) * x;
-        }
+        // if (n % 2 == 0) {
+        //     num = myPow(x, n / 2) * myPow(x, n / 2);
+        // } else {
+        //     num = myPow(x, n / 2) * myPow(x, n / 2) * x;
+        // }
+        int k = n / 2;
+        int l = n - k * 2;
+        num = myPow(x, k) * myPow(x, k) * myPow(x, l);
         
         if (isPositive) {
             return num;
