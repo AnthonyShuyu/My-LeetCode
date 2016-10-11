@@ -6,9 +6,10 @@
 
 
 
-// s1: DFS
+// *s1: DFS
 // O(2^n * n), O(n)
 
+/*
 public class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         //  corner case
@@ -34,9 +35,36 @@ public class Solution {
         
     }
 }
+*/
 
 
+// s2: bit operation
 
+
+public class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+        //  corner case
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        if (nums == null || nums.length == 0) {
+            return result;
+        }
+        Arrays.sort(nums);
+        int n = nums.length;
+        
+        int m = 1 << n;
+        
+        for (int i = 0; i < m; i++) {
+            List<Integer> list = new ArrayList<Integer>();
+            for (int j = 0; j < n; j++) {
+                if (i && (1 << j) != 0) {
+                    list.add(nums[j]);                    
+                }
+            }
+            result.add(list);
+        }
+        return result;       
+    }    
+}
 
 /*
 // s1: DFS
