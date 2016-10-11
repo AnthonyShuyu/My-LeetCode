@@ -59,8 +59,8 @@ public class Solution {
             n1 = n1 * -1;
         }
         
-        int k = n1 / 2;
-        int l = n1 - k * 2;
+        long k = n1 / 2;
+        long l = n1 - k * 2;
         
         double t1 = myPow(x, k);
         double t2 = myPow(x, l);
