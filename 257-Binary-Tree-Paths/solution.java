@@ -17,7 +17,7 @@
  * }
  */
  
-// s1: divide and conquer
+// s1: divide and conquer, from bottom to top
 // O(n), O(n)
 
 /*
@@ -52,7 +52,7 @@ public class Solution {
 */
 
 
-// s2: recursion
+// s2: recursion, from top to bottom
 // O(n), O(n)
 
 public class Solution {
