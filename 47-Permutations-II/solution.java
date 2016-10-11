@@ -20,7 +20,7 @@ public class Solution {
         Arrays.sort(nums);
         boolean[] isVisited = new boolean[nums.length];
         List<Integer> list = new ArrayList<Integer>();
-        dfs(result, list, nums);
+        dfs(result, list, nums, isVisited);
         return result;
     }
     
