@@ -29,7 +29,7 @@ public class Solution {
             result.add(new ArrayList<Integer>(list));
         }
         for (int i = 0; i < nums.length; i++) {
-            if (i != 0 && nums[i] == nums[i - 1] && isVisited[i] && !isVisited[i - 1]) {
+            if (isVisited[i] || (i != 0 && nums[i] == nums[i - 1] && !isVisited[i - 1])) {
                 continue;
             }
             isVisited[i] = true;
