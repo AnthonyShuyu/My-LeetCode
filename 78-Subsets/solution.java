@@ -16,17 +16,17 @@ public class Solution {
         if (nums == null || nums.length == 0) {
             return result;
         }
-        
+        Arrays.sort(nums);
         List<Integer> list = new ArrayList<Integer>();
         dfs(result, list, nums, 0);
         return result;
     }
     
     
-    public void dfs(List<List<Integer>> result, List<Integer> list, int[] nums, int index) {
+    public void dfs(List<List<Integer>> result, List<Integer> list, int[] nums, int pos) {
         result.add(new ArrayList<Integer>(list));
         
-        for (int i = index; i < nums.length; i++) {
+        for (int i = pos; i < nums.length; i++) {
             list.add(nums[i]);
             dfs(result, list, nums, i + 1);
             list.remove(list.size() - 1);
