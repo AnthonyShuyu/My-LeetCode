@@ -2,6 +2,7 @@
  *
  * 
  * 46. Permutations
+ * 1 solutioin
  * 
  * 
  */ 
