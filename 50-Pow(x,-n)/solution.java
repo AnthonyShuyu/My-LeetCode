@@ -25,7 +25,7 @@ public class Solution {
         }
         double num = 0;
         
-        double t = myPow(x, (int)n1 / 2);
+        double t1 = myPow(x, (int)(n1 / 2));
         
         if (n1 % 2 == 0) {
             num = t1 * t1;
