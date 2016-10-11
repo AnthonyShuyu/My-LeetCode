@@ -2,6 +2,7 @@
  * 
  * 
  * 50. Pow(x, n)
+ * 1 solution
  * 
  * 
  */
@@ -28,16 +29,12 @@ public class Solution {
         double t1 = myPow(x, (int)(n1 / 2));
         
         if (n1 % 2 == 0) {
-            num = myPow(x, (int)(n1 / 2)) * myPow(x, (int)(n1 / 2));
+            // num = myPow(x, (int)(n1 / 2)) * myPow(x, (int)(n1 / 2));   time limit exceeded
+            num = t1 * t1;
         } else {
             num = t1 * t1 * x;
         }
-        // int k = n / 2;
-        // int l = n - k * 2;
-        // double t1 = myPow(x, k);
-        // double t2 = myPow(x, l);
-        // num = t1 * t1 * t2;
-        // num = myPow(x, k) * myPow(x, k) * myPow(x, l);
+
         
         if (isPositive) {
             return num;
