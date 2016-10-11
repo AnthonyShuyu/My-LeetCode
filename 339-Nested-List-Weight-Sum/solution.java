@@ -83,8 +83,8 @@ public class Solution {
                 if (ni.isInteger()) {
                     sum += depth * ni.getInteger();
                 } else {
-                    for (NestedInteger i : ni.getList()) {
-                        queue.offer(i);
+                    for (NestedInteger nestedInteger : ni.getList()) {
+                        queue.offer(nestedInteger);
                     }                    
                 }
             }
