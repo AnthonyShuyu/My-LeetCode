@@ -68,6 +68,7 @@ public class Solution {
 // s2: invert the root and do serialize
 // O(n), O(n)
 
+/*
 public class Solution {
     public boolean isSymmetric(TreeNode root) {
         if (root == null) {
@@ -119,6 +120,54 @@ public class Solution {
     }
     
 }
+*/
 
 
-// s3: don't invert the root
+
+// s3: don't invert the root, use a queue, level order traverse
+// O(n), O(n)
+
+public class Solution {
+
+    public boolean isSymmetric(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(root);
+        List<String> list = null;
+        while(!queue.isEmpty()) {
+            int size = queue.size();
+            list = new ArrayList<String>();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                if (node != null) {
+                    list.add(String.valueOf(node.val));
+                    queue.offer(node.left);
+                    queue.offer(node.right);
+                } else {
+                    list.add("#");
+                }
+            }
+            if (!isPalindrome(list)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public boolean isPalindrome(List<String> list) {
+        if (list == null) {
+            return false;
+        }
+        int start = 0;
+        int end = list.size() - 1;
+        for (int i = start, j = end; i < j; i++, j--) {
+            if (!list.get(i).equals(list.get(j))) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
