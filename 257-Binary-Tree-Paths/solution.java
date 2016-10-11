@@ -3,7 +3,7 @@
  * 
  * 257. Binary Tree Paths
  * Given a binary tree, return all root-to-leaf paths.
- * 
+ * 2 solutions
  * 
  */ 
 
