@@ -78,7 +78,7 @@ public class Solution {
         invertTree(root);
         String s2 = serializeTree(root);
         
-        
+        return s1.equals(s2);
     }
     
     public TreeNode invertTree(TreeNode root) {
