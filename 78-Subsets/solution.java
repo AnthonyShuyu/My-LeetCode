@@ -56,7 +56,7 @@ public class Solution {
         for (int i = 0; i < m; i++) {
             List<Integer> list = new ArrayList<Integer>();
             for (int j = 0; j < n; j++) {
-                if (i && (1 << j) != 0) {
+                if (i & (1 << j) != 0) {
                     list.add(nums[j]);                    
                 }
             }
