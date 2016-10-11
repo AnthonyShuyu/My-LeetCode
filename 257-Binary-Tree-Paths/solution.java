@@ -20,6 +20,7 @@
 // s1: divide and conquer
 // O(n), O(n)
 
+/*
 public class Solution {
     public List<String> binaryTreePaths(TreeNode root) {
         List<String> result = new ArrayList<String>();
@@ -46,5 +47,39 @@ public class Solution {
             result.add(string);
         }
         return result;
+    }
+}
+*/
+
+
+// s2: recursion
+// O(n), O(n)
+
+public class Solution {
+    public List<String> binaryTreePaths(TreeNode root) {
+        List<String> result = new ArrayList<String>();
+        // corner case
+        if (root == null) {
+            return result;
+        }
+        // TreeNode, path, result
+        helper(root, String.valueOf(root.val), result);    
+        return result;
+    }
+    
+    public void helper(TreeNode root, String path, List<String> result) {
+        if (root == null) {
+            return;
+        }
+        if (root.left == null && root.right == null) {
+            result.add(path);
+        }
+        if (root.left != null) {
+            result.add(helper(root.left, path + "->" + String.valueOf(root.left), result));
+        }
+        if (root.right != null) {
+            result.add(helper(root.right, path + "->" + String.valueOf(root.right), result));
+        }
+        
     }
 }
