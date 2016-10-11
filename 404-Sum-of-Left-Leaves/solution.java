@@ -27,8 +27,8 @@ public class Solution {
             return 0;
         }
         int sum = 0;
-        if (root.left != null) {
-            sum = root.left + val;
+        if (root.left != null && root.left.left == null && root.left.right == null) {
+            sum = root.left.val;
         }
         sum = sum + sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
         return sum;
