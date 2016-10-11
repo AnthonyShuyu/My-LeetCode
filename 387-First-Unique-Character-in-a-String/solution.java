@@ -43,10 +43,11 @@ public class Solution {
 }
 */
 
-
 // s2: two HashSets
 // O(n), O(n)
 
+
+/*
 public class Solution {
     public int firstUniqChar(String s) {
         // corner case
@@ -76,4 +77,48 @@ public class Solution {
         } 
         return index;           
     }
-}    
+}  
+*/
+
+// http://javarevisited.blogspot.com/2014/03/3-ways-to-find-first-non-repeated-character-String-programming-problem.html
+
+// s3: LinkedHashMap, to maintain the order
+// O(n), O(n)
+
+public class Solution {
+
+    public int firstUniqChar(String s) {
+        // corner case
+        if (s == null || s.length() == 0) {
+            return -1;
+        }    
+    
+        Map<Character, Integer> hashMap = new LinkedHashMap<Character, Integer>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (hashMap.containsKey(c)) {
+                hashMap.put(c, hashMap.get(c) + 1);
+            } else {
+                hashMap.put(c, 1);
+            }
+        }
+        
+        char c = ' ';
+        for (Map.Entry<Character, Integer> entry: hashMap.entrySet()) {
+            if (entry.getValue() == 1) {
+                c = entry.getKey();
+                break;
+            }
+        }
+        if (c == ' ') {
+            return -1;
+        } else {
+            for (int i = 0; i < s.length(); i++) {
+                if (s.charAt(i) == c) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+}
