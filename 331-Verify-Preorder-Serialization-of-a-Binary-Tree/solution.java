@@ -10,9 +10,6 @@ public class Solution {
         Stack<Character> stack = new Stack<Character>();
         
         for (int i = 0; i < chars.length; i++) {
-            if (stack.isEmpty()) {
-                stack.push(chars[i]);
-            } else {
                 // if (chars[i] == '#' && !stack.isEmpty() && stack.peek() == '#') {
                 //     if (stack.isEmpty()) {
                 //         stack.pop();                        
@@ -33,7 +30,7 @@ public class Solution {
             }
         }
         
-        return !stack.isEmpty() && stack.size() == 1 && stack.peek() == '#'';
+        return !stack.isEmpty() && stack.size() == 1 && stack.peek() == '#';
     }
     
     public void check(Stack<Character> stack, char c) {
