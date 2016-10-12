@@ -27,7 +27,7 @@ public class Solution {
                 //     }
                 //     stack.push('#');
                 // }
-                char c = char[i];
+                char c = chars[i];
                 check(stack, c);
                 stack.push(c);
             }
