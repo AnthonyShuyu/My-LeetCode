@@ -33,7 +33,7 @@ public class Solution {
             }
         }
         
-        return !stack.isEmpty() && stack.size() == 1 && stack.peek() == "#";
+        return !stack.isEmpty() && stack.size() == 1 && stack.peek() == '#'';
     }
     
     public void check(Stack<Character> stack, char c) {
