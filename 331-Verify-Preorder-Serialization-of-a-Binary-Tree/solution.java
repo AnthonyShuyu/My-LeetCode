@@ -5,7 +5,7 @@ public class Solution {
             return false;
         }
         
-        char[] chars = preorder.toCharArray();
+        char[] chars = preorder.trim().split(',');
         
         Stack<Character> stack = new Stack<Character>();
         
@@ -27,7 +27,7 @@ public class Solution {
                 char c = chars[i];
                 check(stack, c);
                 stack.push(c);
-            }
+                System.out.println(stack);
         }
         
         return !stack.isEmpty() && stack.size() == 1 && stack.peek() == '#';
