@@ -36,7 +36,7 @@ public class Solution {
         return !stack.isEmpty() && stack.size() == 1 && stack.peek().equals("#");
     }
     
-    public void check(Stack<String> stack, String s) {
+    public boolean check(Stack<String> stack, String s) {
         if (s.equals("#") && !stack.isEmpty() && stack.peek().equals("#")) {
             stack.pop();
             if (stack.isEmpty()) {
