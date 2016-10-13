@@ -5,11 +5,11 @@ public class Solution {
             return false;
         }
         
-        char[] chars = preorder.trim().split(',');
+        String[] strs = preorder.trim().split(',');
         
-        Stack<Character> stack = new Stack<Character>();
+        Stack<String> stack = new Stack<String>();
         
-        for (int i = 0; i < chars.length; i++) {
+        for (int i = 0; i < strs.length; i++) {
                 // if (chars[i] == '#' && !stack.isEmpty() && stack.peek() == '#') {
                 //     if (stack.isEmpty()) {
                 //         stack.pop();                        
@@ -24,17 +24,17 @@ public class Solution {
                 //     }
                 //     stack.push('#');
                 // }
-                char c = chars[i];
-                check(stack, c);
-                stack.push(c);
-                System.out.println(stack);
+                String s = strs[i];
+                check(stack, s);
+                stack.push(s);
+                // System.out.println(stack);
         }
         
-        return !stack.isEmpty() && stack.size() == 1 && stack.peek() == '#';
+        return !stack.isEmpty() && stack.size() == 1 && stack.peek().equals("#");
     }
     
-    public void check(Stack<Character> stack, char c) {
-        if (c == '#' && !stack.isEmpty() && stack.peek() == '#') {
+    public void check(Stack<String> stack, String s) {
+        if (s.equals("#") && !stack.isEmpty() && stack.peek().equals("#")) {
             stack.pop();
             if (stack.isEmpty()) {
                 return;
