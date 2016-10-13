@@ -5,7 +5,7 @@ public class Solution {
             return false;
         }
         
-        String[] strs = preorder.trim().split(',');
+        String[] strs = preorder.trim().split(",");
         
         Stack<String> stack = new Stack<String>();
         
