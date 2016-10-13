@@ -25,8 +25,11 @@ public class Solution {
                 //     stack.push('#');
                 // }
                 String s = strs[i];
-                check(stack, s);
-                stack.push(s);
+                if (check(stack, s)) {
+                    stack.push(s);    
+                } else {
+                    return false;
+                }
                 // System.out.println(stack);
         }
         
@@ -37,13 +40,13 @@ public class Solution {
         if (s.equals("#") && !stack.isEmpty() && stack.peek().equals("#")) {
             stack.pop();
             if (stack.isEmpty()) {
-                return;
+                return false;
             } else {
                 stack.pop();
-                check(stack, c);
+                return check(stack, s);
             }
         } else {
-            return;
+            return true;
         }
     }
 }
